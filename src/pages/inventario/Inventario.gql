@@ -1,0 +1,84 @@
+query TableArticulos(
+  $hotel_id: ID, 
+  $almacen_id: [ID!], 
+  $filter_tipo_articulo: [TipoArticulo!],
+  $pagination_options: PageOptionsArgs!, 
+  $nombreArticuloFilterOrder: TipoOrdenamiento, 
+  $filterEstadoArticulo: EstadosArticulo, 
+  $filterEstadoAlmacenArticulo: [EstadosAlmacenesArticulos!]
+) {
+  almacenes_articulos(
+    hotel_id: $hotel_id
+    almacen_id: $almacen_id
+    eliminado: false
+    estado_almacen_articulo: $filterEstadoAlmacenArticulo,
+    filter_estado_articulo: $filterEstadoArticulo,
+    folio_articulo_filters: {
+      order: ASC
+    }
+    nombre_articulo_filters: {
+      order: $nombreArticuloFilterOrder
+    }
+    filter_tipo_articulo: $filter_tipo_articulo
+    filter_producciones: true
+    pagination_options: $pagination_options
+  ) {
+    paginacion{
+        pagina_actual
+        total_paginas
+    }
+    almacenes_articulos {
+      almacen_articulo_id
+      almacen_id
+      articulo_id
+      cantidad
+      costo
+      eliminado
+      estado
+      fecha_movimiento
+      hotel_id
+      precio
+      articulo {
+        articulo_id
+        cantidad_minima
+        cantidad_vendida
+        categoria_id
+        contenido
+        descripcion
+        eliminado
+        estado
+        extra
+        fecha_eliminado
+        fecha_registro
+        folio
+        folio_articulo
+        foto
+        imas_id
+        marca
+        nombre
+        sku
+        stock
+        tipo
+        unidad
+      }
+      almacen {
+        almacen_id
+        nombre
+      }
+      ultimo_surtido {
+        almacen_articulo_id
+        cantidad
+        colaborador_id
+        comentario
+        costo_total
+        costo_unitario
+        fecha_ingreso
+        folio
+        hotel_id
+        numero_orden_factura
+        surtido_id
+        tipo
+      }
+    }
+  }
+}

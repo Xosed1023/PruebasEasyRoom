@@ -1,0 +1,16 @@
+mutation CerrarCuentaMesaAsignada($cerrarCuentaMesaAsignadaInput: CloseBillMesaAsignadaInput!, $codigo: String, $template_sample: String) {
+    cerrar_cuenta_mesa_asignada(cerrarCuentaMesaAsignadaInput: $cerrarCuentaMesaAsignadaInput, codigo: $codigo, template_sample: $template_sample) {
+        mesa_asignada_id
+        mesa_id
+        orden_id
+        fecha_cuenta_cerrada
+        fecha_registro
+        fecha_salida
+        colaborador_asignado_id
+        colaborador_atendio {
+            nombre
+            apellido_paterno
+            apellido_materno
+        }
+    }
+}

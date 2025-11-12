@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@font-face {
+    font-family: "Qualy";
+    src: url("./assets/fonts/Qualy/Qualy.otf") format("opentype");
+}
+
+* {
+    color: var(--tipografa);
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    overflow-y: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevenir el zoom In al hacer por primera vez doble tap */
+    touch-action: manipulation;
+}
+
+/* scrolls */
+*::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+}
+*::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: var(--light-gray);
+}
+
+.scrollbar__light-fat::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+.scrollbar__light-fat::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: var(--Fondo-Fondo-base, linear-gradient(117deg, #F9F9F9 -38.52%, #FBFBFD 143.35%));
+}
+
+html,
+#root {
+    height: 100%;
+}
+.screen__table {
+    margin-top: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--fondo-select-drop, #efefef);
+    background: var(--Color, #fff);
+}
+
+.input-currency__input {
+    width: 100%;
+}

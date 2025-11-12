@@ -1,0 +1,173 @@
+query getAlmacenArticulosMosaic(
+  $hotel_id: ID
+  $pagination_options: PageOptionsArgs!
+) {
+  almacenes_articulos(
+    hotel_id: $hotel_id
+    eliminado: false
+    filter_tipo_articulo: [insumo, proceso, venta]
+    filter_producciones: true
+    pagination_options: $pagination_options
+  ) {
+    paginacion {
+      pagina_actual
+      total_paginas
+      total_registros
+    }
+    almacenes_articulos {
+      estado
+      almacen_articulo_id
+      articulo_id
+      cantidad
+      almacen_id
+      articulo {
+        articulo_id
+        categoria_id
+        cantidad_minima
+        nombre
+        foto
+        precio {
+          monto
+        }
+        marca
+        folio
+        eliminado
+        foto
+        estado
+        tipo
+        unidad
+        contenido
+      }
+    }
+  }
+}
+
+
+query getArticuloById($articulo_id: ID!) {
+    almacenes_articulos(articulo_id: [$articulo_id]) {
+      almacenes_articulos {
+        almacen_articulo_id
+        almacen_id
+        articulo_id
+        articulo {
+            articulo_id
+            categoria_id
+            foto
+            marca
+            nombre
+            precio {
+                monto
+            }
+            costo {
+                monto
+            }
+            unidad
+            contenido
+            cantidad_minima
+            stock
+            estado
+            tipo
+            extra
+            sku
+            fecha_registro
+            fecha_eliminado
+            cantidad_minima
+            folio
+        }
+      }
+    }
+}
+
+query getAlmacenArticuloByArticuloId($articulo_id: ID!) {
+  almacenes_articulos(articulo_id: [$articulo_id]) {
+    almacenes_articulos {
+      almacen_articulo_id
+      almacen_id
+      articulo_id
+      almacen {
+        almacen_id
+        nombre
+      }
+      articulo {
+        articulo_id
+        categoria_id
+        foto
+        marca
+        nombre
+        precio {
+          monto
+        }
+        costo {
+          monto
+        }
+        unidad
+        contenido
+        cantidad_minima
+        stock
+        estado
+        tipo
+        extra
+        sku
+        fecha_registro
+        fecha_eliminado
+        cantidad_minima
+        folio
+        descripcion
+      }
+      eliminado
+      estado
+    }
+  }
+}
+
+
+query getAlmacenArticuloById($almacen_articulo_id: ID!) {
+    almacen_articulo(almacen_articulo_id: $almacen_articulo_id) {
+        precio
+        estado
+        almacen_articulo_id
+        almacen_id
+        articulo_id
+        fecha_movimiento
+        cantidad
+        ultima_preparacion
+        costo
+        almacen {
+            almacen_id
+            nombre
+        }
+        articulo {
+            articulo_id
+            categoria_id
+            categoria_articulo {
+                categoria_id
+                nombre
+            }
+            descripcion
+            cantidad_minima
+            precio {
+                monto
+            }
+            costo {
+                monto
+            }
+            nombre
+            foto
+            marca
+            eliminado
+            estado
+            fecha_eliminado
+            fecha_registro
+            folio
+            tipo
+            unidad
+            unidades_disponibles
+            contenido
+            stock
+            sku
+        }
+        ultimo_surtido {
+            fecha_ingreso
+        }
+    }
+}

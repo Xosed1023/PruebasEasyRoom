@@ -1,0 +1,6 @@
+.room-detail--clean__home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: var(--full-height-minus-header);
+}

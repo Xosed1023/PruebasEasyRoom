@@ -1,0 +1,375 @@
+.config-gastos-screen {
+    padding-bottom: 80px;
+}
+
+.gastos-screen-right {
+    display: flex;
+    gap: 20px;
+    padding-top: 10px;
+
+    .input-container-iconMode .input-text__icon {
+        left: 35%;
+    }
+}
+
+.gastos-screen-header-controls {
+    height: 52px;
+    padding: 6px 0 6px;
+    box-sizing: border-box;
+    animation: none;
+}
+.gastos-screen-header-controls .calendario-reservaciones__control-date-month {
+    height: 40px;
+    box-sizing: border-box;
+}
+.gastos-screen-header-controls .calendario-reservaciones__control-date-year {
+    height: 40px;
+    box-sizing: border-box;
+}
+.reservas-screen__btn {
+    margin-right: 10px;
+}
+
+.input-text__wrapper {
+    left: 50px;
+}
+
+.reservas-screen__btn {
+    width: 150px;
+}
+.gastos-cards {
+    display: flex;
+    justify-content: flex-start;
+    overflow: auto;
+    margin: 15px -9px;
+}
+.gastos-cards-gradientX {
+    height: fit-content;
+    position: relative;
+}
+.gastos-cards-gradientX::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 1px;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    z-index: var(--mid);
+    pointer-events: none;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0) 5%,
+        rgba(255, 255, 255, 0) 95%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    border-radius: 10px;
+}
+.gastos-cards .card-header-title {
+    font-size: 14px;
+}
+.gastos-cards .card-content-number,
+.gastos-cards .card-content-number2 {
+    font-size: 20px;
+}
+.gastos-cards .card-content-link {
+    font-size: 12px;
+}
+.gastos-cards .card-footer-percent-text {
+    font-size: 10px;
+}
+.card-gastos {
+    width: 254px !important;
+    min-width: 220px;
+    box-sizing: border-box;
+}
+.gastos-table,
+.gastos-table-empty-state {
+    width: 100%;
+    height: calc(100vh - 350px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-radius: 10px;
+    position: relative;
+}
+.gastos-table.show-gradient::after {
+    display: block;
+}
+.gastos-table::after {
+    display: none;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+    width: 100%;
+    z-index: 10;
+    border-radius: 10px;
+}
+
+.flexible-table__header__cell {
+    height: 0px;
+    padding: 12px;
+}
+.gastos-table .flexible-table__body__cell-text {
+    height: 50px;
+    padding: 16px;
+    max-width: 145px;
+}
+.reservas-screen__float-button {
+    bottom: 50px;
+}
+.config-gastos-subtitle-container {
+    display: flex;
+    margin-top: 5px;
+}
+.config-gastos-subtitle,
+.config-gastos-subtitle-total {
+    font-size: 20px;
+    font-weight: 500;
+}
+.config-gastos-subtitle-total {
+    font-weight: 700;
+    margin: 0px 5px;
+}
+.config-gastos-cards {
+    margin-top: 20px;
+}
+.gastos-screen-right-empty {
+    display: flex;
+    align-items: center;
+}
+.gastos__float-button {
+    position: fixed;
+    right: 130px;
+    bottom: 80px;
+    z-index: 99;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.gastos-table__icons__item {
+    cursor: pointer;
+}
+.gastos-table__icons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.config-categoriagastos-subtitle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.config-categoriagastos-subtitle-containerEmptyState {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal--confirm__content,
+.modal__content {
+    animation: zoom-in 0.3s ease-in-out;
+}
+@keyframes zoom-in {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.gastos-mayor-categoria__title {
+    color: var(--Tipografa, #303030);
+    font-family: "Montserrat";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 10px 0;
+}
+.mesajesEdit__text {
+    width: 100%;
+    color: var(--Placeholder, var(--Placeholder, #667085));
+    font-family: "Montserrat";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 155.556% */
+    gap: 5px;
+}
+.mesajesEdit__text-bold {
+    color: var(--Placeholder, var(--Placeholder, #667085));
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+}
+.mesajesEdit,
+.mesajesEdit-two {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 24px;
+    margin: 0 28px 24px;
+    border-bottom: 1px solid #efefef;
+    gap: 5px;
+}
+
+.gastos-screen__btn {
+    height: 44px;
+    background: var(--Color, #fff);
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    cursor: pointer;
+}
+
+.gastos-month-dropdown {
+    width: 200px;
+}
+
+.gastos-year-dropdown {
+    width: 100px;
+}
+
+.gastos-search {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .gastos-month-dropdown {
+        margin-right: 16px;
+    }
+}
+
+.gastos-search-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gastos-search-inputs {
+    display: flex;
+}
+
+.card-gastos {
+    .card-header-title {
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    height: 120px;
+}
+
+.card-gastos-big {
+    width: 254px;
+    min-width: 254px;
+    box-sizing: border-box;
+    height: 124px;
+    .card-header-title {
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .card-header {
+        margin-bottom: 10px;
+    }
+    .card-content-number {
+        margin-bottom: 8px;
+    }
+    .card-content-link {
+        margin-top: 0;
+    }
+}
+
+.gasto-eliminado-pill {
+    background-color: #d1d3de;
+    padding: 2px 6px;
+    border-radius: 16px;
+    color: #535a5e;
+    font-weight: 500;
+}
+
+.gastos-table-row-eliminado {
+    color: #979797;
+}
+.categorias-cell {
+    width: 100px;
+    white-space: normal;
+    word-wrap: break-word;
+}
+.comentarios-cell {
+    width: 100px;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.edit-categoria-modal {
+    .icon-header {
+        margin-top: 45px;
+    }
+}
+
+.delete-modal-buttons {
+    display: flex;
+}
+
+.delete-modal-subtitle {
+    color: hsl(221, 13%, 46%);
+    width: 540px;
+    margin-top: 20px;
+}
+
+.delete-modal-subtitle-bold {
+    font-weight: 700;
+    color: #667085;
+}
+
+.delete-modal-gasto {
+    width: 580px;
+    height: fit-content;
+    padding: 0;
+
+    .modal--confirm__divider {
+        width: 100%;
+        margin-top: 20px;
+        left: 0;
+    }
+
+    .button {
+        width: 265px;
+        height: 40px;
+    }
+
+    .modal--confirm__footer {
+        margin: 24px 20px;
+        width: 540px;
+        height: fit-content;
+        justify-content: space-between;
+    }
+}
+.gastos-screen .flexible-table {
+    background-color: #eeeaf0;
+}

@@ -1,0 +1,80 @@
+.orden--pagada-devolucion__drawer__main {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+}
+
+.orden--pagada-devolucion__drawer__title {
+    margin: 18px 0 8px;
+    color: var(--white);
+    font-family: Montserrat;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.orden--pagada-devolucion__drawer__subtitle {
+    color: var(--Blanco, #fff);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    /* 133.333% */
+    margin: 0 0 30px;
+}
+
+.orden--pagada-devolucion__drawer__section-title {
+    margin: 0 0 10px;
+    color: var(--white);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 133.333% */
+}
+
+.orden--pagada-devolucion__drawer__container {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-right: 5px;
+}
+
+.orden--pagada-devolucion__line {
+    height: 1px;
+    opacity: 0.5;
+    background: #efefef;
+    margin: 10px 0 20px 0;
+}
+
+.orden--pagada-devolucion__drawer__container-payments {
+    margin-top: 29px;
+}
+
+.orden--pagada-devolucion__drawer__container__bottom {
+    width: 100%;
+}
+
+.orden--pagada-devolucion__drawer__payment-total__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.orden--pagada-devolucion__drawer__payment-total {
+    color: var(--white);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: -0.2px;
+}
+
+.orden--pagada-devolucion__drawer__icon svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 20px;
+}

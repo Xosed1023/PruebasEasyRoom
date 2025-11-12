@@ -1,0 +1,83 @@
+.caratulas-m__input {
+    width: 100px;
+    height: 40px;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 6px;
+    border-radius: 8px;
+    border: 1px solid var(--gray-disabled);
+    box-shadow: 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+    font-size: 12px;
+    color: var(--tipografa);
+}
+.caratulas-m__input span {
+    font-weight: 600;
+    user-select: none;
+}
+.caratulas-m__input-btn {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.caratulas-m__input-btn svg {
+    width: 7px;
+    height: 14px;
+}
+.caratulas-m__table {
+    margin-top: 40px;
+    height: calc(100vh - 140px);
+    width: 100%;
+    overflow: hidden auto;
+}
+.caratulas-m__download {
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+    margin-left: 17px;
+}
+.caratulas-m__download svg {
+    height: 16px;
+    width: 16px;
+}
+.caratulas-m__empty {
+    height: 100%;
+    width: 100%;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+}
+.caratulas-m__empty .empty__circle_theme_light {
+    background-color: var(--fondo--close);
+}
+.caratulas-m__empty .empty__title {
+    width: 100%;
+    font-size: 29px;
+    margin: 24px 0 16px;
+}
+.caratulas-m__empty .empty__description {
+    font-size: 14px;
+}
+.caratulas-m__table {
+  position: relative;
+}
+.caratulas-m__table::after {
+  display: none;
+}
+.caratulas-m__table.caratulas-m__table--show-gradient::after {
+  display: block;
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 60px;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: 10;
+  border-radius: 12px;
+}

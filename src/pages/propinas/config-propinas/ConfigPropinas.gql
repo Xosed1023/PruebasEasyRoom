@@ -1,0 +1,60 @@
+query getConfigPagoPropinas {
+    puestos(eliminado: false, estado: "ACTIVO", esquema_propinas_activo: true) {
+        puesto_id
+        nombre
+        porcentaje_propina
+        area {
+            nombre
+        }
+    }
+}
+
+query getPuestosPropinas {
+    puestos(eliminado: false, estado: "ACTIVO") {
+        nombre
+        porcentaje_propina
+        puesto_id
+    }
+}
+
+mutation modificarEsquemaPropinas($propinas_esquema: [PropinaEsquemaItemInput!]!) {
+    modificar_esquema_propinas(propinas_esquema: { propinas_esquema: $propinas_esquema }) {
+        descripcion
+        eliminado
+        estado
+        nombre
+        porcentaje_propina
+        puesto_id
+    }
+}
+
+query GetCategoriasArticulosPropinas($hotel_id: ID) {
+    categorias_articulos(eliminado: false, hotel_id: $hotel_id) {
+        categoria_id
+        nombre
+        porcentaje_aportacion_propinas
+    }
+}
+
+query GetConfiguracionesPropina($hotel_id: ID) {
+    configuraciones_propina(hotel_id: $hotel_id) {
+        configuracion_propina_id
+        fecha_registro
+        porcentaje_venta_efectivo
+        porcentaje_venta_tarjeta
+        porcentaje_aportacion_vendedores
+        porcentaje_comision_por_puntos
+    }
+}
+
+mutation ActualizarConfiguracionPropina($UpdateConfiguracionPropinaInput: UpdateConfiguracionPropinaInput!) {
+    actualizar_configuracion_propina(UpdateConfiguracionPropinaInput: $UpdateConfiguracionPropinaInput) {
+        configuracion_propina_id
+    }
+}
+
+mutation ActualizarAportacionesPropinasPorCategoria($aportaciones_roomservice: UpdateAportacionesPropinasRsInput!) {
+    actualizar_aportaciones_propinas_por_categoria(aportaciones_roomservice: $aportaciones_roomservice) {
+        categoria_id
+    }
+}

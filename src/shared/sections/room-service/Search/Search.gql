@@ -1,0 +1,15 @@
+query SearchArticulos($hotel_id: ID) {
+    articulos(hotel_id: $hotel_id, insumo: false, eliminado: false) {
+        articulo_id
+        categoria_id
+        foto
+        precio {
+          monto
+        }
+        nombre
+        marca
+        contenido
+        unidad
+        descripcion
+    }
+}

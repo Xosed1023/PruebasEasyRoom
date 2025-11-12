@@ -1,0 +1,57 @@
+query GetEnergeticos($fecha_registro: DateSearchInput!, $hotel_id: ID!) {
+  mantenimientos(fecha_registro: $fecha_registro, hotel_id: $hotel_id) {
+    agua
+    gas
+    mantenimiento_id
+    luz
+    colaborador_id
+    colaborador {
+      nombre
+      apellido_paterno
+      apellido_materno
+    }
+    turno_id
+    turno {
+      nombre
+    }
+    fecha_registro
+    corte_id
+    corte {
+      estatus
+      folio
+    }
+  }
+}
+
+mutation RegistrarEnergeticos($datos_mantenimiento: CreateMantenimientoInput!) {
+  crear_mantenimiento(datos_mantenimiento: $datos_mantenimiento) {
+    agua
+    gas
+    luz
+    colaborador_id
+    turno_id
+    fecha_registro
+  }
+}
+
+mutation ActualizarEnergeticos($datos_mantenimiento: UpdateMantenimientoInput!) {
+  actualizar_mantenimiento(datos_mantenimiento: $datos_mantenimiento) {
+    agua
+    gas
+    luz
+    colaborador_id
+    turno_id
+    fecha_registro
+  }
+}
+
+query GetKpisMantenimiento($fecha_registro: DateSearchInput!, $hotel_id: ID!) {
+  kpis_mantenimientos(fecha_registro: $fecha_registro, hotel_id: $hotel_id) {
+    incidencias_cerradas
+    incidencias_pendientes
+    habitaciones_bloqueadas
+    total_agua
+    total_gas
+    total_luz
+  }
+}

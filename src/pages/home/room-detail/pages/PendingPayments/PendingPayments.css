@@ -1,0 +1,36 @@
+.room-detail__page__pending-payments {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    column-gap: 30px;
+}
+
+.room-detail__page__pending-payments-main {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.room-detail__page__pending-payments-comments-header {
+    margin-top: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-bottom: 1px solid #e2e7f0;
+}
+
+.room-detail__page__pending-payments-comments-title {
+    color: var(--tipografa);
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0 0 15px;
+}
+
+.room-detail__page__pending-payments-incidences {
+    max-height: 300px;
+    width: 56dvw;
+    overflow-y: auto;
+}

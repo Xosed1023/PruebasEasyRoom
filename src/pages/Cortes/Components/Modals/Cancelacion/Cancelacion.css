@@ -1,0 +1,134 @@
+.cortes__cancelacion {
+    box-sizing: border-box;
+    padding: 0;
+    overflow: hidden;
+}
+.cortes__cancelacion__view {
+    height: 100%;
+    width: 100%;
+    flex: 0 0 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.cortes__cancelacion__ordenes {
+    box-sizing: border-box;
+    padding: 10px 0 16px;
+}
+.cortes__cancelacion__auth {
+    justify-content: center;
+    align-items: center;
+}
+.cortes__cancelacion__wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.cortes__cancelacion__content {
+    box-sizing: border-box;
+    padding: 30px 35px 0;
+}
+.cortes__cancelacion__icon__contain {
+    height: 40px;
+    width: 40px;
+    background-color: #fef3f2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+.cortes__cancelacion__icon {
+    height: 30px;
+    width: 30px;
+    background-color: var(--pink-ocupado-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cortes__cancelacion__icon span {
+    height: 20px;
+    width: 20px;
+    background-color: var(--pink-ocupado);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--pink-ocupado-light);
+}
+.cortes__cancelacion__title {
+    color: var(--tipografa);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+    margin: 0 0 8px;
+}
+.cortes__cancelacion__description {
+    color: var(--placeholder);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    margin: 0 0 15px;
+}
+.cortes__cancelacion__note {
+    color: var(--placeholder);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+}
+.cortes__cancelacion__btn {
+    width: 100%;
+}
+.cortes__cancelacion__footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    box-sizing: border-box;
+    padding: 16px 35px;
+    margin-top: auto;
+    border-top: 0.8px solid #efefef;
+}
+
+.cortes__cancelacion__back {
+    position: absolute;
+    z-index: 5;
+    top: 23px;
+    left: 30px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--fondo--close);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.cortes__cancelacion__border {
+    margin-bottom: 18px;
+}
+.cortes__cancelacion__auth-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.cortes__cancelacion__auth-title {
+    color: var(--tipografa);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+.cortes__cancelacion__auth-description {
+    width: 405px;
+    color: var(--placeholder);
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+}

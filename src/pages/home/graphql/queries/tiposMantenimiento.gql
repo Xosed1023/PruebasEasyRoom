@@ -1,0 +1,16 @@
+query TiposMantenimiento (
+  $eliminado: Boolean
+  $hotel_id: ID
+){
+  tipos_mantenimiento(
+    eliminado: $eliminado
+    hotel_id: $hotel_id
+  ) {
+    nombre
+    claves {
+      clave
+      tamano
+    }
+    tipo_mantenimiento_id
+  }
+}

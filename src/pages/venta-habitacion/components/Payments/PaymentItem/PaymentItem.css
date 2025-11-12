@@ -1,0 +1,32 @@
+.venta-habitacion__payments__item {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: calc(100% - 25px);
+    margin: 6px 0;
+}
+
+.venta-habitacion__payments__item__method {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.venta-habitacion__payments__item__method__label {
+    color: var(--Tipografa, #303030);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+}
+
+.venta-habitacion__payments__item__amount {
+    color: var(--Tipografa, #303030);
+    text-align: right;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+}

@@ -1,0 +1,44 @@
+.form-add-fajilla__title {
+    display: flex;
+    width: 100%;
+    color: var(--Tipografa, #303030);
+    text-align: justify;
+    font-family: "Montserrat";
+    font-size: 18px;
+    font-weight: 400;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    flex-direction: row;
+}
+
+.form-add-fajilla__title span {
+    color: var(--Tipografa, #303030);
+    font-family: "Montserrat";
+    font-size: 18px;
+    font-weight: 700;
+}
+.form-add-fajilla__text-box {
+    box-sizing: border-box;
+    width: 100%;
+    height: 155px;
+}
+.input-text__wrapper {
+    left: 0;
+}
+.cortes-modal {
+    .icon-header__icon {
+        height: 50px;
+        width: 50px;
+    }
+    .icon-header {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+.add-fajilla-dropdown {
+    .dropdown-component__placeholder {
+        color: #303030;
+    }
+}

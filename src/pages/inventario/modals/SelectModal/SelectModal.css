@@ -1,0 +1,40 @@
+.modal__select-extra__body {
+    align-items: center;
+}
+
+.modal__select-extra__header {
+    margin-top: 8px;
+}
+
+.modal__select-extra__title {
+    color: var(--tipografa);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 19.036px; /* 105.756% */
+}
+
+.modal__select-extra__subtitle {
+    color: var(--tipografa);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 13.597px; /* 97.123% */
+}
+
+.modal__select-extra__options {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.input-text__hint--error {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--pink-ocupado);
+}

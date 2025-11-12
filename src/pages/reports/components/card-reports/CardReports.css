@@ -1,0 +1,8 @@
+.card-reports {
+    display: grid;
+    grid-auto-flow: column; /* coloca los hijos en una sola fila */
+    grid-auto-columns: 1fr; /* cada hijo mide 1fr */
+    gap: 20px;
+    height: 112px;
+    margin-top: 14px;
+}

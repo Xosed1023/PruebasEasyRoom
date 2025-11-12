@@ -1,0 +1,5 @@
+.room-detail--occupied__tab--huesped--cleaning {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

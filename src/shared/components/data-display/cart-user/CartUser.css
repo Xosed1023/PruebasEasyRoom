@@ -1,0 +1,64 @@
+.cardUser {
+    display: flex;
+    align-items: center;
+    column-gap: 24px;
+}
+.cardUser__info {
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+}
+
+.cardUser__text--bold {
+    color: var(--Blanco, var(--Color, #FFF));
+    font-family: Montserrat;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.cardUser__name {
+    color: white;
+    font-weight: 600;
+    font-style: normal;
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+.cardUser__email {
+    color: white;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.cardUser__name--xl {
+    font-size: 18px;
+}
+
+.cardUser__name--lg {
+    font-size: 16px;
+}
+
+.cardUser__name--md {
+    line-height: 20px;
+    font-size: 16px;
+}
+
+.cardUser__name--sm {
+    font-size: 14px;
+}
+.cardUser__email--xl {
+    font-size: 16px;
+}
+.cardUser__email--lg {
+    font-size: 16px;
+}
+.cardUser__email--md {
+    line-height: 20px;
+    font-size: 12px;
+}
+.cardUser__email--sm {
+    font-size: 12px;
+}

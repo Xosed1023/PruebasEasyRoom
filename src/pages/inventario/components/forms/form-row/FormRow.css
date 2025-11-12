@@ -1,0 +1,6 @@
+.form-section__inventory__row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    column-gap: 24px;
+}

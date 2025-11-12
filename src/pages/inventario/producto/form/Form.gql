@@ -1,0 +1,11 @@
+query GetAlmacenesForDrop($hotel_id: ID) {
+    almacenes(hotel_id: $hotel_id, eliminado: false, estado: activado) {
+        almacen_id
+        nombre
+        tipo_almacen
+        categorias_almacenes {
+            categoria_id
+            nombre
+        }
+    }
+}

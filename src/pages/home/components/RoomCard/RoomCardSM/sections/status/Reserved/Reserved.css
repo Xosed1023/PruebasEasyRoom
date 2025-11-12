@@ -1,0 +1,48 @@
+.room-card--sm--reserved__gest-name {
+    color: var(--tipografa);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 10px */
+    letter-spacing: -0.1px;
+    /* 3 puntos en text overflow */
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100px;
+}
+
+.room-card--sm--reserved__timer {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-feature-settings: "calt" off;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 18px */
+}
+
+.room-card--sm--reserved__description {
+    color: var(--Tipografa, #303030);
+    text-align: right;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+.room-card--sm--reserved__no-show {
+    color: var(--Ocupado, #EB5757);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 10px */
+    letter-spacing: -0.1px;
+}

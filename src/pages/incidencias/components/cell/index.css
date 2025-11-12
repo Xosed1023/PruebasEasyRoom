@@ -1,0 +1,59 @@
+.incidencias-cell__urgencia {
+    width: auto;
+    display: flex;
+    height: auto;
+}
+.incidencias-cell__text-urgencia {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    width: fit-content;
+    border-radius: 16px;
+    padding: 2px 8px 2px 8px;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+}
+.incidencias-cell--baja {
+    color: var(--disponible);
+    border: 1px solid var(--card---card---card---disponible);
+    background: var(--card---card---card---disponible);
+}
+.incidencias-cell--media {
+    color: #e8a33d;
+    border: 1px solid var(--sucia-expirada);
+    background: var(--sucia-expirada);
+}
+.incidencias-cell--alta {
+    color: var(--ocupado);
+    border: 1px solid var(--ocupada-card-1);
+    background: var(--ocupada-card-1);
+}
+.incidencias-cell__estado {
+    display: flex;
+    align-items: center;
+}
+.incidencias-cell__estado-dot {
+    height: 8px;
+    width: 8px;
+    background-color: var(--orange-warning);
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.incidencias__cell-tipo {
+    display: flex;
+    flex-direction: column;
+}
+
+.incidencias__cell-tipo-title {
+    color: var(--tipografa);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.incidencias__cell-tipo-subtitle {
+    color: var(--placeholder);
+    font-size: 12px;
+    font-weight: 600;
+}

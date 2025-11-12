@@ -1,0 +1,15 @@
+.table-skeleton-container {
+    overflow: hidden;
+}
+
+.table-skeleton-base {
+    height: 14px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    width: auto;
+    .skeleton-item-base {
+        height: 14px;
+        width: auto;
+        border-radius: 8px;
+    }
+}

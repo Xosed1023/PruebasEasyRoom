@@ -1,0 +1,14 @@
+.timer-progress-card__title {
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+    margin-bottom: 33px;
+}
+
+.timer-progress-card__time {
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px; /* 166.667% */
+}

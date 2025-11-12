@@ -1,0 +1,33 @@
+.datepicker-modal__input-date {
+    width: 100%;
+}
+.datepicker-modal__input {
+    height: 44px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.datepicker-modal__input--active {
+    border-color: var(--header);
+}
+.datepicker-modal__modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 0;
+}
+.datepicker-modal__modal > .container-input_date {
+    width: 100%;
+    height: 100%;
+    position: static;
+    box-shadow: none;
+    border: none;
+}
+.datepicker-modal__modal .calendar {
+    width: 80%;
+}
+.datepicker-modal__modal .button-data_input {
+    height: 50px !important;
+    width: 45% !important;
+}

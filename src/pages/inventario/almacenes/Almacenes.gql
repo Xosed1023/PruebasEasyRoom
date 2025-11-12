@@ -1,0 +1,106 @@
+mutation CrearConfiguracionInventario($create_configuracion_inventario: CreateConfiguracionInventarioInput!) {
+    crear_configuracion_inventario(create_configuracion_inventario: $create_configuracion_inventario) {
+        configuracion_inventario_id
+        hotel_id
+        inventario_negativo
+    }
+}
+mutation ActualizarConfiguracionInventarioInput($update_configuracion_inventario: UpdateConfiguracionInventarioInput!) {
+    actualizar_configuracion_inventario(update_configuracion_inventario: $update_configuracion_inventario) {
+        configuracion_inventario_id
+        hotel_id
+        inventario_negativo
+    }
+}
+
+mutation CrearCategoriaArticulo($datos_categoria: CreateCategoriaArticuloInput!) {
+    crear_categoria_articulo(datos_categoria: $datos_categoria) {
+        hotel_id
+        nombre
+        descripcion
+    }
+}
+
+mutation ActualizarCategoriaArticulo($datos_categoria: UpdateCategoriaArticuloInput!) {
+    actualizar_categoria_articulo(datos_categoria: $datos_categoria) {
+        categoria_id
+        hotel_id
+        nombre
+        descripcion
+    }
+}
+
+mutation EliminarCategoriaArticulo($datos_categoria: DeleteCategoriaArticuloInput!) {
+    eliminar_categoria_articulo(datos_categoria: $datos_categoria) {
+        categoria_id
+    }
+}
+
+mutation CrearAlmacen($createAlmacenInput: CreateAlmacenInput!) {
+    crear_almacen(createAlmacenInput: $createAlmacenInput) {
+        almacen_id
+        descripcion
+        hotel_id
+        nombre
+        tipo_almacen
+        usuario_modifico_id
+    }
+}
+
+mutation ActualizarAlmacen($updateAlmacenInput: UpdateAlmacenInput!) {
+    actualizar_almacen(updateAlmacenInput: $updateAlmacenInput) {
+        almacen_id
+        descripcion
+        hotel_id
+        nombre
+        tipo_almacen
+        usuario_modifico_id
+    }
+}
+
+mutation EliminarAlmacen($deleteAlmacenInput: DeleteAlmacenInput!) {
+    eliminar_almacen(deleteAlmacenInput: $deleteAlmacenInput)
+}
+
+query ConfiguracionInventario($hotel_id: ID!) {
+    configuraciones_inventario(hotel_id: $hotel_id) {
+        configuracion_inventario_id
+        inventario_negativo
+    }
+}
+
+query Almacenes($hotel_id: ID, $eliminado: Boolean) {
+    almacenes(almacen_id: [], hotel_id: $hotel_id, eliminado: $eliminado) {
+        almacen_id
+        nombre
+        descripcion
+        stock
+        tipo_almacen
+        categorias_almacenes {
+            categoria_id
+            nombre
+            total_articulos
+        }
+    }
+}
+
+query Almacenes_articulos($pagination_options: PageOptionsArgs!) {
+    almacenes_articulos(almacen_id: [], articulo_id: [], pagination_options: $pagination_options) {
+        paginacion {
+          pagina_actual
+          total_paginas
+          total_registros
+        }
+        almacenes_articulos {
+            almacen_articulo_id
+            almacen_id
+            articulo_id
+            cantidad
+            costo
+            fecha_movimiento
+            hotel_id
+            precio
+            estado
+        }
+    }
+}

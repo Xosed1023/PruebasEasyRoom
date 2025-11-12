@@ -1,0 +1,19 @@
+.personal__room-to-clean__cols {
+    display: flex;
+    justify-content: space-between;
+}
+
+.personal__room-to-clean__cols__label {
+    color: var(--Blanco, #fff);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+}
+
+.personal__room-to-clean__tabs {
+    margin-top: 20px; 
+    max-height:  calc(100dvh - 350px); 
+    overflow: auto;
+}

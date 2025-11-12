@@ -1,0 +1,103 @@
+.orden--pendiente__drawer__title {
+    margin: 20px 0 4px;
+    color: var(--white);
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.orden--pendiente__drawer__subtitle {
+    margin: 0 0 30px;
+    color: var(--white);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    /* 133.333% */
+}
+
+.orden--pendiente__drawer__header-label {
+    margin-bottom: 12px;
+}
+
+.orden--pendiente__drawer__container {
+    overflow-y: scroll;
+    height: calc(100vh - 410px);
+}
+
+.orden--pendiente__line {
+    height: 1px;
+    opacity: 0.5;
+    background: #efefef;
+}
+
+.orden--pendiente__drawer__container-payments {
+    margin-top: 29px;
+}
+
+.orden--pendiente__drawer__container__bottom {
+    width: 100%;
+    margin-top: 44px;
+}
+
+.orden--pendiente__drawer__button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.orden--pendiente__drawer__payment-impuestos {
+    color: var(--white);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.orden--pendiente__drawer__payment-total {
+    color: var(--white);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: -0.2px;
+}
+
+.orden--pendiente__margin-top {
+    margin-top: 12px;
+}
+
+.orden--pendiente__description__text__two-values {
+    display: flex;
+    justify-content: space-between;
+    margin: 24px 0;
+}
+
+.orden--pendiente__drawer__link {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    text-decoration-line: underline;
+    color: var(--white);
+    margin: 15px 0 0 32px;
+}
+
+.orden--drawer__extra-text {
+    color: #fff;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 166.667% */
+}
+
+.orden--drawer__extra-text-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.orden--drawer__extra-text-wrapper {
+    margin-bottom: 15px;
+}

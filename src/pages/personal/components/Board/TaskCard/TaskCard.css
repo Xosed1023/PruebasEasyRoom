@@ -1,0 +1,52 @@
+.border-task-card-container {
+    display: flex;
+    border: 1px solid #bebebe;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 12px;
+    padding: 12px 15px;
+    background-color: #ffffff;
+}
+.border-task-card-container.switchCard {
+    background-color: var(--green-card-available);
+}
+
+.border-task-card-img__container {
+    border-radius: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 14px;
+}
+
+.border-task-card-img {
+    width: 46px;
+    height: 44px;
+    clip-path: circle(50%);
+    object-fit: cover;
+}
+
+.border-task-card-name {
+    font-size: 12px;
+    font-weight: 700;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.border-task-card-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: calc(100% - 74px);
+    justify-content: space-between;
+}
+
+.border-task-card-job {
+    color: #667085;
+    font-size: 12px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+}

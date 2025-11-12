@@ -1,0 +1,52 @@
+mutation Cambiar_estado($actualizar_habitacion_estado_input: UpdateEstadoHabitacionInput!) {
+        actualizar_habitacion_estado(actualizar_habitacion_estado_input: $actualizar_habitacion_estado_input) {
+            posicion {
+                x
+                y
+                tamano
+            }
+            estado
+            fecha_estado
+            colaborador_tareas_sin_finalizar {
+                tarea_id
+                colaborador_tarea_id
+                descripcion_tarea
+                fecha_inicio
+                tipo_limpieza
+                colaborador {
+                    nombre
+                    apellido_materno
+                    apellido_paterno
+                }
+            }
+            ultimos_datos {
+                ultima_limpieza {
+                    colaborador {
+                        apellido_materno
+                        apellido_paterno
+                        nombre
+                    }
+                    fecha_termino
+                    comentarios {
+                        comentario
+                        fecha
+                    }
+                }
+                ultimo_mantenimiento {
+                    colaborador {
+                        apellido_materno
+                        apellido_paterno
+                        nombre
+                    }
+                    fecha_termino
+                }
+                ultima_supervision {
+                    colaborador {
+                        apellido_materno
+                        apellido_paterno
+                        nombre
+                    }
+                }
+            }
+        }
+    }

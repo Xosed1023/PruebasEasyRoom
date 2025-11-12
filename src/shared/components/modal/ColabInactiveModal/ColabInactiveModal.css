@@ -1,0 +1,23 @@
+.colab-inactive-modal__container {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+.colab-inactive-modal__title {
+    color: var(--Tipografa, #303030);
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 155.556% */
+}
+.colab-inactive-modal__subtitle {
+    color: var(--Placeholder, var(--Placeholder, #667085));
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 166.667% */
+    width: 95%;
+}

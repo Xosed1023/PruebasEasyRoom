@@ -1,0 +1,74 @@
+.room-card--xl__custom-slider {
+    width: 232px;
+    height: 40px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.room-card--xl__slider-input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    background: transparent;
+    border-radius: 5px;
+    outline: none;
+    margin: 10px 0;
+}
+
+/* Cambia el color del track (barra) antes del pulgar */
+.room-card--xl__slider-input::-webkit-slider-runnable-track {
+    background: transparent;
+    height: 10px;
+    border-radius: 5px;
+}
+
+/* Cambia el color del track (barra) después del pulgar */
+.room-card--xl__slider-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 42.182px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 0 10px 10px 0;
+    background: url("./icons/ArrowLeft.svg") center center no-repeat;
+    background-color: var(--header-dark);
+    cursor: pointer;
+}
+
+.room-card--xl__footer__slider__text {
+    color: var(--tipografa);
+    font-family: Qualy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 200% */
+}
+
+.room-card--xl__footer__slider__text--dark__wrapper {
+    background-color: var(--header-dark);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    overflow: hidden;
+
+    border-radius: 10px 0 0 10px;
+}
+
+.room-card--xl__footer__slider__text--dark {
+    color: var(--white);
+    font-family: Qualy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 200% */
+}

@@ -1,0 +1,117 @@
+fragment OrdenFields on Orden {
+    comentario
+    corte_id
+    estado_orden
+    estado_pago
+    fecha_cobro
+    fecha_modificacion
+    fecha_registro
+    orden
+    orden_id
+    renta_id
+    origen_orden
+    virtual_comanda_id
+    comanda {
+        comanda_id
+        estado_comanda
+        folio
+        fecha_modificacion
+        fecha_registro
+    }
+    mesa {
+        numero_mesa
+    }
+    renta {
+        habitacion_id
+        habitacion {
+            habitacion_id
+            numero_habitacion
+            tipo_habitacion_id
+            usuario_id
+            tipo_habitacion {
+                nombre
+                tipo_habitacion_id
+            }
+        }
+    }
+}
+
+fragment DetallesOrdenFields on DetalleOrden {
+    almacen_articulo_id
+    cantidad
+    comanda_id
+    comentarios
+    detalle_orden_id
+    estado
+    orden_id
+    almacen_articulo {
+        almacen_articulo_id
+        almacen_id
+        articulo_id
+        articulo {
+            articulo_id
+            nombre
+            foto
+            tipo
+            categoria_articulo {
+                categoria_id
+                nombre
+            }
+        }
+    }
+    extras {
+        almacen_articulo_id
+        cantidad
+        costo_con_iva
+        costo_sin_iva
+        detalle_orden_id
+        extra_detalle_orden_id
+        monto_iva
+        almacen_articulo {
+            almacen_articulo_id
+            articulo_id
+            articulo {
+                articulo_id
+                nombre
+            }
+        }
+    }
+}
+
+subscription ListenCheckOrdenes($hotel_id: ID!) {
+    checkOrdenes(filter_comanda: true, hotel_id: $hotel_id) {
+        orden_en_preparacion {
+            tipo
+            accion
+            orden {
+                ...OrdenFields
+                detalles_orden(estado: [en_preparacion, cancelada, cancelada_edicion]) {
+                    ...DetallesOrdenFields
+                }
+                consumo_interno_colaborador_id
+                colaborador_consumo_interno {
+                    nombre
+                    apellido_paterno
+                    apellido_paterno
+                }
+            }
+        }
+        orden_por_entregar {
+            tipo
+            accion
+            orden {
+                ...OrdenFields
+                detalles_orden(estado: [por_entregar, cancelada, cancelada_edicion]) {
+                    ...DetallesOrdenFields
+                }
+                consumo_interno_colaborador_id
+                colaborador_consumo_interno {
+                    nombre
+                    apellido_paterno
+                    __typename
+                }
+            }
+            
+        }
+    }
+}

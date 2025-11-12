@@ -1,0 +1,23 @@
+mutation auth_user($codigo: String, $template_sample: String) {
+    validar_codigo_huella_autorizacion(codigo: $codigo) {
+        usuario {
+            apellido_materno
+            apellido_paterno
+            fecha_registro
+            nombre
+            origen
+            pais
+            puesto_rol
+            telefono
+            tiene_huella
+            usuario
+            usuario_id
+            verificado
+            roles {
+                nombre
+                __typename
+            }
+        }
+        usuario_autorizado
+    }
+}

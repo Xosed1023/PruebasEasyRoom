@@ -1,0 +1,16 @@
+.venta-habitacion__label-title {
+    display: flex;
+}
+
+.venta-habitacion__label-text {
+    color: var(--Tipografa, #303030);
+    font-feature-settings: "calt" off;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 21px */
+    letter-spacing: -0.14px;
+
+    margin-left: 12px;
+}

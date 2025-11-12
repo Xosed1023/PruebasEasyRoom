@@ -1,0 +1,28 @@
+.tab__cambio-habitacion__description {
+    color: var(--Blanco, var(--Color, #fff));
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+}
+
+.tab__cambio-habitacion__rooms {
+    height: calc(100dvh - 540px);
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.tab__cambio-habitacion__rooms-description {
+    display: flex;
+    justify-content: space-between;
+
+    > span {
+        color: var(--Blanco, var(--Color, #fff));
+        font-family: Montserrat;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 142.857% */
+    }
+}

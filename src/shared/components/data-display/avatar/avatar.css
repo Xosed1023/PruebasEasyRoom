@@ -1,0 +1,116 @@
+.avatar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.avatar__img {
+    border-radius: 50%;
+    object-fit: cover;
+}
+.avatar__icon {
+    border-radius: 50%;
+    padding: 2px;
+    background: var(--gray-disabled);
+}
+
+.avatar-2xl {
+    height: 64px;
+    width: 64px;
+}
+.state-2xl {
+    height: 16px;
+    width: 16px;
+}
+.avatar__font--2xl {
+    font-size: 33px;
+}
+
+.avatar-xl {
+    height: 56px;
+    width: 56px;
+}
+.state-xl {
+    height: 14px;
+    width: 14px;
+}
+.avatar__font--xl {
+    font-size: 27px;
+}
+.avatar-lg {
+    height: 48px;
+    width: 48px;
+}
+.state-lg {
+    height: 12px;
+    width: 12px;
+}
+.avatar__font--lg {
+    font-size: 23px;
+}
+.avatar-md {
+    height: 40px;
+    width: 40px;
+}
+.state-md {
+    height: 10px;
+    width: 10px;
+}
+.avatar__font--md {
+    font-size: 19px;
+}
+.avatar-sm {
+    height: 32px;
+    width: 32px;
+}
+.state-sm {
+    height: 8px;
+    width: 8px;
+}
+.avatar__font--sm {
+    font-size: 14px;
+}
+.avatar-xs {
+    height: 24px;
+    width: 24px;
+}
+.state-xs {
+    height: 6px;
+    width: 6px;
+}
+.avatar__font--xs {
+    font-size: 11px;
+}
+.state {
+    display: flex;
+    right: 12px;
+    position: relative;
+}
+.online {
+    background: var(--green-online);
+    border-radius: 50%;
+}
+
+.offline {
+    background: var(--deep-gray);
+    border-radius: 50%;
+}
+
+.avatar__font {
+    font-family: "Inter";
+    background-color: var(--gray-disabled);
+    color: var(--midnight-blue);
+    border-radius: 50%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.avatar.marco{
+    border: 3px solid #fff;
+    box-shadow: 0px 0px 1px #a6a4a4;
+    padding: 0;
+}

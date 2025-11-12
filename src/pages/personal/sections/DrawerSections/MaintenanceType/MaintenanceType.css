@@ -1,0 +1,8 @@
+.personal-detail--clean__maintenance__type-list {
+    display: flex;
+    flex-direction: column;
+    height: calc(100dvh - 290px);
+    margin-bottom: 20px;
+    margin-top: 10px;
+    overflow-y: auto;
+}

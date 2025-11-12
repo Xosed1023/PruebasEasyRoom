@@ -1,0 +1,10 @@
+query AgregacionesAlmacenesArticulos($hotel_id :ID!) {
+  agregaciones_almacenes_articulos (
+    hotel_id: $hotel_id
+  ) {
+    total_procesos
+    total_recetas_alimentos
+    total_recetas_bebidas
+    total_recetas_procesos
+  }
+}

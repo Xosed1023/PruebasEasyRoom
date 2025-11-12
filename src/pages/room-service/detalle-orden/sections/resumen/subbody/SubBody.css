@@ -1,0 +1,10 @@
+.subbody-detalle-orden {
+    padding: 10px 24px;
+}
+
+.subbody-detalle-orden__divider {
+    background-color: var(--gray-background);
+    width: 100%;
+    height: 1px;
+    margin-bottom: 17px;
+}

@@ -1,0 +1,19 @@
+.add-process__input {
+    width: 327px;
+}
+
+.add-process__input__venta {
+    width: 474px;
+}
+
+.add-process__section__articles {
+    height: calc(100dvh - 400px);
+    overflow: auto;
+    margin-bottom: 30px;
+}
+
+.add-process__input__checkbox {
+    margin: 25px 0;
+}
+
+

@@ -1,0 +1,14 @@
+.float-button {
+    position: fixed;
+    right: 130px;
+    bottom: 80px;
+    z-index: var(--mid);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

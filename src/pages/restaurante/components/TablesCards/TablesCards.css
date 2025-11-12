@@ -1,0 +1,12 @@
+.tables-cards__wrapper {
+    height: calc(100vh - 240px);
+    width: calc(100vw - 100px);
+    overflow: auto;
+    margin-top: 10px;
+}
+
+.tables-cards {
+    display: grid;
+    gap: 5px 11px;
+    width: 100%;
+}

@@ -1,0 +1,45 @@
+query GetAlmacenesArticulosForSearch($hotel_id: ID, $pagination_options: PageOptionsArgs!) {
+    almacenes_articulos(hotel_id: $hotel_id, eliminado: false, pagination_options: $pagination_options) {
+        almacenes_articulos {
+            almacen_articulo_id
+            almacen_id
+            articulo_id
+            precio
+            cantidad
+            almacen {
+                almacen_id
+                nombre
+            }
+            articulo {
+                articulo_id
+                categoria_id
+                foto
+                nombre
+                marca
+                contenido
+                unidad
+                descripcion
+            }
+        }
+    }
+}
+
+mutation TransferirArticulos($transferArticulosInput: TransferArticulosInput!) {
+    transferir_articulos(transferArticulosInput: $transferArticulosInput) {
+        numero_articulos_transferidos
+    }
+}
+
+query GetArticuloForSearch($articulo_id: ID!, $hotel_id: ID!) {
+    almacenes_articulos(articulo_id: [$articulo_id], hotel_id: $hotel_id) {
+        almacenes_articulos {
+            almacen_articulo_id
+            almacen_id
+            articulo_id
+            articulo {
+                nombre
+                descripcion
+            }
+        }
+    }
+}

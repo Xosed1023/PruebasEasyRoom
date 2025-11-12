@@ -1,0 +1,48 @@
+mutation Crear_reserva($crearReservaInput: CreateReservaInput!) {
+    crear_reserva(crear_reserva_input: $crearReservaInput) {
+        reserva {
+            folio
+        }
+        ticket {
+            ticket_id
+        }
+    }
+}
+
+
+query GetHabitacionesDisponiblesDrawer ($hotel_id: ID!) {
+    habitaciones (hotel_id: $hotel_id) {
+        numero_habitacion
+        habitacion_id
+        estado
+        ultima_renta {
+            horas_extra
+        }
+        tipo_habitacion_id
+        tipo_habitacion {
+            nombre
+        }
+        ultima_reserva {
+            reserva {
+                fecha_registro
+            }
+        }
+    }
+}
+mutation AsignarReserva($asignacion: AddRoomToBookingInput!) {
+    asignar_habitacion_a_reserva(datos_reserva: $asignacion) {
+        habitacion {
+            numero_habitacion
+        }
+    }
+}
+
+mutation cambiarHabitacionReserva($cambiarHabReservaInput: ChangeHabitacionReservaInput!) {
+  cambiar_habitacion_reserva(cambiar_habitacion_reserva_input: $cambiarHabReservaInput)
+}
+
+query GetNumeroHabitacion($habitacion_id: ID!) {
+    habitacion(habitacion_id: $habitacion_id) {
+        numero_habitacion
+    }
+}

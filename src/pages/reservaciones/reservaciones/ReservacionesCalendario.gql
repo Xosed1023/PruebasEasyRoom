@@ -1,0 +1,14 @@
+query GetReservacionesCalendar($id: [ID!]!, $hotel_id: ID!) {
+    reservas(reserva_id: $id, hotel_id: $hotel_id) {
+        fecha_entrada
+        fecha_salida
+    }
+}
+
+mutation UpdateReserva($AddPersonas: UpdateReservaInput!) {
+    actualizar_reserva(actualizar_reserva_input: $AddPersonas) {
+       reserva {
+            reserva_id
+        }
+    }
+}

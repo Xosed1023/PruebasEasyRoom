@@ -1,0 +1,108 @@
+.room-card--mxl-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.room-card--mxl-header__left__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5px;
+}
+
+.room-card--mxl-header__left__order-timer {
+    color: var(--Timer-Ocupada, #dc3737);
+    text-align: right;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 12px */
+}
+
+.room-card--mxl-header__icon--wrapper {
+    width: 28px;
+    height: 28px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.room-card--mxl-header__timeout {
+    position: absolute;
+    left: 14px;
+    top: -31px;
+    overflow: visible;
+}
+
+.room-card--mxl-header__description {
+    color: var(--Tipografa, #303030);
+    font-family: Roboto;
+    font-size: 8.16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 12.24px */
+    letter-spacing: -0.082px;
+    position: relative;
+    top: 25px;
+    left: -40px;
+}
+
+.room-card--mxl-header__timer {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-family: Roboto;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.08px;
+    position: relative;
+    top: 25px;
+    left: -52px;
+}
+
+.room-card--mxl-header__timeout-wrapper {
+    border-radius: 25px;
+    position: relative;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    padding: 0px 4px;
+    height: 16px;
+    top: 44px;
+    left: -73px;
+}
+
+.room-card--mxl-header__name--wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.room-card--mxl-header__type-name {
+    color: var(--tipografa);
+    text-align: right;
+    font-family: Montserrat;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.room-card--mxl-header__number {
+    color: var(--tipografa);
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    height: fit-content;
+
+    display: flex;
+    align-items: center;
+}
+.gift-icon-wrapper {
+    margin-top: -2px;
+    display: flex;
+    justify-content: flex-end;
+}

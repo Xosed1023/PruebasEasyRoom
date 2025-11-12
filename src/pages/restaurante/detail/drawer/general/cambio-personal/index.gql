@@ -1,0 +1,5 @@
+mutation ActualizarMesaAsignada($input: UpdateMesaAsignadaInput!) {
+    actualizar_mesa_asignada(UpdateMesaAsignadaInput: $input) {
+        mesa_id
+    }
+}

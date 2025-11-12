@@ -1,0 +1,3 @@
+query AlertaPagosPendientes($hotel_id: ID) {
+    alerta_por_pagos_pendientes(hotel_id: $hotel_id)
+}

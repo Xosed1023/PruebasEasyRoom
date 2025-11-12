@@ -1,0 +1,33 @@
+.room-card--mxl-clean__body {
+    display: flex;
+    flex-direction: column;
+}
+
+.room-card--mxl-clean__not-using-timer {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-feature-settings: "calt" off;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.18px;
+}
+
+.room-card--mxl-clean__description-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.room-card--mxl-clean__description {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.12px;
+}

@@ -1,0 +1,17 @@
+.add__item {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.add__item__title {
+    color: var(--Morado-Morado-Primario, #6941c6);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 175% */
+    text-decoration-line: underline;
+}

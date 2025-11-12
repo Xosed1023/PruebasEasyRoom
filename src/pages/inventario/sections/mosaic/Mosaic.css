@@ -1,0 +1,43 @@
+.inventory-mosaic__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.inventory-mosaic__main {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /*display:  flex;*/
+    justify-content: flex-start;
+    /*flex-wrap: wrap;*/
+    width: 100%;
+    max-height: calc(100vh - 385px);
+    row-gap: 30px;
+    column-gap: 29px;
+    overflow-y: scroll;
+}
+@media screen and (max-width: 1260px) {
+    .inventory-mosaic__main {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .inventory-mosaic__main .inventory-card {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .inventory-mosaic__main {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .inventory-mosaic__main .inventory-card {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .inventory-mosaic__main {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 50px;
+    }
+    .inventory-mosaic__main .inventory-card {
+        width: 100%;
+    }
+}

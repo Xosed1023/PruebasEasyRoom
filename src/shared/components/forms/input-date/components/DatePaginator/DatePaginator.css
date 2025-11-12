@@ -1,0 +1,41 @@
+.input-date-modal__paginator {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 97px;
+    width: 100%;
+}
+
+.input-date-modal__month-label {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 43.651px;
+    /* 181.88% */
+
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.input-date-modal__paginator__divider {
+    background-color: var(--gray-background);
+    height: 1px;
+    width: 100%;
+}
+
+
+.input-date-modal__paginator__button {
+    cursor: pointer;
+}
+
+.input-date-modal__paginator__button.disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+    pointer-events: none;
+    user-select: none;
+}

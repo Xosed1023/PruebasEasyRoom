@@ -1,0 +1,244 @@
+.propinas-h__layout {
+    width: 100%;
+}
+.propinas-h__screen__header {
+    display: grid;
+    grid-template-columns: 140px 160px 48px;
+    column-gap: 20px;
+}
+.propinas-h__screen__header-block {
+    height: 42px;
+    width: 200px;
+}
+.propinas-h__subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--placeholder);
+    margin-top: 5px;
+    line-height: 18px;
+}
+.propinas-h__subtitle-block {
+    height: 18px;
+    width: 200px;
+}
+.propinas-h__top-btn {
+    width: 48px;
+    height: 40px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    border-radius: 11.571px;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--white);
+    cursor: pointer;
+}
+.propinas-h__top-btn:hover {
+    background-color: rgba(105, 65, 198, 0.5);
+    backdrop-filter: blur(50px);
+}
+.propinas-h__payment-btn span {
+    font-size: 12px;
+}
+.propinas-h__card-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 20px;
+    margin: 30px 0 24px;
+}
+.propinas-h__card {
+    height: 112px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--scroll);
+    background: var(--white);
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    overflow: hidden;
+}
+.propinas-h__card-grid {
+    display: grid;
+    row-gap: 4px;
+    position: relative;
+}
+.propinas-h__card__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.propinas-h__card__title {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 24px;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+.propinas-h__card__head-skeleton {
+    height: 20px;
+    width: 160px;
+    margin-bottom: 4px;
+}
+.propinas-h__card__value-skeleton {
+    height: 30px;
+    width: 100px;
+}
+.propinas-h__card__dot {
+    height: 20px;
+    box-sizing: border-box;
+    padding: 0 6px;
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.propinas-h__card__dot-float {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+}
+.propinas-h__card__value {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 38px;
+    color: var(--primary);
+}
+.propinas-h__card__currency {
+    font-size: 18px;
+    font-weight: 600;
+}
+.propinas-h__table {
+    width: 100%;
+    overflow: auto;
+    height: calc(100vh - 310px);
+    min-height: 260px;
+    position: relative;
+    border-radius: 15px;
+}
+
+.propinas-h__table::after {
+    display: none;
+}
+
+.propinas-h__table.propinas-h__table--show-gradient::after {
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 10;
+    border-radius: 12px;
+}
+.propinas-h__table th {
+    text-wrap: nowrap;
+}
+.propinas-h__table th:nth-child(4) {
+    max-width: 165px;
+    overflow: hidden;
+}
+.propinas-h__table td:nth-child(4) {
+    width: 165px;
+    max-width: 165px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.propinas-h__table .flexible-table__filter-menu__text {
+    font-size: 12px;
+}
+.propinas-h__table .flexible-table__header__cell-text {
+    font-size: 12px;
+}
+.propinas-h__cell-base {
+    font-size: 10px;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+.propinas-h__cell-disabled {
+    color: #979797;
+    user-select: none;
+}
+.propinas-h__cell-action {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.propinas-h__cell-action__remove {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+.propinas-h__cell-action__tab {
+    height: 22px;
+    width: 62px;
+    border-radius: 16px;
+    border: 1px solid var(--supervision-card);
+    background-color: var(--supervision-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 500;
+    line-height: 18px;
+}
+.propinas-h__float-btn {
+    height: 60px;
+    width: 60px;
+    right: 80px;
+}
+.propinas-h__float-btn svg {
+    height: 30px;
+    width: 30px;
+}
+.propinas-h__empty-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 100px);
+}
+.propinas-h__empty > .empty__circle {
+    height: 160px;
+    width: 160px;
+    background-color: var(--fondo--close);
+    margin-bottom: 36px;
+}
+.propinas-h__empty .empty__icon {
+    height: 80px;
+    width: 80px;
+}
+.propinas-h__empty > .empty__title {
+    width: 100%;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+.propinas-h__empty > .empty__description {
+    width: 642px;
+    font-size: 14px;
+    text-align: center;
+}
+.propinas-h__empty__button {
+    margin-top: 36px;
+    width: 412px;
+}
+
+@media screen and (max-width: 1300px) {
+    .propinas-h__layout {
+        padding: 0 35px;
+    }
+    .propinas-h__float-btn {
+        right: 130px;
+    }
+}

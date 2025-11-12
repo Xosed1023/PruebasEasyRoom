@@ -1,0 +1,82 @@
+.modal__personas-extra__card--header {
+    margin-top: 30px;
+    margin-bottom: 12px;
+}
+
+.modal__personas-extra__card--check__wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.modal__personas-extra__card--check {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.modal__personas-extra__card--uncheck {
+    width: 18px;
+    height: 18px;
+    border-radius: 25px;
+    border: 1px solid var(--light-blueish-gray);
+    background-color: var(--white);
+}
+
+.modal__personas-extra__card--container {
+    width: 300px;
+    height: 216px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin: 10px 10px;
+}
+
+.modal__select__card--selected {
+    background-color: var(--fondo-close);
+    border: 2px solid var(--purple-drawer-primario);
+}
+
+.modal__select__card--not-selected {
+    background-color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.modal__personas-extra__card__footer {
+    margin-bottom: 20px;
+    width: 246px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__personas-extra__card__title {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 96% */
+}
+
+.modal__personas-extra__card__title--active {
+    color: var(--Morado-Morado-Primario, #6941c6);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 96% */
+}
+
+.modal__personas-extra__card__description {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px; /* 125% */
+}

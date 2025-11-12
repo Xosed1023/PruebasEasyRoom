@@ -1,0 +1,18 @@
+.boolean-button {
+    display: flex;
+    gap: 6px;
+    flex-direction: column;
+    
+}
+.boolean-button__container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.boolean-button__label{
+    color: var(--wf-base-900);
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}

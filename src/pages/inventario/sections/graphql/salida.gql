@@ -1,0 +1,11 @@
+mutation Crear_salida($salidaInventarioInput: CreateSalidaInput!) {
+    crear_salida_inventario(createSalidaInput: $salidaInventarioInput) {
+        almacen_articulo {
+          cantidad
+            estado
+        }
+        articulo {
+            estado
+        }
+    }
+}

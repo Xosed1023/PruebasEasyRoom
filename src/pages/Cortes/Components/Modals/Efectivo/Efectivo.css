@@ -1,0 +1,14 @@
+.efectivo-modal {
+    .icon-header__title {
+        margin-bottom: 0;
+    }
+
+    .form-add-fajilla__title p {
+        text-align: center;
+        width: 90%;
+    }
+
+    .input-text__container {
+        margin-bottom: 14px;
+    }
+}

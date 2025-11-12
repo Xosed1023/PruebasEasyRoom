@@ -1,0 +1,282 @@
+query getTurnos($hotel_id: [ID!]!) {
+    turnos(hotel_id: $hotel_id) {
+        nombre
+        hora_entrada
+        hora_salida
+        hotel_id
+        turno_id
+        estado
+    }
+}
+
+query ColaboradoresIDNum($hotel_id: ID!) {
+    colaboradores(hotel_id: $hotel_id, eliminado: false) {
+        numero_id
+        numero_colaborador
+        colaborador_id
+        turno_id
+        ultima_orden {
+            orden_id
+        }
+        cantidad_ordenes
+        usuario_id
+        __typename
+    }
+}
+
+query ColaboradoresPorHotel($hotel_id: ID!) {
+    colaboradores(hotel_id: $hotel_id, eliminado: false) {
+        apellido_materno
+        apellido_paterno
+        nombre
+        foto
+        usuario_id
+        usuario {
+            tiene_huella
+        }
+        es_supervisor(hotel_id: $hotel_id)
+        fecha_ingreso
+        telefono_personal
+        fecha_cumpleanios
+        numero_id
+        sueldo
+        numero_colaborador
+        colaborador_id
+        correo
+        direccion
+        estado
+        fecha_baja
+        eliminado
+        telefono_emergencia
+        en_turno
+        ultima_tarea {
+            tarea_id
+            descripcion_tarea
+            fecha_inicio
+            fecha_termino
+            colaborador_tarea_id
+            habitacion_id
+            habitacion {
+                numero_habitacion
+                tipo_habitacion_id
+                tipo_habitacion {
+                    nombre
+                }
+            }
+        }
+        area {
+            area_id
+            nombre
+        }
+        colaborador_in_hotel {
+            area_id
+            puesto_id
+            puesto {
+                descripcion
+                nombre
+                descripcion
+                puesto_id
+            }
+        }
+        turno_id
+        turno {
+            hora_entrada
+            hora_salida
+            nombre
+            turno_id
+            estado
+        }
+        asistencia_abierta {
+            asistencia_id
+            fecha_entrada
+            fecha_salida
+        }
+        ultima_orden {
+            orden_id
+            orden
+            fecha_registro
+        }
+        cantidad_ordenes
+    }
+}
+
+mutation ActualizarColaboradorTurno($datos_turno_colaborador: UpdateColaboradorTurnoInput!) {
+    actualizar_colaborador_turno(updateColaboradorTurnoInput: $datos_turno_colaborador) {
+        colaborador_id
+    }
+}
+
+query getPuestosByHotelId {
+  puestos(eliminado: false) {
+    puesto_id
+    nombre
+    area {
+      area_id
+      nombre
+    }
+  }
+}
+
+
+mutation EliminarColaborador($colaborador: DeleteColaboradorInput!) {
+    eliminar_colaborador(colaborador: $colaborador) {
+        colaborador_id
+    }
+}
+
+query getAreas($hotel_id: ID!) {
+    areas(hotel_id: $hotel_id, eliminado: false) {
+        nombre
+        area_id
+    }
+}
+
+mutation CrearColaborador($ColaboradorInput: CreateColaboradorInput!) {
+    crear_colaborador(datos_colaborador: $ColaboradorInput) {
+        apellido_materno
+        colaborador_id
+    }
+}
+
+mutation CrearColaboradorConUsuario($ColaboradorInput: CreateColaboradorUsuarioInput!) {
+    crear_colaborador_usuario(datos_colaborador: $ColaboradorInput) {
+        apellido_materno
+        colaborador_id
+    }
+}
+
+mutation ActualizarColaborador($datos_colaborador: UpdateColaboradorInput!) {
+    editar_colaborador(datos_colaborador: $datos_colaborador) {
+        colaborador_id
+        usuario_id
+        nombre
+        apellido_paterno
+        apellido_materno
+        numero_colaborador
+        estado
+        en_turno
+        fecha_ingreso
+        eliminado
+    }
+}
+
+mutation AbrirTurnoColaborador($turnOnTurnoColaboradorInput: TurnOnTurnoColaboradorInput!) {
+    abrir_turno_colaborador(turnOnTurnoColaboradorInput: $turnOnTurnoColaboradorInput) {
+        estado
+        asistencia_abierta {
+            asistencia_id
+            fecha_entrada
+            fecha_salida
+        }
+    }
+}
+
+mutation CerrarTurnoColaborador($turnOffColaboradoresInput: TurnOffTurnoColaboradoresInput!) {
+    cerrar_turno_colaborador(turnOffColaboradorInput: $turnOffColaboradoresInput) {
+        estado
+        asistencia_abierta {
+            asistencia_id
+            fecha_entrada
+            fecha_salida
+        }
+    }
+}
+
+mutation AbrirTurno($open_turno_input: OpenTurnoInput!) {
+    abrir_turno(open_turno_input: $open_turno_input)
+}
+
+mutation CerrarTurno($cerrar_turno_input: CloseTurnoInput!) {
+    cerrar_turno(close_turno_input: $cerrar_turno_input)
+}
+
+query ColaboradoresPorHotelTable(
+    $hotel_id: ID!
+    $date_asignaciones: DateSearchInput!
+    $pagination_options: PageOptionsArgs
+    $areas_filter: [ID!],
+    $puesto_id: [ID!]
+    $nombre: String
+) {
+    colaboradores_by_area(
+        hotel_id: $hotel_id
+        pagination_options: $pagination_options
+        area_id: $areas_filter
+        puesto_id: $puesto_id,
+        nombre_colaborador_filter: {like: $nombre}
+    ) {
+        paginacion {
+            total_paginas
+        }
+        colaboradores {
+            ultima_asistencia_cerrada {
+                asistencia_id
+                fecha_entrada
+            }
+            apellido_materno
+            apellido_paterno
+            nombre
+            numero_id
+            usuario_id
+            colaborador_id
+            
+            estado
+            en_turno
+            foto
+            es_supervisor(hotel_id: $hotel_id)
+            ultima_tarea {
+                tarea_id
+                fecha_inicio
+                fecha_termino
+                colaborador_tarea_id
+                habitacion_id
+                habitacion {
+                    numero_habitacion
+                    estado
+                    tipo_habitacion_id
+                    tipo_habitacion {
+                        nombre
+                    }
+                }
+            }
+            mesa_asignada_activa {
+                has_mesa_activa
+            }
+            colaborador_in_hotel {
+                puesto_id
+                puesto {
+                    descripcion
+                    nombre
+                    descripcion
+                    puesto_id
+                }
+            }
+            turno_id
+            turno {
+                nombre
+                estado
+            }
+            asistencia_abierta {
+                asistencia_id
+                fecha_entrada
+                fecha_salida
+            }
+            ultima_orden {
+                orden_id
+                orden
+                fecha_registro
+            }
+            cantidad_ordenes
+            numero_asignaciones(DateSearchInput: $date_asignaciones)
+        }
+    }
+}
+
+
+query ColaboradoresCountPorArea($hotel_id: ID!, $areas_filter: [ID!]) {
+    colaboradores_by_area(hotel_id: $hotel_id, area_id: $areas_filter) {
+        paginacion {
+            total_registros
+        }
+    }
+}

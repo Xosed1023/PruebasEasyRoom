@@ -1,0 +1,44 @@
+.free-room__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: calc(100vh - 130px);
+}
+
+.free-room__title {
+    color: var(--Tipografa, #303030);
+    font-family: Qualy;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.free-room__options {
+    display: flex;
+    justify-content: center;
+}
+
+.free-room__options-item {
+    display: flex;
+    flex-direction: column;
+    max-width: 260px;
+    gap: 24px;
+    margin: 61px;
+}
+
+.free-room__options-item-description {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 16.8px */
+    letter-spacing: 0.14px;
+}
+
+.free-room__confirm-button {
+    width: 272px;
+}

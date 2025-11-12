@@ -1,0 +1,7 @@
+.photo-empty--grayscale {
+    filter: grayscale(100%);
+}
+.photo-empty--opacity {
+    background-color: lightgray;
+    opacity: 0.5;
+}

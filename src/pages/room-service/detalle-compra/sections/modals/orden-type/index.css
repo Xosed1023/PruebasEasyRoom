@@ -1,0 +1,30 @@
+.type-orden__modal .modal__select-extra__title {
+    line-height: normal;
+}
+.type-orden__modal .modal__select-extra__subtitle {
+    color: var(--placeholder);
+    line-height: normal;
+}
+.type-orden__modal .modal__select__card--not-selected {
+    background-color: var(--white);
+    border: 1px solid #bebebe;
+}
+.type-orden__modal .modal__select__card--selected {
+    background-color: var(--fondo--close);
+    border: 1px solid var(--primary);
+}
+.type-orden__modal .modal__select__card--selected .modal__personas-extra__card__title {
+    color: var(--primary);
+}
+.type-orden__modal .modal__select__card--not-selected .icon-border-center {
+    background-color: var(--tipografa) !important;
+}
+.type-orden__modal .modal__select__card--not-selected path {
+    fill: var(--white);
+}
+.type-orden__modal .modal__personas-extra__card__description {
+    font-size: 12px;
+    color: var(--placeholder);
+    line-height: normal;
+    margin-top: 7px;
+}

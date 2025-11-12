@@ -1,0 +1,49 @@
+.room-card--lg--blocked__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: -20px;
+}
+
+.room-card--lg--blocked__descripcion-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 90%;
+}
+
+.room-card--lg--blocked__descripcion {
+    display: block;
+    align-items: center;
+    margin: 3px 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.room-card--lg--blocked__descripcion-text {
+    color: var(--tipografa);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 12px */
+    letter-spacing: -0.12px;
+}
+
+.room-card--lg--blocked__timer {
+    color: var(--tipografa);
+    text-align: center;
+    font-feature-settings: "calt" off;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 20px */
+    letter-spacing: -0.2px;
+
+    margin-top: 15px;
+    margin-right: 13px;
+}

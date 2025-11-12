@@ -1,0 +1,58 @@
+mutation CrearRecetaProceso($createRecetaInput: CreateRecetaInput!) {
+    crear_receta(createRecetaInput: $createRecetaInput) {
+        articulo_id
+    }
+}
+
+query categoriasArticulosNuevaRecetaProceso($hotel_id: ID!) {
+    categorias_articulos(hotel_id: $hotel_id, eliminado: false) {
+        categoria_id
+        nombre
+    }
+}
+
+query articulosNuevaRecetaProceso($hotel_id: ID, $pagination_options: PageOptionsArgs!, $nameFilter: String!) {
+    almacenes_articulos(
+        hotel_id: $hotel_id
+        eliminado: false
+        nombre_articulo_filters: {
+          like: $nameFilter
+        }
+        filter_estado_articulo: activado
+        filter_tipo_articulo: [venta, receta, insumo, proceso]
+        filter_duplicados: true
+        pagination_options: $pagination_options
+    ) {
+      paginacion{
+        pagina_actual
+        total_paginas
+      }
+      almacenes_articulos {
+            almacen_articulo_id
+            articulo_id
+            almacen_id
+            cantidad
+            costo
+            almacen {
+                nombre
+            }
+            articulo {
+                nombre
+                tipo
+                foto
+                contenido
+                unidad
+                unidades_disponibles
+                costo {
+                    monto
+                }
+            }
+        }
+    }
+}
+
+mutation ActualizarRecetaProceso($updateRecetaInput: UpdateRecetaInput!) {
+    actualizar_receta(updateRecetaInput: $updateRecetaInput) {
+        articulo_id
+    }
+}

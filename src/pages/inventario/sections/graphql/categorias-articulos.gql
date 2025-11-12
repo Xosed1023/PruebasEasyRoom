@@ -1,0 +1,8 @@
+query Categorias_articulos($categoria_id: [ID!]!) {
+    categorias_articulos(categoria_id: $categoria_id, eliminado: false) {
+        categoria_id
+        hotel_id
+        nombre
+        total_articulos
+    }
+}

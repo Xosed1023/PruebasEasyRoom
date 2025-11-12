@@ -1,0 +1,33 @@
+.historial-cortes__screen {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.historial-cortes__table {
+    margin-top: 40px;
+    height: calc(100dvh - 160px);
+    width: 100%;
+    overflow: hidden auto;
+}
+
+.historial-cortes__empty {
+    height: 100%;
+    width: 100%;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+}
+
+.historial-cortes__empty .empty__circle_theme_light {
+    background-color: var(--fondo--close);
+}
+
+.historial-cortes__empty .empty__title {
+    width: 100%;
+    font-size: 29px;
+    margin: 24px 0 16px;
+}
+
+.historial-cortes__empty .empty__description {
+    font-size: 14px;
+}

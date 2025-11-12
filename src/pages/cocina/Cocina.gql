@@ -1,0 +1,186 @@
+query GetOrdenesEnPreparacion ($hotel_id: ID!) {
+    ordenes(filter_by_detalle_orden_state: [en_preparacion, cancelada, cancelada_edicion], panel_no_visible: false, filter_comanda: true, hotel_id: $hotel_id) {
+        comentario
+        corte_id
+        estado_orden
+        estado_pago
+        fecha_cobro
+        fecha_modificacion
+        fecha_registro
+        orden
+        orden_id
+        consumo_interno_colaborador_id
+        colaborador_consumo_interno {
+            nombre
+            apellido_paterno
+            apellido_paterno
+        }
+        renta_id
+        origen_orden
+        virtual_comanda_id
+        comanda {
+            comanda_id
+            estado_comanda
+            folio
+            fecha_modificacion
+            fecha_registro
+        }
+        mesa {
+            numero_mesa
+        }
+        renta {
+            habitacion_id
+            habitacion {
+                habitacion_id
+                numero_habitacion
+                tipo_habitacion_id
+                usuario_id
+                tipo_habitacion {
+                    nombre
+                    tipo_habitacion_id
+                }
+            }
+        }
+        detalles_orden(estado: [en_preparacion, cancelada, cancelada_edicion]) {
+            almacen_articulo_id
+            cantidad
+            comanda_id
+            comentarios
+            detalle_orden_id
+            estado
+            orden_id
+            almacen_articulo {
+                almacen_articulo_id
+                almacen_id
+                articulo_id
+                articulo {
+                    articulo_id
+                    nombre
+                    foto
+                    tipo
+                    categoria_articulo {
+                        categoria_id
+                        nombre
+                    }
+                }
+            }
+            extras {
+                almacen_articulo_id
+                cantidad
+                costo_con_iva
+                costo_sin_iva
+                detalle_orden_id
+                extra_detalle_orden_id
+                monto_iva
+                almacen_articulo {
+                    almacen_articulo_id
+                    articulo_id
+                    articulo {
+                        articulo_id
+                        nombre
+                    }
+                }
+            }
+        }
+    }
+}
+
+query GetOrdenesEnEntrega ($hotel_id: ID!) {
+    ordenes(
+      filter_by_detalle_orden_state: [por_entregar, cancelada, cancelada_edicion],
+      panel_no_visible: false, filter_comanda: true,
+      hotel_id: $hotel_id
+      ) {
+        comentario
+        corte_id
+        estado_orden
+        estado_pago
+        fecha_cobro
+        fecha_modificacion
+        fecha_registro
+        orden
+        orden_id
+        consumo_interno_colaborador_id
+        colaborador_consumo_interno {
+            nombre
+            apellido_paterno
+            apellido_paterno
+        }
+        renta_id
+        origen_orden
+        virtual_comanda_id
+        comanda {
+            comanda_id
+            estado_comanda
+            folio
+            fecha_modificacion
+            fecha_registro
+        }
+        mesa {
+            numero_mesa
+        }
+        renta {
+            habitacion_id
+            habitacion {
+                habitacion_id
+                numero_habitacion
+                tipo_habitacion_id
+                usuario_id
+                tipo_habitacion {
+                    nombre
+                    tipo_habitacion_id
+                }
+            }
+        }
+        detalles_orden(estado: [por_entregar, cancelada, cancelada_edicion]) {
+            almacen_articulo_id
+            cantidad
+            comanda_id
+            comentarios
+            detalle_orden_id
+            estado
+            orden_id
+            almacen_articulo {
+                almacen_articulo_id
+                almacen_id
+                articulo_id
+                articulo {
+                    articulo_id
+                    nombre
+                    foto
+                    tipo
+                    categoria_articulo {
+                        categoria_id
+                        nombre
+                    }
+                }
+            }
+            extras {
+                almacen_articulo_id
+                cantidad
+                costo_con_iva
+                costo_sin_iva
+                detalle_orden_id
+                extra_detalle_orden_id
+                monto_iva
+                almacen_articulo {
+                    almacen_articulo_id
+                    articulo_id
+                    articulo {
+                        articulo_id
+                        nombre
+                    }
+                }
+            }
+        }
+    }
+}
+
+mutation ActualizarEstadoOrdenDetalle($input: UpdateEstadoOrdenOrDetalleInput!, $usuario_autorizo_id: String) {
+    actualizar_estado_orden_o_detalle(update_estado_data: $input, usuario_autorizo_id: $usuario_autorizo_id) {
+        estado_origen
+        estado_destino
+        folio_orden
+        nombre_articulo
+    }
+}

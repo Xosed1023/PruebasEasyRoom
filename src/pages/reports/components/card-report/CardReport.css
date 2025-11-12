@@ -1,0 +1,71 @@
+.card-report {
+    display: flex;
+    flex-direction: column;
+    /* max-width: 224px; */
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 12px;
+    gap: 8px;
+    box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+}
+
+.card-report--double {
+    display: flex;
+    flex-direction: column;
+    /* max-width: 224px; */
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+}
+
+.card-report__title {
+    color: var(--Tipografa, #303030);
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 166.667% */
+}
+
+.card-report__value {
+    color: var(--Tipografa, #303030);
+    font-family: Montserrat;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 38px; /* 172.727% */
+}
+
+.card-report--double__value {
+    color: var(--Tipografa, #303030);
+    font-family: Montserrat;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.card-report--resume {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 10px;
+}
+
+.card-report--resume__value {
+    color: var(--Morado-Morado-Primario, #6941c6);
+    text-align: right;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+}
+.card-report--resume__title {
+    color: var(--Placeholder, var(--Placeholder, #667085));
+    text-align: right;
+    font-family: Montserrat;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+}

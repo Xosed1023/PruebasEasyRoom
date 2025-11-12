@@ -1,0 +1,6 @@
+.modal-extra__body {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    overflow-y: visible;
+}

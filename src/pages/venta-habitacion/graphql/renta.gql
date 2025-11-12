@@ -1,0 +1,17 @@
+mutation CreateRenta($datos_renta: CreateRentaInput!) {
+    crear_renta(datos_renta: $datos_renta) {
+        renta {
+            renta_id
+            folio
+            horas_extra
+            fecha_fin
+            fecha_registro
+            fecha_salida
+            numero_personas
+            saldo
+        }
+        ticket {
+            ticket_id
+        }
+    }
+}

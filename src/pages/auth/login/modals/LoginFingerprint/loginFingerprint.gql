@@ -1,0 +1,5 @@
+mutation LoginHuella($template_sample: String!) {
+  login_huella(FingerPrintLoginInput: { template_sample: $template_sample}) {
+    token
+  }
+}

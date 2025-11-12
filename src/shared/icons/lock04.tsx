@@ -1,0 +1,15 @@
+import { IconProps } from "./interfaces/IconProps.interface"
+
+const lock04 = (props: IconProps) => (
+    <svg width="1em" height="1em" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path
+            d="M3.10102 8H3V6C3 3.23858 5.23858 1 8 1C10.7614 1 13 3.23858 13 6V8H12.899M8 12V14M15 13C15 16.866 11.866 20 8 20C4.13401 20 1 16.866 1 13C1 9.13401 4.13401 6 8 6C11.866 6 15 9.13401 15 13Z"
+            stroke={props.color || "#000"}
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+)
+
+export default lock04

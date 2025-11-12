@@ -1,0 +1,72 @@
+.room-service__modal-comment {
+    box-sizing: border-box;
+    height: 445px;
+    width: 572px;
+    border-radius: 12px;
+    padding: 16px 35px 16px;
+    display: flex;
+    flex-direction: column;
+}
+.room-service__modal-comment .modal__close {
+    height: 44px;
+    width: 44px;
+}
+.room-service__modal-comment__contain {
+    box-sizing: border-box;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+}
+.room-service__modal-comment__empty {
+    row-gap: 20px;
+}
+.room-service__modal-comment__empty .empty__circle_bg {
+    height: 60px;
+    width: 60px;
+}
+.room-service__modal-comment__empty .empty__icon {
+    height: 32px;
+    width: 32px;
+}
+.room-service__modal-comment__empty .empty__title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+.room-service__modal-comment__description {
+    color: var(--tipografa);
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 0 16px;
+}
+.room-service__modal-comment__textarea {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-weight: 500;
+}
+.room-service__modal-comment .text-box__wrapper {
+    gap: 0;
+    margin-bottom: 50px;
+    position: relative;
+}
+.room-service__modal-comment .text-box__semi-container {
+    height: 166px;
+    box-sizing: border-box;
+}
+.room-service__modal-comment .text-box__hinttext {
+    position: absolute;
+    top: 172px;
+}
+.room-service__modal-comment__button {
+    width: 100%;
+}
+.room-service__modal-comment__grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 24px;
+}

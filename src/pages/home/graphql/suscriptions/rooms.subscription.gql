@@ -1,0 +1,140 @@
+subscription ListenHabitaciones($hotelIdFilter: ID!, $usuario_id: ID!) {
+    checkHabitaciones(hotel_id_filter: $hotelIdFilter) {
+        numero_habitacion
+        estado
+        comentario_estado
+        alerta_incidencia(
+            tipo_incidencia: [mantenimiento]
+        ) {
+            incidencia_id
+        }
+        posicion {
+            tamano
+            x
+            y
+        }
+        incidencias_activas
+        incidencias_activas_usuario(usuario_id: $usuario_id)
+        fecha_estado
+        habitacion_id
+        hotel_id
+        tipo_habitacion_id
+        tipo_habitacion {
+            minutos_limpieza_detallada
+            minutos_limpieza_normal
+            minutos_limpieza_retoque
+            minutos_pendiente_supervision
+            minutos_sucia
+            minutos_supervision
+            nombre
+        }
+        ultima_reserva {
+            reserva {
+                nombre_huesped
+                fecha_entrada
+                fecha_salida
+                numero_personas
+                reserva_id
+                comentarios {
+                    comentario
+                }
+                tarifa_id
+                tarifa {
+                    hora_checkin
+                    hora_checkout
+                }
+                experiencias_reserva {
+                    experiencia_reserva_id
+                    experiencia_id
+                    total
+                    estado
+                    experiencia {
+                        nombre
+                    }
+                }
+            }
+        }
+        ultima_renta {
+            fecha_antigua_por_entregar
+            ultimos_conceptos_pendientes {
+              renta_id
+              renta {
+                fecha_registro
+              }
+              extra_id
+              extra {
+                tipo_extra
+                fecha_solicitud
+              }
+              orden_id
+              orden {
+                orden
+                deposito
+                estado_pago
+                fecha_registro
+              }
+            }
+            fecha_registro
+            fecha_fin
+            horas_extra
+            estado
+            ultima_orden {
+                orden_activa
+                orden {
+                    fecha_registro
+                    estado_pago
+                    estado_orden
+                }
+            }
+            nombre_huesped
+            numero_personas
+            hospedajes_extra
+            cliente_id
+            vehiculo {
+                matricula
+                color
+                marca
+                modelo
+            }
+            fecha_condensada
+            renta_id
+            folio
+            reserva_id
+            tipo_entrada
+            tarifa_id
+            tarifa {
+                duracion_renta
+            }
+            easyrewards_id
+            pagos {
+                pago_id
+                detalles_pago {
+                    easyrewards_id
+                }
+            }
+            subtotales {
+                total_early_checkin
+                total_habitacion
+                total_hospedajes_extra
+                total_horas_extra
+                total_personas_extra
+            }
+        }
+        colaborador_tareas_sin_finalizar {
+            tarea_id
+            descripcion_tarea
+            tarea_id
+            fecha_inicio
+            fecha_termino
+            tipo_limpieza
+            colaborador_tarea_id
+            colaborador_id
+            colaborador {
+                foto
+                nombre
+                apellido_materno
+                apellido_paterno
+            }
+        }
+    }
+}

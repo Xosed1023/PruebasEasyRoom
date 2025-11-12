@@ -1,0 +1,33 @@
+.progress-bar__wrapper {
+    width: 218px;
+    position: relative;
+}
+
+.progress-bar {
+    width: 218px;
+    height: 4px;
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+
+.progress-bar__status {
+    border-radius: 4px;
+    height: 4px;
+    max-width: 100%;
+    position: absolute;
+}
+
+.progress-bar__hours {
+    color: var(--tipografa, #303030);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 10px */
+    position: relative;
+    display: block;
+    width: 218px;
+    text-align: right;
+    bottom: -8px;
+}

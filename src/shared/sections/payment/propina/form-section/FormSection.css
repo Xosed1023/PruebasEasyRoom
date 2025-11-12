@@ -1,0 +1,26 @@
+.tip-form__section {
+    margin-bottom: 40px;
+}
+.tip-form__head {
+    color: var(--tipografa);
+    font-size: 14px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    border-bottom: 0.5px solid var(--stroke);
+}
+.tip-form__cover {
+    margin: 16px 0 30px;
+    display: flex;
+    flex-direction: column;
+}
+.tip-form__label {
+    color: var(--label-color);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 140%;
+    margin-bottom: 6px;
+}
+.tip-form__drop {
+    width: 100%;
+}

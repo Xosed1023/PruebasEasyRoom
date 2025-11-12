@@ -1,0 +1,3 @@
+mutation ReiniciarAsignacionesPropinas {
+  reiniciar_asignaciones_propinas
+}

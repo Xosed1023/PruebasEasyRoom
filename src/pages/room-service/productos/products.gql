@@ -1,0 +1,92 @@
+query ArticulosTable($hotel_id: ID, $categoria_id: ID, $nombre: String) {
+    articulos(hotel_id: $hotel_id, categoria_id: $categoria_id, nombre: $nombre, eliminado: false) {
+        articulo_id
+        cantidad_minima
+        categoria_id
+        contenido
+        costo {
+            monto
+        }
+        descripcion
+        eliminado
+        estado
+        fecha_eliminado
+        fecha_registro
+        folio
+        foto
+        tipo
+        marca
+        nombre
+        precio {
+            monto
+        }
+        stock
+        unidad
+    }
+}
+
+query GetCategoriasRS($hotel_id: ID) {
+    categorias_articulos(hotel_id: $hotel_id, eliminado: false) {
+        categoria_id
+        nombre
+    }
+}
+
+query GetArticulosRoomService($hotel_id: ID, $pagination_options: PageOptionsArgs!, $filter_in_categories: [ID!], $nombre_articulo: String) {
+    almacenes_articulos(
+        hotel_id: $hotel_id
+        eliminado: false
+        filter_estado_articulo: activado
+        filter_tipo_articulo: [venta, receta, proceso]
+        filter_tipo_almacen: suministro
+        categoria_articulo_filters: { in: $filter_in_categories }
+        filter_duplicados: true
+        nombre_articulo_filters: {
+            like: $nombre_articulo
+        }
+        pagination_options: $pagination_options
+    ) {
+        paginacion {
+            pagina_actual
+            total_paginas
+        }
+        almacenes_articulos {
+            costo
+            almacen_articulo_id
+            almacen_id
+            articulo_id
+            precio
+            estado
+            cantidad
+            almacen {
+                almacen_id
+                nombre
+            }
+            articulo {
+                articulo_id
+                cantidad_minima
+                categoria_id
+                contenido
+                descripcion
+                tipo
+                extra
+                foto
+                fecha_registro
+                marca
+                nombre
+                unidad
+                precio {
+                    monto
+                }
+                costo {
+                    monto
+                }
+                sku
+                categoria_articulo {
+                    categoria_id
+                    nombre
+                }
+            }
+        }
+    }
+}

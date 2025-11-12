@@ -1,0 +1,12 @@
+query getReservasDelDiaSinAsignar($hotel_id: String!, $fecha_entrada: DateTime!) {
+    reservas_sin_asignar_del_dia(hotel_id: $hotel_id, fecha_entrada: $fecha_entrada) {
+        codigo_ota
+        folio
+        habitacion_id
+        nombre_huesped
+        tipo_habitacion_id
+        reserva_id
+        estado
+        fecha_entrada
+    }
+}

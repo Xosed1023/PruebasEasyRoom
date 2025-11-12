@@ -1,0 +1,11 @@
+.resumen-detalle-orden {
+    width: 300px;
+    height: calc(100dvh - 170px);
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 8px;
+    border: 1px solid var(--Stroke-Inputs-default, #f2f4f7);
+    background: var(--Blanco, #fff);
+}

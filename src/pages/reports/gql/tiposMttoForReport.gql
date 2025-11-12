@@ -1,0 +1,6 @@
+query tiposMttoForReport($hotel_id: ID!) {
+    tipos_mantenimiento(hotel_id: $hotel_id, eliminado: false) {
+      tipo_mantenimiento_id
+      nombre
+    }
+}

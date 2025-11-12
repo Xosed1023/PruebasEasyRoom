@@ -1,0 +1,61 @@
+.board-column-container {
+    box-shadow: 0px 0px 2px 1px #0000000d;
+    background-color: #ffffff;
+    width: 31%;
+    border-radius: 12px;
+    height: calc(100dvh - 300px);
+    overflow-y: scroll;
+}
+
+.board-column-header {
+    padding: 15px 24px;
+}
+
+.board-column-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 24px;
+    overflow-y: scroll;
+}
+
+.board-column-helper-container {
+    width: 100%;
+    margin-top: 24px;
+    min-height: 50px;
+    flex-shrink: 0;
+    background-color: var(--fondo-close);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.board-column-helper__description {
+    color: var(--morado---morado---primario);
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 125%; /* 15px */
+    letter-spacing: -0.12px;
+    width: calc(100% - 50px);
+}
+
+.modal-cierre-turno__description {
+    color: var(--Placeholder, var(--Placeholder, #667085));
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 111.111% */
+}
+
+.modal-cierre-turno__description--bold {
+    color: var(--Placeholder, var(--Placeholder, #667085));
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+}

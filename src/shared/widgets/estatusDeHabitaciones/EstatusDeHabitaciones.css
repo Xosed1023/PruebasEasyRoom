@@ -1,0 +1,93 @@
+@keyframes opacity-animation {
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+.widStatusRoom {
+    width: 25%;
+    min-width: 272px;
+    height: 558px;
+    border-radius: 16px;
+    background: var(--background-widged);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    color: #fff;
+    font-family: var(--font-text);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    animation: opacity-animation 0.5s none ease;
+    margin-right: 20px;
+}
+.widStatusRoom__item {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.widStatusRoom__title {
+    color: #fff;
+    font-weight: 700;
+    margin: 20px;
+    font-size: 14px;
+    font-family: var(--font-text);
+}
+.widStatusRoom__list__text {
+    display: flex;
+    color: #fff;
+    align-items: center;
+    font-weight: 500;
+}
+.widStatusRoom__widStatusRoom__list__number {
+    color: #fff;
+
+    font-family: "Qualy";
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.widStatusRoom__list__icon {
+    width: 26px;
+    height: 26px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 15px;
+    box-sizing: border-box;
+}
+.widStatusRoom__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 87%;
+}
+.widStatusRoom__btn {
+    width: calc(100% - 40px);
+    height: 36px;
+    padding: 10px 18px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid var(--white);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 20px 24px -4px rgba(16, 24, 40, 0.08);
+    margin: 20px;
+    cursor: pointer;
+}
+.widStatusRoom__btn span {
+    color: var(--white);
+    font-family: "Qualy";
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 8px;
+}

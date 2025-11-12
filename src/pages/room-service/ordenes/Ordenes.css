@@ -1,0 +1,250 @@
+.ordenes {
+    margin-top: 18px;
+}
+
+.ordenes__container-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.ordenes__search__input {
+    min-width: 320px;
+    margin-right: 10px;
+}
+
+.ordenes__cell-pago {
+    width: auto;
+    display: flex;
+    height: auto;
+}
+
+.ordenes__cell--pagada {
+    color: var(--disponible);
+    border: 1px solid var(--card-card-card-disponible, #dbf6d4);
+    background: var(--card-card-card-disponible, #dbf6d4);
+}
+
+.ordenes__cell--pendiente {
+    color: #e8a33d;
+    border: 1px solid var(--sucia-expirada);
+    background: var(--sucia-expirada);
+}
+
+.ordenes__cell--devolucion {
+    color: var(--ocupado);
+    border: 1px solid var(--ocupada-card-1);
+    background: var(--ocupada-card-1);
+}
+
+.ordenes__cell__text--gray {
+    color: var(--placeholder);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.ordenes__icon-printer {
+    cursor: pointer;
+}
+
+.ordenes__table {
+    border: 1px solid var(--gray-background);
+    border-radius: 10px;
+}
+
+.ordenes__table .flexible-table__header__cell-text {
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.ordenes__table .flexible-table__body__cell-text {
+    font-size: 10px;
+    padding: 12px;
+}
+
+.ordenes__table .flexible-table__filter-menu__text {
+    font-size: 12px;
+}
+
+.ordenes__table .get-payment-method__container {
+    max-width: 100px;
+    overflow: hidden;
+}
+
+.ordenes__table .get-payment-method__container > span {
+    display: block;
+    white-space: normal;
+}
+
+.ordenes__table .flexible-table-container {
+    max-height: 58vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.ordenes__table .flexible-table-container::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+}
+
+.ordenes__table .flexible-table-container::-webkit-scrollbar-thumb {
+    background: var(--gray-cell-header);
+    border-radius: 8px;
+}
+
+.ordenes__container .empty__container {
+    height: 300px;
+}
+
+.ordenes__btn > svg {
+    width: 22px;
+    height: 22px;
+}
+
+.ordenes__btn.disabled {
+    border: none;
+    background: #fff;
+    transition: all 0.4s;
+    color: #000;
+    border-radius: 8px;
+    transition: all 0.4s;
+    width: 52px;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.05);
+}
+
+.ordenes__btn {
+    width: 52px;
+    height: 44px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    color: var(--primary);
+    font-style: normal;
+    font-weight: 600;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid var(--primary);
+    background: var(--fondo-close);
+    transition: all 0.4s;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.05);
+}
+
+.ordenes__btn:hover {
+    flex-shrink: 0;
+    box-shadow: inset 0px 0px 0px 2px #f4ebff, 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.ordenes__search {
+    display: flex;
+    flex-direction: row;
+}
+
+.ordenes__calendar-buttons .calendario-reservaciones__control-date-month {
+    font-size: 12px;
+    height: 40px;
+    width: 130px;
+}
+
+.ordenes__calendar-buttons .calendario-reservaciones__control-date-day {
+    font-size: 12px;
+    height: 40px;
+    width: 87px;
+}
+
+.ordenes__calendar-buttons .calendario-reservaciones__control-date-year {
+    font-size: 12px;
+    height: 40px;
+    width: 87px;
+}
+
+.ordenes__calendar-buttons svg {
+    width: 10px;
+    height: 10px;
+}
+
+.ordenes__icon-calendar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 47px;
+    background: var(--white);
+    box-shadow: var(--shadow-input);
+    border: var(--border-input);
+    border-radius: 8px;
+    margin-top: 6px;
+    transition: all 0.3s;
+}
+
+.ordenes__icon-calendar:hover {
+    transform: scale(1);
+    transition: all 0.3s;
+}
+
+.ordenes__icon-calendar--active {
+    border: 1px solid var(--primary);
+    background: var(--fondo-close);
+}
+
+.ordenes__table__cell-concept {
+    display: flex;
+    flex-direction: column;
+}
+
+.ordenes__table__cell-concept__title {
+    color: var(--tipografa);
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.ordenes__table__cell-concept__subtitle {
+    color: var(--placeholder);
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.ordenes__table__cell-concept__subtitle2 {
+    color: var(--placeholder);
+    font-size: 9px;
+    font-weight: 600;
+    margin-top: -3px;
+}
+
+.ordenes__table__cell-name {
+    display: block;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ordenes__table-container {
+    position: relative;
+    max-height: calc(100vh - 310px);
+    border-radius: 12px;
+    overflow: auto;
+    width: 100%;
+}
+.ordenes__table-container::after {
+    display: none;
+}
+.ordenes__table-container.ordenes__table-container--show-gradient::after {
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 10;
+    border-radius: 12px ;
+}

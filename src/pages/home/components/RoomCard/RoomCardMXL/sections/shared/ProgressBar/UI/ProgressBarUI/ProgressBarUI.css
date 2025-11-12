@@ -1,0 +1,34 @@
+.room-card--mxl__progress-bar__wrapper {
+    width: 150px;
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.room-card--mxl__progress-bar {
+    width: 150px;
+    height: 3px;
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+
+.room-card--mxl__progress-bar__status {
+    border-radius: 4px;
+    height: 3px;
+    max-width: 100%;
+    position: absolute;
+}
+
+.room-card--mxl__progress-bar__hours {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 8px */
+    position: relative;
+    display: block;
+    width: 150px;
+    text-align: right;
+    bottom: -8px;
+}

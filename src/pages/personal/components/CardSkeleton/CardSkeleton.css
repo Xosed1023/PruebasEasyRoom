@@ -1,0 +1,50 @@
+.kanban-skeleton {
+    margin-top: 18px;
+}
+
+.kanban-skeleton-card {
+    border: 1px solid #EAECF0;
+    border-radius: 10px;
+    padding: 17px 15px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.kanban-skeleton-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    margin-right: 13px;
+
+    .skeleton-item-base {
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+    }
+}
+
+.kanban-skeleton-large {
+    width: 207px;
+    height: 14px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+
+    .skeleton-item-base {
+        width: 207px;
+        height: 14px;
+        border-radius: 8px;
+    }
+}
+
+.kanban-skeleton-short {
+    width: 135px;
+    height: 14px;
+    border-radius: 8px;
+
+    .skeleton-item-base {
+        width: 135px;
+        height: 14px;
+        border-radius: 8px;
+    }
+}

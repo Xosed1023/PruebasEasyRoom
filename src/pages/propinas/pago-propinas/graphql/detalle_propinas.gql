@@ -1,0 +1,43 @@
+query Detalle_reparto_propinas($hotel_id: ID!) {
+    detalle_reparto_propinas(hotel_id: $hotel_id) {
+        monto_recaudado
+        detalle_reparto_propinas {
+            colaborador {
+                colaborador_id
+                nombre
+                apellido_materno
+                apellido_paterno
+                puesto {
+                    nombre
+                }
+            }
+            desglose_propina_recolectada {
+                categoria
+                monto
+            }
+            desglose_aportacion_a_fondo {
+                categoria
+                monto
+                aportacion
+            }
+            propina_recolectada
+            comision_bancaria_propina_por_venta
+            aportacion_a_fondo
+            subtotal_propina_por_ventas
+            neto_propina_por_ventas
+            fondo_de_propina
+            comision_bancaria_sobre_fondo
+            pago_correspondiente
+        }
+        totales {
+            total_propinas_recolectadas
+            total_aportaciones_a_fondo
+            total_subtotales_propina_por_ventas
+            total_comisiones_bancarias_propinas_por_ventas
+            total_neto_propinas_por_ventas
+            total_fondos_de_propina
+            total_comisiones_bancarias_sobre_fondo
+            total_pagos_correspondientes
+        }
+    }
+}

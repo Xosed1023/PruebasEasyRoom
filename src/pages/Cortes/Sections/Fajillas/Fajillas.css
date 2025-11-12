@@ -1,0 +1,26 @@
+.fajillas-screen__table-wrapper {
+    max-height: 60vh;
+}
+.fajillas-admin-first-column {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    .ventasDehab_point {
+        margin-right: 10px;
+    }
+}
+.fajillas-admin-last-column-link {
+    color: #6941C6;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.fajillas-table {
+    max-height: calc(100dvh - 160px);
+    overflow-y: scroll;
+}
+
+.fajillas__skeleton__table {
+    max-height: calc(100dvh - 160px);
+    overflow-y: scroll;
+}

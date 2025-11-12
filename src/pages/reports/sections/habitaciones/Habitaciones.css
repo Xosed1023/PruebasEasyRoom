@@ -1,0 +1,15 @@
+
+.historial-habitaciones__table__wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: calc(100dvh - 160px);
+    overflow: hidden;
+    position: relative;
+    margin-top: 30px;
+}
+
+.historial-habitaciones__table {
+    overflow-x: scroll;
+    height: 100%;
+}

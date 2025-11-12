@@ -1,0 +1,45 @@
+.badge__text {
+    width: fit-content;
+    border-radius: 16px;
+    mix-blend-mode: multiply;
+
+    padding: 2px 8px 2px 6px;
+    align-items: center;
+    gap: 4px;
+
+    text-align: start;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    /* 150% */
+}
+
+.badge--success {
+    border: 1px solid var(--card-card-card-disponible);
+    background: var(--card-card-card-disponible, #dbf6d4);
+
+    color: var(--Disponible, #408232);
+}
+
+.badge--warning {
+    border: 1px solid var(--card---sucia);
+    background: var(--card---sucia);
+
+    color: var(--sucia);
+}
+
+.badge--disabled {
+    color: var(--fondo-gris, #535A5E);
+
+    border: 1px solid var(--fondo-mantenimiento, #D1D3DE);
+    background: var(--fondo-mantenimiento, #D1D3DE);
+}
+
+.badge--danger {
+    color: var(--Ocupado, #eb5757);
+
+    border: 1px solid var(--Ocupada_card_1, #fdf2f2);
+    background: var(--Ocupada_card_1, #fdf2f2);
+}

@@ -1,0 +1,124 @@
+{
+    "hotel": {
+        "madero": {
+            "logo": "https://articulos.nyc3.cdn.digitaloceanspaces.com/hotel_madero/logo_madero_white.png",
+            "rooms": [
+                {
+                    "title": "De salida",
+                    "image": "",
+                    "hours": 5,
+                    "size": 2,
+                    "price": 270,
+                    "priceBooking": 0,
+                    "priceExtra": 200,
+                    "maxExtra": 2
+                },
+                {
+                    "title": "Sencilla",
+                    "image": "",
+                    "hours": 24,
+                    "size": 2,
+                    "price": 340,
+                    "priceBooking": 340,
+                    "priceExtra": 200,
+                    "maxExtra": 2
+                },
+                {
+                    "title": "Doble (2px)",
+                    "image": "",
+                    "hours": 5,
+                    "size": 4,
+                    "price": 440,
+                    "priceBooking": 0,
+                    "priceExtra": 200,
+                    "maxExtra": 2
+                },
+                {
+                    "title": "Doble (4px)",
+                    "image": "",
+                    "hours": 24,
+                    "size": 4,
+                    "price": 680,
+                    "priceBooking": 680,
+                    "priceExtra": 200,
+                    "maxExtra": 2
+                }
+            ]
+        },
+        "vsur": {
+            "logo": "",
+            "rooms": [
+                {
+                    "title": "Pool villa",
+                    "image": "https://vmotelboutique.com/wp-content/uploads/2016/03/PoolVilla.jpg",
+                    "hours": 0,
+                    "size": 0,
+                    "price": 0,
+                    "priceBooking": 0,
+                    "priceExtra": 0,
+                    "maxExtra": 0
+                },
+                {
+                    "title": "Junior villa",
+                    "image": "https://vmotelboutique.com/wp-content/uploads/2016/03/juniorvilla_H.jpg",
+                    "hours": 0,
+                    "size": 0,
+                    "price": 0,
+                    "priceBooking": 0,
+                    "priceExtra": 0,
+                    "maxExtra": 0
+                },
+                {
+                    "title": "Pool & Spa",
+                    "image": "https://vmotelboutique.com/wp-content/uploads/2016/03/poolspa_H.jpg",
+                    "hours": 0,
+                    "size": 0,
+                    "price": 0,
+                    "priceBooking": 0,
+                    "priceExtra": 0,
+                    "maxExtra": 0
+                },
+                {
+                    "title": "Junior suite",
+                    "image": "https://vmotelboutique.com/wp-content/uploads/2016/03/juniorsuite_H.jpg",
+                    "hours": 0,
+                    "size": 0,
+                    "price": 0,
+                    "priceBooking": 0,
+                    "priceExtra": 0,
+                    "maxExtra": 0
+                },
+                {
+                    "title": "Handicap suite",
+                    "image": "https://vmotelboutique.com/wp-content/uploads/2016/03/HS_cover.jpg",
+                    "hours": 0,
+                    "size": 0,
+                    "price": 0,
+                    "priceBooking": 0,
+                    "priceExtra": 0,
+                    "maxExtra": 0
+                },
+                {
+                    "title": "Sky suite",
+                    "image": "https://vmotelboutique.com/wp-content/uploads/2019/09/skysuiteV7.jpg",
+                    "hours": 0,
+                    "size": 0,
+                    "price": 0,
+                    "priceBooking": 0,
+                    "priceExtra": 0,
+                    "maxExtra": 0
+                },
+                {
+                    "title": "Master suite",
+                    "image": "https://vmotelboutique.com/wp-content/uploads/2016/03/twinsuite_H.jpg",
+                    "hours": 0,
+                    "size": 0,
+                    "price": 0,
+                    "priceBooking": 0,
+                    "priceExtra": 0,
+                    "maxExtra": 0
+                }
+            ]
+        }
+    }
+}

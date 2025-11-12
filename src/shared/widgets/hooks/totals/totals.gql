@@ -1,0 +1,11 @@
+query Obtener_ventas($get_today_sales_input: GetTodaySalesInput!) {
+    obtener_ventas(get_today_sales_input: $get_today_sales_input) {
+        nombre
+        total_extras
+        total_ordenes
+        total_restaurante
+        total_propinas
+        total_rentas
+        total_reservas
+    }
+}

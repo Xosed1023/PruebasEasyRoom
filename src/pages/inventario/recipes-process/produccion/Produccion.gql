@@ -1,0 +1,20 @@
+mutation CrearProduccionProceso($createProductionProceso: CreateProductionProcesoInput!) {
+    crear_produccion_proceso(createProductionProceso: $createProductionProceso) {
+        cantidad_produccion_final
+    }
+}
+
+query GetArticuloForProduction($almacen_articulo_id: ID!) {
+    almacen_articulo(almacen_articulo_id: $almacen_articulo_id) {
+        almacen_articulo_id
+        almacen_id
+        articulo_id
+        costo
+        articulo {
+            articulo_id
+            nombre
+            unidad
+            contenido
+        }
+    }
+}

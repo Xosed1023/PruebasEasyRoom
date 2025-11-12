@@ -1,0 +1,44 @@
+.room-tab {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    background: var(--gray-room-tab);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+.room-tab:hover {
+    background: var(--purple-room-tab--active);
+}
+.room-tab--state--active {
+    background: var(--purple-room-tab--active);
+}
+.room-tab__title {
+    color: var(--Blanco, var(--Color, #fff));
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px; /* 100% */
+    text-wrap: nowrap;
+}
+.room-tab__time {
+    color: var(--Blanco, #fff);
+    text-align: right;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+}
+.room-tabs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
