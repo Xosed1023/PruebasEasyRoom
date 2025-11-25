@@ -16,6 +16,7 @@ import { EstadosReservas, useCancelarReservaMutation } from "src/gql/schema"
 import { useProfile } from "src/shared/hooks/useProfile"
 import { usePrintTicket } from "src/shared/hooks/print"
 import useSnackbar from "src/shared/hooks/useSnackbar"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 export function DrawerSection({ visible = false, onClose = undefined, id }: DrawerSectinProps): JSX.Element {
     const { drawerSelectedSection, selectedReservation } = useSelector((state: RootState) => state.reservations)
@@ -43,7 +44,7 @@ export function DrawerSection({ visible = false, onClose = undefined, id }: Draw
                 placement={"right"}
                 bar={false}
                 visible={visible}
-                withMenu={selectedReservation?.estado === EstadosReservas.SinAsignar && rolName !== "MANTENIMIENTO"}
+                withMenu={selectedReservation?.estado === EstadosReservas.SinAsignar && rolName !== RoleNames.mantenimiento}
                 itemsMenu={[
                     {
                         label: "Cancelar reserva",

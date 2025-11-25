@@ -11,6 +11,7 @@ import RoomCardMXL from "./RoomCardMXL/RoomCardMXL"
 import RoomCardSM from "./RoomCardSM/RoomCardSM"
 import RoomCardXL from "./RoomCardXL/RoomCardXL"
 import RoomCardXS from "./RoomCardXS/RoomCardXS"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 export type RoomCardSizes = "xs" | "sm" | "md" | "lg" | "mxl" | "xl"
 
@@ -25,7 +26,7 @@ const RoomCard = ({ size, isSelected, onSelect = undefined, ...props }: RoomCard
     const { rolName } = useProfile()
 
     const isClickable =
-        (rolName === "VALETPARKING" &&
+        (rolName === RoleNames.valet &&
 
 
             (props.roomStatus === RoomStatus.occupied ||
@@ -33,8 +34,8 @@ const RoomCard = ({ size, isSelected, onSelect = undefined, ...props }: RoomCard
                 props.roomStatus === RoomStatus.reserved ||
                 props.roomStatus === RoomStatus.available ||
                 props.roomStatus === RoomStatus.clean)) ||
-        (rolName === "ROOMSERVICE" && props.roomStatus === RoomStatus.occupied) ||
-        (rolName !== "VALETPARKING" && rolName !== "ROOMSERVICE")
+        (rolName === RoleNames.roomService && props.roomStatus === RoomStatus.occupied) ||
+        (rolName !== RoleNames.valet && rolName !== RoleNames.roomService)
 
     // const doubleTapHandler = useDoubleTap(() => {
     //     setTimeout(() => {

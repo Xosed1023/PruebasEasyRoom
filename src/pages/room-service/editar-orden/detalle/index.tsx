@@ -141,6 +141,7 @@ function DetalleOrden(): JSX.Element {
             variables: {
                 input: {
                     orden_id,
+                    hotel_id,
                     detalles: getDetalles(values.detalles_orden),
                     cancelaciones_detalles: getArrayFilter(cancelaciones_detalles, "detalle_orden_id"),
                     cancelaciones_extras: getArrayFilter(

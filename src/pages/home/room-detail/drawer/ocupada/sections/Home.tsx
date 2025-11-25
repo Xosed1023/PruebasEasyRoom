@@ -38,6 +38,7 @@ import { selectSelectedInitialTab } from "src/store/roomDetails/ocupadaSlice"
 import Comments from "./tabs/comments/Comments"
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 type tabsPaths =
     | "huesped"
@@ -96,7 +97,7 @@ const Home = ({ onChangeSection }: { onChangeSection: (section: OccupiedDetailSe
 
     const visibleTabs = useMemo(() => {
         return homeTabsList.filter(
-            (tab) => rolName !== "MANTENIMIENTO" || (tab.path !== "room_service" && tab.path !== "payments")
+            (tab) => rolName !== RoleNames.mantenimiento || (tab.path !== "room_service" && tab.path !== "payments")
         )
     }, [rolName])
 
@@ -129,10 +130,10 @@ const Home = ({ onChangeSection }: { onChangeSection: (section: OccupiedDetailSe
     return (
         <DrawerWrapper
             withMenu={
-                rolName !== "MANTENIMIENTO" &&
+                rolName !== RoleNames.mantenimiento &&
                 (type === "huesped" || type === "room_service" || type === "payments" || type === "comments")
             }
-            itemsMenu={rolName === "MANTENIMIENTO" ? undefined : ItemsOccupiedOptions(room?.status)}
+            itemsMenu={rolName === RoleNames.mantenimiento ? undefined : ItemsOccupiedOptions(room?.status)}
             withBackButton={
                 type === "cleanRoom" ||
                 type === "cambioHabitacion" ||

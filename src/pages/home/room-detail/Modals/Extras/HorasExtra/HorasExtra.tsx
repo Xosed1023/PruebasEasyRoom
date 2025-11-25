@@ -299,7 +299,7 @@ const HorasExtra = ({
     const { Modal: AuthModal } = useAuth({
         authModal: (
             <AuthRequiredModal
-                authorizedPins={[RoleNames.admin, RoleNames.gerente]}
+                authorizedPins={[RoleNames.admin, RoleNames.gerente, RoleNames.superadmin]}
                 isOpen={isAuthModalOpen}
                 onAuthFilled={(value, sampleData) => {
                     setisAuthModalOpen(false)
@@ -309,7 +309,7 @@ const HorasExtra = ({
             />
         ),
         noNeedAuthModalRoles: [],
-        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista, RoleNames.valet, RoleNames.gerente],
+        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista, RoleNames.valet, RoleNames.gerente, RoleNames.superadmin],
         isOpen: isAuthModalOpen,
         onClose: () => setisAuthModalOpen(false),
     })
@@ -389,7 +389,7 @@ const HorasExtra = ({
                                 className="noches-extra__body-pago"
                                 icon="creditCard"
                                 options={
-                                    rolName === "VALETPARKING"
+                                    rolName === RoleNames.valet
                                         ? [{ label: "Pendiente", value: "pendiente" }]
                                         : [
                                             { label: "Total", value: "total" },
@@ -398,7 +398,7 @@ const HorasExtra = ({
                                 }
                                 placeholder="Selecciona una opción"
                             />
-                            {rolName !== "VALETPARKING" && tipoPago === "total" && (
+                            {rolName !== RoleNames.valet && tipoPago === "total" && (
                                 <div className="noches-extra__body-pago-total">
                                     <div
                                         className={
@@ -482,9 +482,11 @@ const HorasExtra = ({
                                             />
                                         </div>
                                     ) : paymentMethod !== PAYMENT_METHODS.cortesia.value &&
-                                      paymentMethod !== PAYMENT_METHODS.consumoInterno.value &&
-                                      rolName !== "ADMINISTRADOR" &&
-                                      rolName !== "RECEPCIONISTA" ? (
+                                     paymentMethod !== PAYMENT_METHODS.consumoInterno.value &&
+                                     rolName !== RoleNames.admin &&
+                                     rolName !== RoleNames.superadmin &&
+                                     rolName !== RoleNames.recepcionista ? (
+
                                         <div
                                             className={
                                                 paymentMethod === PAYMENT_METHODS.visaOMasterCard.value ||

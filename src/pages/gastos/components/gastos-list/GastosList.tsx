@@ -95,7 +95,7 @@ const GastosList = ({ numFolio = 0, search = "", date = "", year = "", reload, r
 
     const handleRefresh = () => {
         setRefresh(!refresh)
-        if (mode === "ADMINISTRADOR") {
+        if (mode === RoleNames.admin || mode === RoleNames.superadmin) {
             refetch({
                 gastosCategoria: (parseInt(date) + 1).toString(),
                 hotel_id,
@@ -122,7 +122,7 @@ const GastosList = ({ numFolio = 0, search = "", date = "", year = "", reload, r
                     hotel_id,
                     subcategoria_id: subCategoryId || null,
                     fecha_gasto:
-                        profile === "RECEPCIONISTA"
+                        profile === RoleNames.recepcionista
                             ? { fecha_final: filterDate.end, fecha_inicial: localDateToUTCString(newToday) }
                             : date || year
                             ? {
@@ -139,7 +139,7 @@ const GastosList = ({ numFolio = 0, search = "", date = "", year = "", reload, r
                 if (data?.gastos) {
                     const dataFilter = getSortList(data?.gastos)
                     const array: GastosRow[] =
-                        profile === "RECEPCIONISTA" ? getRowsRecepcion(dataFilter, usuario_id) : getRows(dataFilter)
+                        profile === RoleNames.recepcionista ? getRowsRecepcion(dataFilter, usuario_id) : getRows(dataFilter)
 
                     setGastos(dataFilter)
                     setRowsGastos(array)
@@ -162,13 +162,13 @@ const GastosList = ({ numFolio = 0, search = "", date = "", year = "", reload, r
             if (filter.length > 0) {
                 const order = getSortList(filter)
 
-                const rows = profile === "RECEPCIONISTA" ? getRowsRecepcion(order, usuario_id) : getRows(order)
+                const rows = profile === RoleNames.recepcionista ? getRowsRecepcion(order, usuario_id) : getRows(order)
                 setRowsGastos(rows)
             } else {
                 setRowsGastos([])
             }
         } else {
-            const rows = profile === "RECEPCIONISTA" ? getRowsRecepcion(gastos, usuario_id) : getRows(gastos)
+            const rows = profile === RoleNames.recepcionista ? getRowsRecepcion(gastos, usuario_id) : getRows(gastos)
             setRowsGastos(rows)
         }
     }, [search])
@@ -184,7 +184,7 @@ const GastosList = ({ numFolio = 0, search = "", date = "", year = "", reload, r
                     {
                         value: (
                             <p className={gastoData.eliminado ? "gastos-table-row-eliminado" : ""}>
-                                {gastoData?.usuario?.roles[0]?.nombre === "ADMINISTRADOR" ? "A-" : "R-"}
+                                {gastoData?.usuario?.roles[0]?.nombre === RoleNames.admin || gastoData?.usuario?.roles[0]?.nombre === RoleNames.superadmin ? "A-" : "R-"}
                                 {gastoData?.folio}
                             </p>
                         ),
@@ -342,7 +342,7 @@ const GastosList = ({ numFolio = 0, search = "", date = "", year = "", reload, r
                     {
                         value: (
                             <p className={gastoData.eliminado ? "gastos-table-row-eliminado" : ""}>
-                                {gastoData?.usuario?.roles[0]?.nombre === "ADMINISTRADOR" ? "A-" : "R-"}
+                                {gastoData?.usuario?.roles[0]?.nombre === RoleNames.admin || gastoData?.usuario?.roles[0]?.nombre === RoleNames.superadmin ? "A-" : "R-"}
                                 {gastoData?.folio}
                             </p>
                         ),
@@ -486,7 +486,7 @@ const GastosList = ({ numFolio = 0, search = "", date = "", year = "", reload, r
                     }
                 }),
             },
-            ...(profile === "ADMINISTRADOR" ? tableItems.headers : tableItemsRecepcion.headers),
+            ...(profile === RoleNames.admin || profile === RoleNames.superadmin ? tableItems.headers : tableItemsRecepcion.headers),
         ]
     }, [selectedCategorias, selectedSubCategorias])
 
@@ -511,7 +511,7 @@ const GastosList = ({ numFolio = 0, search = "", date = "", year = "", reload, r
             setCategoryId("")
             handleSelectCategory("")
             setSubCategoryId("")
-            const rows = profile === "RECEPCIONISTA" ? getRowsRecepcion(gastos, usuario_id) : getRows(gastos)
+            const rows = profile === RoleNames.recepcionista ? getRowsRecepcion(gastos, usuario_id) : getRows(gastos)
             setRowsGastos(rows)
         }
     }
@@ -528,7 +528,7 @@ const GastosList = ({ numFolio = 0, search = "", date = "", year = "", reload, r
                 onClose={() => setisAuthModalOpen(false)}
             />
         ),
-        authorizedRoles: [RoleNames.recepcionista, RoleNames.admin],
+        authorizedRoles: [RoleNames.recepcionista, RoleNames.admin, RoleNames.superadmin],
         isOpen: isAuthModalOpen,
         onClose: () => setisAuthModalOpen(false),
     })
@@ -542,7 +542,7 @@ const GastosList = ({ numFolio = 0, search = "", date = "", year = "", reload, r
         <section>
             <div className={(gastosDelMes?.gastos_categoria_por_mes?.length || 0) > 4 ? "gastos-cards-gradientX" : ""}>
                 <div className="gastos-cards">
-                    {gastosDelMes && mode !== "RECEPCIONISTA" && !load && (
+                    {gastosDelMes && mode !== RoleNames.recepcionista && !load && (
                         <CardsGastosList gastosDelMes={gastosDelMes} loadingGM={load} month={parseInt(date)} />
                     )}
                 </div>

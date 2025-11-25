@@ -47,6 +47,7 @@ const getFormInitialState = ({
 
     return {
         orden_id: orden?.orden_id || "",
+        hotel_id,
         detalles_orden: getDetallesOrdenFormat(orden?.detalles_orden || []),
         usuario_id,
     }

@@ -4,6 +4,7 @@ import { useRoom } from "src/pages/home/room-detail/hooks"
 import { Block, PrimaryButton, TextArea } from "src/pages/home/room-detail/sections/elements/Elements"
 import Empty from "src/shared/components/data-display/empty/Empty"
 import { formatDateHor } from "src/shared/hooks/formatDateHor"
+import { RoleNames } from "src/shared/hooks/useAuth"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
 import { useProfile } from "src/shared/hooks/useProfile"
 import { handleErrorMessage } from "src/utils/promise"
@@ -97,7 +98,7 @@ export const Comment = () => {
                     )
                 ) : null}
             </Block>
-            {rolName !== "MONITOREO" && (
+            {rolName !== RoleNames.monitoreo && (
                 <div>
                     <TextArea
                         description="Comentarios"

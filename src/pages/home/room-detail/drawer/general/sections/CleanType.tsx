@@ -19,7 +19,7 @@ const CleanType = ({ state }: SectionProps) => {
     const { closeDrawer } = useCloseDrawer(() => {
         toggleIsLoading({ value: false })
     })
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
     const puestos = usePuestos()
 
     const puestoId =
@@ -60,6 +60,7 @@ const CleanType = ({ state }: SectionProps) => {
                     tipo_limpieza: value,
                 },
                 usuario_id,
+                hotel_id,
                 estadoHabitacion: Estados_Habitaciones.Limpieza,
             })
 

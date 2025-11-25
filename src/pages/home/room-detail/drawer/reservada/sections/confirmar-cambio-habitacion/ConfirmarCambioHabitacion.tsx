@@ -30,7 +30,7 @@ const ConfirmarCambioHabitacion = () => {
     const [actualizarEstado] = useMutation(UPDATE_ROOM_STATUS)
     const { localDateToUTCString } = useDate()
 
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
     const { showSnackbar } = useSnackbar()
 
     const habitacionSend = () => {
@@ -56,6 +56,7 @@ const ConfirmarCambioHabitacion = () => {
                             fecha_estado: localDateToUTCString(new Date()),
                             habitacion_id: reservaSeleccionada?.habitacion_id,
                             usuario_id: usuario_id,
+                            hotel_id
                         },
                     },
                 })

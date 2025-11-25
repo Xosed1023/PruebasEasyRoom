@@ -30,7 +30,7 @@ const ActiveCleanStaff = () => {
                                 key={colaborador_id}
                                 name={`${nombre} ${apellido_paterno} ${apellido_materno}`}
                                 description={`En limpieza desde hace: **${
-                                    fecha_inicio ? formatTimeAgo(fecha_inicio).split("Hace ")[1] : "-"
+                                    fecha_inicio ? formatTimeAgo(fecha_inicio) === "Justo ahora" ? formatTimeAgo(fecha_inicio) : formatTimeAgo(fecha_inicio).split("Hace ")[1] : "-"
                                 }**`}
                                 picture={foto || profileDefault}
                                 active={false}

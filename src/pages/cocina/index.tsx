@@ -123,8 +123,8 @@ function Cocina(): JSX.Element {
             <AuthModalSelector
                 authorizedPins={
                     (isOrdenOrComandaCancelada || isArticuloSelectedAndCancelled)
-                        ? [RoleNames.admin, RoleNames.cocina, RoleNames.bar, RoleNames.restaurante, RoleNames.roomService]
-                        : [RoleNames.admin, RoleNames.cocina, RoleNames.bar, RoleNames.restaurante]
+                        ? [RoleNames.superadmin, RoleNames.admin, RoleNames.cocina, RoleNames.bar, RoleNames.restaurante, RoleNames.roomService]
+                        : [RoleNames.superadmin, RoleNames.admin, RoleNames.cocina, RoleNames.bar, RoleNames.restaurante]
                 }
                 isOpen={isModalAuthCocinaOpen}
                 estadoOrdenOArticulo={getRequestState({ orden: (articulosOrdenSelected as any)?.orden }).state}
@@ -146,7 +146,7 @@ function Cocina(): JSX.Element {
                 }
             />
         ),
-        authorizedRoles: [RoleNames.admin, RoleNames.cocina, RoleNames.bar, RoleNames.restaurante, ...(action === "eliminar" ? [RoleNames.recepcionista, RoleNames.roomService] : [])],
+        authorizedRoles: [RoleNames.superadmin, RoleNames.admin, RoleNames.cocina, RoleNames.bar, RoleNames.restaurante, ...(action === "eliminar" ? [RoleNames.recepcionista, RoleNames.roomService] : [])],
         noNeedAuthModalRoles: [],
         isOpen: isModalAuthCocinaOpen,
         onClose: () => unselectAll(),
@@ -194,7 +194,7 @@ function Cocina(): JSX.Element {
             className="cocina__screen"
             title={"Panel de preparación"}
             contentClassName="cocina"
-            close={rolName === "COCINA" ? false : true}
+            close={rolName === RoleNames.cocina ? false : true}
             onClose={() => navigate(-1)}
             headerRight={
                 <div style={{ width: "300px" }}>

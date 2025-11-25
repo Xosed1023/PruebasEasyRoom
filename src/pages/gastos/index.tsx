@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "src/store/store"
 import { toggleNuevoGastoModalOpen } from "src/store/gastos/gastosSlice"
 import { useCurrentDate } from "src/shared/providers/CurrentdateProvider"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const options: Option[] = [
     { label: "Enero", value: "0" },
@@ -92,7 +93,7 @@ function Gastos() {
                 close={true}
                 onClose={() => navigate("/u")}
                 headerRight={
-                    rol === "ADMINISTRADOR" && (
+                    (rol === RoleNames.admin || rol === RoleNames.superadmin) && (
                         <div
                             className={
                                 data && data?.gastos?.length > 0 ? "gastos-screen-right" : "gastos-screen-right-empty"
@@ -147,7 +148,7 @@ function Gastos() {
                     )
                 }
             >
-                {rol === "RECEPCIONISTA" && data && data.gastos.length > 0 ? (
+                {rol === RoleNames.recepcionista && data && data.gastos.length > 0 ? (
                     <div className="gastos-search">
                         <p className="gastos-search-title">
                             Gastos de caja del día:{" "}
@@ -179,7 +180,7 @@ function Gastos() {
                 close={true}
                 onClose={() => navigate("/u")}
                 headerRight={
-                    rol === "ADMINISTRADOR" && (
+                    (rol === RoleNames.admin || rol === RoleNames.superadmin) && (
                         <div className={"gastos-screen-right-empty"}>
                             <Touchable
                                 className="cortes-screen-header-icon"

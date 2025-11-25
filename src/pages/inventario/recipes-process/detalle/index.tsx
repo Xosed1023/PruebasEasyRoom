@@ -30,6 +30,7 @@ import { DetalleRecetaProps } from "./interfaces"
 import "./DetalleReceta.css"
 import useAuth, { RoleNames } from "src/shared/hooks/useAuth"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { useProfile } from "src/shared/hooks/useProfile"
 
 function DetalleReceta({
     almacenArticulo,
@@ -48,6 +49,8 @@ function DetalleReceta({
     const [isLoading, setisLoading] = useState<boolean>(false)
     const {InactiveModal, validateIsColabActive} = useIsColaboradorActive()
 
+    const { hotel_id } = useProfile()
+
     const [updateProduct] = useActualizarProductoMutation()
     const [eliminarArticulo] = useEliminarArticuloMutation()
 
@@ -63,7 +66,7 @@ function DetalleReceta({
     const activado = almacenArticulo?.estado !== EstadosAlmacenesArticulos.Desactivado
 
     const { data: receta } = useGetRecetaForDetailQuery({
-        variables: { articulo_id: almacenArticulo?.articulo_id || "" },
+        variables: { articulo_id: almacenArticulo?.articulo_id || "", hotel_id },
     })
 
     const { alert } = useIngredientes(receta?.receta?.ingredientes_recetas || [])
@@ -142,6 +145,7 @@ function DetalleReceta({
                     articulo_id: almacenArticulo?.articulo_id || "",
                     estado: EstadosArticulo.Desactivado,
                     almacen_id: almacenArticulo?.almacen_id,
+                    hotel_id
                 },
             },
         })
@@ -174,6 +178,7 @@ function DetalleReceta({
                     articulo_id: almacenArticulo?.articulo_id || "",
                     estado: EstadosArticulo.Activado,
                     almacen_id: almacenArticulo?.almacen_id,
+                    hotel_id
                 },
             },
         })
@@ -257,8 +262,8 @@ function DetalleReceta({
                 isOpen={authSuccess.state}
             />
         ),
-        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista, RoleNames.cocina, RoleNames.bar],
-        noNeedAuthModalRoles: [RoleNames.admin, RoleNames.cocina, RoleNames.bar],
+        authorizedRoles: [RoleNames.superadmin, RoleNames.admin, RoleNames.recepcionista, RoleNames.cocina, RoleNames.bar],
+        noNeedAuthModalRoles: [RoleNames.superadmin, RoleNames.admin, RoleNames.cocina, RoleNames.bar],
         isOpen: authSuccess.state,
         onClose: () => setauthSuccess({ state: false, type: "" }),
     })

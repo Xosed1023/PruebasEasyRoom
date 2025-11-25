@@ -11,7 +11,7 @@ import { RoleNames } from "src/shared/hooks/useAuth"
 const AuthPinComponent = ({
     onAuthFilled,
     onLoading,
-    authorizedRoles = [RoleNames.admin],
+    authorizedRoles = [RoleNames.admin, RoleNames.superadmin],
     authorizedPins,
     isOpen,
 }: {

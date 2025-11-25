@@ -1,6 +1,5 @@
 .room-cards__wrapper__wrapper {
-    padding-right: 5px;
-    padding-left: 5px;
+    padding: 5px;
     height: calc(100vh - 240px);
     width: calc(100dvw - 100px);
     display: flex;

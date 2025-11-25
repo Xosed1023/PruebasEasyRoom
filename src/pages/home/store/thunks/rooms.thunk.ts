@@ -39,6 +39,7 @@ export const startGetSelectedRoom = (roomId: string, disabledToggle?: boolean, o
                 variables: {
                     habitacion_id: roomId,
                     usuario_id: getState().profile.usuario_id,
+                    hotel_id: getState().profile.hotel_id,
                 },
                 fetchPolicy: "no-cache",
             })
@@ -59,6 +60,7 @@ export const startGetSelectedRoomFromToggle = (roomId: string, onLoad: () => voi
                 variables: {
                     habitacion_id: roomId,
                     usuario_id: getState().profile.usuario_id,
+                    hotel_id: getState().profile.hotel_id,
                 },
                 fetchPolicy: "no-cache",
             })
@@ -96,12 +98,14 @@ export const startUpdateSelectedRoom = ({
     status,
     comentarioEstado = "",
     usuarioId,
+    hotelId,
     onSuccess,
 }: {
     roomId: string
     status: RoomStatus
     comentarioEstado?: string
     usuarioId: string
+    hotelId: string
     onSuccess?: () => void
 }): any => {
     return async (dispatch: any, getState: () => RootState) => {
@@ -116,6 +120,7 @@ export const startUpdateSelectedRoom = ({
                             comentario_estado: comentarioEstado,
                             habitacion_id: roomId,
                             usuario_id: usuarioId,
+                            hotel_id: hotelId
                         },
                     },
                 })
@@ -138,6 +143,7 @@ export const startRefetchUpdatedRoom = (habitacion_id: string): any => {
                 variables: {
                     habitacion_id,
                     usuario_id: getState().profile.usuario_id,
+                    hotel_id: getState().profile.hotel_id,
                 },
             })
             dispatch(selectRoom(data.habitacion))

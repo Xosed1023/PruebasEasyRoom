@@ -29,7 +29,7 @@ const ChangeSupervisor = () => {
 
     const room = useRoom()
     const { showMiniSnackbar } = useMiniSnackbar()
-    const { usuario_id, turno_hotel_id } = useProfile()
+    const { usuario_id, turno_hotel_id, hotel_id } = useProfile()
     const { data: camaristas, load: loadingCamaristas } = useColaborador(Puestos.RECAMARISTA)
     const { data: supervisores, load: loadingSupervisores } = useColaborador(Puestos.SUPERVISOR, Puestos.SUPERVISOR)
     const [isConfirmAsignarSupervisorLoading, setisConfirmAsignarSupervisorLoading] = useState(false)
@@ -52,6 +52,7 @@ const ChangeSupervisor = () => {
                     switch_task_btw_colab_input: {
                         sin_personal_asignado: !colaborador_ids.length,
                         tarea_id: tarea?.tarea_id,
+                        hotel_id,
                         colaborador_id: colaborador_ids,
                         colaborador_tarea_id: [tarea?.colaborador_tarea_id],
                         descripcion_tarea: tarea?.descripcion_tarea,

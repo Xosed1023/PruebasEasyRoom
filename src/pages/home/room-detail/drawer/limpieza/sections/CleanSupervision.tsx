@@ -56,13 +56,14 @@ function CleanRoomSupervision(): JSX.Element {
     const { habitacion_id } = useParams()
     const [cambiarTareaConEstado] = useCambiarTareaConEstadoMutation()
     const dispatch = useDispatch()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
     const getRoom = async () => {
         const { data } = await client.query({
             query: GET_ROOM,
             variables: {
                 habitacion_id,
                 usuario_id,
+                hotel_id
             },
             fetchPolicy: "no-cache",
         })
@@ -115,6 +116,7 @@ function CleanRoomSupervision(): JSX.Element {
                             (c) => c?.colaborador_tarea_id
                         ),
                         usuario_id,
+                        hotel_id,
                         estado: Estados_Habitaciones.SupervisionPendiente,
                     },
                 },
@@ -152,6 +154,7 @@ function CleanRoomSupervision(): JSX.Element {
                             (c) => c?.colaborador_tarea_id
                         ),
                         usuario_id,
+                        hotel_id,
                         estado: Estados_Habitaciones.Preparada,
                     },
                 },
@@ -189,6 +192,7 @@ function CleanRoomSupervision(): JSX.Element {
                             (c) => c?.colaborador_tarea_id
                         ),
                         usuario_id,
+                        hotel_id,
                         estado: Estados_Habitaciones.ALaVenta,
                     },
                 },
@@ -239,6 +243,7 @@ function CleanRoomSupervision(): JSX.Element {
                             tipo: TiposTarea.Supervision,
                         },
                         usuario_id,
+                        hotel_id
                     },
                 },
             })

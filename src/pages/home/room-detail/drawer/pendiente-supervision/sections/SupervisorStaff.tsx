@@ -22,7 +22,7 @@ const CleanSupervisor = () => {
 
     const room = useRoom()
     const { showMiniSnackbar } = useMiniSnackbar()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
     const { data: supervisores, load: loadingSupervisores } = useColaborador(Puestos.SUPERVISOR, Puestos.SUPERVISOR)
     const [isConfirmAsignarSupervisorLoading, setisConfirmAsignarSupervisorLoading] = useState(false)
 
@@ -58,6 +58,7 @@ const CleanSupervisor = () => {
                         habitacion_id: room?.habitacion_id,
                     },
                     usuario_id,
+                    hotel_id,
                     estadoHabitacion: Estados_Habitaciones.Supervision,
                 })
                 showMiniSnackbar({

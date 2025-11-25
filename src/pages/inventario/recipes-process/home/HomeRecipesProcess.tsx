@@ -168,8 +168,8 @@ const HomeRecipesProcess = () => {
                 onClose={() => setisAuthModalOpen(false)}
             />
         ),
-        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista, RoleNames.cocina, RoleNames.bar],
-        noNeedAuthModalRoles: [RoleNames.admin, RoleNames.cocina, RoleNames.bar],
+        authorizedRoles: [RoleNames.superadmin, RoleNames.admin, RoleNames.recepcionista, RoleNames.cocina, RoleNames.bar],
+        noNeedAuthModalRoles: [RoleNames.superadmin, RoleNames.admin, RoleNames.cocina, RoleNames.bar],
         isOpen: isAuthModalOpen,
         onClose: () => setisAuthModalOpen(false),
     })

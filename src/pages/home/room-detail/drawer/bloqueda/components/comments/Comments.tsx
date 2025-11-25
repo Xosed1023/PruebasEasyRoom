@@ -15,17 +15,18 @@ import useMiniSnackbar from "src/shared/hooks/useMiniSnackbar"
 import { useProfile } from "src/shared/hooks/useProfile"
 import "./Comments.css"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const CommentsBloqueada = () => {
     const room = useRoom()
-    const { usuario_id, rolName } = useProfile()
+    const { usuario_id, rolName, hotel_id } = useProfile()
     const { UTCStringToLocalDate } = useDate()
     const {InactiveModal, validateIsColabActive} = useIsColaboradorActive()
     const { showMiniSnackbar } = useMiniSnackbar()
-    const canAddComments = rolName !== "VALETPARKING" && rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO"
+    const canAddComments = rolName !== RoleNames.valet && rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo
 
     const { data, loading } = useQuery<{ habitacion: Habitacion }>(GET_ROOM, {
-        variables: { habitacion_id: room?.habitacion_id, usuario_id },
+        variables: { habitacion_id: room?.habitacion_id, usuario_id, hotel_id },
     })
 
     const [addComentarioHabitacion] = useMutation(AGREGAR_COMENTARIO_HABITACION)

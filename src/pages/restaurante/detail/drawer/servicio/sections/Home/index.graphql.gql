@@ -1,4 +1,4 @@
-query GetRestaurantOrden($orden_id: ID!) {
+query GetRestaurantOrden($orden_id: ID!, $hotel_id: ID!) {
     orden(orden_id: $orden_id) {
         orden_id
         orden
@@ -39,7 +39,7 @@ query GetRestaurantOrden($orden_id: ID!) {
                         contenido
                         unidad
                         descripcion
-                        precio {
+                        precio(hotel_id: $hotel_id) {
                             monto
                         }
                         tipo
@@ -71,7 +71,7 @@ query GetRestaurantOrden($orden_id: ID!) {
                             categoria_articulo {
                                 nombre
                             }
-                            precio {
+                            precio(hotel_id: $hotel_id) {
                                 monto
                             }
                         }

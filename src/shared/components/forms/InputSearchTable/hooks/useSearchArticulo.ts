@@ -58,6 +58,7 @@ const useSearchArticulo = ({ name, page, disabled = false }: { name?: string; pa
                     page: innerPage + 1,
                     take: 10,
                 },
+                hotel_id
             },
         }).then((d) => {
             setinnerPage(d.data?.almacenes_articulos.paginacion.pagina_actual || 1)

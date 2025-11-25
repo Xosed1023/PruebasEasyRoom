@@ -26,13 +26,30 @@ export async function seleccionarTurno(page: Page, turno = "Matutino") {
     await page.getByRole("main").getByText(turno).click()
 }
 
-export async function seleccionarColaborador(page: Page, nombre = "AdminReplicaVsur - -") {
+export async function seleccionarColaborador(page: Page) {
     await page.getByRole("textbox", { name: /Agrega el nombre del personal/i }).click()
-    await page.waitForSelector('[role="option"], li, div[role="listitem"]', { state: "visible", timeout: 10000 })
-    const opcion = page.getByText(nombre, { exact: true }).first()
-    if (await opcion.count()) await opcion.click()
-    else await page.locator('[role="option"], li, div[role="listitem"]').first().click()
+
+    const opciones = page.locator('[role="option"], li, div[role="listitem"]')
+
+    await expect(opciones.first()).toBeVisible({ timeout: 10000 })
+
+    const total = await opciones.count()
+    if (total === 0) {
+        throw new Error("❌ No hay opciones en el dropdown (API rota o sin colaboradores).")
+    }
+
+    for (let i = 0; i < total; i++) {
+        const texto = (await opciones.nth(i).innerText()).trim()
+
+        if (texto && texto !== "-" && texto !== "—" && texto.length > 1) {
+            await opciones.nth(i).click()
+            return
+        }
+    }
+
+    throw new Error("❌ Las opciones disponibles no representan colaboradores válidos.")
 }
+
 
 export async function seleccionarLugar(page: Page, lugar: "Habitación" | "Instalaciones" | "Huésped") {
     await page.getByText(lugar, { exact: true }).click()

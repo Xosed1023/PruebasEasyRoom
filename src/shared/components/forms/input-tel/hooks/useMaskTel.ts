@@ -1,56 +1,69 @@
 import { KeyboardEvent, useState } from "react"
 
 function formatTel(input: string | "Backspace", currentText: string): string {
-    const placeholder = "(__) ____ ____" // Define el formato base
-    const currentChars = currentText.length ?  currentText.split("") : placeholder.split("") // Divide el texto actual en un arreglo de caracteres
-    const placeholderChars = placeholder.split("") // Divide el placeholder en un arreglo de caracteres
+    const placeholder = "(__) ____ ____"
+    const currentChars = currentText.length ? currentText.split("") : placeholder.split("")
+    const placeholderChars = placeholder.split("")
 
-    
-    // Si no hay números escritos aún, devolver texto vacío al presionar "Backspace"
     const hasNumbers = currentChars.some((char, index) => placeholderChars[index] === "_" && char !== "_")
 
-    if(!/^\d+$/.test(input) && input !== "Backspace") {
-        if(!hasNumbers) {
-            return ""
-        }
+    if (!/^\d+$/.test(input) && input !== "Backspace") {
+        if (!hasNumbers) return ""
         return currentText
     }
 
-    if (input === "Backspace" && !hasNumbers) {
-        return ""
-    }
+    if (input === "Backspace" && !hasNumbers) return ""
 
     if (input === "Backspace") {
-        // Encuentra el último carácter ingresado que no sea parte del formato
         for (let i = currentChars.length - 1; i >= 0; i--) {
             if (placeholderChars[i] === "_" && currentChars[i] !== "_") {
-                currentChars[i] = "_" // Borra el carácter actual
+                currentChars[i] = "_"
                 break
             }
         }
     } else if (typeof input === "string" && /^\d$/.test(input)) {
-        // Encuentra el primer espacio "_" y lo reemplaza con el número ingresado
         for (let i = 0; i < currentChars.length; i++) {
             if (placeholderChars[i] === "_" && currentChars[i] === "_") {
-                currentChars[i] = input // Inserta el número
+                currentChars[i] = input
                 break
             }
         }
     }
 
-    return currentChars.join("") // Devuelve el texto actualizado
+    return currentChars.join("")
+}
+
+function normalizePhone(input: string): string {
+    // const placeholder = "(__) ____ ____"
+    const digits = input.replace(/\D/g, "").slice(0, 10) // Máximo 10 dígitos
+
+    const d = digits.split("")
+    // Llenar los faltantes con "_"
+    while (d.length < 10) {
+        d.push("_")
+    }
+
+    // Formatear al estilo "(XX) XXXX XXXX"
+    return `(${d[0]}${d[1]}) ${d[2]}${d[3]}${d[4]}${d[5]} ${d[6]}${d[7]}${d[8]}${d[9]}`
 }
 
 const useMaskTel = () => {
-    const [value, setValue] = useState("(__) ____ ____")
+    const [value, setValue] = useState<string>("")
 
-    const maskChange = (e: KeyboardEvent) => {
+    const maskChange = (e: KeyboardEvent | string) => {
+        if (typeof e === "string") {
+            const formatted = normalizePhone(e)
+            setValue(formatted)
+            return
+        }
         setValue(formatTel(e.key, value))
     }
 
     const manualChange = (v: string) => {
-        setValue(v)
+        const formatted = normalizePhone(v)
+        setValue(formatted)
     }
+
     return {
         maskChange,
         manualChange,

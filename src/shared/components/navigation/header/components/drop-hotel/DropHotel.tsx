@@ -26,18 +26,33 @@ const DropHotel = forwardRef(({ onChange }: DropHotelProps, ref: any) => {
         }
     })
 
-    const max_hoteles = hotel_lista.length >= 8
+    const max_hoteles = hotel_lista.length > 8
+
+    const orderList = (array: typeof hotel_lista): typeof hotel_lista | any => {
+        const selected: typeof hotel_lista = []
+        const values: typeof hotel_lista = []
+
+        array.forEach((item) => {
+            if (item.selected) {
+                selected.push(item)
+            } else {
+                values.push(item)
+            }
+        })
+
+        return [...selected, ...values.sort((a, b) => a.nombre_hotel.localeCompare(b.nombre_hotel))]
+    }
 
     const [search, setSearch] = useState<string>("")
     const [load, setLoad] = useState<boolean>(false)
-    const [hoteles, setHoteles] = useState<typeof hotel_lista>(hotel_lista)
+    const [hoteles, setHoteles] = useState<typeof hotel_lista>(orderList(hotel_lista))
 
     const fetchData = (value: string) => {
         const filter = hotel_lista.filter(({ nombre_hotel = "" }) => {
             const localText = `${nombre_hotel}`.slice(0, value.length)
             return value && localText.includes(value)
         })
-        setHoteles(value ? filter : hotel_lista)
+        setHoteles(orderList(value ? filter : hotel_lista))
         setLoad(false)
     }
 

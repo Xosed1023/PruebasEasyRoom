@@ -95,6 +95,7 @@ const HistorialPagoPropinas = () => {
         toggleIsLoading({ value: true })
         getHistorialPagosPropina({
             variables: {
+                hotel_id,
                 pago_propinas_input: {
                     mes_y_anio: `${(filterDate.getMonth() + 1)
                         .toString()

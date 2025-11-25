@@ -46,11 +46,11 @@ const NavigatorButton = ({ children }: { children: ReactNode }, ref: ForwardedRe
     const onSubmit = validateIsColabActive(() => {
         alertaPagosPendientes({
             variables: {
-                hotel_id
-            }
+                hotel_id,
+            },
         })
             .then(({ data }) => {
-                if (data?.alerta_por_pagos_pendientes) {
+                if (data?.alertas_corte?.alerta_por_pagos_pendientes) {
                     setVisible(true)
                     return
                 } else {

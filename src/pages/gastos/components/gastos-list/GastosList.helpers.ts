@@ -1,11 +1,11 @@
-import { useDate } from "src/shared/hooks/useDate"
+import { createDateUtils } from "src/shared/hooks/useDate"
 
 export const getSortList = (array: any[]) => {
     return array.sort((a, b) => new Date(b.fecha_registro).getTime() - new Date(a.fecha_registro).getTime()) || []
 }
 
 export const getFilterDate = (year: string, month: string, currentDate: Date) => {
-    const {localDateToUTCString} = useDate()
+    const {localDateToUTCString} = createDateUtils()
     const selectedYear = year ? Number(year) : currentDate.getFullYear()
     const selectedMonth = month ? Number(month) : currentDate.getMonth()
 

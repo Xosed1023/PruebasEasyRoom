@@ -26,6 +26,7 @@ const GET_FAJILLAS = gql`
                 apellido_paterno
                 apellido_materno
             }
+            deposito_id
             usuario_autorizo_id
             turno_id
             comentario

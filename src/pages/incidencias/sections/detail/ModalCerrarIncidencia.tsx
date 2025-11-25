@@ -22,22 +22,24 @@ import AuthRequiredModal from "src/pages/inventario/modals/Auth/AuthRequiredModa
 import useLoadingState from "src/shared/hooks/useLoadingState"
 import useMiniSnackbar from "src/shared/hooks/useMiniSnackbar"
 import { TiposIncidenciasFront } from "../../registro-incidencia/RegistroIncidencia.constants"
+import { useProfile } from "src/shared/hooks/useProfile"
 
 const ModalCerrarIncidencia = ({ visible = false, onClose, incidenciaId = "", onConfirm, folio, tipoIncidencia }) => {
     const navigate = useNavigate()
     const location = useLocation()
+    const { hotel_id } = useProfile()
     const { showSnackbar } = useSnackbar()
     const { showMiniSnackbar } = useMiniSnackbar()
     const dispatch = useDispatch()
     const [names, setNames] = useState([])
-    const {isLoading, toggleIsLoading} = useLoadingState()
+    const { isLoading, toggleIsLoading } = useLoadingState()
 
     const {
         control,
         handleSubmit,
         reset,
         formState: { errors },
-        getValues
+        getValues,
     } = useForm<FormValues>({
         defaultValues,
     })
@@ -59,31 +61,43 @@ const ModalCerrarIncidencia = ({ visible = false, onClose, incidenciaId = "", on
     }, [colaboradores])
 
     const [isAuthModalOpen, setisAuthModalOpen] = useState(false)
-    const {Modal: AuthModal, skip} = useAuth({
-        authModal: <AuthRequiredModal
-            isOpen={isAuthModalOpen}
-            onAuthFilled={() => {
-                confirmCancel(getValues())
-            }}
-            onClose={() => setisAuthModalOpen(false)}
-            authorizedPins={tipoIncidencia === TiposIncidenciasFront.ObjetoOlvidado ? [RoleNames.admin] : [RoleNames.admin, RoleNames.recepcionista]}
-            authorizedRoles={[RoleNames.admin, RoleNames.recepcionista]}
-        />,
-        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista],
+    const { Modal: AuthModal, skip } = useAuth({
+        authModal: (
+            <AuthRequiredModal
+                isOpen={isAuthModalOpen}
+                onAuthFilled={() => {
+                    confirmCancel(getValues())
+                }}
+                onClose={() => setisAuthModalOpen(false)}
+                authorizedPins={
+                    tipoIncidencia === TiposIncidenciasFront.ObjetoOlvidado
+                        ? [RoleNames.admin, RoleNames.superadmin]
+                        : [RoleNames.admin, RoleNames.superadmin, RoleNames.recepcionista]
+                }
+                authorizedRoles={[RoleNames.admin, RoleNames.superadmin, RoleNames.recepcionista]}
+            />
+        ),
+        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista, RoleNames.superadmin],
         isOpen: isAuthModalOpen,
-        noNeedAuthModalRoles: tipoIncidencia === TiposIncidenciasFront.ObjetoOlvidado ? [RoleNames.admin] : [TiposIncidenciasFront.Limpieza, TiposIncidenciasFront.Mantenimiento].includes(tipoIncidencia) ? [RoleNames.admin, RoleNames.recepcionista] : [RoleNames.admin],
-        onClose: () => setisAuthModalOpen(false)
+        noNeedAuthModalRoles:
+            tipoIncidencia === TiposIncidenciasFront.ObjetoOlvidado
+                ? [RoleNames.admin, RoleNames.superadmin]
+                : [TiposIncidenciasFront.Limpieza, TiposIncidenciasFront.Mantenimiento].includes(tipoIncidencia)
+                ? [RoleNames.admin, RoleNames.recepcionista, RoleNames.superadmin]
+                : [RoleNames.admin, RoleNames.superadmin],
+        onClose: () => setisAuthModalOpen(false),
     })
 
     const confirmCancel = async (data: FormValues) => {
-        if(isLoading) {
+        if (isLoading) {
             return
         }
-        toggleIsLoading({value: true})
+        toggleIsLoading({ value: true })
         const closeIncidenciaInput = {
             colaborador_id_cierra: searchColaboradorSelected()[0].colaborador_id,
             comentario_cierre: data.comment || null,
             incidencia_id: incidenciaId,
+            hotel_id,
         }
         try {
             const { data } = await client.mutate({ mutation: CERRAR_INCIDENCIA, variables: { closeIncidenciaInput } })
@@ -98,10 +112,10 @@ const ModalCerrarIncidencia = ({ visible = false, onClose, incidenciaId = "", on
             showMiniSnackbar({
                 title: "Error al cerrar incidencia",
                 text: `¡Ups! Ocurrió un eror al **cerrar** la incidencia con **folio ${folio}`,
-                status: "error"
+                status: "error",
             })
         } finally {
-            toggleIsLoading({value: false})
+            toggleIsLoading({ value: false })
         }
 
         dispatch(toggleDrawer(false))
@@ -109,9 +123,8 @@ const ModalCerrarIncidencia = ({ visible = false, onClose, incidenciaId = "", on
         onClose?.()
         reset(defaultValues)
         onConfirm()
-        if(location.pathname.split("/")?.[2] === "incidencias") navigate("/u/incidencias")
+        if (location.pathname.split("/")?.[2] === "incidencias") navigate("/u/incidencias")
     }
-
 
     const onSubmit = async (data: FormValues) => {
         skip ? confirmCancel(data) : setisAuthModalOpen(true)
@@ -136,10 +149,7 @@ const ModalCerrarIncidencia = ({ visible = false, onClose, incidenciaId = "", on
                 isCancelableOnClickOutside={false}
             >
                 <div className="detalle-incidencia__modal__title">
-                    <IconBorder
-                        primaryBgColor="var(--fondo-close)"
-                        primaryBgDiameter={60}
-                    >
+                    <IconBorder primaryBgColor="var(--fondo-close)" primaryBgDiameter={60}>
                         <Icon color="var(--primary)" name="alertFill" width={25} height={25} />
                     </IconBorder>
                     <h2>Cerrar incidencia</h2>

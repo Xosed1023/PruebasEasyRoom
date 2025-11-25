@@ -17,7 +17,6 @@ export const estadosOrdenes = {
     en_entrega: "En entrega",
     por_entregar: "Por entregar",
     en_preparacion: "En preparación",
-    devolucion: "Devolución",
     cancelada: "Cancelada",
     en_servicio: "En servicio",
 }

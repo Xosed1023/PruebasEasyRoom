@@ -18,6 +18,7 @@ import IncidenciasItem from "src/pages/home/room-detail/sections/items/Incidenci
 import DescriptionDetailList from "src/shared/components/data-display/DescriptionDetailList/DescriptionDetailList"
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const Home = ({ onNavigate }: SectionProps) => {
     const room = useRoom()
@@ -79,7 +80,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                             icon="businessStar"
                             label="Tipo de limpieza"
                             value={getCleanType()?.label || "-"}
-                            {...(rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" && {
+                            {...(rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo && {
                                 link: "Cambiar",
                                 onLink: () => onNavigate("change-clean-type"),
                             })}
@@ -107,7 +108,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                                     : "-"
                             }`}
                             date={formatTimeAgo(room?.ultimos_datos?.ultimo_mantenimiento?.fecha_termino)}
-                            {...(rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" && {
+                            {...(rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo && {
                                 link: "Mantenimiento",
                                 onLink: () => onNavigate("mantenance-reason"),
                             })}
@@ -120,7 +121,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                                     ? getDateStringMDY(room?.utlima_reserva?.reserva?.fecha_entrada)
                                     : "-"
                             }
-                            {...(rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" && {
+                            {...(rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo && {
                                 link: "Asignar reserva",
                                 onLink: () => onNavigate("booking"),
                             })}
@@ -136,7 +137,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                         <IncidenciasItem />
                     </Block>
                 </div>
-                {rolName !== "MANTENIMIENTO" &&  rolName !== "MONITOREO" && (
+                {rolName !== RoleNames.mantenimiento &&  rolName !== RoleNames.monitoreo && (
                     <div>
                         <PrimaryButton
                             text={"Finalizar limpieza"}

@@ -10,7 +10,7 @@ import { useEffect } from "react"
 const Preparada = ({ isSubmitLoading, setIsDataLoading, setIsSubmitLoading }: SectionProps) => {
     const [finalizarTarea] = useActualizar_Colaboradores_TareasMutation()
     const room = useSelectedRoom()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
     const { showSnackbar } = useSnackbar()
     const { onFinished } = useOnFinished({ onEnd: () => setIsSubmitLoading(false) })
 
@@ -27,6 +27,7 @@ const Preparada = ({ isSubmitLoading, setIsDataLoading, setIsSubmitLoading }: Se
             await finalizarTarea({
                 variables: {
                     datos_tarea: {
+                        hotel_id,
                         colaboradores_tareas_ids: room?.colaborador_tareas_sin_finalizar?.map(
                             (c) => c?.colaborador_tarea_id
                         ),

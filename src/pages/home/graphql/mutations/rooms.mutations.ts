@@ -231,16 +231,32 @@ export const UPDATE_SHORT_ROOM_STATUS = gql`
 `
 
 export const FREEDOM_ROOM = gql`
-     mutation Liberar_habitacion($codigo: String, $liberar_habitacion_input: ReleaseHabitacionInput!, $template_sample: String) {
-        liberar_habitacion(template_sample: $template_sample, codigo: $codigo, liberar_habitacion_input: $liberar_habitacion_input) {
+    mutation Liberar_habitacion(
+        $codigo: String
+        $liberar_habitacion_input: ReleaseHabitacionInput!
+        $template_sample: String
+    ) {
+        liberar_habitacion(
+            template_sample: $template_sample
+            codigo: $codigo
+            liberar_habitacion_input: $liberar_habitacion_input
+        ) {
             habitacion_id
         }
     }
 `
 
 export const LOCK_ROOM = gql`
-    mutation Bloquear_habitacion($codigo: String!, $bloquear_habitacion_input: LockHabitacionInput!, $template_sample: String!) {
-        bloquear_habitacion(bloquear_habitacion_input: $bloquear_habitacion_input, codigo: $codigo, template_sample: $template_sample) {
+    mutation Bloquear_habitacion(
+        $codigo: String!
+        $bloquear_habitacion_input: LockHabitacionInput!
+        $template_sample: String!
+    ) {
+        bloquear_habitacion(
+            bloquear_habitacion_input: $bloquear_habitacion_input
+            codigo: $codigo
+            template_sample: $template_sample
+        ) {
             comentario_estado
             eliminado
             estado

@@ -88,7 +88,7 @@ const CancelarRenta = ({
     const { showSnackbar } = useSnackbar()
     const { UTCStringToLocalDate } = useDate()
     const room = useRoom()
-    const { usuario_id, rolName } = useProfile()
+    const { usuario_id, rolName, hotel_id } = useProfile()
     const { handlePrint } = usePrintTicket()
 
     const { data: transacciones } = useTransacciones_RentaQuery({
@@ -121,7 +121,7 @@ const CancelarRenta = ({
 
     useEffect(() => {
         if (isOpen) {
-            if (rolName === RoleNames.admin) {
+            if (rolName === RoleNames.admin || rolName === RoleNames.superadmin) {
                 return
             }
             return startAcquisition()
@@ -218,7 +218,7 @@ const CancelarRenta = ({
                         UTCStringToLocalDate(transaction.ticket?.fecha_impresion)
                     )}`,
                     available:
-                        estado === "corte_abierto" || (rolName === RoleNames.admin && estado === "corte_pendiente"),
+                        estado === "corte_abierto" || (rolName === RoleNames.admin || rolName === RoleNames.superadmin && estado === "corte_pendiente"),
                 }
             }) || []
 
@@ -245,7 +245,7 @@ const CancelarRenta = ({
                 description: `Fecha de venta: ${formatDateComplitSlash(
                     UTCStringToLocalDate(i?.orden?.fecha_registro)
                 )}`,
-                available: estado === "corte_abierto" || (rolName === RoleNames.admin && estado === "corte_pendiente"),
+                available: estado === "corte_abierto" || (rolName === RoleNames.admin || rolName === RoleNames.superadmin && estado === "corte_pendiente"),
             }
         })
 
@@ -277,7 +277,7 @@ const CancelarRenta = ({
         const folios_pendientes: string[] = []
         const ids_pendientes: any[] = []
 
-        if (rolName === RoleNames.admin) {
+        if (rolName === RoleNames.admin || rolName === RoleNames.superadmin) {
             ordenes.forEach((i) => {
                 if (!i?.ticket?.ticket_id) {
                     ordenes_pendientes.push(i)
@@ -344,10 +344,10 @@ const CancelarRenta = ({
     }
 
     const onSubmit = (v: DefaultValues<operacionACancelarType>) => {
-        const authorizedRoles = [RoleNames.admin]
+        const authorizedRoles = [RoleNames.admin, RoleNames.superadmin]
         setDisabledButton(true)
         
-        if (rolName === RoleNames.admin) {
+        if (rolName === RoleNames.admin || rolName === RoleNames.superadmin) {
             onAfterSubmit(v)
             return
         }
@@ -416,6 +416,7 @@ const CancelarRenta = ({
                         cancelar_renta: isCancelarEstancia,
                         motivo_cancelacion: v.motivoCancelacion === "otro" ? v.descriptionMotivo : v.motivoCancelacion,
                         renta_id: transacciones?.transacciones_renta?.renta?.renta_id || "",
+                        hotel_id,
                         usuario_id,
                         extras,
                         ordenes: ordenes.length > 0 ? ordenes : null,
@@ -649,7 +650,7 @@ const CancelarRenta = ({
                                     )}
                                 />
                             )}
-                            {rolName !== RoleNames.admin && (
+                            {rolName !== RoleNames.admin && rolName !== RoleNames.superadmin && (
                                 <Controller
                                     control={control}
                                     name="codigoVerificacion"

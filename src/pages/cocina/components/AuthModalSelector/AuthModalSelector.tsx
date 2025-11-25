@@ -17,7 +17,7 @@ const AuthModalSelector = ({
     title: string
     authorizedPins?: RoleNames[]
 }) => {
-    const authorizedRoles = [RoleNames.admin, RoleNames.cocina, RoleNames.bar, RoleNames.restaurante]
+    const authorizedRoles = [RoleNames.superadmin, RoleNames.admin, RoleNames.cocina, RoleNames.bar, RoleNames.restaurante]
     return estadoOrdenOArticulo === RequestState.en_preperacion ? (
         <AuthCocinaModal
             authorizedPins={authorizedPins}

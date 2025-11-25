@@ -22,7 +22,7 @@ function Disponibilidad(): JSX.Element {
             </div>
         )),
 
-        lista_espera && lista_espera.length > 0 ? (
+        lista_espera && lista_espera.length > 0 && (
             <div className="disp__card-list" key="lista-espera">
                 <p className="disp__card-list-title">Lista de espera para habitaciones</p>
                 {lista_espera.map((habitacionObj, index) => {
@@ -31,14 +31,8 @@ function Disponibilidad(): JSX.Element {
                     return <CardListaEspera key={index} nombreHabitacion={nombreHabitacion} folios={folios} />
                 })}
             </div>
-        ) : (
-            !loading && (
-                <div className="disp__empty-slide" key="sin-lista">
-                    <p className="disp__empty-text">Sin lista de espera</p>
-                </div>
-            )
         ),
-    ]
+    ].filter(Boolean)
     return (
         <div className="disp__screen">
             <div className="disp__content">

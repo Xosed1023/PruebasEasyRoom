@@ -8,6 +8,7 @@ const dayNext = tomorrow.getDate()
 
 test("Editar Reserva Pago Pendiente", async ({ page }) => {
     await page.goto("https://test.easyroom.io/")
+    await page.reload()
     await page.getByTestId("email").fill("adminReplicaVsur@easyroom.io")
     await page.getByTestId("password").fill("ABCd1234")
     await page.getByRole("button", { name: "Ingresar" }).click()
@@ -86,6 +87,7 @@ prueba ${reservaId} editar reserva agregando 1 dia mas, en total 3 noches con pa
 
 test("Editar Reserva Pago Parcial", async ({ page }) => {
     await page.goto("https://test.easyroom.io/")
+    await page.reload()
     await page.getByTestId("email").fill("adminReplicaVsur@easyroom.io")
     await page.getByTestId("password").fill("ABCd1234")
     await page.getByRole("button", { name: "Ingresar" }).click()
@@ -171,6 +173,7 @@ prueba ${reservaId} editar reserva agregando 1 dia mas, en total 3 noches con pa
 
 test("Editar Reserva Pago Total", async ({ page }) => {
     await page.goto("https://test.easyroom.io/")
+    await page.reload()
     await page.getByTestId("email").fill("adminReplicaVsur@easyroom.io")
     await page.getByTestId("password").fill("ABCd1234")
     await page.getByRole("button", { name: "Ingresar" }).click()

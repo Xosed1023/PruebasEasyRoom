@@ -30,6 +30,7 @@ import BuildRows from "./helpers/build-rows"
 import { capitalizeString } from "src/shared/hooks/capitalizeString"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
 import TablePaginatorWrapper from "src/shared/components/data-display/FlexibleTable/sections/TablePaginatorWrapper/TablePaginatorWrapper"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 function Incidencias(): JSX.Element {
     const location = useLocation()
@@ -90,11 +91,11 @@ function Incidencias(): JSX.Element {
 
     useEffect(() => {
         const dataIncidencias = (data?.incidencias || []).filter((incidencia) =>
-            rolName === "VALETPARKING"
+            rolName === RoleNames.valet
                 ? incidencia.colaborador_reporta?.puesto?.nombre === "Valet parking"
-                : rolName === "ROOMSERVICE"
+                : rolName === RoleNames.roomService
                 ? incidencia.colaborador_reporta?.puesto?.nombre === "Room service"
-                : rolName === "RESTAURANTE"
+                : rolName === RoleNames.restaurante
                 ? puestosRestaurante.includes(incidencia.colaborador_reporta?.puesto?.nombre ?? "")
                 : true
         )
@@ -296,7 +297,7 @@ function Incidencias(): JSX.Element {
                         showNumerOnNoItems={true}
                     />
                     <div className="incidencias__container-right">
-                        {rolName !== "MONITOREO" && (
+                        {rolName !== RoleNames.monitoreo && (
                             <div className="incidencias__search">
                                 <InputText
                                     ref={inputRef}
@@ -384,7 +385,7 @@ function Incidencias(): JSX.Element {
                         />
                     </div>
                 )}
-                {rolName !== "MONITOREO" && (
+                {rolName !== RoleNames.monitoreo && (
                     <div
                         className="incidencias__float-button "
                         onClick={validateIsColabActive(() => {

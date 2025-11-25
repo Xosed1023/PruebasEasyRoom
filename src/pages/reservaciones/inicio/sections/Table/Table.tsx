@@ -33,6 +33,7 @@ import { useProfile } from "src/shared/hooks/useProfile"
 import { getOrigenLabel } from "src/pages/reservaciones/helpers/origen"
 import { CalendarButtons } from "../../components/CalendarButtons/CalendarButtons"
 import Badge from "src/shared/components/data-display/Badge/Badge"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const options: Option[] = [
     { label: "Enero", value: "0" },
@@ -100,7 +101,7 @@ export const TableSection = () => {
 
     const headers = tableItems()
 
-    const tabsToUse = rolName === "VALETPARKING" ? tabsValet : tabs
+    const tabsToUse = rolName === RoleNames.valet ? tabsValet : tabs
     const [path, setPath] = useState<string>(tabsToUse[0].path)
 
     const [selectReserva, setSelectReserva] = useState<string>("")
@@ -225,7 +226,7 @@ export const TableSection = () => {
                     number: dataDiaActual?.reservas.length || 0,
                 })
             }
-            if (v.path === "/currentmonth" && rolName === "VALETPARKING") {
+            if (v.path === "/currentmonth" && rolName === RoleNames.valet) {
                 tabsList.push({
                     label: v.label,
                     path: v.path,
@@ -241,7 +242,7 @@ export const TableSection = () => {
         reservas =
             path === "/current"
                 ? dataDiaActual?.reservas.filter((res) => areSameDay(new Date(res.fecha_entrada), new Date()))
-                : path === "/currentmonth" && rolName === "VALETPARKING"
+                : path === "/currentmonth" && rolName === RoleNames.valet
                 ? dataMesActual?.reservas.filter((res) => {
                     const fechaEntrada = new Date(res.fecha_entrada)
                     return fechaEntrada >= firstDayOfMonth && fechaEntrada <= lastDayOfMonth
@@ -528,7 +529,7 @@ export const TableSection = () => {
                 </div>
             )}
             <DrawerSection visible={isDrawerOpen} id={selectReserva} onClose={() => toggleDrawerState(false)} />
-            {rolName !== "VALETPARKING" && rolName !== "MANTENIMIENTO" && <AddButton />}
+            {rolName !== RoleNames.valet && rolName !== RoleNames.mantenimiento && <AddButton />}
         </section>
     )
 }

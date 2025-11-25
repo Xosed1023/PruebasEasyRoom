@@ -26,7 +26,7 @@ function CerrarCuenta(): JSX.Element {
                 iconFrom="Order"
                 iconTo="IconPendingPaymentFill"
                 isOpen={true}
-                onAuthFilled={(codigo, template_sample) => {
+                onAuthFilled={() => {
                     if (!mesa?.asignacion_actual?.mesa_asignada_id) {
                         return
                     }
@@ -35,8 +35,6 @@ function CerrarCuenta(): JSX.Element {
                             cerrarCuentaMesaAsignadaInput: {
                                 mesa_asignada_id: mesa?.asignacion_actual?.mesa_asignada_id,
                             },
-                            codigo,
-                            template_sample,
                         },
                     })
                         .then(() => {

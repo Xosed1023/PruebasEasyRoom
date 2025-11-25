@@ -16,6 +16,7 @@ type Params = {
         tipo_limpieza?: string
     }
     usuario_id: string
+    hotel_id: string
     estadoHabitacion?: Estados_Habitaciones
 }
 
@@ -24,6 +25,7 @@ export async function assignColaborador({
     datos_colaborador_tarea,
     estadoHabitacion,
     usuario_id,
+    hotel_id
 }: Params) {
     try {
         let res = null
@@ -31,6 +33,7 @@ export async function assignColaborador({
             mutation: CREAR_COLABORADOR_TAREA,
             variables: {
                 datos_colaborador_tarea: {
+                    hotel_id,
                     fecha_inicio: new Date().toISOString(),
                     colaborador_id: datos_colaborador_tarea.colaborador_ids,
                     descripcion_tarea: datos_colaborador_tarea.descripcion_tarea,

@@ -1,4 +1,4 @@
-import { useDate } from "src/shared/hooks/useDate"
+import { createDateUtils } from "src/shared/hooks/useDate"
 import { StatusIsUsingExtraTime } from "./status.type"
 
 const getIsUsingExtraTime = ({
@@ -12,7 +12,7 @@ const getIsUsingExtraTime = ({
     now: Date
     roomNumber: string
 }): StatusIsUsingExtraTime => {
-    const { UTCStringToLocalDate } = useDate()
+    const { UTCStringToLocalDate } = createDateUtils()
 
     if (occupiedTimeEnd === occupiedTimeEndCondensada) {
         return StatusIsUsingExtraTime.No

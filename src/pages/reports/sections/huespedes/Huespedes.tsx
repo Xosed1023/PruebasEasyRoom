@@ -146,7 +146,7 @@ const Huespedes = ({ apiDateFilter }: { apiDateFilter: string[] | null }) => {
             },
         ],
         key: index + "",
-    }))
+    })) || []
 
     return (
         <ReportWrapper height="calc(100dvh - 125px)">
@@ -154,18 +154,18 @@ const Huespedes = ({ apiDateFilter }: { apiDateFilter: string[] | null }) => {
                 <SkeletonCards />
             ) : (
                 <CardReports>
-                    <CardReport title="No. de registros" value={data.dashboard.total_reg || "0"} />
+                    <CardReport title="No. de registros" value={data?.dashboard?.total_reg || "0"} />
                     <CardReportDouble
                         title1="Visitas por renta"
-                        value2={data.dashboard.venta_rentas ? formatCurrencyToFixed(data.dashboard.venta_rentas) : "$0"}
+                        value2={data?.dashboard?.venta_rentas ? formatCurrencyToFixed(data?.dashboard?.venta_rentas) : "$0"}
                         title2={"Visitas por reserva"}
                         value1={
-                            data.dashboard.venta_reservas ? formatCurrencyToFixed(data.dashboard.venta_rentas) : "$0"
+                            data?.dashboard?.venta_reservas ? formatCurrencyToFixed(data?.dashboard?.venta_rentas) : "$0"
                         }
                     />
-                    <CardReport title="Ingresos por room service" value={data.dashboard.cantidad_rs || "0"} />
-                    <CardReport title="Ingresos por room service" value={data.dashboard.venta_extras || "0"} />
-                    <CardReport title="Ingresos por room service" value={data.dashboard.cantidad_rest || "0"} />
+                    <CardReport title="Ingresos por room service" value={data?.dashboard?.cantidad_rs || "0"} />
+                    <CardReport title="Ingresos por room service" value={data?.dashboard?.venta_extras || "0"} />
+                    <CardReport title="Ingresos por room service" value={data?.dashboard?.cantidad_rest || "0"} />
                 </CardReports>
             )}
             <TablePaginatorWrapper

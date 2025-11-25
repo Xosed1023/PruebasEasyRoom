@@ -12,7 +12,7 @@ import { Controller, useForm } from "react-hook-form"
 const Sucia = ({ isSubmitLoading, setIsDataLoading, setIsSubmitLoading, showComments }: SectionProps) => {
     const [finalizarTarea] = useActualizar_Colaboradores_TareasMutation()
     const room = useSelectedRoom()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
     const { showSnackbar } = useSnackbar()
     const { onFinished } = useOnFinished({ onEnd: () => setIsSubmitLoading(false) })
 
@@ -45,6 +45,7 @@ const Sucia = ({ isSubmitLoading, setIsDataLoading, setIsSubmitLoading, showComm
                             (c) => c?.colaborador_tarea_id
                         ),
                         usuario_id,
+                        hotel_id,
                         estado: Estados_Habitaciones.Sucia,
                         comentarios_tarea: comentario || undefined,
                     },

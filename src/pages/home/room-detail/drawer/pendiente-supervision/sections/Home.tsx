@@ -15,6 +15,7 @@ import DescriptionDetailList from "src/shared/components/data-display/Descriptio
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
 import { ItemTimer } from "../../../sections/items/Items"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const Home = ({ onNavigate }: SectionProps) => {
     const room = useRoom()
@@ -51,9 +52,9 @@ const Home = ({ onNavigate }: SectionProps) => {
                         : "-"
                 }`,
                 date: `${mant?.fecha_termino ? formatTimeAgo(mant?.fecha_termino) : "-"}`,
-                link: rolName !== "MONITOREO" && rolName !== "MANTENIMIENTO" ? "Mantenimiento" : undefined,
+                link: rolName !== RoleNames.monitoreo && rolName !== RoleNames.mantenimiento ? "Mantenimiento" : undefined,
                 onLink:
-                    rolName !== "MANTENIMIENTO"
+                    rolName !== RoleNames.mantenimiento
                         ? validateIsColabActive(() => onNavigate("mantenance-reason"))
                         : undefined,
             },
@@ -99,7 +100,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                         rowGap: "20px",
                     }}
                 >
-                    {rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" &&   (
+                    {rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo &&   (
                         <>
                             <PrimaryButton
                                 text={"Supervisar limpieza"}

@@ -1,11 +1,11 @@
 import { GetIncidenciasQuery } from "src/gql/schema"
 import { IncidenciaRow } from "../Incidencia.types"
 import { capitalizeString } from "src/shared/hooks/capitalizeString"
-import { useDate } from "src/shared/hooks/useDate"
+import { createDateUtils } from "src/shared/hooks/useDate"
 import { getDateStringDMYH } from "src/utils/date"
 
 function buildTable(data: GetIncidenciasQuery["incidencias"]) {
-    const { UTCStringToLocalDate } = useDate()
+    const { UTCStringToLocalDate } = createDateUtils()
     const array: IncidenciaRow[] = []
     data?.map((incidencia) => {
         array.push({

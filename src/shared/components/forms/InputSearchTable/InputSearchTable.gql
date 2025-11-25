@@ -1,4 +1,4 @@
-query GetArticulosSearchTable($hotel_id: ID, $pagination_options: PageOptionsArgs!, $nameFilter: String!) {
+query GetArticulosSearchTable($hotel_id: ID!, $pagination_options: PageOptionsArgs!, $nameFilter: String!) {
     almacenes_articulos(
         hotel_id: $hotel_id
         eliminado: false
@@ -48,7 +48,7 @@ query GetArticulosSearchTable($hotel_id: ID, $pagination_options: PageOptionsArg
                 stock
                 tipo
                 unidad
-                precio {
+                precio(hotel_id: $hotel_id) {
                     monto
                 }
                 costo {

@@ -13,6 +13,7 @@ import IncidenciasItem from "../../../sections/items/Incidencias"
 import DescriptionDetailList from "src/shared/components/data-display/DescriptionDetailList/DescriptionDetailList"
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const Home = ({ onNavigate }: SectionProps) => {
     const room = useRoom()
@@ -48,7 +49,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                         : "-"
                 }`,
                 date: `${mant?.fecha_termino ? formatTimeAgo(mant?.fecha_termino) : "-"}`,
-                ...(rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" && {
+                ...(rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo && {
                     link: "Mantenimiento",
                     onLink: () => onNavigate("mantenance-reason"),
                 }),
@@ -102,7 +103,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                     <IncidenciasItem />
                 </Block>
 
-                {rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" && (
+                {rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo && (
                     <div>
                         <PrimaryButton
                             text={"Limpiar habitación"}

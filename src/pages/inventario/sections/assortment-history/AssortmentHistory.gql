@@ -18,7 +18,7 @@ query GetSurtidosByAlmacenArtId($almacen_articulo_id: ID, $fecha_ingreso: DateSe
     }
 }
 
-query GetAlmacenArticuloForSurtido($almacen_articulo_id: ID!) {
+query GetAlmacenArticuloForSurtido($almacen_articulo_id: ID!, $hotel_id: ID!) {
     almacen_articulo(almacen_articulo_id: $almacen_articulo_id) {
         almacen_articulo_id
         almacen_id
@@ -32,7 +32,7 @@ query GetAlmacenArticuloForSurtido($almacen_articulo_id: ID!) {
             articulo_id
             marca
             nombre
-            precio {
+            precio(hotel_id: $hotel_id) {
                 monto
             }
             costo {

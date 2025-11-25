@@ -18,7 +18,7 @@ const AuthModal = ({
     onAuthFilled,
     isOpen,
     children,
-    authorizedRoles = [RoleNames.admin],
+    authorizedRoles = [RoleNames.admin, RoleNames.superadmin],
     authorizedPins,
 }: {
     onClose: () => void

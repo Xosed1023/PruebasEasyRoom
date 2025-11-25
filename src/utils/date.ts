@@ -1,4 +1,4 @@
-import { useDate } from "src/shared/hooks/useDate"
+import { createDateUtils } from "src/shared/hooks/useDate"
 
 export const months: string[] = [
     "Enero",
@@ -65,7 +65,7 @@ export const getFormatLongDateHour = (dateString: any): string => {
 }
 
 export const getDateStringMDYH = (date: Date | string) => {
-    const { UTCStringToLocalDate } = useDate()
+    const { UTCStringToLocalDate } = createDateUtils()
     const current = typeof date === "string" ? UTCStringToLocalDate(date) : date
     const hour = `${format(current.getHours())}:${format(current.getMinutes())}`
 

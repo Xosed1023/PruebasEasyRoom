@@ -72,7 +72,7 @@ function History(): JSX.Element {
         <>
             <Drop
                 options={[
-                    { label: "Cierre mensual", onClick: () => navigate("/u/cortes/caratula/mensual") },
+                    // { label: "Cierre mensual", onClick: () => navigate("/u/cortes/caratula/mensual") },
                     { label: "Corte por fechas", onClick: () => setVisible(true) },
                 ]}
             />

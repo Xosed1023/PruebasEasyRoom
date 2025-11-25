@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { TiposPagos } from "src/gql/schema"
 import AuthRequiredModal from "src/pages/inventario/modals/Auth/AuthRequiredModal/AuthRequiredModal"
 import useAuth, { RoleNames } from "src/shared/hooks/useAuth"
@@ -24,42 +24,49 @@ const useAuthOnCortesiaFromMixtoSelect = ({
 }) => {
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false)
     const [pagoCortesiaCount, setpagoCortesiaCount] = useState(0)
-    
+
+    const onCleanPayments = () => {
+        setValue(
+            tipoPagoList.map((p) => {
+                return p.type === TiposPagos.Cortesia ? { ...p, type: "" as TiposPagos } : p
+            })
+        )
+    }
+
     const { Modal, skip } = useAuth({
         authModal: (
             <AuthRequiredModal
-                authorizedPins={[RoleNames.admin, RoleNames.gerente]}
+                authorizedPins={[RoleNames.admin, RoleNames.superadmin, RoleNames.gerente]}
                 isOpen={isAuthModalOpen}
                 onAuthFilled={(value, sampleData) => {
                     setIsAuthModalOpen(false)
                     setpagoCortesiaCount((v) => v + 1)
+                    onCleanPayments()
                 }}
                 onClose={() => {
                     setIsAuthModalOpen(false)
-                    setValue(
-                        tipoPagoList.map((p) =>
-                            p.type === TiposPagos.Cortesia
-                                ? {
-                                    ...p,
-                                    type: TiposPagos.Efectivo,
-                                }
-                            : p
-                        )
-                    )
+                    onCleanPayments()
                 }}
             />
         ),
-        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista, RoleNames.valet, RoleNames.gerente],
-        noNeedAuthModalRoles: [RoleNames.admin],
+        authorizedRoles: [
+            RoleNames.admin,
+            RoleNames.superadmin,
+            RoleNames.recepcionista,
+            RoleNames.valet,
+            RoleNames.gerente,
+        ],
+        noNeedAuthModalRoles: [RoleNames.admin, RoleNames.superadmin],
         isOpen: isAuthModalOpen,
         onClose: () => {
             setIsAuthModalOpen(false)
+            onCleanPayments()
         },
     })
 
     useEffect(() => {
         // si es más de 1 quiere decir que es pago mixto, si no es un solo tipo de pago
-        if(tipoPagoList.length <= 1) {
+        if (tipoPagoList.length <= 1) {
             return
         }
         if (
@@ -69,7 +76,7 @@ const useAuthOnCortesiaFromMixtoSelect = ({
         ) {
             return setIsAuthModalOpen(true)
         }
-        if(!tipoPagoList.find((p) => p.type === TiposPagos.Cortesia)) {
+        if (!tipoPagoList.find((p) => p.type === TiposPagos.Cortesia)) {
             return setpagoCortesiaCount(0)
         }
     }, [tipoPagoList.map((p) => p.type).join(",")])

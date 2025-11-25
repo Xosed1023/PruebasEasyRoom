@@ -164,11 +164,11 @@ const Energeticos = (
                     />
                     <CardReport
                         title="Consumo de gas"
-                        value={formatLongNumber(data?.dashboard?.consumo_agua || 0) + "L"}
+                        value={formatLongNumber(data?.dashboard?.consumo_gas || 0) + "m³"}
                     />
                     <CardReport
                         title="Consumo de luz"
-                        value={formatLongNumber(data?.dashboard?.consumo_agua || 0) + "kW"}
+                        value={formatLongNumber(data?.dashboard?.consumo_luz || 0) + "kW"}
                     />
                 </CardReports>
             )}

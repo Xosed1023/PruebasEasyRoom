@@ -46,7 +46,7 @@ const HistorialProduccion = () => {
     })
 
     const { data: articulo } = useGetAlmacenArticuloByArrayIdQuery({
-        variables: { articulo_id, pagination_options },
+        variables: { articulo_id, pagination_options, hotel_id },
     })
 
     const { rows, visibleData, handleSort } = useTableHistorialProduccion(historial)

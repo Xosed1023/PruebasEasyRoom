@@ -26,7 +26,7 @@ const PagoPropinasButton = () => {
                 onClose={() => setisAuthModalOpen(false)}
             />
         ),
-        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista],
+        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista, RoleNames.superadmin],
         isOpen: isAuthModalOpen,
         onClose: () => setisAuthModalOpen(false),
     })

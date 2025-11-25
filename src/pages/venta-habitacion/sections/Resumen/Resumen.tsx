@@ -100,7 +100,7 @@ const Resumen = ({
     const { Modal } = useAuth({
         authModal: (
             <AuthRequiredModal
-                authorizedPins={[RoleNames.admin, RoleNames.gerente]}
+                authorizedPins={[RoleNames.admin, RoleNames.gerente, RoleNames.superadmin]}
                 isOpen={isAuthModalOpen}
                 onAuthFilled={(value, sampleData) => {
                     setisAuthModalOpen(false)
@@ -109,7 +109,7 @@ const Resumen = ({
                 onClose={() => setisAuthModalOpen(false)}
             />
         ),
-        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista, RoleNames.valet, RoleNames.gerente],
+        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista, RoleNames.valet, RoleNames.gerente, RoleNames.superadmin],
         noNeedAuthModalRoles: [],
         isOpen: isAuthModalOpen,
         onClose: () => setisAuthModalOpen(false),

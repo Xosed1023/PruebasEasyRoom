@@ -1,5 +1,5 @@
 query TableArticulos(
-  $hotel_id: ID, 
+  $hotel_id: ID!, 
   $almacen_id: [ID!], 
   $filter_tipo_articulo: [TipoArticulo!],
   $pagination_options: PageOptionsArgs!, 

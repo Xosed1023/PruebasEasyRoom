@@ -16,7 +16,7 @@ const FreeRoomPendienteSupervision = () => {
     const [value, setValue] = useState<Estados_Habitaciones | "navigate">(Estados_Habitaciones.ALaVenta)
     const navigate = useNavigate()
     const { habitacion_id = "" } = useParams()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
 
 
     const room = useSelectedRoom()
@@ -41,6 +41,7 @@ const FreeRoomPendienteSupervision = () => {
                         fecha_estado: localDateToUTCString(new Date()),
                         habitacion_id,
                         usuario_id,
+                        hotel_id,
                         comentario_estado: `De pendiente de supervisión a ${value}`
                     }
                 }

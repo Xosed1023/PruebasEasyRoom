@@ -41,15 +41,13 @@ function OrdenRestaurante({ orden, onCancelOrder }: OrdenRestauranteProps) {
     const navigate = useNavigate()
     const { handlePrint } = usePrintTicket("snackbar-mini")
 
-    const cerrarMesa = validateIsColabActive((codigo?: string, template_sample?: string) => {
+    const cerrarMesa = validateIsColabActive(() => {
         // Cerrar cuenta: si tiene ordenes le cambia el estado a pendiente_pago y si no tiene la pasa a sucia
         cerrarCuenta({
             variables: {
                 cerrarCuentaMesaAsignadaInput: {
                     mesa_asignada_id: orden?.mesa?.asignacion_actual?.mesa_asignada_id,
                 },
-                codigo,
-                template_sample,
             },
         })
             .then(() => {
@@ -82,7 +80,7 @@ function OrdenRestaurante({ orden, onCancelOrder }: OrdenRestauranteProps) {
                         handlePrint(payload[0], "custom", "3")
                     }
                     if (authModalState?.type === "close") {
-                        cerrarMesa(codigo, template_sample)
+                        cerrarMesa()
                         setauthModalState({ type: "", open: false })
                         return
                     }

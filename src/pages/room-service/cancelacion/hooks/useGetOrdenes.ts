@@ -1,9 +1,11 @@
 import { DetalleOrden, Orden, useGetComandaCancelacionLazyQuery, useCancelacionOrdenesLazyQuery } from "src/gql/schema"
 import { sum } from "src/shared/helpers/calculator";
+import { useProfile } from "src/shared/hooks/useProfile";
 
 const useGetOrdenes = ({ mode, ordenOComandaID }: { mode: "order" | "comanda"; ordenOComandaID: string }) => {
     const [getOrdenes] = useCancelacionOrdenesLazyQuery()
     const [getComanda] = useGetComandaCancelacionLazyQuery()
+    const { hotel_id } = useProfile()
 
     const getDetalles = (): Promise<{
         orden: Orden | null
@@ -25,6 +27,7 @@ const useGetOrdenes = ({ mode, ordenOComandaID }: { mode: "order" | "comanda"; o
         if (mode === "order") {
             return getOrdenes({
                 variables: {
+                    hotel_id,
                     orden_id: [ordenOComandaID],
                     fecha_registro: null,
                 },
@@ -43,6 +46,7 @@ const useGetOrdenes = ({ mode, ordenOComandaID }: { mode: "order" | "comanda"; o
         }
         return getComanda({
             variables: {
+                hotel_id,
                 comanda_id: ordenOComandaID,
             },
         }).then((v) => {

@@ -37,7 +37,7 @@ const Cards = ({ startDate }: { startDate: Date }, ref: ForwardedRef<CardsManten
             </div>
             <div className="mantenimiento__screen__card">
                 <span className="mantenimiento__screen__card__title">Consumo de gas</span>
-                <span className="mantenimiento__screen__card__value">{(data?.kpis_mantenimientos.total_gas || 0).toFixed(4)} L</span>
+                <span className="mantenimiento__screen__card__value">{(data?.kpis_mantenimientos.total_gas || 0).toFixed(4)} m³</span>
             </div>
             <div className="mantenimiento__screen__card">
                 <span className="mantenimiento__screen__card__title">Consumo de luz</span>

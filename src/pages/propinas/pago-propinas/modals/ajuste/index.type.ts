@@ -8,6 +8,7 @@ export type Params = {
     puesto_id: string
     ingreso_hotel: boolean
     monto_ajuste: number
+    hotel_id: string
 }
 
 export type ModalAjusteProps = {

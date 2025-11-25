@@ -147,7 +147,7 @@ export const GET_ROOMS = gql`
 `
 
 export const GET_ROOM = gql`
-    query GetHabitacion($habitacion_id: ID!, $usuario_id: ID!) {
+    query GetHabitacion($habitacion_id: ID!, $usuario_id: ID!, $hotel_id: ID!) {
         habitacion(habitacion_id: $habitacion_id) {
             comentario_estado
             eliminado
@@ -383,7 +383,7 @@ export const GET_ROOM = gql`
                                 nombre
                                 contenido
                                 descripcion
-                                precio {
+                                precio(hotel_id: $hotel_id){
                                     monto
                                 }
                                 unidad

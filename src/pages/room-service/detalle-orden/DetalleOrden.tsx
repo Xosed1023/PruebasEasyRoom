@@ -54,6 +54,7 @@ const DetalleOrden = () => {
     const { data } = useGetOrdenEditQuery({
         variables: {
             input: orden_id,
+            hotel_id
         },
     })
 

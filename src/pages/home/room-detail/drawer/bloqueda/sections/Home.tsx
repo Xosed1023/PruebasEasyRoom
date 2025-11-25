@@ -14,6 +14,7 @@ import DescriptionDetailList from "src/shared/components/data-display/Descriptio
 import CommentsBloqueada from "../components/comments/Comments"
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const bloqueadaTabs = [
     { label: "Detalle", path: "detalle" },
@@ -57,7 +58,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                                         `${c.colaborador?.nombre} ${c.colaborador?.apellido_paterno} ${c.colaborador?.apellido_materno}`
                                 )}
                                 subtitle={formatTimeAgo(room?.ultimos_datos?.ultima_limpieza?.[0]?.fecha_termino)}
-                                {...(rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" && {
+                                {...(rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo && {
                                     link: "Limpiar",
                                     onLink: () => onNavigate("clean-staff"),
                                 })}
@@ -82,7 +83,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                                         ? formatTimeAgo(room?.ultimos_datos?.ultimo_mantenimiento?.fecha_termino)
                                         : "-"
                                 }`}
-                                {...(rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" && {
+                                {...(rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo && {
                                     link: "Mantenimiento",
                                     onLink: () => onNavigate("mantenance-reason"),
                                 })}
@@ -96,7 +97,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                                         : "-"
                                 }`}
                                 linkBottom
-                                {...(rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" && {
+                                {...(rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo && {
                                     link: "Asignar reserva",
                                     onLink: () => onNavigate("booking"),
                                 })}
@@ -108,7 +109,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                     )}
                 </div>
 
-                {activeTab === "detalle" && rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" && (
+                {activeTab === "detalle" && rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo && (
                     <div style={{ padding: "16px 0 0" }}>
                         <PrimaryButton
                             text={"Desbloquear"}

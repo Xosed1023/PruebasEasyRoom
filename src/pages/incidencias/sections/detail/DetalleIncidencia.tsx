@@ -16,19 +16,20 @@ import { formatLongDate } from "src/shared/helpers/formatLongDate"
 import { useDate } from "src/shared/hooks/useDate"
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const DetalleIncidencia = ({ incidenciaId = "", onConfirm, onTipoIncidenciaChange }: DetalleIncidenciaProps) => {
     const [visible, setVisible] = useState<boolean>(false)
     const [incidenciaItems, setIncidenciaItems] = useState<ItemsIncidencia[]>([])
     const [incidencia, setIncidencia] = useState<GetIncidenciaByIdQuery>()
-    const { rolName } = useProfile()
+    const { rolName, zona_horaria } = useProfile()
     const { isDrawerOpen } = useSelector((state: RootState) => state.navigation)
     const { InactiveModal, validateIsColabActive } = useIsColaboradorActive()
 
     const { showSnackbar } = useSnackbar()
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const { UTCStringToLocalDate } = useDate()
+    const { UTCStringToLocalDate } = useDate( zona_horaria)
 
     const [getIncidencia] = useGetIncidenciaByIdLazyQuery()
     const [reabrirIncidencia] = useReabrirIncidenciaMutation()
@@ -173,7 +174,7 @@ const DetalleIncidencia = ({ incidenciaId = "", onConfirm, onTipoIncidenciaChang
                     <Description icon={icon} label1={label} value1={value} key={index} />
                 ))}
             </div>
-            {rolName === "MANTENIMIENTO" ? (
+            {rolName === RoleNames.mantenimiento ? (
                 <>
                     {incidencia?.incidencias[0]?.estado === "activa" &&
                     incidencia?.incidencias[0]?.tipo_incidencia?.toLowerCase() === "mantenimiento" && (
@@ -201,7 +202,7 @@ const DetalleIncidencia = ({ incidenciaId = "", onConfirm, onTipoIncidenciaChang
                 </>
             ) : (
                 <>
-                    {rolName !== "MONITOREO" && (
+                    {rolName !== RoleNames.monitoreo && (
                         <>
                             {incidencia?.incidencias[0]?.estado === "activa" && (
                                 <div className="detalle-incidencia__container-button">

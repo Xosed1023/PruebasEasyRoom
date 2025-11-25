@@ -1,4 +1,4 @@
-import { useDate } from "src/shared/hooks/useDate"
+import { createDateUtils } from "src/shared/hooks/useDate"
 import * as timeago from "timeago.js"
 
 const localeFunc = (number: number, index: number, totalSec): [string, string] => {
@@ -47,7 +47,7 @@ timeago.register("my-locale", localeFunc)
 timeago.register("locale-number-word", localeNumberWordFunc)
 
 const localDate = (UTCString: string) => {
-    const { UTCStringToLocalDate } = useDate()
+    const { UTCStringToLocalDate } = createDateUtils()
     return UTCStringToLocalDate(UTCString)
 }
 

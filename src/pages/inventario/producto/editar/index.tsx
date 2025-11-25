@@ -12,12 +12,14 @@ import LoaderComponent from "src/shared/components/layout/loader/Loader"
 import useSnackbar from "src/shared/hooks/useSnackbar"
 import { uploadImage } from "../form/helpers/upload"
 import { FormValuesParam } from "../form/Form.types"
+import { useProfile } from "src/shared/hooks/useProfile"
 
 function EditarProducto(): JSX.Element {
     const params = useParams()
     const navigate = useNavigate()
+    const { hotel_id } = useProfile()
     const { loading, data } = useGetAlmacenArticuloForEditQuery({
-        variables: { almacen_articulo_id: params?.articulo_id || "" },
+        variables: { almacen_articulo_id: params?.articulo_id || "", hotel_id },
     })
     const [actualizarArticulo] = useActualizarArticuloMutation()
 
@@ -59,10 +61,11 @@ function EditarProducto(): JSX.Element {
                 tipo: data.venta ? TipoArticulo.Venta : TipoArticulo.Insumo,
                 extra: articulo?.extra || false,
                 sku: data.sku,
+                hotel_id
             }
             const res = await actualizarArticulo({
                 variables: {
-                    updateArticuloInput: articulo?.nombre !== data.nombre ? { ...vars, nombre: data.nombre } : vars,
+                    updateArticuloInput: articulo?.nombre !== data.nombre ? { ...vars, nombre: data.nombre, hotel_id } : vars,
                 },
             })
 

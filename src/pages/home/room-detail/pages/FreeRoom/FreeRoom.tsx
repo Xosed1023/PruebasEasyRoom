@@ -88,6 +88,7 @@ const FreeRoom = () => {
                             roomId: room.habitacion_id,
                             status: RoomStatus.available,
                             usuarioId: myProfile.usuario_id,
+                            hotelId: myProfile.hotel?.[0]?.hotel_id || "",
                             onSuccess: () => {
                                 toggleIsLoading({ value: false })
                                 closePage()

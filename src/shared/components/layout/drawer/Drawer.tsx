@@ -3,11 +3,13 @@ import cx from "classnames"
 import BgBlur from "../BgBlur/BgBlur"
 import Icon from "src/shared/icons"
 import DropdownMenu from "../../data-display/dropdown-menu/DropdownMenu"
-import { Props } from "./Drawer.types"
-import "./Drawer.css"
 import useEscapeKey from "src/shared/hooks/useEscapeKey"
 import { RoleNames } from "src/shared/hooks/useAuth"
 import { useProfile } from "src/shared/hooks/useProfile"
+import { Props } from "./Drawer.types"
+import "./Drawer.css"
+
+const roles = [ RoleNames.valet,  RoleNames.roomService,  RoleNames.monitoreo]
 
 function Drawer({
     className = "",
@@ -56,7 +58,6 @@ function Drawer({
     //         onClose
     //     }, 300)
     // }
-
     return (
         <>
             <BgBlur className={bgClassName} visible={visible} onClose={onClose} />
@@ -81,10 +82,7 @@ function Drawer({
                     />
                 )}
                 <div className="drawer__contain__top-right">
-                    {withMenu &&
-                        rolName !== RoleNames.valet &&
-                        rolName !== RoleNames.roomService &&
-                        rolName !== RoleNames.monitoreo && (
+                    {withMenu && !roles.includes(rolName as RoleNames)  ? (
                         <DropdownMenu items={itemsMenu}>
                             <Icon
                                 className="drawer__menu-button"
@@ -95,7 +93,7 @@ function Drawer({
                                 height={24}
                             />
                         </DropdownMenu>
-                    )}
+                    ) : null}
                     {withCloseButton && (
                         <Icon
                             className="drawer__close-button"

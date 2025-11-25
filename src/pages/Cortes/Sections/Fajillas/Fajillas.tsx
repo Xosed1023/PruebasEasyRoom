@@ -5,7 +5,7 @@ import "./Fajillas.css"
 import RecepcionFajillas from "../../Components/Modals/RecepcionFajillas/RecepcionFajillas"
 import Skeleton from "src/shared/components/layout/skeleton/Skeleton"
 import { tableSkeletonRows } from "src/shared/components/layout/skeleton/TableSkeleton/TableSkeleton"
-import { formatDateComplitSlash } from "src/shared/hooks/formatDate-DD-MM-YY"
+import { formatDateHotelSlash } from "src/shared/hooks/formatDate-DD-MM-YY"
 import { formatCurrency } from "src/shared/hooks/formatCurrency"
 import FajillaTableColumnStatus from "../../helpers/FajillaTableColumnStatus/FajillaTableColumnStatus"
 import { EstatusFajillas, useGetUsuariosQuery } from "src/gql/schema"
@@ -20,7 +20,6 @@ import {
 } from "src/shared/components/data-display/FlexibleTable/flexible-table-items.interface"
 import useSortTable from "src/shared/hooks/useSortTable"
 import { useFajillas } from "./Fajjllas.hooks"
-import { useDate } from "src/shared/hooks/useDate"
 
 export interface FajillaRow {
     value: {
@@ -29,8 +28,7 @@ export interface FajillaRow {
 }
 
 const Fajillas = () => {
-    const { UTCStringToLocalDate } = useDate()
-    const { hotel_id, rolName } = useProfile()
+    const { hotel_id, rolName, zona_horaria } = useProfile()
     const [addFajilla, setAddFajilla] = useState(false)
 
     const [fajillaSeleccionada, setFajillaSeleccionada] = useState<any>({})
@@ -95,7 +93,7 @@ const Fajillas = () => {
                 value: [
                     { value: String(fajilla.folio) },
                     {
-                        value: formatDateComplitSlash(UTCStringToLocalDate(fajilla.fecha_creacion)),
+                        value: formatDateHotelSlash(fajilla.fecha_creacion, true, "MMM", zona_horaria),
                         fromHeaderSort: tableHeaders[1].value,
                         sortValue: fajilla.fecha_creacion,
                     },
@@ -105,7 +103,11 @@ const Fajillas = () => {
                         sortValue: fajilla.monto,
                     },
                     {
-                        value: `${fajilla.usuario_creo?.nombre} ${fajilla.usuario_creo?.apellido_paterno}` || "-",
+                        value:
+                            fajilla.usuario_creo?.nombre === "Effectitrack"
+                                ? `${fajilla.usuario_creo?.nombre} ${fajilla.usuario_creo?.apellido_paterno} - ID${fajilla.deposito_id}` ||
+                                  "-"
+                                : `${fajilla.usuario_creo?.nombre} ${fajilla.usuario_creo?.apellido_paterno}` || "-",
                         filterValue: fajilla.usuario_creo_id,
                         fromHeaderFilter: tableHeaders[3].value,
                     },

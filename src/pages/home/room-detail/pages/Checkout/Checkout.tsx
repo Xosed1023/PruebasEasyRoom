@@ -36,7 +36,7 @@ const Checkout = () => {
     const { diffDays, UTCStringToLocalDate } = useDate()
 
     const { habitacion_id} = useParams()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
 
     const dispatch = useDispatch()
     const { getIVA } = useIVA()
@@ -44,7 +44,7 @@ const Checkout = () => {
     const location = useLocation()
 
     const { data } = useGetHabitacionQuery({
-        variables: { habitacion_id: habitacion_id || "", usuario_id: usuario_id},
+        variables: { habitacion_id: habitacion_id || "", usuario_id: usuario_id, hotel_id },
     })
     const [pagosList, setPagos] = useState<any>([])
     const [comentarios, setComentarios] = useState<any>([])

@@ -71,7 +71,7 @@ function FreeRoomBloqueada(): JSX.Element {
     const { showSnackbar } = useSnackbar()
     const { onClose } = useRoomDarwer()
 
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
     const puestos = usePuestos()
 
     const handleBase = () => {
@@ -136,6 +136,7 @@ function FreeRoomBloqueada(): JSX.Element {
                 tipo_limpieza: selection.type,
             },
             usuario_id,
+            hotel_id,
             estadoHabitacion: Estados_Habitaciones.Limpieza,
         })
             .then(() => {

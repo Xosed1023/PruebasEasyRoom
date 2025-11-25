@@ -11,6 +11,7 @@ import MaintenanceStaff from "../general/sections/MaintenanceStaff/MaintenanceSt
 import MaintenanceType from "../general/sections/MaintenanceType/MaintenanceType"
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 function Sucia(): JSX.Element {
     const [section, setSection] = useState<Section>("home")
@@ -35,7 +36,7 @@ function Sucia(): JSX.Element {
     return (
         <>
             <DrawerWrapper
-                withMenu={section === "home" && rolName !== "MANTENIMIENTO"}
+                withMenu={section === "home" && rolName !== RoleNames.mantenimiento}
                 withBackButton={section !== "home"}
                 onBack={() => {
                     if (section === "clean-tyoe") {

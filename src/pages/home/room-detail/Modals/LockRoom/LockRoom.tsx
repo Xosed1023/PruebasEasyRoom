@@ -37,7 +37,7 @@ interface LockRoomProps extends ModalProps {
 }
 
 const LockRoom = ({ isOpen, onClose, onConfirmed }: LockRoomProps) => {
-    const { rolName } = useProfile()
+    const { rolName, hotel_id } = useProfile()
     const {
         control,
         handleSubmit,
@@ -131,6 +131,7 @@ const LockRoom = ({ isOpen, onClose, onConfirmed }: LockRoomProps) => {
                 const { data: finish } = await finalizarTarea({
                     variables: {
                         datos_tarea: {
+                            hotel_id,
                             colaboradores_tareas_ids: colaborador_tarea_ids,
                             habitacion_id: room.habitacion_id,
                             usuario_id,
@@ -157,6 +158,7 @@ const LockRoom = ({ isOpen, onClose, onConfirmed }: LockRoomProps) => {
                             habitacion_id: room?.habitacion_id,
                             usuario_id,
                             comentario_estado: values.motivo_bloqueo,
+                            hotel_id
                         },
                     },
                 })
@@ -189,12 +191,12 @@ const LockRoom = ({ isOpen, onClose, onConfirmed }: LockRoomProps) => {
     }
 
     const onSubmit = async (values: any) => {
-        const authorizedRoles = [RoleNames.admin]
+        const authorizedRoles = [RoleNames.admin, RoleNames.superadmin]
 
         if (isConfirmLockLoading) {
             return
         }
-        if (rolName === RoleNames.admin) {
+        if (rolName === RoleNames.admin || rolName === RoleNames.superadmin) {
             handleLockRoom(values).then(() => {
                 setIsConfirmLockLoading(false)
             })
@@ -278,7 +280,7 @@ const LockRoom = ({ isOpen, onClose, onConfirmed }: LockRoomProps) => {
                             />
                         )}
                     />
-                    {rolName !== RoleNames.admin && (
+                    {rolName !== RoleNames.admin && rolName !== RoleNames.superadmin && (
                         <Controller
                             control={control}
                             name={"codigo"}

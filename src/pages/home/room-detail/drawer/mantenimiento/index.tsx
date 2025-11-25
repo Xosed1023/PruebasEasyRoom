@@ -11,6 +11,7 @@ import MaintenanceStaff from "../general/sections/MaintenanceStaff/MaintenanceSt
 import { useRoomDarwer } from "../../hooks/darwer"
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 function Mantenimiento(): JSX.Element {
     const [lockModal, setLock] = useState<boolean>(false)
@@ -32,7 +33,7 @@ function Mantenimiento(): JSX.Element {
     return (
         <>
             <DrawerWrapper
-                withMenu={drawerSelectedSection === "home" && rolName !== "MANTENIMIENTO"}
+                withMenu={drawerSelectedSection === "home" && rolName !== RoleNames.mantenimiento}
                 withBackButton={drawerSelectedSection !== "home"}
                 onBack={() => dispatch(selectMaintenanceSection(drawerSelectedSection === "clean-tyoe" ? "clean-staff" : "home"))}
                 itemsMenu={[

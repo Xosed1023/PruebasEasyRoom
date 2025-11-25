@@ -55,6 +55,7 @@ const RoomsToReassign = ({tipoTarea, handleRefetch}: {tipoTarea: "mantenimiento"
                 datos_cambio: {
                     habitacion_id: roomToReassingSelected?.habitacion_id || "",
                     usuario_id,
+                    hotel_id,
                     estado_habitacion_actual: Estados_Habitaciones.SupervisionPendiente,
                     estado_habitacion_nueva: tipoTarea === "mantenimiento" ? Estados_Habitaciones.Mantenimiento : Estados_Habitaciones.Limpieza,
                     switch_colaboradores: [{

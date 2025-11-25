@@ -8,7 +8,7 @@ const RoomCardBody = ({ children, style }: { children: ReactNode; style?: CSSPro
 
     useEffect(() => {
         if (ref.current && fillRef.current) {
-            fillRef.current.style.height = ref.current.getBoundingClientRect().height / 4 + "px"
+            fillRef.current.style.height = ref.current.getBoundingClientRect().height / 8 + "px"
         }
     }, [])
 

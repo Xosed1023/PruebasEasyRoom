@@ -16,16 +16,17 @@ import { ADD_COMENTARIO_RENTA } from "src/pages/home/graphql/mutations/rentas"
 import useMiniSnackbar from "src/shared/hooks/useMiniSnackbar"
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const Comments = () => {
     const room = useRoom()
-    const { usuario_id, rolName } = useProfile()
+    const { usuario_id, rolName, hotel_id } = useProfile()
 
     const { UTCStringToLocalDate } = useDate()
     const {InactiveModal, validateIsColabActive} = useIsColaboradorActive()
 
     const { data, refetch, loading } = useQuery<{ habitacion: Habitacion }>(GET_ROOM, {
-        variables: { habitacion_id: room?.habitacion_id, usuario_id: usuario_id },
+        variables: { habitacion_id: room?.habitacion_id, usuario_id: usuario_id, hotel_id },
     })
 
     const [addComentarioRenta] = useMutation(ADD_COMENTARIO_RENTA)
@@ -34,7 +35,7 @@ const Comments = () => {
     const { showMiniSnackbar } = useMiniSnackbar()
 
     const [comentariosList, setcomentariosList] = useState<any[]>([])
-    const canAddComments = rolName !== "VALETPARKING" && rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO"
+    const canAddComments = rolName !== RoleNames.valet && rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo
 
     useEffect(() => {
         setcomentariosList(data?.habitacion?.ultima_renta?.comentarios || [])
@@ -67,7 +68,7 @@ const Comments = () => {
             {!loading && !data?.habitacion?.ultima_renta?.comentarios?.length ? (
                 <div
                     className={`room-detail--occupied__tab--cooments--container-empty ${
-                        rolName === "MANTENIMIENTO" || rolName === "VALETPARKING"
+                        rolName === RoleNames.mantenimiento || rolName === RoleNames.valet
                             ? "room-detail--occupied__tab--cooments--container-empty--centered"
                             : ""
                     }`}

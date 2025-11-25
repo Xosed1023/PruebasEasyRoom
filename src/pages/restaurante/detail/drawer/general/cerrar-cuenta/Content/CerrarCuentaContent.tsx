@@ -72,7 +72,7 @@ function CerrarCuentaContent({ loader }: CerrarCuentaContentProps): JSX.Element 
     const orden_id = asignacion_actual?.orden_id || ""
 
     const { data: orden } = useGetRestaurantOrdenQuery({
-        variables: { orden_id },
+        variables: { orden_id, hotel_id },
         skip: !asignacion_actual?.orden_id,
     })
 

@@ -38,7 +38,7 @@ export const InputTel = (props: InputTelProps) => {
             setdropdownStyles({
                 top: `${dropdownPosition?.bottom || 0}px`,
                 left: `${dropdownPosition?.left || 0}px`,
-                opacity: 1
+                opacity: 1,
             })
         }
     }, [open])
@@ -49,6 +49,10 @@ export const InputTel = (props: InputTelProps) => {
             paddingLeft: `${prefixTogglePosition?.width}px`,
         })
     }, [dropdownValue])
+
+    useEffect(() => {
+        onInputChange(formattedTelValue)
+    }, [formattedTelValue])
 
     return (
         <div>
@@ -70,9 +74,12 @@ export const InputTel = (props: InputTelProps) => {
                 <InputText
                     placeholder={dropdownValue.placeholder}
                     type="text"
+                    onPaste={(e) => {
+                        maskChange(e.clipboardData.getData("text"))
+                        e.preventDefault()
+                    }}
                     style={inputTextStyles}
                     onKeyDown={maskChange}
-                    onChange={() => onInputChange(formattedTelValue)}
                     ref={inputTextRef}
                     disabled={disabled}
                     value={telValue}

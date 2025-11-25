@@ -20,6 +20,7 @@ import { UareUFingerprintSample } from "src/shared/classes/fingerprint/UareU/int
 import useFingerprint from "src/shared/hooks/useFingerprint"
 import { RoleNames } from "src/shared/hooks/useAuth"
 import { useMotivosBloqueoContext } from "src/shared/providers/MotivosBloqueoProvider"
+import { useProfile } from "src/shared/hooks/useProfile"
 
 const defaultValues = {
     motivo_bloqueo: "",
@@ -47,6 +48,7 @@ const LockRoom = ({ isOpen, onClose, onConfirmed, habitacion }: LockRoomProps) =
 
     const { tiposBloqueo } = useMotivosBloqueoContext()
     const { showSnackbar } = useSnackbar()
+    const { hotel_id } = useProfile()
     const dispatch = useDispatch()
     const [isConfirmLockLoading, setIsConfirmLockLoading] = useState(false)
     const { usuario_id } = useSelector((state: RootState) => state.profile)
@@ -67,7 +69,7 @@ const LockRoom = ({ isOpen, onClose, onConfirmed, habitacion }: LockRoomProps) =
     }
 
     const onSubmit = async (values: any) => {
-        const authorizedRoles = [RoleNames.admin]
+        const authorizedRoles = [RoleNames.admin, RoleNames.superadmin]
 
         if (isConfirmLockLoading) {
             return
@@ -141,6 +143,7 @@ const LockRoom = ({ isOpen, onClose, onConfirmed, habitacion }: LockRoomProps) =
                     bloquear_habitacion_input: {
                         habitacion_id: habitacion?.habitacion_id,
                         usuario_id,
+                        hotel_id
                     },
                 },
             })

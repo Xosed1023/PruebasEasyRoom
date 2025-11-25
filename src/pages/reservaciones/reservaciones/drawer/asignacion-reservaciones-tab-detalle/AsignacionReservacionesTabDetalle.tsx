@@ -19,6 +19,7 @@ import { ItemMultiplePayment } from "src/pages/home/room-detail/sections/items/I
 import { SecondaryButton } from "src/pages/home/room-detail/sections/elements/Elements"
 import { toggleDrawer } from "src/store/navigation/navigationSlice"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const AsignacionReservacionesTabDetalle = ({
     sentReservaD,
@@ -48,7 +49,7 @@ const AsignacionReservacionesTabDetalle = ({
     }, [sentReservaD])
 
     useEffect(() => {
-        if (rolName === "VALETPARKING" && sentReservaD?.reserva_id) {
+        if (rolName === RoleNames.valet && sentReservaD?.reserva_id) {
             getReserva({
                 variables: {
                     id: [sentReservaD?.reserva_id],
@@ -265,7 +266,7 @@ const AsignacionReservacionesTabDetalle = ({
                 sentReservaD.estado === EstadosReservas.Cancelada || sentReservaD.estado === EstadosReservas.CheckIn
             ) && (
                 <div className="reservas-screen__drawer__buttons">
-                    {rolName !== "VALETPARKING" && rolName !== "ROOMSERVICE" && rolName !== "RESTAURANTE" && rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" &&  (
+                    {rolName !== RoleNames.valet && rolName !== RoleNames.roomService && rolName !== RoleNames.restaurante && rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo &&  (
                         <>
                             <Button
                                 className="reservas-screen__drawer__button"
@@ -297,7 +298,7 @@ const AsignacionReservacionesTabDetalle = ({
                             )}
                         </>
                     )}
-                    {rolName === "VALETPARKING" && sentReservaD.estado === "asignada" && (
+                    {rolName === RoleNames.valet && sentReservaD.estado === "asignada" && (
                         <Button
                             className="reservas-screen__drawer__button-valet-parking"
                             text={"Check-in"}

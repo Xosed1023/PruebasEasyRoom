@@ -18,7 +18,7 @@ const Mantenimiento = () => {
     const { InactiveModal, validateIsColabActive } = useIsColaboradorActive()
 
     return (
-        <Screen title="Mantenimiento" headerRight={<DateFilters onChange={(d) => setfilterDate(d)} />} close>
+        <Screen title="Energéticos" headerRight={<DateFilters onChange={(d) => setfilterDate(d)} />} close>
             <div className="mantenimiento__screen__wrapper">
                 <Cards ref={cardsRef} startDate={filterDate} />
                 <MantenimientoTable

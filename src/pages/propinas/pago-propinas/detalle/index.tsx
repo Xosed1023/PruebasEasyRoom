@@ -36,7 +36,7 @@ function DetallePagoPropina(): JSX.Element {
         },
     })
 
-    const isAdmin = rolName === RoleNames.admin
+    const isAdmin = rolName === RoleNames.admin || rolName === RoleNames.superadmin
 
     const totals = useMemo(() => {
         const total = data?.detalle_reparto_propinas?.totales

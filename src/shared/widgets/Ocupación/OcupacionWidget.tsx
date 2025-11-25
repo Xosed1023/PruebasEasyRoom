@@ -5,6 +5,7 @@ import About from "../about/About"
 import Triangle from "src/shared/icons/Triangle"
 import { useCurrentRol } from "../hooks/general"
 import "./OcupacionWidget.css"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 type View = "day" | "month"
 
@@ -70,7 +71,7 @@ const OcupacionWidget = ({
                     <div
                         className={cx({
                             ocupacionWitged__stat: true,
-                            "ocupacionWitged__stat-mg": rol === "RECEPCIONISTA",
+                            "ocupacionWitged__stat-mg": rol === RoleNames.recepcionista,
                         })}
                     >
                         <div className="ocupacionWitged__stat-item">
@@ -103,7 +104,7 @@ const OcupacionWidget = ({
                     />
                 </div>
             )}
-            {rol !== "RECEPCIONISTA" ? (
+            {rol !== RoleNames.recepcionista ? (
                 <div className="ocupacionWitged__tab">
                     {options.map((option, index) => (
                         <div

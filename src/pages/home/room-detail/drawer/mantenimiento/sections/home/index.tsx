@@ -16,6 +16,7 @@ import DescriptionDetailList from "src/shared/components/data-display/Descriptio
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
 import { formatLongDate } from "src/shared/helpers/formatLongDate"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const Home = ({ onNavigate }: SectionProps) => {
     const room = useRoom()
@@ -116,7 +117,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                         <IncidenciasItem />
                     </Block>
 
-                    {rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" && (
+                    {rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo && (
                         <div>
                             <PrimaryButton
                                 text={"Finalizar mantenimiento"}

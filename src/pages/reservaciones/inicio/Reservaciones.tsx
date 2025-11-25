@@ -11,6 +11,7 @@ import { CalendarButtons } from "./components/CalendarButtons/CalendarButtons"
 import useEscapeKey from "src/shared/hooks/useEscapeKey"
 import { useProfile } from "src/shared/hooks/useProfile"
 import { useCurrentDate } from "src/shared/providers/CurrentdateProvider"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const monthNames = [
     "Enero",
@@ -51,7 +52,7 @@ function Reservaciones() {
                     {/* <Search /> */}
                     {params?.view === "table"
                         ? null
-                        : rolName !== "VALETPARKING" && (
+                        : rolName !== RoleNames.valet && (
                             <CalendarButtons
                                 currMonth={currMonth}
                                 setCurrMonth={setCurrMonth}

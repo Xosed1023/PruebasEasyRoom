@@ -50,7 +50,7 @@ const MaintenanceStaff = ({
         ? !!room?.colaborador_tareas_sin_finalizar?.[0]?.colaborador_id
         : true
     const { showMiniSnackbar } = useMiniSnackbar()
-    const { usuario_id, turno_hotel_id } = useProfile()
+    const { usuario_id, turno_hotel_id, hotel_id } = useProfile()
 
     const [cambiarTareaEntreColaboradores] = useCambiarTareaEntreColaboradoresMutation()
     const [cambioTareaConCambioEstado] = useCambiarTareaConEstadoMutation()
@@ -91,6 +91,7 @@ const MaintenanceStaff = ({
             cambiarTareaEntreColaboradores({
                 variables: {
                     switch_task_btw_colab_input: {
+                        hotel_id,
                         sin_personal_asignado: !colaborador_ids.length,
                         tarea_id: room?.colaborador_tareas_sin_finalizar?.[0]?.tarea_id,
                         colaborador_id: colaborador_ids,
@@ -140,6 +141,7 @@ const MaintenanceStaff = ({
             cambioTareaConCambioEstado({
                 variables: {
                     switch_task_with_room_state_input: {
+                        hotel_id,
                         tarea_id: room?.colaborador_tareas_sin_finalizar?.[0]?.tarea_id,
                         habitacion_id: room?.habitacion_id,
                         colaborador_id: colaborador_ids,
@@ -185,6 +187,7 @@ const MaintenanceStaff = ({
                     habitacion_id: room?.habitacion_id,
                 },
                 usuario_id,
+                hotel_id,
                 estadoHabitacion: Estados_Habitaciones.Mantenimiento,
             })
             showMiniSnackbar({

@@ -34,7 +34,7 @@ const OccupiedCleaning = ({
 
     const { showSnackbar } = useSnackbar()
 
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
 
     return (
         <Wrapper
@@ -98,6 +98,7 @@ const OccupiedCleaning = ({
                         variables: {
                             datos_tarea: {
                                 usuario_id,
+                                hotel_id,
                                 colaboradores_tareas_ids: room?.colaborador_tareas_sin_finalizar?.map(
                                     (c) => c?.colaborador_tarea_id
                                 ),

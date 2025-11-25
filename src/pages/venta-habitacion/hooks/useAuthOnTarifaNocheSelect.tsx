@@ -22,7 +22,7 @@ const useAuthOnTarifaNocheSelect = ({
     const { Modal } = useAuth({
         authModal: (
             <AuthRequiredModal
-                authorizedPins={[RoleNames.admin, RoleNames.gerente]}
+                authorizedPins={[RoleNames.admin, RoleNames.gerente, RoleNames.superadmin]}
                 isOpen={isAuthModalOpen}
                 onAuthFilled={(value, sampleData) => {
                     setIsAuthModalOpen(false)
@@ -34,7 +34,7 @@ const useAuthOnTarifaNocheSelect = ({
                 }}
             />
         ),
-        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista, RoleNames.valet, RoleNames.gerente],
+        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista, RoleNames.valet, RoleNames.gerente, RoleNames.superadmin],
         noNeedAuthModalRoles: disabled ? Object.values(RoleNames) : [],
         isOpen: isAuthModalOpen,
         onClose: () => {

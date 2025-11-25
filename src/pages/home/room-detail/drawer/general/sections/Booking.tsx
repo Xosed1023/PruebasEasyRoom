@@ -55,6 +55,7 @@ const Booking = ({ closePrevTask = false }: { closePrevTask?: boolean }) => {
             finalizarTarea({
                 variables: {
                     datos_tarea: {
+                        hotel_id,
                         colaboradores_tareas_ids: colaborador_tareas_sin_finalizar,
                         usuario_id,
                         estado: Estados_Habitaciones.Reservada,

@@ -38,15 +38,13 @@ function Home({ preparacion = [], entregar = [], entregada = [], pagado, por_pag
     const { data, length } = useMesaOrdenes(preparacion, entregar, entregada)
     const [cerrarCuenta] = useCerrarCuentaMesaAsignadaMutation()
 
-    const cerrarMesa = (codigo?: string, template_sample?: string) => {
+    const cerrarMesa = () => {
         // Cerrar cuenta: si tiene ordenes le cambia el estado a pendiente_pago y si no tiene la pasa a sucia
         cerrarCuenta({
             variables: {
                 cerrarCuentaMesaAsignadaInput: {
                     mesa_asignada_id: mesa?.asignacion_actual?.mesa_asignada_id,
                 },
-                codigo,
-                template_sample,
             },
         })
             .then(() => {

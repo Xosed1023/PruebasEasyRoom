@@ -6,7 +6,6 @@ import { useFetch } from "src/shared/hooks/useFetch"
 import { tableSkeletonRows } from "src/shared/components/layout/skeleton/TableSkeleton/TableSkeleton"
 import {
     FlexibleTableHeaderColumn,
-    FlexibleTableRow,
 } from "src/shared/components/data-display/FlexibleTable/flexible-table-items.interface"
 import TablePaginatorWrapper from "src/shared/components/data-display/FlexibleTable/sections/TablePaginatorWrapper/TablePaginatorWrapper"
 import FlexibleTable, {
@@ -15,12 +14,14 @@ import TableWrappper from "src/pages/reservaciones/inicio/sections/TableWrapper/
 import useDownloadPdf from "src/shared/hooks/useDownloadPdf"
 import ReportWrapper from "../../components/report-wrapper/ReportWrapper"
 import FloatButon from "src/shared/components/layout/FloatButon/FloatButon"
+import { MatriculasData } from "./Matriculas.type"
+import useMatriculasTableItems from "./hooks/useMatriculasTableItems"
 
 const Matriculas = ({ apiDateFilter }: { apiDateFilter: string[] | null }) => {
     const { hotel_id } = useProfile()
     const { download } = useDownloadPdf()
 
-    const { data, refetch, load } = useFetch<{todo: string[]}>("/reportes/tabla_historial_mantto", {
+    const { data, refetch, load } = useFetch<MatriculasData>("/reportes/tabla_matriculas", {
         startFetch: false,
     })
 
@@ -51,18 +52,7 @@ const Matriculas = ({ apiDateFilter }: { apiDateFilter: string[] | null }) => {
 
     const { skeletonRows } = tableSkeletonRows({ headers })
 
-    const tableItems: FlexibleTableRow[] = data?.todo?.map((hab) => ({
-        value: [
-            { value: "Todo", className: "reports-cell" },
-            { value: "Todo", className: "reports-cell" },
-            { value: "Todo", className: "reports-cell" },
-            { value: "Todo", className: "reports-cell" },
-            { value: "Todo", className: "reports-cell" },
-            { value: "Todo", className: "reports-cell" },
-            { value: "Todo", className: "reports-cell" },
-            { value: "Todo", className: "reports-cell" },
-        ],
-    }))
+    const { tableItems } = useMatriculasTableItems({rows: data?.respuesta.tabla_placas_vehiculos})
 
     return (
         <ReportWrapper height="calc(100dvh - 125px)">
@@ -72,7 +62,7 @@ const Matriculas = ({ apiDateFilter }: { apiDateFilter: string[] | null }) => {
                 onChange={(p) => setcurrentPage(p)}
                 pages={1}
                 style={{
-                    justifyContent: data?.todo?.length ? "flex-start" : "center",
+                    justifyContent: data?.respuesta.tabla_placas_vehiculos?.length ? "flex-start" : "center",
                     borderRadius: "0 0 20px 0",
                 }}
             >
@@ -98,7 +88,7 @@ const Matriculas = ({ apiDateFilter }: { apiDateFilter: string[] | null }) => {
                             return
                         }
                         download({
-                            endpoint: "/reportes/tabla_historial_mantto",
+                            endpoint: "/reportes/tabla_matriculas",
                             params: {
                                 hotel_id,
                                 fecha_inicio: apiDateFilter[0],

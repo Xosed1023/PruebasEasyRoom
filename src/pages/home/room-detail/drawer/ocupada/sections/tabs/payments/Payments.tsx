@@ -19,6 +19,7 @@ import { getCardLabel } from "src/shared/sections/payment/helpers/card"
 import { useData } from "../roomService/hooks/data"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
 import { useDate } from "src/shared/hooks/useDate"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const mapTiposExtrasIcon = {
     [TIPOS_EXTRAS.persona]: "UserParentFill",
@@ -35,13 +36,13 @@ const mapTiposExtrasTitulo = {
 const Payments = () => {
     const navigate = useNavigate()
     const room = useRoom()
-    const { usuario_id, rolName } = useProfile()
+    const { usuario_id, rolName, hotel_id } = useProfile()
     const { getOrdersInfo } = useData()
     const { InactiveModal, validateIsColabActive } = useIsColaboradorActive()
     const { formatDateWithTime, UTCStringToLocalDate } = useDate()
 
     const { data } = useQuery<{ habitacion: Habitacion }>(GET_ROOM, {
-        variables: { habitacion_id: room?.habitacion_id, usuario_id: usuario_id },
+        variables: { habitacion_id: room?.habitacion_id, usuario_id: usuario_id, hotel_id },
         fetchPolicy: "no-cache",
     })
 
@@ -57,7 +58,8 @@ const Payments = () => {
             .reduce((acc, extra) => acc + (extra.monto_extra || 0), 0) || 0
 
     const estanciaPendiente = estanciaPendienteTotal - extrasPendientes
-    const canRegisterPayment = totalPorPagar > 0 && ["ADMINISTRADOR", "RECEPCIONISTA"].includes(rolName)
+    const canRegisterPayment = totalPorPagar > 0 && [RoleNames.admin, RoleNames.superadmin, RoleNames.recepcionista].map(String).includes(rolName)
+                          
     const tipoAlojamiento = data?.habitacion?.ultima_renta?.tarifa?.tipo_alojamiento || ""
     const experiencias = data?.habitacion?.ultima_renta?.reserva_id
         ? data?.habitacion?.ultima_reserva?.reserva?.experiencias_reserva || []
@@ -450,7 +452,7 @@ const Payments = () => {
                 <PrimaryButton
                     text={"Registrar pago"}
                     disabled={
-                        rolName === "ROOMSERVICE"
+                        rolName === RoleNames.roomService
                             ? ordenesPendientesState.length === 0 || totalPorPagar === 0
                             : totalPorPagar === 0
                     }

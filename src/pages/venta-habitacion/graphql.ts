@@ -2,7 +2,7 @@ import { gql } from "@apollo/client"
 import { client } from "src/graphql"
 
 export const GET_HABITACION = gql`
-    query GetHabitacion($habitacion_id: ID!) {
+    query GetHabitacion($habitacion_id: ID!, $hotel_id: ID!) {
         habitacion(habitacion_id: $habitacion_id) {
             tipo_habitacion_id
             tipo_habitacion {

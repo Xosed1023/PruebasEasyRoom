@@ -29,6 +29,7 @@ import useSnackbar from "src/shared/hooks/useSnackbar"
 import useEscapeKey from "src/shared/hooks/useEscapeKey"
 import Icon from "src/shared/icons"
 import useMaskMatricula from "src/shared/masks/mask-matricula/mask-matricula"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 function RegistroIncidencia(): JSX.Element {
     const navigate = useNavigate()
@@ -193,7 +194,7 @@ function RegistroIncidencia(): JSX.Element {
     })
 
     const filteredPlaceTypes =
-    rolName === "VALETPARKING" || rolName === "RESTAURANTE"
+    rolName === RoleNames.valet || rolName === RoleNames.restaurante
         ? placeTypes.filter((type) => type.value !== "habitación")
         : placeTypes;
 
@@ -201,7 +202,7 @@ function RegistroIncidencia(): JSX.Element {
         <Screen
             className="registro-incidencia"
             contentClassName="registro-incidencia__main"
-            title={rolName === "VALETPARKING" || rolName === "RESTAURANTE" ? "Reporte de incidencia" : "Registro de incidencia"}
+            title={rolName === RoleNames.valet || rolName === RoleNames.restaurante ? "Reporte de incidencia" : "Registro de incidencia"}
             close={true}
         >
             <FormProvider {...methods}>
@@ -320,7 +321,7 @@ function RegistroIncidencia(): JSX.Element {
                                             setValue("type", value)
                                         }}
                                         containerClassName={
-                                            rolName === "VALETPARKING" || rolName === "RESTAURANTE"
+                                            rolName === RoleNames.valet || rolName === RoleNames.restaurante
                                                 ? "registro-incidencia__input-valet"
                                                 : ""
                                         }
@@ -337,7 +338,7 @@ function RegistroIncidencia(): JSX.Element {
                                 )}
                             />
                         </div>
-                        {dataForm.place === placeTypes[1].value || (dataForm.place === placeTypes[2].value && (rolName === "VALETPARKING" || rolName === "RESTAURANTE") && dataForm.type === "Objeto olvidado") ? (
+                        {dataForm.place === placeTypes[1].value || (dataForm.place === placeTypes[2].value && (rolName === RoleNames.valet || rolName === RoleNames.restaurante) && dataForm.type === "Objeto olvidado") ? (
                             <div className="registro-incidencia__tabs-container-huesped">
                                 <Controller
                                     control={control}
@@ -453,7 +454,7 @@ function RegistroIncidencia(): JSX.Element {
                                         value={value}
                                         onChange={(value) => {
                                             onChange(value)
-                                            if (!(rolName === "VALETPARKING" || rolName === "ROOMSERVICE" || rolName === "RESTAURANTE") && value === "alta" && dataForm.room) setValue("bloquear", true)
+                                            if (!(rolName === RoleNames.valet || rolName === RoleNames.roomService || rolName === RoleNames.restaurante) && value === "alta" && dataForm.room) setValue("bloquear", true)
                                         }}
                                     />
                                 )}
@@ -486,7 +487,7 @@ function RegistroIncidencia(): JSX.Element {
                             habitacion?.estado !== Estados_Habitaciones.Ocupada &&
                             habitacion?.estado !== Estados_Habitaciones.Bloqueada &&
                             dataForm.place === "habitación" &&
-                            !(rolName === "VALETPARKING" || rolName === "ROOMSERVICE" || rolName === "RESTAURANTE") ? (
+                            !(rolName === RoleNames.valet || rolName === RoleNames.roomService || rolName === RoleNames.restaurante) ? (
                                 <Controller
                                     control={control}
                                     name={"bloquear"}
@@ -518,7 +519,7 @@ function RegistroIncidencia(): JSX.Element {
                                 />
                             )}
                         />
-                        <Button type={"submit"} text={rolName === "VALETPARKING" || rolName === "RESTAURANTE" ? "Continuar" : "Crear incidencia"} className="registro-incidencia__button" />
+                        <Button type={"submit"} text={rolName === RoleNames.valet || rolName === RoleNames.restaurante ? "Continuar" : "Crear incidencia"} className="registro-incidencia__button" />
                     </section>
                 </form>
             </FormProvider>

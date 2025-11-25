@@ -12,6 +12,7 @@ import MaintenanceStaff from "../general/sections/MaintenanceStaff/MaintenanceSt
 import MaintenanceType from "../general/sections/MaintenanceType/MaintenanceType"
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 function Bloqueada(): JSX.Element {
     const [state, setState] = useState<any>({})
@@ -31,7 +32,7 @@ function Bloqueada(): JSX.Element {
     return (
         <>
             <DrawerWrapper
-                withMenu={drawerSelectedSection === "home" && rolName !== "MANTENIMIENTO"}
+                withMenu={drawerSelectedSection === "home" && rolName !== RoleNames.mantenimiento}
                 withBackButton={drawerSelectedSection !== "home"}
                 onBack={() => {
                     dispatch(selectBloqueadaSection(drawerSelectedSection === "clean-tyoe" ? "clean-staff" : "home"))

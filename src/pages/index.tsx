@@ -134,7 +134,7 @@ const routesReservacion = [
     {
         path: "registro-reserva/:reserva_id",
         element: (
-            <AuthPinWrapper authorizedRoles={[RoleNames.recepcionista, RoleNames.admin]} skipRoles={[RoleNames.admin]}>
+            <AuthPinWrapper authorizedRoles={[RoleNames.recepcionista, RoleNames.admin, RoleNames.superadmin]} skipRoles={[RoleNames.admin, RoleNames.superadmin]}>
                 <RegistroReservas />
             </AuthPinWrapper>
         ),
@@ -238,7 +238,7 @@ const routesRoomService = [
     {
         path: "room-service/cancelacion/:orden_comanda_id/order",
         element: (
-            <AuthPinWrapper authorizedRoles={[RoleNames.admin, RoleNames.roomService]} skipRoles={[RoleNames.admin]}>
+            <AuthPinWrapper authorizedRoles={[RoleNames.admin, RoleNames.roomService, RoleNames.superadmin]} skipRoles={[RoleNames.admin, RoleNames.superadmin]}>
                 <CancelacionesRoomService />
             </AuthPinWrapper>
         ),
@@ -246,7 +246,7 @@ const routesRoomService = [
     {
         path: "room-service/cancelacion/:orden_comanda_id/comanda",
         element: (
-            <AuthPinWrapper authorizedRoles={[RoleNames.restaurante, RoleNames.admin]} skipRoles={[RoleNames.admin]}>
+            <AuthPinWrapper authorizedRoles={[RoleNames.restaurante, RoleNames.admin, RoleNames.superadmin]} skipRoles={[RoleNames.admin, RoleNames.superadmin]}>
                 <CancelacionesRoomService />
             </AuthPinWrapper>
         ),
@@ -272,9 +272,9 @@ const routesInventario = [
         path: "inventario/producto/agregar",
         element: (
             <AuthPinWrapper
-                authorizedRoles={[RoleNames.admin, RoleNames.recepcionista, RoleNames.cocina, RoleNames.bar]}
-                skipRoles={[RoleNames.admin]}
-                authorizedPins={[RoleNames.admin]}
+                authorizedRoles={[RoleNames.admin, RoleNames.superadmin, RoleNames.recepcionista, RoleNames.cocina, RoleNames.bar]}
+                skipRoles={[RoleNames.admin, RoleNames.superadmin]}
+                authorizedPins={[RoleNames.admin, RoleNames.superadmin]}
             >
                 <AgregarProducto />
             </AuthPinWrapper>
@@ -284,9 +284,9 @@ const routesInventario = [
         path: "inventario/producto/editar/:articulo_id",
         element: (
             <AuthPinWrapper
-                authorizedRoles={[RoleNames.admin, RoleNames.recepcionista, RoleNames.cocina, RoleNames.bar]}
-                skipRoles={[RoleNames.admin]}
-                authorizedPins={[RoleNames.admin]}
+                authorizedRoles={[RoleNames.admin, RoleNames.superadmin, RoleNames.recepcionista, RoleNames.cocina, RoleNames.bar]}
+                skipRoles={[RoleNames.admin, RoleNames.superadmin]}
+                authorizedPins={[RoleNames.admin, RoleNames.superadmin]}
             >
                 <EditarProducto />
             </AuthPinWrapper>
@@ -445,10 +445,10 @@ function Pages() {
             >
                 <Route
                     index
-                    element={rolName === "RESTAURANTE" ? <Navigate to="/u/restaurante-home" replace /> : <Home />}
+                    element={rolName === RoleNames.restaurante ? <Navigate to="/u/restaurante-home" replace /> : <Home />}
                 />
 
-                {rolName === "VALETPARKING" && (
+                {rolName === RoleNames.valet && (
                     <>
                         <Route path="venta-habitacion/:habitacion_id" element={<VentaHabitacion />} />
                         {routesIncidencias.map(({ path, element }) => (
@@ -465,7 +465,7 @@ function Pages() {
                         ))}
                     </>
                 )}
-                {rolName === "COCINA" && (
+                {rolName === RoleNames.cocina && (
                     <>
                         <Route
                             index
@@ -483,32 +483,32 @@ function Pages() {
                     </>
                 )}
 
-                {rolName === "ROOMSERVICE" && (
+                {rolName === RoleNames.roomService && (
                     <>
                         {routesRolRoomService.map(({ path, element }) => (
                             <Route key={path} path={path} element={element} />
                         ))}
                     </>
                 )}
-                {rolName === "RESTAURANTE" && (
+                {rolName === RoleNames.restaurante && (
                     <>
                         {routesRolRestaurante.map(({ path, element }) => (
                             <Route key={path} path={path} element={element} />
                         ))}
                     </>
                 )}
-                {rolName !== "VALETPARKING" &&
-                    rolName !== "COCINA" &&
-                    rolName !== "ROOMSERVICE" &&
-                    rolName !== "RESTAURANTE" && 
-                    rolName !== "MANTENIMIENTO" && (
+                {rolName !== RoleNames.valet &&
+                    rolName !== RoleNames.cocina &&
+                    rolName !== RoleNames.roomService &&
+                    rolName !== RoleNames.restaurante && 
+                    rolName !== RoleNames.mantenimiento && (
                     <>
                         {routesRolAdmin.map(({ path, element }) => (
                             <Route key={path} path={path} element={element} />
                         ))}
                     </>
                 )}
-                {rolName === "MANTENIMIENTO" && (
+                {rolName === RoleNames.mantenimiento && (
                     <>
                         {routesRolMantenimiento.map(({ path, element }) => (
                             <Route key={path} path={path} element={element} />

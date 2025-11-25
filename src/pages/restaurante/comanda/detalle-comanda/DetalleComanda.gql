@@ -1,4 +1,4 @@
-query GetComanda($comanda_id: ID!) {
+query GetComanda($comanda_id: ID!, $hotel_id: ID!) {
     comanda(comanda_id: $comanda_id) {
         comanda_id
         estado_comanda
@@ -28,7 +28,7 @@ query GetComanda($comanda_id: ID!) {
                     contenido
                     unidad
                     descripcion
-                    precio {
+                    precio(hotel_id: $hotel_id) {
                         monto
                     }
                     tipo
@@ -61,7 +61,7 @@ query GetComanda($comanda_id: ID!) {
                         categoria_articulo {
                             nombre
                         }
-                        precio {
+                        precio(hotel_id: $hotel_id) {
                             monto
                         }
                     }

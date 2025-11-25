@@ -6,7 +6,7 @@ import { useDate } from "src/shared/hooks/useDate"
 
 export function useRoomMethods() {
     const room = useRoom()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
     const { localDateToUTCString } = useDate()
 
     const updateStatus = (estado: string, params: any = {}) => {
@@ -15,6 +15,7 @@ export function useRoomMethods() {
             usuario_id,
             fecha_estado: localDateToUTCString(new Date()),
             estado,
+            hotel_id,
             ...params,
         }
 

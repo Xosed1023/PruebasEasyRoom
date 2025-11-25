@@ -21,6 +21,7 @@ import { useCategoriaGastos } from "../../hooks/useCategoriaGastos"
 import Switch from "src/shared/components/forms/switch/Switch"
 import { usePrintTicket } from "src/shared/hooks/print"
 import { useCurrentDate } from "src/shared/providers/CurrentdateProvider"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 interface FormAddGasto {
     categoria_id: string
@@ -173,7 +174,7 @@ const AddModalCrearGasto = ({ closeModal, folio, onConfirm }: AddModalCrearGasto
                         rules={{ required: false }}
                         render={({ field: { value, onChange } }) => (
                             <Switch
-                                disabled={rol === "RECEPCIONISTA" ? true : false}
+                                disabled={rol === RoleNames.recepcionista ? true : false}
                                 className="guest-screen__switch"
                                 label={"Gasto de caja chica"}
                                 value={value}
@@ -212,7 +213,7 @@ const AddModalCrearGasto = ({ closeModal, folio, onConfirm }: AddModalCrearGasto
                     />
                     <div
                         className={
-                            rol === "RECEPCIONISTA"
+                            rol === RoleNames.recepcionista
                                 ? "addModalCrearGasto__form__recepcion"
                                 : "addModalCrearGasto__form__parallel-grid"
                         }
@@ -243,14 +244,14 @@ const AddModalCrearGasto = ({ closeModal, folio, onConfirm }: AddModalCrearGasto
                                     disabled={subCategorias?.length > 0 ? false : true}
                                     icon="currencyFill"
                                     className={`${
-                                        rol === "RECEPCIONISTA"
+                                        rol === RoleNames.recepcionista
                                             ? "subcategoria-dropdown-recepcion"
                                             : "subcategoria-dropdown"
                                     } ${value ? "gastos-drop-no-border" : ""} `}
                                 />
                             )}
                         />
-                        {rol === "ADMINISTRADOR" && (
+                        {(rol === RoleNames.admin || rol === RoleNames.superadmin) && (
                             <Controller
                                 control={control}
                                 name={"fecha_gasto"}

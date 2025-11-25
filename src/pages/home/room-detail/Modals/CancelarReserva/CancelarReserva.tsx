@@ -173,7 +173,8 @@ const CancelarReserva = ({
                             )}
                         />
                     )}
-                    {rolName !== RoleNames.admin && (
+                    {rolName !== RoleNames.admin && rolName !== RoleNames.superadmin && (
+
                         <Controller
                             control={control}
                             name={"codigo"}

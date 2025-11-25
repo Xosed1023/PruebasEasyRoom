@@ -18,6 +18,7 @@ import { useDisponibilidadHabitacion } from "./hooks/useDisponibilidad"
 import AlertaDisponibilidad from "../../Modals/AlertaDisponibilidad/AlertaDisponibilidad"
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 function Venta(): JSX.Element {
     const [section, setSection] = useState<Section>("home")
@@ -76,7 +77,7 @@ function Venta(): JSX.Element {
     return (
         <>
             <DrawerWrapper
-                withMenu={section === "home" && rolName !== "MANTENIMIENTO"}
+                withMenu={section === "home" && rolName !== RoleNames.mantenimiento}
                 withBackButton={section !== "home"}
                 onBack={() => {
                     if (section === "clean-tyoe") {

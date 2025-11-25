@@ -245,6 +245,7 @@ const MovementHistory = () => {
                                     getAlmacenArticuloById({
                                         variables: {
                                             almacen_articulo_id: info[1],
+                                            hotel_id
                                         },
                                     }).then(({ data }) => {
                                         setItemSelected(data)

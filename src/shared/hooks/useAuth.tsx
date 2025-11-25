@@ -22,7 +22,7 @@ const useAuth = ({
     isOpen,
     authorizedRoles,
     onClose,
-    noNeedAuthModalRoles = [RoleNames.admin],
+    noNeedAuthModalRoles = [RoleNames.admin, RoleNames.superadmin],
 }: {
     authModal: ReactNode
     isOpen: boolean

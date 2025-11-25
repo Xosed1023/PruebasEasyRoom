@@ -20,6 +20,7 @@ import { useData } from "./hooks/data"
 import { useClearRepeatItems } from "./hooks"
 import "./RoomService.css"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 
 const RoomService = () => {
@@ -39,15 +40,16 @@ const RoomService = () => {
 
     const { getItemsFormat } = useClearRepeatItems()
     const { getOrdersInfo } = useData()
-    const { usuario_id, rolName } = useProfile()
+    const { usuario_id, rolName, hotel_id } = useProfile()
 
     const { cocina: withCocina } = useModulos()
-    const canManageOrders = rolName !== "VALETPARKING"
+    const canManageOrders = rolName !== RoleNames.valet
 
     const { data: fetchOrders } = useGetHabitacionQuery({
         variables: {
             habitacion_id: room?.habitacion_id,
             usuario_id: usuario_id,
+            hotel_id
         },
         fetchPolicy: "no-cache",
     })
@@ -117,7 +119,7 @@ const RoomService = () => {
                                 : "Ningún pedido de room service ha sido realizado."
                         }
                     />
-                    {canManageOrders && rolName !== "MONITOREO" && (
+                    {canManageOrders && rolName !== RoleNames.monitoreo && (
                         <PrimaryButton
                             text={"Crear pedido"}
                             onClick={validateIsColabActive(handleOrder)}
@@ -263,7 +265,7 @@ const RoomService = () => {
                                 style={{ marginBottom: "12px" }}
                             />
                         )}
-                        {ordenesPendientes?.length > 0 && ["ADMINISTRADOR", "RECEPCIONISTA"].includes(rolName) && (
+                        {ordenesPendientes?.length > 0 && [RoleNames.superadmin, RoleNames.admin, RoleNames.recepcionista].map(String).includes(rolName) && (
                             <SecondaryButton
                                 text={"Registrar pago"}
                                 onClick={validateIsColabActive(() =>

@@ -46,6 +46,7 @@ function Personal(): JSX.Element {
             })
             .finally(() => {
                 setLoad(false)
+                setisAuthModalOpen(false)
                 onClose()
             })
     }

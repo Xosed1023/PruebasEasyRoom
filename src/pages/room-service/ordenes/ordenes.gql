@@ -1,4 +1,4 @@
-query Ordenes($orden_id: [ID!]!, $hotel_id: ID, $fecha_registro: DateSearchInput) {
+query Ordenes($orden_id: [ID!]!, $hotel_id: ID!, $fecha_registro: DateSearchInput) {
     ordenes(orden_id: $orden_id, hotel_id: $hotel_id, fecha_registro: $fecha_registro) {
         orden
         orden_id
@@ -55,7 +55,7 @@ query Ordenes($orden_id: [ID!]!, $hotel_id: ID, $fecha_registro: DateSearchInput
                     contenido
                     unidad
                     descripcion
-                    precio {
+                    precio(hotel_id: $hotel_id) {
                         monto
                     }
                     tipo
@@ -87,7 +87,7 @@ query Ordenes($orden_id: [ID!]!, $hotel_id: ID, $fecha_registro: DateSearchInput
                         categoria_articulo {
                             nombre
                         }
-                        precio {
+                        precio(hotel_id: $hotel_id) {
                             monto
                         }
                     }
@@ -127,7 +127,7 @@ query Ordenes($orden_id: [ID!]!, $hotel_id: ID, $fecha_registro: DateSearchInput
     }
 }
 
-query Orden($orden_id: ID!) {
+query Orden($orden_id: ID!, $hotel_id: ID!) {
     orden(orden_id: $orden_id) {
         orden
         orden_id
@@ -187,7 +187,7 @@ query Orden($orden_id: ID!) {
                     contenido
                     unidad
                     descripcion
-                    precio {
+                    precio(hotel_id: $hotel_id) {
                         monto
                     }
                     tipo
@@ -219,7 +219,7 @@ query Orden($orden_id: ID!) {
                         categoria_articulo {
                             nombre
                         }
-                        precio {
+                        precio(hotel_id: $hotel_id) {
                             monto
                         }
                     }
@@ -292,7 +292,7 @@ query Orden($orden_id: ID!) {
                         contenido
                         unidad
                         descripcion
-                        precio {
+                        precio(hotel_id: $hotel_id) {
                             monto
                         }
                         tipo
@@ -324,7 +324,7 @@ query Orden($orden_id: ID!) {
                             categoria_articulo {
                                 nombre
                             }
-                            precio {
+                            precio(hotel_id: $hotel_id) {
                                 monto
                             }
                         }
@@ -337,7 +337,7 @@ query Orden($orden_id: ID!) {
 }
 
 query OrdenesPaginadas(
-    $hotel_id: ID
+    $hotel_id: ID!
     $fecha_registro: DateSearchInput
     $pagination_options: PageOptionsArgs
     $estado: EstadosOrdenHistorial
@@ -423,7 +423,7 @@ query OrdenesPaginadas(
                         contenido
                         unidad
                         descripcion
-                        precio {
+                        precio(hotel_id: $hotel_id) {
                             monto
                         }
                         tipo
@@ -455,7 +455,7 @@ query OrdenesPaginadas(
                             categoria_articulo {
                                 nombre
                             }
-                            precio {
+                            precio(hotel_id: $hotel_id) {
                                 monto
                             }
                         }

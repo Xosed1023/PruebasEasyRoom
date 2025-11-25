@@ -151,6 +151,7 @@ const ProductDetails = ({
                     articulo_id: almacenArticulo?.almacen_articulo.articulo?.articulo_id || "",
                     estado: EstadosArticulo.Desactivado,
                     almacen_id: almacenArticulo?.almacen_articulo.almacen?.almacen_id,
+                    hotel_id
                 },
             },
         })
@@ -183,6 +184,7 @@ const ProductDetails = ({
                 articulo_input: {
                     articulo_id: almacenArticulo?.almacen_articulo.articulo?.articulo_id || "",
                     estado: EstadosArticulo.Activado,
+                    hotel_id
                 },
             },
         })
@@ -258,16 +260,16 @@ const ProductDetails = ({
 
     const authorizedRoles = useMemo(() => {
         if (authSuccess.type === "desactivar" || authSuccess.type === "activar" || authSuccess.type === "eliminar") {
-            return [RoleNames.admin, RoleNames.recepcionista, RoleNames.cocina, RoleNames.bar]
+            return [RoleNames.superadmin, RoleNames.admin, RoleNames.recepcionista, RoleNames.cocina, RoleNames.bar]
         }
-        return [RoleNames.admin]
+        return [RoleNames.superadmin, RoleNames.admin]
     }, [authSuccess])
 
     const { Modal } = useAuth({
         authModal: (
             <AuthRequiredModal
-                authorizedRoles={[RoleNames.admin, RoleNames.recepcionista, RoleNames.cocina, RoleNames.bar]}
-                authorizedPins={[RoleNames.admin]}
+                authorizedRoles={[RoleNames.superadmin, RoleNames.admin, RoleNames.recepcionista, RoleNames.cocina, RoleNames.bar]}
+                authorizedPins={[RoleNames.superadmin, RoleNames.admin]}
                 title="Autorización requerida"
                 onClose={() => {
                     setauthSuccess({ state: false, type: "" })

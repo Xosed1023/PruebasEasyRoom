@@ -16,7 +16,7 @@ const ActiveCleanStaff = ({ onSwapColaborador }: { onSwapColaborador: () => void
     const dispatch = useDispatch()
     const { showMiniSnackbar } = useMiniSnackbar()
     const [finalizarTarea] = useActualizar_Colaboradores_TareasMutation()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
 
     return (
         <ListView
@@ -55,6 +55,7 @@ const ActiveCleanStaff = ({ onSwapColaborador }: { onSwapColaborador: () => void
                                         (c) => c?.colaborador_tarea_id
                                     ),
                                     usuario_id,
+                                    hotel_id,
                                     estado: Estados_Habitaciones.Ocupada,
                                 },
                             },

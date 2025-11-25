@@ -9,12 +9,14 @@ import { TiposLimpiezas, useCambiar_Tipo_LimpiezaMutation } from "src/gql/schema
 import useMiniSnackbar from "src/shared/hooks/useMiniSnackbar"
 import { formatTimeAgoNumberWord } from "src/utils/timeago"
 import { addTimeByCleaningType } from "src/shared/helpers/addTimeByCleaningType"
+import { useProfile } from "src/shared/hooks/useProfile"
 
 const ChangeCleanType = ({ onConfirm }: { onConfirm: () => void }) => {
     const room = useRoom()
     const { showMiniSnackbar } = useMiniSnackbar()
     const { isLoading, toggleIsLoading } = useLoadingState()
     const data = useCleaningTypes()
+    const { hotel_id } = useProfile()
     const [cambiarTipoLimpieza] = useCambiar_Tipo_LimpiezaMutation()
 
     const handleSelectType = async (label: string, value: string, minutes: string) => {
@@ -25,6 +27,7 @@ const ChangeCleanType = ({ onConfirm }: { onConfirm: () => void }) => {
             const result = await cambiarTipoLimpieza({
                 variables: {
                     updateTipoLimpiezaInput: {
+                        hotel_id,
                         colaboradores_tareas_ids: room?.colaborador_tareas_sin_finalizar?.map(
                             (t) => t.colaborador_tarea_id
                         ),

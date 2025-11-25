@@ -23,7 +23,7 @@ const TipoLimpieza = ({handleRefetch}: {handleRefetch: () => void}) => {
 
     const { showMiniSnackbar } = useMiniSnackbar()
     const { showSnackbar } = useSnackbar()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
     const dispatch = useDispatch()
     const { isLoading, toggleIsLoading, isLoadingDelayed } = useLoadingState()
 
@@ -55,6 +55,7 @@ const TipoLimpieza = ({handleRefetch}: {handleRefetch: () => void}) => {
             },
             estadoHabitacion: Estados_Habitaciones.Limpieza,
             usuario_id,
+            hotel_id
         })
             .then(() => {
                 dispatch(togglePersonalTurnoDrawer(false))

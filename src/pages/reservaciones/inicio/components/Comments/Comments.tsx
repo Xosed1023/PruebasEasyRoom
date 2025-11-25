@@ -9,6 +9,7 @@ import { ItemMultiplePayment } from "src/pages/home/room-detail/sections/items/I
 import useMiniSnackbar from "src/shared/hooks/useMiniSnackbar"
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 export const Comments = ({
     value,
@@ -76,7 +77,7 @@ export const Comments = ({
     }
     const commentForm = useRef<HTMLFormElement>(null)
 
-    const canAddComment = !isNoShow && rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO"
+    const canAddComment = !isNoShow && rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo
 
     const triggerCommentSubmit = () => {
         handleSubmit(onSubmitComment)()

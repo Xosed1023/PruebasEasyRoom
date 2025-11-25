@@ -17,6 +17,7 @@ import { substractDays } from "src/shared/helpers/substractDays"
 import { getDaysByMonth } from "src/shared/components/forms/input-date/components/MonthDays/helpers"
 import { useCategoriaGastos } from "../../hooks/useCategoriaGastos"
 import { useCurrentDate } from "src/shared/providers/CurrentdateProvider"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const formatTipoDePago = () => {
     const tiposPagosMapping: { [key: string]: { label: string; value: string } } = {
@@ -191,7 +192,7 @@ const AddModalEdithGasto = ({
                     icon="smallDollarSquare"
                     title="Editar gastos"
                     subTitle={`${
-                        rol === "RECEPCIONISTA"
+                        rol === RoleNames.recepcionista
                             ? "Gasto caja chica Folio R-"
                             : (gasto as any)?.caja_chica === true
                             ? "Gasto caja chica Folio A-"
@@ -199,7 +200,7 @@ const AddModalEdithGasto = ({
                     }${gastosEdit?.folio}`}
                 />
                 <form className="addModalCrearGasto__form" onSubmit={handleSubmit(onSubmit)}>
-                    {rol === "ADMINISTRADOR" && (gasto as any)?.caja_chica === false && (
+                    {(rol === RoleNames.admin || rol === RoleNames.superadmin) && (gasto as any)?.caja_chica === false && (
                         <Controller
                             control={control}
                             name={"caja_chica"}
@@ -268,7 +269,7 @@ const AddModalEdithGasto = ({
                                 />
                             )}
                         />
-                        {rol === "ADMINISTRADOR" && (
+                        {(rol === RoleNames.admin || rol === RoleNames.superadmin) && (
                             <Controller
                                 control={control}
                                 name={"fecha_gasto"}
@@ -314,7 +315,7 @@ const AddModalEdithGasto = ({
                             rules={{ required: true, min: 1 }}
                             render={({ field: { onChange, value } }) => (
                                 <InputCurrency
-                                    disabled={rol === "RECEPCIONISTA" ? true : false}
+                                    disabled={rol === RoleNames.recepcionista ? true : false}
                                     errorhinttext={errors.monto ? "Ingresa un monto" : undefined}
                                     error={errors.monto ? true : false}
                                     label="Monto"

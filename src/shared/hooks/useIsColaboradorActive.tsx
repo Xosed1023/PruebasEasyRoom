@@ -11,7 +11,7 @@ const useIsColaboradorActive = () => {
     const [isShowingUnauthorizedModal, setshowUnauthorizedModal] = useState(false)
 
     const validateIsColabActive = <T = unknown, N = void>(cb: (...args: T[]) => N): ((...args: T[]) => void) => {
-        if (colab?.en_turno || [RoleNames.admin].includes(rolName as RoleNames)) {
+        if (colab?.en_turno || [RoleNames.admin, RoleNames.superadmin].includes(rolName as RoleNames)) {
             return cb
         }
         return () => setshowUnauthorizedModal(true)

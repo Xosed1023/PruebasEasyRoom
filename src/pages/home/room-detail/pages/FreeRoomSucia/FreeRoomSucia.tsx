@@ -19,7 +19,7 @@ function FreeRoomSucia(): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false)
     const navigate = useNavigate()
     const { localDateToUTCString } = useDate()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
 
     const room = useSelectedRoom()
     const { handleFinish } = useRoomStore()
@@ -70,7 +70,7 @@ function FreeRoomSucia(): JSX.Element {
     const { Modal, skip } = useAuth({
         authModal: (
             <AuthRequiredModal
-                authorizedRoles={[RoleNames.admin]}
+                authorizedRoles={[RoleNames.admin, RoleNames.superadmin]}
                 isOpen={visible}
                 onAuthFilled={(value, sampleData) => handleConfirm(value || "", sampleData || "")}
                 onClose={() => setVisible(false)}
@@ -90,6 +90,7 @@ function FreeRoomSucia(): JSX.Element {
                         fecha_estado: localDateToUTCString(new Date()),
                         habitacion_id: room.habitacion_id,
                         usuario_id,
+                        hotel_id
                     },
                 },
             })

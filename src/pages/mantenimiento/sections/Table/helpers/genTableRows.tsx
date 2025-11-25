@@ -39,7 +39,7 @@ const genTableRows = ({
                     { value: nombreTurno },
                     { value: getFormatLongDateHour(fecha_registro) },
                     { value: `${agua} L` },
-                    { value: `${gas} L` },
+                    { value: `${gas} m³` },
                     { value: `${luz} kW` },
                     { value: `${nombre} ${apellido_paterno}` },
                     {

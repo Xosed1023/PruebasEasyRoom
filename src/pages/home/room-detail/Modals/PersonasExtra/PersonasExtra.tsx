@@ -70,7 +70,7 @@ const PersonasExtra = ({ onClose }: PersonasExtraProps) => {
     const [isSubmitLoading, setisSubmitLoading] = useState(false)
     const [tipoPago, setTipoPago] = useState<string>("total")
     const [lovePointsAmount, setLovePointsAmount] = useState<LovePoint | null>(null)
-    const tipoPagoRoll = rolName === "VALETPARKING" ? "pendiente" : tipoPago
+    const tipoPagoRoll = rolName === RoleNames.valet ? "pendiente" : tipoPago
     const personasExtraMax = room?.ultima_renta?.tarifa?.personas_extra_max - room?.ultima_renta?.personas_extra
     const [isInitialModalViewState, setIsInitialModalViewState] = useState(true)
 
@@ -140,7 +140,7 @@ const PersonasExtra = ({ onClose }: PersonasExtraProps) => {
     const { Modal } = useAuth({
         authModal: (
             <AuthRequiredModal
-                authorizedPins={[RoleNames.admin, RoleNames.gerente]}
+                authorizedPins={[RoleNames.admin, RoleNames.gerente, RoleNames.superadmin]}
                 isOpen={isAuthModalOpen}
                 onAuthFilled={(value, sampleData) => {
                     setisAuthModalOpen(false)
@@ -150,7 +150,7 @@ const PersonasExtra = ({ onClose }: PersonasExtraProps) => {
             />
         ),
         noNeedAuthModalRoles: [],
-        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista, RoleNames.valet, RoleNames.gerente],
+        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista, RoleNames.valet, RoleNames.gerente, RoleNames.superadmin],
         isOpen: isAuthModalOpen,
         onClose: () => setisAuthModalOpen(false),
     })
@@ -332,7 +332,7 @@ const PersonasExtra = ({ onClose }: PersonasExtraProps) => {
                                 className="noches-extra__body-pago"
                                 icon="creditCard"
                                 options={
-                                    rolName === "VALETPARKING"
+                                    rolName === RoleNames.valet
                                         ? [{ label: "Pendiente", value: "pendiente" }]
                                         : [
                                               { label: "Total", value: "total" },
@@ -341,7 +341,7 @@ const PersonasExtra = ({ onClose }: PersonasExtraProps) => {
                                 }
                                 placeholder="Selecciona una opción"
                             />
-                            {rolName !== "VALETPARKING" && tipoPagoRoll === "total" && (
+                            {rolName !== RoleNames.valet && tipoPagoRoll === "total" && (
                                 <div className="noches-extra__body-pago-total">
                                     <div
                                         className={
@@ -456,7 +456,7 @@ const PersonasExtra = ({ onClose }: PersonasExtraProps) => {
                                             />
                                         )}
                                     />
-                                    {rolName !== "ADMINISTRADOR" && rolName !== "RECEPCIONISTA" && (
+                                    {rolName !== RoleNames.admin &&  rolName !== RoleNames.superadmin && rolName !== RoleNames.recepcionista && (
                                         <div
                                             className={
                                                 paymentMethod === PAYMENT_METHODS.visaOMasterCard.value ||

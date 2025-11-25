@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client"
 
 export const GET_ROOM_SERVICE_ROOM = gql`
-    query GetRoomServiceByRoom($habitacion_id: ID!) {
+    query GetRoomServiceByRoom($habitacion_id: ID!, $hotel_id: ID) {
         habitacion(habitacion_id: $habitacion_id) {
             habitacion_id
             ultima_renta {
@@ -19,7 +19,7 @@ export const GET_ROOM_SERVICE_ROOM = gql`
                             articulo {
                                 nombre
                                 descripcion
-                                precio {
+                                precio(hotel_id: $hotel_id){
                                     monto
                                 }
                                 unidad

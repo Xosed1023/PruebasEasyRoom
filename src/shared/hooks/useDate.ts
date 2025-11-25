@@ -1,9 +1,11 @@
 import { DateTime } from "luxon"
 import { div, times } from "../helpers/calculator"
 import { parseTimeString } from "../helpers/parseTimeString"
+import { useProfile } from "./useProfile"
 
-export const useDate = (zona_horaria?: string) => {
-    const zonehotel = zona_horaria || "America/Mexico_City"
+// Funciones de utilidad que pueden usarse fuera de componentes React
+export const createDateUtils = (zona_horaria = "America/Mexico_City") => {
+    const zonehotel = zona_horaria
     const localDateToOperableDate = (localDate: Date) => {
         return new Date(localDate.getTime() - localDate.getTimezoneOffset() * 60000)
     }
@@ -100,19 +102,19 @@ export const useDate = (zona_horaria?: string) => {
             hour: "2-digit",
             minute: "2-digit",
             hour12: true,
-            timeZone: zona_horaria || "America/Mexico_City",
+            timeZone: zona_horaria || zonehotel || "America/Mexico_City",
         })
     }
 
     const formatDateZone = (fecha?: Date, zona_horaria?: string): string => {
         if (!(fecha instanceof Date)) return "-"
 
-        const options = { timeZone: zona_horaria || "America/Mexico_City" }
+        const options = { timeZone: zona_horaria || zonehotel || "America/Mexico_City" }
         const fechaZonificada = new Date(fecha.toLocaleString("en-US", options))
 
         const mes = fechaZonificada.toLocaleString("en-US", {
             month: "short",
-            timeZone: zona_horaria || "America/Mexico_City",
+            timeZone: zona_horaria || zonehotel || "America/Mexico_City",
         })
         const dia = fechaZonificada.getDate()
         const año = fechaZonificada.getFullYear()
@@ -258,4 +260,12 @@ export const useDate = (zona_horaria?: string) => {
         formatDateZone,
         getDayHoursRange,
     }
+}
+
+// Hook para usar dentro de componentes React con zona horaria del perfil
+export const useDate = (zona_horaria?: string) => {
+    const { zona_horaria: zonaHorariaProfile } = useProfile()
+    const zonehotel = zona_horaria || zonaHorariaProfile || "America/Mexico_City"
+    console.log("Using timezone:", zonehotel)
+    return createDateUtils(zonehotel)
 }

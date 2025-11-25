@@ -8,7 +8,7 @@
     justify-content: center;
     align-items: center;
     pointer-events: none;
-    background: rgba(16, 24, 40, 0.7);
+    background: none;
     z-index: 9999;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .multihotel-loader-icon-wrapper {
-    width: 100%;
+    width: 120px;
     height: 100px;
     position: relative;
     overflow: hidden;
@@ -42,13 +42,26 @@
 }
 
 @keyframes moveIcon {
-    0% {
-        left: 56px;
-    }
+     0% {
+    transform: translateX(-112px);
+    animation-timing-function: cubic-bezier(0.0, 0.0, 0.58, 1.0); /* desacelera hasta 0 */
+  }
 
-    100% {
-        left: 202px;
-    }
+  /* Llega al centro y se queda quieto (velocidad 0) */
+  50% {
+    transform: translateX(0);
+  }
+
+  /* Pausa en el centro */
+  60% {
+    transform: translateX(0);
+    animation-timing-function: cubic-bezier(0.42, 0.0, 1.0, 1.0); /* acelera desde 0 */
+  }
+
+  /* Sale del centro hacia la derecha acelerando */
+  100% {
+    transform: translateX(112px);
+  }
 }
 
 .multihotel-loader-text {

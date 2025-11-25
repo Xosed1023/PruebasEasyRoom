@@ -240,6 +240,7 @@ function Inventario(): JSX.Element {
         GetAlmacenArticuloByIdQuery({
             variables: {
                 almacen_articulo_id,
+                hotel_id
             },
         }).then(({ data }) => {
             setItemSelected(data)
@@ -481,6 +482,7 @@ function Inventario(): JSX.Element {
                                             GetAlmacenArticuloByIdQuery({
                                                 variables: {
                                                     almacen_articulo_id: id,
+                                                    hotel_id
                                                 },
                                             }).then(({ data }) => {
                                                 setItemSelected(data)
@@ -521,6 +523,7 @@ function Inventario(): JSX.Element {
                                         GetAlmacenArticuloByIdQuery({
                                             variables: {
                                                 almacen_articulo_id,
+                                                hotel_id
                                             },
                                         }).then(({ data }) => {
                                             setItemSelected(data)

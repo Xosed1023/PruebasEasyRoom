@@ -1,8 +1,8 @@
 import { Maybe, UltimosConceptosPendientesDetailOutput } from "src/gql/schema"
-import { useDate } from "src/shared/hooks/useDate"
+import { createDateUtils } from "src/shared/hooks/useDate"
 
 const getFirstConceptoPendiente = (ultimos_conceptos_pendientes?: Maybe<UltimosConceptosPendientesDetailOutput>) => {
-    const { UTCStringToLocalDate } = useDate()
+    const { UTCStringToLocalDate } = createDateUtils()
 
     const extra = { type: "extra", date: ultimos_conceptos_pendientes?.extra?.fecha_solicitud }
     const orden = { type: "orden", date: ultimos_conceptos_pendientes?.orden?.fecha_registro }

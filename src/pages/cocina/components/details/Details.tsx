@@ -1,6 +1,7 @@
 import Drawer from "src/shared/components/layout/drawer/Drawer"
 import "./Details.css"
 import { useGetRecetaForDetailQuery } from "src/gql/schema"
+import { useProfile } from "src/shared/hooks/useProfile"
 
 export function OrderDetails({
     onClose,
@@ -11,8 +12,9 @@ export function OrderDetails({
     isOpen: boolean
     idReceta: string
 }): JSX.Element {
+    const { hotel_id } = useProfile()
     const { data: receta } = useGetRecetaForDetailQuery({
-        variables: { articulo_id: idReceta || "" },
+        variables: { articulo_id: idReceta || "", hotel_id },
     })
 
     return (

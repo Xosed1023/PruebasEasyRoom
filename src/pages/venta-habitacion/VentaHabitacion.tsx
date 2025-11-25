@@ -94,6 +94,7 @@ import useAuthOnTarifaNocheSelect from "./hooks/useAuthOnTarifaNocheSelect"
 import useAuthOnCortesiaSelect from "../../shared/hooks/useAuthOnCortesiaSelect"
 import useAuthOnCortesiaFromMixtoSelect from "../../shared/hooks/useAuthOnCortesiaFromMixtoSelect"
 import { useDateWithUTCHour } from "./hooks/useDateWithUTCHour"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 export interface DefaultValuesType extends Partial<ModalMatriculaProps> {
     type: TiposAlojamientos
@@ -223,6 +224,7 @@ const VentaHabitacion = () => {
         variables: {
             habitacion_id,
             usuario_id,
+            hotel_id
         },
         onError: () => {
             navigate("/u")
@@ -1442,7 +1444,7 @@ const VentaHabitacion = () => {
                             {isShowingPago && (
                                 <FormSection title="Pago" style={{ marginBottom: 0 }}>
                                     <FormSectionRow>
-                                        {rolName === "VALETPARKING" && (
+                                        {rolName === RoleNames.valet && (
                                             <div
                                                 className="venta-habitacion__inputs"
                                                 style={{ margin: 0, marginTop: "16px" }}
@@ -1458,7 +1460,7 @@ const VentaHabitacion = () => {
                                                 <CardNumber />
                                             </div>
                                         )}
-                                        {rolName !== "VALETPARKING" && (
+                                        {rolName !== RoleNames.valet && (
                                             <>
                                                 <Controller
                                                     control={methods.control}
@@ -1644,7 +1646,7 @@ const VentaHabitacion = () => {
                                     </FormSectionRow>
                                 </FormSection>
                             )}
-                            {rolName !== "VALETPARKING" && (
+                            {rolName !== RoleNames.valet && (
                                 <>
                                     {isValidPropina(method) && !location?.state?.reservaSeleccionada && (
                                         <FormSection title="Propina (opcional)" toggable>

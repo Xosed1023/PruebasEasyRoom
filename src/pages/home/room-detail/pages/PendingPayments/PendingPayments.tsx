@@ -62,10 +62,10 @@ const PendingPayments = () => {
 
     const navigate = useNavigate()
     const { habitacion_id } = useParams()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
 
     const { data } = useQuery<{ habitacion: Habitacion }>(GET_ROOM, {
-        variables: { habitacion_id, usuario_id},
+        variables: { habitacion_id, usuario_id, hotel_id },
     })
 
     const [tipoExtraselected, seTtipoExtraselected] = useState("todas")

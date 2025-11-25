@@ -19,6 +19,7 @@ import IncidenciasItem from "src/pages/home/room-detail/sections/items/Incidenci
 import DescriptionDetailList from "src/shared/components/data-display/DescriptionDetailList/DescriptionDetailList"
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const Home = ({ onChangeSection }: { onChangeSection: (section: CleanDetailSection) => void }) => {
     const room = useRoom()
@@ -76,7 +77,7 @@ const Home = ({ onChangeSection }: { onChangeSection: (section: CleanDetailSecti
                                     (c) =>
                                         `${c.colaborador?.nombre} ${c.colaborador?.apellido_paterno} ${c.colaborador?.apellido_materno}`
                                 )}
-                                link={rolName !== "VALETPARKING" && rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" ? "Limpiar" : ""}
+                                link={rolName !== RoleNames.valet && rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo ? "Limpiar" : ""}
                                 onLink={validateIsColabActive(() => onChangeSection("clean-staff"))}
                             />
                         )}
@@ -93,7 +94,7 @@ const Home = ({ onChangeSection }: { onChangeSection: (section: CleanDetailSecti
                             date={`${mant?.fecha_termino ? formatTimeAgo(mant?.fecha_termino) : "-"}`}
                             icon="tools"
                             label="Último mantenimiento"
-                            link={rolName !== "VALETPARKING" && rolName !== "MONITOREO" && rolName !== "MANTENIMIENTO" ? "Mantenimiento" : ""}
+                            link={rolName !== RoleNames.valet && rolName !== RoleNames.monitoreo && rolName !== RoleNames.mantenimiento ? "Mantenimiento" : ""}
                             onLink={() => {
                                 alerta_por_disponibilidad
                                     ? openModal("Mantenimiento")
@@ -114,7 +115,7 @@ const Home = ({ onChangeSection }: { onChangeSection: (section: CleanDetailSecti
                         <DescriptionDetail
                             icon="BookOpen"
                             label="Última reservación asignada"
-                            link={rolName !== "VALETPARKING" && rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" ? "Asignar reserva" : ""}
+                            link={rolName !== RoleNames.valet && rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo ? "Asignar reserva" : ""}
                             linkBottom={true}
                             onLink={() => {
                                 onChangeSection("reservation")
@@ -157,7 +158,7 @@ const Home = ({ onChangeSection }: { onChangeSection: (section: CleanDetailSecti
                         />
                         <IncidenciasItem />
                     </Block>
-                    {rolName !== "VALETPARKING" && rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" && (
+                    {rolName !== RoleNames.valet && rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo && (
                         <PrimaryButton
                             style={{ position: "relative", bottom: "0" }}
                             text={"Poner a la venta"}

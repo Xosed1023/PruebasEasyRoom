@@ -57,7 +57,7 @@ const EndCheckout = () => {
 
     useEffect(() => {
         getHabitacion({
-            variables: { habitacion_id, usuario_id },
+            variables: { habitacion_id, usuario_id, hotel_id },
         }).then(({ data }) => {
             setHabitacion(data)
         })
@@ -73,7 +73,7 @@ const EndCheckout = () => {
     } = useForm()
 
     const { showSnackbar } = useSnackbar()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
     const statusSelected = watch("status") === undefined ? "sucia" : watch("status")
     const [checkout] = useCheckoutMutation()
 
@@ -269,6 +269,7 @@ const EndCheckout = () => {
                                 tipo_limpieza: getValues().tipo_limpieza,
                             },
                             usuario_id,
+                            hotel_id,
                             estadoHabitacion: statusSelected,
                         })
                         if (resColaborador) {
@@ -330,6 +331,7 @@ const EndCheckout = () => {
                                     habitacion_id: habitacion_id,
                                 },
                                 usuario_id,
+                                hotel_id,
                                 estadoHabitacion: statusSelected,
                             })
                             if (resColaborador) {
@@ -355,6 +357,7 @@ const EndCheckout = () => {
                                     habitacion_id: habitacion_id,
                                 },
                                 usuario_id,
+                                hotel_id,
                                 estadoHabitacion: statusSelected,
                             })
                             if (resColaborador) {

@@ -25,7 +25,7 @@ const CleanType = ({ state }: SectionProps) => {
     const { isLoading, toggleIsLoading } = useLoadingState()
     const [cambiarTareaConEstado] = useCambiarTareaConEstadoMutation()
     const { showMiniSnackbar } = useMiniSnackbar()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
     const dispatch = useDispatch()
     const [finalizarTarea] = useActualizar_Colaboradores_TareasMutation()
     const data = useCleaningTypes()
@@ -39,6 +39,7 @@ const CleanType = ({ state }: SectionProps) => {
             variables: {
                 datos_tarea: {
                     usuario_id,
+                    hotel_id,
                     colaboradores_tareas_ids: room?.colaborador_tareas_sin_finalizar?.map(
                         (c) => c?.colaborador_tarea_id
                     ),
@@ -60,6 +61,7 @@ const CleanType = ({ state }: SectionProps) => {
                 await cambiarTareaConEstado({
                     variables: {
                         switch_task_with_room_state_input: {
+                            hotel_id,
                             tarea_id: room?.colaborador_tareas_sin_finalizar?.[0]?.tarea_id,
                             colaborador_id: state?.colaboradores?.map((c) => c?.colaborador_id),
                             colaborador_tarea_id: room?.colaborador_tareas_sin_finalizar?.map(
@@ -106,6 +108,7 @@ const CleanType = ({ state }: SectionProps) => {
                         tipo_limpieza: value,
                     },
                     usuario_id,
+                    hotel_id,
                     estadoHabitacion: Estados_Habitaciones.Limpieza,
                 })
 

@@ -3,6 +3,7 @@ import { useRoom } from "../../hooks"
 import { useNavigate } from "react-router-dom"
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 function IncidenciasItem(): JSX.Element | null {
     const room = useRoom()
@@ -11,7 +12,7 @@ function IncidenciasItem(): JSX.Element | null {
     const { InactiveModal, validateIsColabActive } = useIsColaboradorActive()
 
     return (
-        rolName === "VALETPARKING" || rolName === "ROOMSERVICE" || rolName === "RESTAURANTE"
+        rolName === RoleNames.valet || rolName === RoleNames.roomService || rolName === RoleNames.restaurante
             ? room?.incidencias_activas_usuario
             : room?.incidencias_activas
     ) ? (
@@ -29,7 +30,7 @@ function IncidenciasItem(): JSX.Element | null {
                     padding: "12px",
                 }}
                 value={
-                    rolName === "VALETPARKING" || rolName === "ROOMSERVICE" || rolName === "RESTAURANTE"
+                    rolName === RoleNames.valet || rolName === RoleNames.roomService || rolName === RoleNames.restaurante
                         ? room?.incidencias_activas_usuario
                         : room?.incidencias_activas
                 }

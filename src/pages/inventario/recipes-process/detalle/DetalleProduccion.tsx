@@ -66,7 +66,7 @@ function DetalleProduccion({
     const activado = almacenArticulo?.estado === EstadosAlmacenesArticulos.Activado
 
     const { data: receta } = useGetRecetaForDetailQuery({
-        variables: { articulo_id: almacenArticulo?.articulo_id || "" },
+        variables: { articulo_id: almacenArticulo?.articulo_id || "", hotel_id },
         skip: isOpen && extra,
     })
     const [getConfig] = useConfiguracionInventarioLazyQuery({
@@ -115,6 +115,7 @@ function DetalleProduccion({
                     articulo_id: almacenArticulo?.articulo_id || "",
                     estado: EstadosArticulo.Desactivado,
                     almacen_id: almacenArticulo?.almacen_id,
+                    hotel_id
                 },
             },
         })
@@ -146,6 +147,7 @@ function DetalleProduccion({
                     articulo_id: almacenArticulo?.articulo_id || "",
                     estado: EstadosArticulo.Activado,
                     almacen_id: almacenArticulo?.almacen_id,
+                    hotel_id
                 },
             },
         })

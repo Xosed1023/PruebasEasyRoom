@@ -48,7 +48,7 @@ function FreeRoomMantenimiento(): JSX.Element {
     const [value, setValue] = useState<string>(options[0].key)
     const [selection, setSelection] = useState<Selection>({ personal: [], type: "" })
     const [error, setError] = useState<Errors>(errorInitialValue)
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
 
     const navigate = useNavigate()
 
@@ -96,6 +96,7 @@ function FreeRoomMantenimiento(): JSX.Element {
                         ),
                         habitacion_id: room.habitacion_id,
                         usuario_id,
+                        hotel_id,
                         estado: Estados_Habitaciones.Sucia,
                     },
                 },
@@ -137,6 +138,7 @@ function FreeRoomMantenimiento(): JSX.Element {
                         tipo_limpieza: selection.type as TiposLimpiezas,
                     },
                     usuario_id,
+                    hotel_id,
                     estadoHabitacion: Estados_Habitaciones.Limpieza,
                 })
             } else {
@@ -144,6 +146,7 @@ function FreeRoomMantenimiento(): JSX.Element {
                     variables: {
                         switch_task_with_room_state_input: {
                             tarea_id: room?.colaborador_tareas_sin_finalizar?.[0]?.tarea_id,
+                            hotel_id,
                             colaborador_id: selection.personal.map((v) => v.value),
                             colaborador_tarea_id: room?.colaborador_tareas_sin_finalizar?.map(
                                 (c) => c?.colaborador_tarea_id

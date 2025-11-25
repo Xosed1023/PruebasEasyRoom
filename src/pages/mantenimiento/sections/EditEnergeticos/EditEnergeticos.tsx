@@ -182,7 +182,7 @@ const EditEnergeticos = ({
                                     }}
                                     onChange={(v) => onChange(v.target.value ? Number(v.target.value) : null)}
                                     error={error?.type === "required"}
-                                    description="Litros"
+                                    description="m³"
                                     errorhinttext={error?.type === "required" ? "Escribe una cantidad" : ""}
                                 />
                             )}

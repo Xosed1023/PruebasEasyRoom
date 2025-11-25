@@ -13,6 +13,7 @@ for (const u of usuarios) {
         test.beforeEach(async ({ page }) => {
             //Login
             await page.goto("https://test.easyroom.io/")
+            await page.reload()
             await page.getByTestId("email").fill(u.usuario)
             await page.getByTestId("password").fill("ABCd1234")
             await page.locator("path").nth(2).click()

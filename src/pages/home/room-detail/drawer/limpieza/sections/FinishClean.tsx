@@ -22,7 +22,7 @@ const FinishClean = () => {
     const [selected, setValue] = useState<State>({ label: "", value: "", extra: "" })
 
     const room = useRoom()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
     const { handleFinish } = useRoomStore()
     const [isLoadingConfirmSelectSupervisor, setisLoadingConfirmSelectSupervisor] = useState(false)
 
@@ -59,6 +59,7 @@ const FinishClean = () => {
                         variables: {
                             datos_tarea: {
                                 usuario_id,
+                                hotel_id,
                                 colaboradores_tareas_ids: room?.colaborador_tareas_sin_finalizar?.map(
                                     (c) => c?.colaborador_tarea_id
                                 ),
@@ -84,6 +85,7 @@ const FinishClean = () => {
                         variables: {
                             switch_task_with_room_state_input: {
                                 tarea_id: room?.colaborador_tareas_sin_finalizar?.[0]?.tarea_id,
+                                hotel_id,
                                 // Colaborador a asignar tarea
                                 colaborador_id: [selected.value],
                                 colaborador_tarea_id: room?.colaborador_tareas_sin_finalizar?.map(

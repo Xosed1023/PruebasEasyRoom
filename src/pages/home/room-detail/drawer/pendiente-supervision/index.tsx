@@ -12,6 +12,7 @@ import MaintenanceType from "../general/sections/MaintenanceType/MaintenanceType
 import { useRoomDarwer } from "../../hooks/darwer"
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 function PendienteSupervision(): JSX.Element {
     const { drawerSelectedSection } = useSelector((root: RootState) => root.roomDetails.pendienteSupervision)
@@ -32,7 +33,7 @@ function PendienteSupervision(): JSX.Element {
     return (
         <>
             <DrawerWrapper
-                withMenu={drawerSelectedSection === "home" && rolName !== "MANTENIMIENTO"}
+                withMenu={drawerSelectedSection === "home" && rolName !== RoleNames.mantenimiento}
                 withBackButton={drawerSelectedSection !== "home"}
                 onBack={() => {
                     if (drawerSelectedSection === "clean-tyoe") {

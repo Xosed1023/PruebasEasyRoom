@@ -68,10 +68,31 @@
     color: var(--white);
 }
 
+.header__info__avatar-cricle {
+    width: 24px;
+    height: 24px;
+    background-color: var(--white);
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__info__avatar-cricle span {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    color: var(--label-color);
+}
+
 .header__info__avatar {
     display: inline-block;
     width: 24px;
-    height: auto;
+    height: 24px;
+    object-fit: cover;
 }
 
 .header__options__wrap {
@@ -231,6 +252,7 @@
     border-radius: 50px;
     margin-left: 20px;
     background: black;
+    cursor: pointer;
 }
 .header__container__avatar-dot {
     width: 9px;

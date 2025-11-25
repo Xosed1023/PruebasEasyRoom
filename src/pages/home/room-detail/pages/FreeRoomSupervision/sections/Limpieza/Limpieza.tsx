@@ -43,7 +43,7 @@ const Limpieza = ({ isSubmitLoading, setIsDataLoading, setIsSubmitLoading, showC
     const { data: recamaristas } = useColaborador([Puestos.RECAMARISTA], Puestos.RECAMARISTA)
     const [cambiarTareaConEstado] = useCambiarTareaConEstadoMutation()
     const room = useSelectedRoom()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
     const { showSnackbar } = useSnackbar()
     const { onFinished } = useOnFinished({ onEnd: () => setIsSubmitLoading(false) })
 
@@ -57,6 +57,7 @@ const Limpieza = ({ isSubmitLoading, setIsDataLoading, setIsSubmitLoading, showC
         variables: {
             habitacion_id,
             usuario_id,
+            hotel_id
         },
         skip: !habitacion_id || !usuario_id,
     })
@@ -102,6 +103,7 @@ const Limpieza = ({ isSubmitLoading, setIsDataLoading, setIsSubmitLoading, showC
             await cambiarTareaConEstado({
                 variables: {
                     switch_task_with_room_state_input: {
+                        hotel_id,
                         tarea_id: room?.colaborador_tareas_sin_finalizar?.[0]?.tarea_id,
                         colaborador_id: v.colaborador?.map((c) => c.id),
                         colaborador_tarea_id: room?.colaborador_tareas_sin_finalizar?.map(

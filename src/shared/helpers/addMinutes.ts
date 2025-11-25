@@ -1,7 +1,7 @@
-import { useDate } from "../hooks/useDate"
+import { createDateUtils } from "../hooks/useDate"
 
 const addMinutes = ({utcDate, minutes}:{utcDate: string, minutes: number}) => {
-    const { UTCStringToLocalDate } = useDate()
+    const { UTCStringToLocalDate } = createDateUtils()
     const manipulableDate = UTCStringToLocalDate(utcDate)
     return new Date(manipulableDate.setMinutes(manipulableDate.getMinutes() + (minutes || 0)))
 }

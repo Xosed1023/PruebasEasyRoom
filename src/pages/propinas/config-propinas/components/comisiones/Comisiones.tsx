@@ -13,6 +13,7 @@ import Percent from "src/shared/icons/Percent"
 import { Button } from "src/shared/components/forms"
 import useSnackbar from "src/shared/hooks/useSnackbar"
 import { useProfile } from "src/shared/hooks/useProfile"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const Comisiones = () => {
     const { showSnackbar } = useSnackbar()
@@ -27,7 +28,7 @@ const Comisiones = () => {
     const [utilidad, setUtilidad] = useState<string>("")
 
     const { hotel_id, rolName } = useProfile()
-    const isRecepcionista = rolName === "RECEPCIONISTA"
+    const isRecepcionista = rolName === RoleNames.recepcionista
 
     const navigate = useNavigate()
 

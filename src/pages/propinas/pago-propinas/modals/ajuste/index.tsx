@@ -7,6 +7,7 @@ import Icon from "src/shared/icons"
 import { getCurrencyFormat } from "src/utils/string"
 import { ModalAjusteProps, FormValues } from "./index.type"
 import "./index.css"
+import { useProfile } from "src/shared/hooks/useProfile"
 
 function ModalAjuste({ onClose, colaborador, onChange }: ModalAjusteProps): JSX.Element {
     const monto = colaborador?.monto || 0
@@ -15,6 +16,7 @@ function ModalAjuste({ onClose, colaborador, onChange }: ModalAjusteProps): JSX.
 
     const editMode = monto_ajuste > 0
 
+    const { hotel_id } = useProfile()
     const { control, handleSubmit } = useForm<FormValues>({
         defaultValues: {
             monto: monto_ajuste,
@@ -28,6 +30,7 @@ function ModalAjuste({ onClose, colaborador, onChange }: ModalAjusteProps): JSX.
             puesto_id: colaborador?.puesto_id || "",
             monto_ajuste: Number(values.monto || 0),
             ingreso_hotel: values.hotel,
+            hotel_id
         })
         onClose()
     }

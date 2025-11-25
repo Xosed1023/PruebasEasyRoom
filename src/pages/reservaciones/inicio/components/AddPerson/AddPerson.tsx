@@ -5,6 +5,7 @@ import { useReserva } from "src/pages/home/room-detail/hooks/useReserva"
 import DescriptionDetail from "src/shared/components/data-display/description-detail/DescriptionDetail"
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 export const AddPerson = ({ isNoShow }: { isNoShow: boolean }) => {
     const { selectedReservation, handleSetReserva } = useReserva()
@@ -13,7 +14,7 @@ export const AddPerson = ({ isNoShow }: { isNoShow: boolean }) => {
     const {InactiveModal, validateIsColabActive} = useIsColaboradorActive()
     
     const canAddPerson =
-        rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" &&
+        rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo &&
         (selectedReservation?.personas_extras || 0) < (selectedReservation?.tarifa?.personas_extra_max || 0) &&
         !isNoShow
 

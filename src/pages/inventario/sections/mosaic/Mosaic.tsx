@@ -215,6 +215,7 @@ const Mosaic = ({
                                 articulo_input: {
                                     articulo_id: productFormMosaicSelected?.articulo_id || "",
                                     estado: EstadosArticulo.Activado,
+                                    hotel_id
                                 },
                             },
                         })

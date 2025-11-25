@@ -31,7 +31,7 @@ const defaultValues: DefaultValues = {
 const Mantenimiento = ({ isSubmitLoading, setIsDataLoading, setIsSubmitLoading }: SectionProps) => {
     const { data: usersMantenimiento } = useColaborador(Puestos.MANTENIMIENTO)
     const room = useSelectedRoom()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
     const { showSnackbar } = useSnackbar()
     const [cambiarTareaConEstado] = useCambiarTareaConEstadoMutation()
     const { onFinished } = useOnFinished({ onEnd: () => setIsSubmitLoading(false) })
@@ -62,6 +62,7 @@ const Mantenimiento = ({ isSubmitLoading, setIsDataLoading, setIsSubmitLoading }
             await cambiarTareaConEstado({
                 variables: {
                     switch_task_with_room_state_input: {
+                        hotel_id,
                         tarea_id: room?.colaborador_tareas_sin_finalizar?.[0]?.tarea_id,
                         colaborador_id: colaborador_ids,
                         colaborador_tarea_id: room?.colaborador_tareas_sin_finalizar?.map(

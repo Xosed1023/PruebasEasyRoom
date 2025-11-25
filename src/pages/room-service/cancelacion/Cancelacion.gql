@@ -34,7 +34,7 @@ mutation CancelarComanda($cancelar_comanda: CancelComandaInput!) {
     }
 }
 
-query getComandaCancelacion($comanda_id: ID!) {
+query getComandaCancelacion($comanda_id: ID!, $hotel_id: ID!) {
     comanda(comanda_id: $comanda_id) {
         orden {
             orden
@@ -61,7 +61,7 @@ query getComandaCancelacion($comanda_id: ID!) {
                     contenido
                     unidad
                     descripcion
-                    precio {
+                    precio(hotel_id: $hotel_id) {
                         monto
                     }
                     tipo
@@ -93,7 +93,7 @@ query getComandaCancelacion($comanda_id: ID!) {
                         categoria_articulo {
                             nombre
                         }
-                        precio {
+                        precio(hotel_id: $hotel_id) {
                             monto
                         }
                     }
@@ -103,7 +103,7 @@ query getComandaCancelacion($comanda_id: ID!) {
     }
 }
 
-query CancelacionOrdenes($orden_id: [ID!]!, $hotel_id: ID, $fecha_registro: DateSearchInput) {
+query CancelacionOrdenes($orden_id: [ID!]!, $hotel_id: ID!, $fecha_registro: DateSearchInput) {
     ordenes(orden_id: $orden_id, hotel_id: $hotel_id, fecha_registro: $fecha_registro) {
         orden
         orden_id
@@ -154,7 +154,7 @@ query CancelacionOrdenes($orden_id: [ID!]!, $hotel_id: ID, $fecha_registro: Date
                     contenido
                     unidad
                     descripcion
-                    precio {
+                    precio(hotel_id: $hotel_id) {
                         monto
                     }
                     tipo
@@ -186,7 +186,7 @@ query CancelacionOrdenes($orden_id: [ID!]!, $hotel_id: ID, $fecha_registro: Date
                         categoria_articulo {
                             nombre
                         }
-                        precio {
+                        precio(hotel_id: $hotel_id) {
                             monto
                         }
                     }

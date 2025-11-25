@@ -15,17 +15,19 @@ import { useTable } from "./hooks/useTable"
 import { getDateFilters } from "./AssortmentHistory.helpers"
 import { getDateString } from "src/utils/date"
 import "./AssortmentHistory.css"
+import { useProfile } from "src/shared/hooks/useProfile"
 
 const current = new Date()
 
 const AssortmentHistory = () => {
     const params = useParams()
+    const { hotel_id } = useProfile() 
     const almacen_articulo_id = params?.almacen_articulo_id || ""
 
     const [date, setDate] = useState<Date>(new Date())
 
     const { data: articulo, loading: loadProduct } = useGetAlmacenArticuloForSurtidoQuery({
-        variables: { almacen_articulo_id },
+        variables: { almacen_articulo_id, hotel_id },
     })
     const { data: surtidos, loading: load } = useGetSurtidosByAlmacenArtIdQuery({
         variables: { almacen_articulo_id, fecha_ingreso: getDateFilters(date) },

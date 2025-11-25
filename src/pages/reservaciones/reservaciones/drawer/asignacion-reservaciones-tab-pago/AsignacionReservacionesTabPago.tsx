@@ -23,6 +23,7 @@ import { isVisibleCardOrReference } from "src/shared/sections/payment/Payment.he
 import { ItemMultiplePayment } from "src/pages/home/room-detail/sections/items/Items"
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const AsignacionReservacionesTabPago = ({
     sentReservaD,
@@ -37,7 +38,7 @@ const AsignacionReservacionesTabPago = ({
     const {InactiveModal, validateIsColabActive} = useIsColaboradorActive()
     const [reservaActualizada, setReservaActualizada] = useState<any>()
     const { rolName } = useProfile()
-    const isMaintenance = rolName === "MANTENIMIENTO"
+    const isMaintenance = rolName === RoleNames.mantenimiento
     const { diffDays, UTCStringToLocalDate, setHHMMSS } = useDate()
 
     const [diasAlojamiento, setdiasAlojamiento] = useState(1)

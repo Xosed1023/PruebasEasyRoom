@@ -8,6 +8,7 @@ import { EstadosDetalleOrden } from "src/gql/schema"
 import useToggleSelectOrder from "src/pages/cocina/hooks/useToggleSelectOrder"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
 import { useProfile } from "src/shared/hooks/useProfile"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const Receta = ({
     receta,
@@ -95,9 +96,9 @@ const Receta = ({
                     {orderComandaChangeState === "eliminada" ? (
                         <></>
                     ) : (receta.estado === EstadosDetalleOrden.Cancelada ||
-                      receta.estado === EstadosDetalleOrden.CanceladaEdicion) && rolName !== "MONITOREO" ? (
+                      receta.estado === EstadosDetalleOrden.CanceladaEdicion) && rolName !== RoleNames.monitoreo ? (
                         <ButtonIcon iconName={"trashFilled"} theme="secondary" onClick={onSelectArticulo} />
-                    ) : rolName !== "MONITOREO" ? (
+                    ) : rolName !== RoleNames.monitoreo ? (
                         <ButtonIcon
                             iconName={
                                 (receta.estado as EstadosDetalleOrden) === EstadosDetalleOrden.EnPreparacion

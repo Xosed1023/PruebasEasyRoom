@@ -69,7 +69,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                 }`,
                 date: `${mant?.fecha_termino ? formatTimeAgo(mant?.fecha_termino) : "-"}`,
                 link:
-                    rolName !== "VALETPARKING" && rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO"
+                    rolName !== RoleNames.valet && rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo
                         ? "Mantenimiento"
                         : "",
                 onLink: validateIsColabActive(() =>
@@ -106,7 +106,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                                     (c) =>
                                         `${c.colaborador?.nombre} ${c.colaborador?.apellido_paterno} ${c.colaborador?.apellido_materno}`
                                 )}
-                            link={rolName !== "VALETPARKING" && rolName !== "MANTENIMIENTO" ? "Limpiar" : ""}
+                            link={rolName !== RoleNames.valet && rolName !== RoleNames.mantenimiento ? "Limpiar" : ""}
                             onLink={() => onNavigate("clean-staff")}
                         />
                     )}
@@ -132,10 +132,10 @@ const Home = ({ onNavigate }: SectionProps) => {
                     {turnos_en_espera > 0 && <AlertListaEspera size={turnos_en_espera} />}
                     {reservas_del_dia > 0 && <AlertReservas size={reservas_del_dia} />}
 
-                    {rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" && (
+                    {rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo && (
                         <>
                             <PrimaryButton
-                                text={rolName === "VALETPARKING" ? "Vender habitación" : "Rentar habitación"}
+                                text={rolName === RoleNames.valet ? "Vender habitación" : "Rentar habitación"}
                                 style={{ marginBottom: 12 }}
                                 onClick={validateIsColabActive(() =>
                                     alerta_por_turnos_atencion
@@ -146,7 +146,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                                 )}
                             />
 
-                            {rolName !== "VALETPARKING" && (
+                            {rolName !== RoleNames.valet && (
                                 <SecondaryButton
                                     text={"Asignar habitación a reserva"}
                                     onClick={validateIsColabActive(() => onNavigate("booking"))}
@@ -170,7 +170,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                 onClose={() => setModalListaEspera(false)}
                 habitacionID={room?.tipo_habitacion_id}
                 onConfirm={(folio_turno_id, autorizacionRequerida) => {
-                    if (autorizacionRequerida && (rolName === "RECEPCIONISTA" || rolName === "VALETPARKING")) {
+                    if (autorizacionRequerida &&  (rolName === RoleNames.recepcionista || rolName === RoleNames.valet)) {
                         setFolioAutorizacion(folio_turno_id)
                         setisAuthModalOpen(true)
                     } else {
@@ -185,7 +185,7 @@ const Home = ({ onNavigate }: SectionProps) => {
             <AuthRequiredModal
                 isOpen={isAuthModalOpen}
                 onClose={() => setisAuthModalOpen(false)}
-                authorizedRoles={[RoleNames.admin]}
+                authorizedRoles={[RoleNames.admin, RoleNames.superadmin]}
                 onAuthFilled={() => {
                     setisAuthModalOpen(false)
                     if (folioAutorizacion) {

@@ -17,7 +17,7 @@ import { useProfile } from "src/shared/hooks/useProfile"
 import { RoleNames } from "src/shared/hooks/useAuth"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
 
-const changeSupervisorRoles: string[] = [RoleNames.admin, RoleNames.recepcionista]
+const changeSupervisorRoles: string[] = [RoleNames.admin, RoleNames.recepcionista, RoleNames.superadmin]
 
 const Home = ({ onNavigate }: SectionProps) => {
     const room = useRoom()
@@ -54,7 +54,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                         : "-"
                 }`,
                 date: `${mant?.fecha_termino ? formatTimeAgo(mant?.fecha_termino) : "-"}`,
-                ...(rolName !== "MANTENIMIENTO" && {
+                ...(rolName !== RoleNames.mantenimiento && {
                     link: "Mantenimiento",
                     onLink: () => onNavigate("mantenance-reason"),
                 }),
@@ -99,7 +99,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                                     (c) =>
                                         `${c.colaborador?.nombre} ${c.colaborador?.apellido_paterno} ${c.colaborador?.apellido_materno}`
                                 )}
-                                {...(rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO"
+                                {...(rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo
                                     ? {
                                         link: "Limpiar",
                                         onLink: () => onNavigate("clean-staff"),
@@ -114,7 +114,7 @@ const Home = ({ onNavigate }: SectionProps) => {
                     </Block>
                 </div>
                 <div>
-                    {rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO" && (
+                    {rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo && (
                         <PrimaryButton
                             text={"Finalizar supervisión"}
                             onClick={validateIsColabActive(() =>

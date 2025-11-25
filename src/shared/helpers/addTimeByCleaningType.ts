@@ -1,5 +1,5 @@
 import { TiposLimpiezas } from "src/gql/schema"
-import { useDate } from "../hooks/useDate"
+import { createDateUtils } from "../hooks/useDate"
 
 export const addTimeByCleaningType = ({
     date,
@@ -14,7 +14,7 @@ export const addTimeByCleaningType = ({
     tiempoLimpiezaNormal?: number
     tiempoLimpiezaRetoque?: number
 }) => {
-    const { UTCStringToLocalDate, localDateToUTCString } = useDate()
+    const { UTCStringToLocalDate, localDateToUTCString } = createDateUtils()
     const manipulableDate = UTCStringToLocalDate(date)
 
     if (!isNaN(manipulableDate.getTime())) {

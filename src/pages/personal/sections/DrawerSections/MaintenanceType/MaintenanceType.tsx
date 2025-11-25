@@ -21,7 +21,7 @@ function MaintenanceType({handleRefetch}: {handleRefetch: () => void}) {
     const dispatch = useDispatch()
     const { roomToMaintenaceSelected } = useSelector((root: RootState) => root.personal)
     const { colaboradorSelected } = useColaboradorSelected()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
     const { showSnackbar } = useSnackbar()
     const { showMiniSnackbar } = useMiniSnackbar()
     const { isLoading, isLoadingDelayed, toggleIsLoading } = useLoadingState()
@@ -46,6 +46,7 @@ function MaintenanceType({handleRefetch}: {handleRefetch: () => void}) {
                 habitacion_id: roomToMaintenaceSelected?.habitacion_id || "",
             },
             usuario_id,
+            hotel_id,
             estadoHabitacion: Estados_Habitaciones.Mantenimiento,
         })
             .then(() => {

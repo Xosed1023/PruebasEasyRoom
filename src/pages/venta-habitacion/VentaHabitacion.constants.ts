@@ -2,6 +2,7 @@ import { PAYMENT_METHODS } from "src/constants/payments"
 import { useModulos } from "src/shared/hooks/useModulos"
 import { useProfile } from "src/shared/hooks/useProfile"
 // import { formatShortDate } from "src/shared/helpers/formatShortDate"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 export const defaultRoomId = "97a877dc-d425-4979-a834-e51f1a58c1a7"
 
@@ -91,7 +92,7 @@ const usePaymentOptions = () => {
         PAYMENT_METHODS.pendiente
     ];
 
-    return rolName === "VALETPARKING"
+    return rolName === RoleNames.valet
         ? paymentOptions
         : paymentOptions.filter((method) => method !== PAYMENT_METHODS.pendiente);
 };

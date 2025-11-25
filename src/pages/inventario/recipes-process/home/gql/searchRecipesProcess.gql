@@ -32,7 +32,7 @@ query SearchRecipesProcess($hotel_id: ID!, $nameFilter: String!, $pagination_opt
                 costo {
                     monto
                 }
-                precio {
+                precio(hotel_id: $hotel_id) {
                     monto
                 }
                 folio

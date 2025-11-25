@@ -11,6 +11,7 @@ import { RootState } from "src/store/store"
 import { useSelector } from "react-redux"
 import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const Comments = ({ incidenciaId = "", tipoIncidencia = "" }) => {
     const {InactiveModal, validateIsColabActive} = useIsColaboradorActive()
@@ -97,8 +98,7 @@ const Comments = ({ incidenciaId = "", tipoIncidencia = "" }) => {
                 </div>
             )}
             {estado === "activa" &&
-                (rolName !== "MANTENIMIENTO" || tipoIncidencia?.toLowerCase() === "mantenimiento") &&
-                rolName !== "MONITOREO" && (
+                rolName !== RoleNames.monitoreo && (
                 <div className="detalle-incidencia__container-button">
                     <TextBox
                         description="Comentarios"

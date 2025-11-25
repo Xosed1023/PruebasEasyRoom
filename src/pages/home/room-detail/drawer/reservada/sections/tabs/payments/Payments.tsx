@@ -18,6 +18,7 @@ import { formatText } from "src/shared/hooks/formatTextOpcions"
 import { useProfile } from "src/shared/hooks/useProfile"
 import { ItemMultiplePayment } from "src/pages/home/room-detail/sections/items/Items"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const Payments = ({ isNoShow }: { isNoShow: boolean }) => {
     const { reservaSeleccionada } = useSelector((root: RootState) => root.roomDetails.reservada)
@@ -173,7 +174,7 @@ const Payments = ({ isNoShow }: { isNoShow: boolean }) => {
                         <span className="room-detail__tab--payments--bold">{formatCurrency(totalPorPagar)}</span>
                     </div>
                 </div>
-                {rolName !== "VALETPARKING" && rolName !== "MONITOREO" && (
+                {rolName !== RoleNames.valet && rolName !== RoleNames.monitoreo && (
                     <PrimaryButton
                         text="Registrar pago"
                         disabled={isNoShow || totalPorPagar <= 0}

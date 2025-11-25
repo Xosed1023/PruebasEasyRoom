@@ -8,6 +8,7 @@ import useToggleSelectOrder from "../../hooks/useToggleSelectOrder"
 import { DetalleOrden, EstadosOrdenHistorial } from "src/gql/schema"
 import useMinuteTimer from "src/shared/hooks/useMinuteTimer"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 import { useProfile } from "src/shared/hooks/useProfile"
 
 interface DetallesOrdenPorCategoria {
@@ -196,7 +197,7 @@ const Orden = ({ state, order, filter, currentState, orderComandaChangeState }: 
                     </div>
                 </div>
 
-                {rolName !== "MONITOREO" && (
+                {rolName !== RoleNames.monitoreo && (
                     <Button
                         text={
                             state === EstadosOrdenHistorial.EnPreparacion

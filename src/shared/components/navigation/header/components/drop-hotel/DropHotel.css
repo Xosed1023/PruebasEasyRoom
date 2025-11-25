@@ -1,6 +1,6 @@
 .drop-hotel {
     position: fixed;
-    top: 40px;
+    top: 38px;
     right: 82px;
     width: 317px;
     height: auto;
@@ -10,7 +10,7 @@
     overflow: hidden;
     box-sizing: border-box;
     padding-top: 10px;
-    z-index: 999;
+    z-index: 1100;
 }
 .drop-hotel__header {
     box-sizing: border-box;
@@ -117,6 +117,16 @@
     align-items: center;
     cursor: pointer;
     user-select: none;
+}
+.drop-hotel__item:hover {
+    background: rgba(105, 65, 198, 0.5);
+    backdrop-filter: blur(4px);
+}
+.drop-hotel__item:hover .drop-hotel__check {
+    background-color: var(--white);
+}
+.drop-hotel__item:hover svg path {
+    stroke: var(--primary);
 }
 .drop-hotel__item-content {
     display: flex;

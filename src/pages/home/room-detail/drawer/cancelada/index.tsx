@@ -49,14 +49,14 @@ const Cancelada = () => {
     const [cancelarRenta] = useCancelarRentaHabitacionMutation()
     const [getHabitacion] = useLazyQuery<{ habitacion: Habitacion }>(GET_ROOM)
     const room = useRoom()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
 
     const [habitacion, setHabitacion] = useState<any>()
     const { data } = useCurrentDateQuery()
 
     useEffect(() => {
         getHabitacion({
-            variables: { habitacion_id, usuario_id },
+            variables: { habitacion_id, usuario_id, hotel_id },
         }).then(({ data }) => {
             setHabitacion(data)
         })
@@ -113,6 +113,7 @@ const Cancelada = () => {
         cancelarRenta({
             variables: {
                 datos_cancelar: {
+                    hotel_id,
                     cancelar_renta: cancelar_estancia,
                     motivo_cancelacion: motivoCancelacion,
                     renta_id,
@@ -159,6 +160,7 @@ const Cancelada = () => {
                             tipo_limpieza: getValues().tipo_limpieza,
                         },
                         usuario_id,
+                        hotel_id,
                         estadoHabitacion: statusSelected,
                     })
                         .then((values) => {
@@ -200,6 +202,7 @@ const Cancelada = () => {
                             habitacion_id: room?.habitacion_id,
                         },
                         usuario_id,
+                        hotel_id,
                         estadoHabitacion: statusSelected,
                     })
                         .then((values) => {

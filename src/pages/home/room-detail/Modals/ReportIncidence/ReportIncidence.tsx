@@ -103,6 +103,7 @@ const ReportIncidence = ({ isOpen, onClose }: ModalProps) => {
                     variables: {
                         datos_tarea: {
                             usuario_id,
+                            hotel_id,
                             colaboradores_tareas_ids: room?.colaborador_tareas_sin_finalizar?.map(
                                 (c) => c?.colaborador_tarea_id
                             ),
@@ -119,6 +120,7 @@ const ReportIncidence = ({ isOpen, onClose }: ModalProps) => {
                     variables: {
                         datos_tarea: {
                             usuario_id,
+                            hotel_id,
                             colaboradores_tareas_ids: room?.colaborador_tareas_sin_finalizar?.map(
                                 (c) => c?.colaborador_tarea_id
                             ),
@@ -135,6 +137,7 @@ const ReportIncidence = ({ isOpen, onClose }: ModalProps) => {
                     variables: {
                         datos_tarea: {
                             usuario_id,
+                            hotel_id,
                             colaboradores_tareas_ids: room?.colaborador_tareas_sin_finalizar?.map(
                                 (c) => c?.colaborador_tarea_id
                             ),

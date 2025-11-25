@@ -264,12 +264,14 @@ const RegistroPersonal = () => {
         toggleIsLoading({ value: true })
         const turno = turnos?.find((t) => t.turno_id === data.turno)
         const area = areas?.find((a) => a.area_id === data.area)
-        const avatarUrl = await uploadFileToBucket({
+        const avatar = data.avatar || ""
+
+        const avatarUrl = avatar ? typeof avatar === "string" ? avatar : await uploadFileToBucket({
             bucket: REACT_APP_ARTICULOS_BUCKET ?? "",
             folder: REACT_APP_AVATARS_BUCKET_FOLDER ?? "",
             resourceName: `${colaboradorSelected?.colaborador_id}`.toLowerCase(),
-            file: data.avatar,
-        })
+            file: avatar,
+        }) : ""
 
         const values = {
             nombre: data.nombre,

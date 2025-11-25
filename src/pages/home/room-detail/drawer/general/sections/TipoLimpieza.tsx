@@ -24,7 +24,7 @@ const TipoLimpieza = ({
     onConfirm?: () => void
 }) => {
     const puestos = usePuestos()
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
     const [tipoLimpieza, setTipoLimpieza] = useState<{
         tipo: "normal" | "detallada" | "retoque" | null
         minutos: string
@@ -57,6 +57,7 @@ const TipoLimpieza = ({
                 tipo_limpieza: tipo,
             },
             usuario_id,
+            hotel_id,
             estadoHabitacion: Estados_Habitaciones.Ocupada,
         })
             .then(() => {

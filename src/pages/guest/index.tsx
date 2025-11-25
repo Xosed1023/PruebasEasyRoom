@@ -445,11 +445,11 @@ function GuestScreen(): JSX.Element {
                     setisAuthModalOpen(false)
                 }}
                 onClose={() => setisAuthModalOpen(false)}
-                authorizedRoles={[RoleNames.recepcionista, RoleNames.admin, RoleNames.gerente]}
-                authorizedPins={[RoleNames.admin]}
+                authorizedRoles={[RoleNames.recepcionista, RoleNames.admin, RoleNames.gerente, RoleNames.superadmin]}
+                authorizedPins={[RoleNames.admin, RoleNames.superadmin]}
             />
         ),
-        authorizedRoles: [RoleNames.recepcionista, RoleNames.admin, RoleNames.gerente],
+        authorizedRoles: [RoleNames.recepcionista, RoleNames.admin, RoleNames.gerente, RoleNames.superadmin],
         isOpen: isAuthModalOpen,
         onClose: () => setisAuthModalOpen(false),
         noNeedAuthModalRoles: [],

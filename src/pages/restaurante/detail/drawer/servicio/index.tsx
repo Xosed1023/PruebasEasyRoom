@@ -12,28 +12,30 @@ import useAuth, { RoleNames } from "src/shared/hooks/useAuth"
 import { useFilterOrdenes } from "./hooks/useFilterOrdenes"
 import { usePrintTicket } from "src/shared/hooks/print"
 import useRestaurantAuth from "../../hooks/useRestaurantAuth"
-import { useProfile } from "src/shared/hooks/useProfile"
+//import { useProfile } from "src/shared/hooks/useProfile"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { useProfile } from "src/shared/hooks/useProfile"
 
 type Section = "home" | "cambio-mesa" | "confirm-cambio-mesa" | "cambio-personal" | (string & {})
 
 function Servicio({ paid }: { paid: boolean }): JSX.Element {
     const [section, setSection] = useState<Section>("home")
     const [selectedMesa, setSelectedMesa] = useState<MesaState>({ mesa_id: "", nombre: "" })
-    const {InactiveModal, validateIsColabActive} = useIsColaboradorActive()
+    const { InactiveModal, validateIsColabActive } = useIsColaboradorActive()
     const [authPath, setAuthPath] = useState<Section>("")
-    const {setAuthValue} = useRestaurantAuth()
-    const { rolName } = useProfile()
+    const { setAuthValue } = useRestaurantAuth()
+    //const { rolName } = useProfile() && rolName === "RESTAURANTE"
 
     const { visible } = useRestaurantDarwer()
     const { asignacion_actual } = useMesa()
+    const { hotel_id } = useProfile()
 
     const { handlePrint } = usePrintTicket("snackbar-mini")
 
     const orden_id = asignacion_actual?.orden_id || ""
 
     const { data, loading } = useGetRestaurantOrdenQuery({
-        variables: { orden_id: orden_id || "" },
+        variables: { orden_id: orden_id || "", hotel_id },
         skip: !asignacion_actual?.orden_id,
     })
 
@@ -49,7 +51,7 @@ function Servicio({ paid }: { paid: boolean }): JSX.Element {
                 title="Autorización requerida"
                 onClose={() => setAuthPath("")}
                 onAuthFilled={(codigo, template_sample) => {
-                    setAuthValue({codigo, template_sample})
+                    setAuthValue({ codigo, template_sample })
                     if (authPath === "ticket") {
                         handlePrint(orden_id, "custom", "3")
                     } else {
@@ -59,7 +61,12 @@ function Servicio({ paid }: { paid: boolean }): JSX.Element {
                     setAuthPath("")
                 }}
                 isOpen={!!authPath}
-                authorizedRoles={[RoleNames.superadmin, RoleNames.admin, RoleNames.restaurante, RoleNames.recepcionista]}
+                authorizedRoles={[
+                    RoleNames.superadmin,
+                    RoleNames.admin,
+                    RoleNames.restaurante,
+                    RoleNames.recepcionista,
+                ]}
             />
         ),
         authorizedRoles: [RoleNames.superadmin, RoleNames.admin, RoleNames.restaurante, RoleNames.recepcionista],
@@ -70,27 +77,33 @@ function Servicio({ paid }: { paid: boolean }): JSX.Element {
     return (
         <>
             <DrawerWrapper
-                withMenu={section === "home" && rolName === RoleNames.restaurante}
+                withMenu={section === "home"}
                 withBackButton={section !== "home"}
                 onBack={() => setSection(section === "confirm-cambio-mesa" ? "cambio-mesa" : "home")}
                 itemsMenu={[
                     {
                         label: "Cambiar área",
-                        onClick: validateIsColabActive(() => (skip ? setSection("cambio-mesa") : setAuthPath("cambio-mesa"))),
+                        onClick: validateIsColabActive(() =>
+                            skip ? setSection("cambio-mesa") : setAuthPath("cambio-mesa")
+                        ),
                     },
                     {
                         label: "Cambiar personal",
-                        onClick: validateIsColabActive(() => (skip ? setSection("cambio-personal") : setAuthPath("cambio-personal"))),
+                        onClick: validateIsColabActive(() =>
+                            skip ? setSection("cambio-personal") : setAuthPath("cambio-personal")
+                        ),
                     },
                     {
                         label: "Reimprimir cuenta",
-                        onClick: validateIsColabActive(() => (skip ? handlePrint(orden_id, "custom", "3") : setAuthPath("ticket"))),
+                        onClick: validateIsColabActive(() =>
+                            skip ? handlePrint(orden_id, "custom", "3") : setAuthPath("ticket")
+                        ),
                     },
                 ]}
             >
                 {!loading ? (
                     section === "home" ? (
-                        <Home {...orden} paid={paid}/>
+                        <Home {...orden} paid={paid} />
                     ) : section === "cambio-mesa" ? (
                         <CambioMesa
                             onChange={(v) => {

@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { toggleIsModalConfirmarPagoPropinaOpen } from "src/store/propinas/pagoPropinasSlice"
 import { RootState } from "src/store/store"
 import { useDate } from "src/shared/hooks/useDate"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const ModalConfirmarPagoPropina = () => {
     const { rolName } = useProfile()
@@ -26,7 +27,7 @@ const ModalConfirmarPagoPropina = () => {
             withCloseButton
             onClose={() => dispatch(toggleIsModalConfirmarPagoPropinaOpen(false))}
         >
-            {rolName === "ADMINISTRADOR" || rolName === "GERENTE" ? (
+            {rolName === RoleNames.admin || rolName === RoleNames.superadmin || rolName === RoleNames.gerente ? (
                 <ModalContentGerente
                     totalPagoPropinas={totalPagoPropinas}
                     colaboradoresToPayPropinas={colaboradoresToPayPropinas.filter((p) => p.selected)}

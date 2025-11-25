@@ -1,4 +1,4 @@
-query GetHabitacion($habitacion_id: ID!, $usuario_id: ID!) {
+query GetHabitacion($habitacion_id: ID!, $usuario_id: ID!, $hotel_id: ID!) {
     habitacion(habitacion_id: $habitacion_id) {
         comentario_estado
         eliminado
@@ -238,7 +238,7 @@ query GetHabitacion($habitacion_id: ID!, $usuario_id: ID!) {
                             nombre
                             contenido
                             descripcion
-                            precio {
+                            precio(hotel_id: $hotel_id) {
                                 monto
                             }
                             unidad
@@ -265,7 +265,7 @@ query GetHabitacion($habitacion_id: ID!, $usuario_id: ID!) {
                                 nombre
                                 contenido
                                 descripcion
-                                precio {
+                                precio(hotel_id: $hotel_id) {
                                     monto
                                 }
                                 unidad

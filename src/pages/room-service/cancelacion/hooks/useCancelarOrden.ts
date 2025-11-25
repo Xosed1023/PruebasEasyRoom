@@ -2,7 +2,7 @@ import { CancelDetalleOrdenDetailInput, useCancelarComandaMutation, useCancelarO
 import { useProfile } from "src/shared/hooks/useProfile"
 
 const useCancelarOrden = ({ mode, ordenOComandaID }: { mode: "order" | "comanda"; ordenOComandaID: string }) => {
-    const { usuario_id } = useProfile()
+    const { usuario_id, hotel_id } = useProfile()
     const [cancelarOrden] = useCancelarOrdenMutation()
     const [cancelarComanda] = useCancelarComandaMutation()
 
@@ -35,6 +35,7 @@ const useCancelarOrden = ({ mode, ordenOComandaID }: { mode: "order" | "comanda"
                         motivo_cancelacion,
                     },
                     comanda_id: ordenOComandaID,
+                    hotel_id
                 },
             },
         }).then((v) => ({ ticket_id: v.data?.cancelar_comanda.ticket_id || "" }))

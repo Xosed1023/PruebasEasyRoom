@@ -14,7 +14,7 @@ const ConfirmDeletePropina = ({
     onClose,
     refetch,
     idPropina,
-    isOpen
+    isOpen,
 }: {
     onConfirm: () => void
     onClose: () => void
@@ -23,8 +23,8 @@ const ConfirmDeletePropina = ({
     isOpen: boolean
 }) => {
     const { isLoadingDelayed, toggleIsLoading } = useLoadingState()
-    const {showSnackbar} = useSnackbar()
-    const {rolName} = useProfile()
+    const { showSnackbar } = useSnackbar()
+    const { rolName } = useProfile()
 
     const onSubmit = async () => {
         if (isLoadingDelayed) {
@@ -87,7 +87,7 @@ const ConfirmDeletePropina = ({
             iconTheme="danger"
             onCloseDialog={({ confirmed }) => {
                 if (confirmed) {
-                    if(rolName === RoleNames.admin) {
+                    if (rolName === RoleNames.admin || rolName === RoleNames.superadmin) {
                         onSubmit().then(() => {
                             onClose()
                         })

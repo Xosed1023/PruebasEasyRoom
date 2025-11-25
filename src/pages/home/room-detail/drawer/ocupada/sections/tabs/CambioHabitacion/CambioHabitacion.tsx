@@ -97,7 +97,7 @@ const CambioHabitacion = () => {
                 onClose={() => setisAuthModalOpen(false)}
             />
         ),
-        authorizedRoles: [RoleNames.recepcionista, RoleNames.admin],
+        authorizedRoles: [RoleNames.recepcionista, RoleNames.admin, RoleNames.superadmin],
         isOpen: isAuthModalOpen,
         onClose: () => setisAuthModalOpen(false),
     })

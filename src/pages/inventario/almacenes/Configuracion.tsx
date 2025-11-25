@@ -176,7 +176,7 @@ const ConfiguracionAlmacenes = () => {
                 isOpen={authSuccess.state}
             />
         ),
-        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista, RoleNames.cocina, RoleNames.bar],
+        authorizedRoles: [RoleNames.superadmin, RoleNames.admin, RoleNames.recepcionista, RoleNames.cocina, RoleNames.bar],
         isOpen: authSuccess.state,
         onClose: () => {
             setauthSuccess({ state: false, type: "" })

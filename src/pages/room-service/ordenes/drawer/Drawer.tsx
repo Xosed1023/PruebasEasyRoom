@@ -46,7 +46,7 @@ export function DrawerSection({ visible = false, onClose }): JSX.Element {
     const [authModalState, setauthModalState] = useState<{ open: boolean; mode: "edit" | "cancel" | "" }>()
     const { InactiveModal, validateIsColabActive } = useIsColaboradorActive()
 
-    const { rolName } = useProfile()
+    const { rolName, hotel_id } = useProfile()
 
     const visibleOptionsForRol = [RoleNames.superadmin, RoleNames.admin, RoleNames.recepcionista]?.includes(
         rolName as RoleNames
@@ -62,7 +62,7 @@ export function DrawerSection({ visible = false, onClose }): JSX.Element {
     const getOrderData = async () => {
         setLoad(true)
         try {
-            const { data } = await getOrden({ variables: { orden_id: order_id } })
+            const { data } = await getOrden({ variables: { orden_id: order_id, hotel_id } })
             const orden = data?.orden
 
             setOrder({

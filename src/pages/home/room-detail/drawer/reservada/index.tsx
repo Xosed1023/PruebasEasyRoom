@@ -26,6 +26,7 @@ import { usePrintTicket } from "src/shared/hooks/print"
 import CancelarReserva from "../../Modals/CancelarReserva/CancelarReserva"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
 import EditarReserva from "../../Modals/EditarReserva/EditarReserva"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 export const homeTabsList: { label: string; path: ReservadaDrawerSections; number: number }[] = [
     { label: "Detalles", path: "details", number: 0 },
@@ -100,7 +101,7 @@ const Reservada = () => {
     }, [isRoomDetailsDrawerOpen])
 
     const visibleTabs = homeTabsList.filter((tab) => {
-        if (rolName === "MANTENIMIENTO" && tab.path === "payments") return false
+        if (rolName === RoleNames.mantenimiento && tab.path === "payments") return false
         return true
     })
     const getLastComment = (comentarios: any[]) => {
@@ -170,7 +171,7 @@ const Reservada = () => {
             }
             onBack={() => dispatch(selectReservadaDrawerSection("details"))}
             withMenu={
-                rolName === "MANTENIMIENTO" ||
+                rolName === RoleNames.mantenimiento ||
                 drawerSelectedSection === "ConfirmarCambioHabitacion" ||
                 drawerSelectedSection === "reasignarHabitacion"
                     ? false

@@ -260,6 +260,7 @@ import ChevronFill from "./ChevronFill"
 import PieChartFilled from "./PieChartFilled"
 import IconRoomServicePendingPayment from "./IconRoomServicePendingPayment"
 import TurnoFill from "./TurnoFill"
+import waterFlashFill from "./waterFlashFill"
 
 export const COLLECTION = {
     alertCircle,
@@ -523,6 +524,8 @@ export const COLLECTION = {
     PieChartFilled,
     IconRoomServicePendingPayment,
     TurnoFill,
+    waterFlashFill
+
 }
 
 export interface IconNamesProps extends IconProps {

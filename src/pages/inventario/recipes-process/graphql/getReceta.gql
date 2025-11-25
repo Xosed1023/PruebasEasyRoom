@@ -1,4 +1,4 @@
-query getRecetaToEdit($articulo_id: ID!) {
+query getRecetaToEdit($articulo_id: ID!, $hotel_id: ID!) {
     receta(articulo_id: $articulo_id) {
         articulo_id
         articulo {
@@ -12,7 +12,7 @@ query getRecetaToEdit($articulo_id: ID!) {
             categoria_articulo {
                 nombre
             }
-            precio {
+            precio(hotel_id: $hotel_id) {
                 monto
             }
         }

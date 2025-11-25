@@ -18,7 +18,7 @@ export const useMenuItems = (rolName, withEasyrewards, navigate, openModal) => {
         }
         if (rolName === RoleNames.mantenimiento) {
             return [
-                { label: "Mantenimiento", icon: "tools", onClick: () => navigate("/u/mantenimiento") },
+                { label: "Enérgeticos", icon: "waterFlashFill", onClick: () => navigate("/u/mantenimiento") },
                 { label: "Incidencias", icon: "spamFill", onClick: () => navigate("/u/incidencias") },
             ]
         }

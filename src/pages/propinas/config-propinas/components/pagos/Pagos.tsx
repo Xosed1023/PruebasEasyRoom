@@ -13,6 +13,7 @@ import {
 import useSnackbar from "src/shared/hooks/useSnackbar"
 import { useProfile } from "src/shared/hooks/useProfile"
 import { puestosHospedaje, puestosRestaurante } from "src/constants/puestos"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 interface FormValues {
     areas: { area: string; rol: string; porcentaje: string }[]
@@ -40,7 +41,7 @@ const areas = {
 const Pagos = () => {
     const { showSnackbar } = useSnackbar()
     const { rolName } = useProfile()
-    const isRecepcionista = rolName === "RECEPCIONISTA"
+    const isRecepcionista = rolName === RoleNames.recepcionista
 
     const { data, refetch } = useGetConfigPagoPropinasQuery()
     const { data: puestos } = useGetPuestosPropinasQuery()

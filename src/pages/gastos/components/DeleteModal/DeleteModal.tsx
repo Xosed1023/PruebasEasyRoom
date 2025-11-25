@@ -23,14 +23,14 @@ function DeleteModal({
     const { Modal } = useAuth({
         authModal: (
             <AuthRequiredModal
-                authorizedPins={[RoleNames.admin]}
-                authorizedRoles={[RoleNames.admin, RoleNames.recepcionista]}
+                authorizedPins={[RoleNames.admin, RoleNames.superadmin]}
+                authorizedRoles={[RoleNames.admin, RoleNames.recepcionista, RoleNames.superadmin]}
                 isOpen={isModalAuthOpen}
                 onAuthFilled={() => handleRemove()}
                 onClose={() => setIsModalAuthOpen(false)}
             />
         ),
-        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista],
+        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista, RoleNames.superadmin],
         isOpen: isModalAuthOpen,
         onClose: () => setIsModalAuthOpen(false),
     })

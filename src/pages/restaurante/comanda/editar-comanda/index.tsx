@@ -10,6 +10,7 @@ import { getDetallesOrdenFormat } from "src/pages/room-service/detalle-orden/hel
 import { Product } from "src/pages/room-service/productos/Products.type"
 import { getItemDetalle, getExtrasOrden, getArticulosFromDetalle } from "./helpers/detalle"
 import {v4 as uuid} from 'uuid'
+import { useProfile } from "src/shared/hooks/useProfile"
 
 function EditarComanda(): JSX.Element {
     const [detalles, setDetalles] = useState<Product[]>([])
@@ -21,8 +22,9 @@ function EditarComanda(): JSX.Element {
     const comanda_id = params?.comanda_id || ""
 
     const navigate = useNavigate()
+    const { hotel_id } = useProfile()
 
-    const { data, loading } = useGetComandaQuery({ variables: { comanda_id } })
+    const { data, loading } = useGetComandaQuery({ variables: { comanda_id, hotel_id } })
     const { showSnackbar } = useSnackbar()
 
     const folio = data ? `${data?.comanda?.orden?.orden}-${String(data?.comanda?.folio)?.padStart(2, "0")}` : ""

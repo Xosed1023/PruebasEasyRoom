@@ -1,4 +1,4 @@
-query GetRecetaForDetail($articulo_id: ID!) {
+query GetRecetaForDetail($articulo_id: ID!, $hotel_id: ID!) {
     receta(articulo_id: $articulo_id) {
         articulo_id
         articulo {
@@ -8,7 +8,7 @@ query GetRecetaForDetail($articulo_id: ID!) {
             foto
             unidad
             contenido
-            precio {
+            precio(hotel_id: $hotel_id) {
                 monto
             }
             costo {

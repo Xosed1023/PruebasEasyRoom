@@ -9,10 +9,10 @@ export function useHover() {
 
     const { isProfileDrawerOpen, isDrawerWidgetOpen } = useSelector((state: RootState) => state.navigation)
 
-
-    
-
     useEffect(() => {
+        const node = triggerRef.current
+        if (!node) return
+
         function handleMouseOver(e) {
             const showDrawer = isProfileDrawerOpen || isDrawerWidgetOpen
             if (!showDrawer && (triggerRef.current?.contains(e.target) || contentRef.current?.contains(e.target))) {
@@ -27,12 +27,12 @@ export function useHover() {
             }
         }
 
-        document.addEventListener("mouseover", handleMouseOver)
-        document.addEventListener("mouseout", handleMouseOut)
+        node.addEventListener("mouseover", handleMouseOver)
+        node.addEventListener("mouseout", handleMouseOut)
 
         return () => {
-            document.removeEventListener("mouseover", handleMouseOver)
-            document.removeEventListener("mouseout", handleMouseOut)
+            node.removeEventListener("mouseover", handleMouseOver)
+            node.removeEventListener("mouseout", handleMouseOut)
         }
     }, [isDrawerWidgetOpen, isProfileDrawerOpen])
 

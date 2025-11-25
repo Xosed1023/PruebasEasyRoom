@@ -42,7 +42,7 @@ function Produccion(): JSX.Element {
         variables: { almacen_articulo_id },
         onCompleted: () => setLoader(false),
     })
-    const { data: fetchReceta, loading: loadReceta } = useGetRecetaForDetailQuery({ variables: { articulo_id } })
+    const { data: fetchReceta, loading: loadReceta } = useGetRecetaForDetailQuery({ variables: { articulo_id, hotel_id } })
 
     const articulo = fetchArticulo?.almacen_articulo
     const ingredientes = fetchReceta?.receta?.ingredientes_recetas || []

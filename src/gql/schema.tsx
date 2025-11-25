@@ -137,7 +137,7 @@ export interface AddRoomToBookingInput {
 
 export interface AjustarAsignacionPropinaInput {
     colaborador_id: Scalars["ID"]["input"]
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     ingreso_hotel?: InputMaybe<Scalars["Boolean"]["input"]>
     monto_ajuste: Scalars["Float"]["input"]
     puesto_id: Scalars["ID"]["input"]
@@ -148,6 +148,19 @@ export interface AjustarAsignacionPropinaOutput {
     limite_disponible: Scalars["Float"]["output"]
     monto_recaudado: Scalars["Float"]["output"]
     propinas_ajustadas: Array<RepartoPropinaItemOutput>
+}
+
+export interface AlertasCorteOutput {
+    __typename?: "AlertasCorteOutput"
+    alerta_por_pagos_pendientes: Scalars["Boolean"]["output"]
+    registros_pendientes: AlertasPorRegistrosPendientesDetailOutput
+}
+
+export interface AlertasPorRegistrosPendientesDetailOutput {
+    __typename?: "AlertasPorRegistrosPendientesDetailOutput"
+    alerta_por_mantenimiento_pendiente: Scalars["Boolean"]["output"]
+    alerta_por_placas_pendientes: Scalars["Boolean"]["output"]
+    registro_obligatorio: Scalars["Boolean"]["output"]
 }
 
 export interface Almacen {
@@ -277,7 +290,7 @@ export interface ArticuloCategoria_ArticuloArgs {
 }
 
 export interface ArticuloPrecioArgs {
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
 }
 
 export interface ArticuloStockArgs {
@@ -443,7 +456,7 @@ export interface CambiarMesaAsignadaInput {
 export interface CancelComandaInput {
     cancelaciones: CancelDetallesOrdenInput
     comanda_id: Scalars["ID"]["input"]
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
 }
 
 export interface CancelComandaOutput {
@@ -494,7 +507,7 @@ export interface CancelOperationRentaItemInput {
 export interface CancelOperationsRentaInput {
     cancelar_renta: Scalars["Boolean"]["input"]
     extras?: InputMaybe<Array<CancelOperationRentaItemInput>>
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     motivo_cancelacion?: InputMaybe<Scalars["String"]["input"]>
     ordenes?: InputMaybe<Array<CancelRoomServiceRentaItemInput>>
     renta_id: Scalars["ID"]["input"]
@@ -521,6 +534,7 @@ export interface CancelOrdenOutput {
 }
 
 export interface CancelRentaInput {
+    hotel_id: Scalars["ID"]["input"]
     monto_devuelto_cancelacion?: InputMaybe<Scalars["Float"]["input"]>
     motivo_cancelacion: Scalars["String"]["input"]
     renta_id: Scalars["ID"]["input"]
@@ -708,6 +722,7 @@ export interface CloseCorteInput {
 export interface CloseIncidenciaInput {
     colaborador_id_cierra: Scalars["ID"]["input"]
     comentario_cierre?: InputMaybe<Scalars["String"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     incidencia_id: Scalars["ID"]["input"]
 }
 
@@ -721,6 +736,7 @@ export interface CloseTaskInput {
     comentarios_tarea?: InputMaybe<Scalars["String"]["input"]>
     estado?: InputMaybe<Estados_Habitaciones>
     habitacion_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     usuario_id: Scalars["ID"]["input"]
 }
 
@@ -885,6 +901,23 @@ export interface CommentTaskInput {
     comentario: Scalars["String"]["input"]
     fecha: Scalars["String"]["input"]
     usuario_id: Scalars["ID"]["input"]
+}
+
+export enum ConceptosConfiguracionesCortes {
+    RegistroEnergeticos = "registro_energeticos",
+    RegistroPlacas = "registro_placas",
+}
+
+export interface ConceptosInclusionFilterArgs {
+    in?: InputMaybe<Array<ConceptosConfiguracionesCortes>>
+}
+
+export interface ConfiguracionCorte {
+    __typename?: "ConfiguracionCorte"
+    activo: Scalars["Boolean"]["output"]
+    concepto: ConceptosConfiguracionesCortes
+    configuracion_corte_id: Scalars["ID"]["output"]
+    hotel_id: Scalars["ID"]["output"]
 }
 
 export interface ConfiguracionFajilla {
@@ -1131,7 +1164,7 @@ export interface CreateColaboradorTareaInput {
     estado?: InputMaybe<Estados_Habitaciones>
     fecha_inicio: Scalars["DateTime"]["input"]
     habitacion_id?: InputMaybe<Scalars["ID"]["input"]>
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     reasignacion?: InputMaybe<Scalars["Boolean"]["input"]>
     tarea: CreateTareaInput
     tarea_id?: InputMaybe<Scalars["String"]["input"]>
@@ -1172,6 +1205,11 @@ export interface CreateComandaInput {
     usuario_id: Scalars["ID"]["input"]
 }
 
+export interface CreateConfiguracionCorteItemInput {
+    activo: Scalars["Boolean"]["input"]
+    concepto: ConceptosConfiguracionesCortes
+}
+
 export interface CreateConfiguracionFajillaInput {
     hotel_id: Scalars["ID"]["input"]
     usuario_id: Scalars["ID"]["input"]
@@ -1189,6 +1227,11 @@ export interface CreateConfiguracionPropinaInput {
     porcentaje_comision_por_puntos?: InputMaybe<Scalars["Float"]["input"]>
     porcentaje_venta_efectivo: Scalars["Float"]["input"]
     porcentaje_venta_tarjeta: Scalars["Float"]["input"]
+}
+
+export interface CreateConfiguracionesCorteInput {
+    conceptos: Array<CreateConfiguracionCorteItemInput>
+    hotel_id: Scalars["ID"]["input"]
 }
 
 export interface CreateCredencialInput {
@@ -1364,6 +1407,13 @@ export interface CreateMesaInput {
     hotel_id: Scalars["ID"]["input"]
     numero_mesa: Scalars["String"]["input"]
     usuario_modifico_id: Scalars["ID"]["input"]
+}
+
+export interface CreateMotivoIngresoVehiculoDto {
+    /** Identificador del hotel al que pertenece el motivo de ingreso */
+    hotel_id: Scalars["ID"]["input"]
+    /** Nombre del motivo de ingreso de un vehículo  */
+    nombre: Scalars["String"]["input"]
 }
 
 export interface CreateOrdenInput {
@@ -1930,6 +1980,10 @@ export interface DeleteMetodoDePagoInput {
     metododepago_id: Scalars["ID"]["input"]
 }
 
+export interface DeleteMotivoIngresoVehiculoArgs {
+    motivo_ingreso_id: Scalars["ID"]["input"]
+}
+
 export interface DeletePropinaInput {
     propina_id: Scalars["ID"]["input"]
 }
@@ -2113,7 +2167,18 @@ export interface EditComandaInput {
     cancelaciones_extras?: InputMaybe<Array<CancelExtraDetalleOrdenInput>>
     comanda_id: Scalars["ID"]["input"]
     detalles?: InputMaybe<Array<EditDetalleOrdenInput>>
+    hotel_id: Scalars["ID"]["input"]
+}
+
+export interface EditConfiguracionCorteItemInput {
+    activo?: InputMaybe<Scalars["Boolean"]["input"]>
+    concepto?: InputMaybe<ConceptosConfiguracionesCortes>
+    configuracion_corte_id: Scalars["ID"]["input"]
     hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+}
+
+export interface EditConfiguracionesCorteInput {
+    configuraciones_corte: Array<EditConfiguracionCorteItemInput>
 }
 
 export interface EditDetalleOrdenInput {
@@ -2146,7 +2211,7 @@ export interface EditOrdenInput {
     cancelaciones_detalles?: InputMaybe<Array<CancelDetalleOrdenInput>>
     cancelaciones_extras?: InputMaybe<Array<CancelExtraDetalleOrdenInput>>
     detalles?: InputMaybe<Array<EditDetalleOrdenInput>>
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     orden_id: Scalars["ID"]["input"]
     usuario_id?: InputMaybe<Scalars["String"]["input"]>
 }
@@ -2417,7 +2482,9 @@ export interface Fajilla {
     comentario?: Maybe<Scalars["String"]["output"]>
     /** Información de la Configuracion-Fajilla de la Fajilla */
     configuracion_fajilla?: Maybe<ConfiguracionFajilla>
-    configuracion_fajilla_id: Scalars["ID"]["output"]
+    configuracion_fajilla_id?: Maybe<Scalars["ID"]["output"]>
+    /** Identificador generado por la maquina de efectivo que registro la fajilla */
+    deposito_id?: Maybe<Scalars["String"]["output"]>
     estatus: EstatusFajillas
     fajilla_id: Scalars["ID"]["output"]
     fecha_autorizaicion?: Maybe<Scalars["DateTime"]["output"]>
@@ -2877,6 +2944,19 @@ export interface HistorialProduccionInventario {
     unidad: UnidadMedidasProduccion
 }
 
+export interface HistorialVehiculo {
+    __typename?: "HistorialVehiculo"
+    concepto?: Maybe<Scalars["String"]["output"]>
+    fecha_entrada: Scalars["DateTime"]["output"]
+    historial_vehiculo_id: Scalars["ID"]["output"]
+    hotel_id: Scalars["ID"]["output"]
+    renta_id?: Maybe<Scalars["ID"]["output"]>
+    turno_id: Scalars["ID"]["output"]
+    /** Datos del vehiculo asociado al registro de entrada */
+    vehiculo: Vehiculo
+    vehiculo_id: Scalars["ID"]["output"]
+}
+
 export interface Hotel {
     __typename?: "Hotel"
     calle: Scalars["String"]["output"]
@@ -3043,6 +3123,7 @@ export interface ListenOrdenesStateSubOutput {
 export interface LockHabitacionInput {
     comentario_estado?: InputMaybe<Scalars["String"]["input"]>
     habitacion_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
     usuario_id?: InputMaybe<Scalars["ID"]["input"]>
 }
 
@@ -3200,6 +3281,18 @@ export enum Motivo {
     Venta = "venta",
 }
 
+export interface MotivoIngresoVehiculo {
+    __typename?: "MotivoIngresoVehiculo"
+    /** Indica si el registro está eliminado */
+    eliminado: Scalars["Boolean"]["output"]
+    /** Identificador del hotel al que pertenece */
+    hotel_id: Scalars["ID"]["output"]
+    /** Identificador único del motivo de ingreso de un vehículo */
+    motivo_ingreso_id: Scalars["ID"]["output"]
+    /** Nombre del motivo de ingreso del vehículo */
+    nombre: Scalars["String"]["output"]
+}
+
 export enum MovimientoHistorialInventario {
     Entrada = "entrada",
     Salida = "salida",
@@ -3255,6 +3348,7 @@ export interface Mutation {
     actualizar_mesa: Mesa
     actualizar_mesa_asignada: MesaAsignada
     actualizar_metodo_de_pago: MetodoDePago
+    actualizar_motivo_ingreso_vehiculo: MotivoIngresoVehiculo
     actualizar_orden: Scalars["String"]["output"]
     actualizar_pago: Pago
     actualizar_posicion_habitacion: Habitacion
@@ -3300,6 +3394,8 @@ export interface Mutation {
     autorizar_fajilla: Scalars["String"]["output"]
     bloquear_habitacion: Habitacion
     borrar_gasto: Gastos
+    /** Elimina de forma física el registro de entrada del vehiculo */
+    borrar_historial_vehiculo: Scalars["Boolean"]["output"]
     cambiar_habitacion_reserva: Scalars["String"]["output"]
     cambiar_mesa_asignada: MesaAsignada
     cambiar_tarea_con_estado: Scalars["String"]["output"]
@@ -3337,6 +3433,8 @@ export interface Mutation {
     crear_configuracion_fajilla: ConfiguracionFajilla
     crear_configuracion_inventario: ConfiguracionInventario
     crear_configuracion_propina: ConfiguracionPropina
+    /** Registra conceptos de configuracion de corte para el hotel */
+    crear_configuraciones_corte: Scalars["Boolean"]["output"]
     /** Crea una llave de autenticacion HTTP de tipo digest_ha1 para autenticar/autorizar peticiones HTTP */
     crear_digest_key: CreateDigestKeyOutput
     crear_extra: Extra
@@ -3350,6 +3448,7 @@ export interface Mutation {
     crear_mesa: Mesa
     crear_mesa_asignada: MesaAsignada
     crear_metodo_de_pago: MetodoDePago
+    crear_motivo_ingreso_vehiculo: MotivoIngresoVehiculo
     crear_orden: CreateOrdenResponse
     crear_orden_parcial_lovepoints: CreateOrdenResponse
     /** Genera las salidas de insumos/ingredientes del proceso y la produccion resultante se surte al almacen destino */
@@ -3385,8 +3484,12 @@ export interface Mutation {
     editar_colaborador: Colaborador
     /** Permite editar los detalles de la comanda, incluyendo sus extras */
     editar_comanda: Comanda
+    /** Modifica las configuraciones de cortes en base a la clave primaria */
+    editar_configuraciones_corte: Scalars["Boolean"]["output"]
     /** Permite modificar los datos del vehiculo registrado para la renta */
     editar_datos_vehiculo: VehiculoDataEditDetailOutput
+    /** Edita los datos de registro de entrada de vehiculo */
+    editar_historial_vehiculo: Scalars["Boolean"]["output"]
     /** Edita el metodo de pago del ticket y sus registros asociados (detalle-pago, propina, reporte_propinas) */
     editar_metodo_pago: EditMetodoPagoTicketOutput
     /** Permite editar los detalles de la orden, incluyendo sus extras */
@@ -3412,6 +3515,7 @@ export interface Mutation {
     eliminar_mantenimiento: Scalars["Boolean"]["output"]
     eliminar_mesa: Scalars["String"]["output"]
     eliminar_metodo_de_pago: Scalars["Boolean"]["output"]
+    eliminar_motivo_ingreso_vehiculo: MotivoIngresoVehiculo
     eliminar_propina: Propina
     eliminar_puesto: Puesto
     eliminar_receta: Scalars["String"]["output"]
@@ -3639,6 +3743,10 @@ export interface MutationActualizar_Metodo_De_PagoArgs {
     datos_metodos_de_pago: MetodoDePagoUpdateInput
 }
 
+export interface MutationActualizar_Motivo_Ingreso_VehiculoArgs {
+    datos_motivo_ingreso: UpdateMotivoIngresoVehiculoDto
+}
+
 export interface MutationActualizar_OrdenArgs {
     UpdateOrdenInput: UpdateOrdenInput
 }
@@ -3813,6 +3921,10 @@ export interface MutationBorrar_GastoArgs {
     datos_gasto: DeleteGastoInput
 }
 
+export interface MutationBorrar_Historial_VehiculoArgs {
+    historial_vehiculo_id: Scalars["ID"]["input"]
+}
+
 export interface MutationCambiar_Habitacion_ReservaArgs {
     cambiar_habitacion_reserva_input: ChangeHabitacionReservaInput
 }
@@ -3955,6 +4067,10 @@ export interface MutationCrear_Configuracion_PropinaArgs {
     CreateConfiguracionPropinaInput: CreateConfiguracionPropinaInput
 }
 
+export interface MutationCrear_Configuraciones_CorteArgs {
+    input: CreateConfiguracionesCorteInput
+}
+
 export interface MutationCrear_Digest_KeyArgs {
     input: CreateDigestKeyInput
 }
@@ -4001,6 +4117,10 @@ export interface MutationCrear_Mesa_AsignadaArgs {
 
 export interface MutationCrear_Metodo_De_PagoArgs {
     datos_metodo_de_pago: MetodoDePagoInput
+}
+
+export interface MutationCrear_Motivo_Ingreso_VehiculoArgs {
+    datos_motivo_ingreso: CreateMotivoIngresoVehiculoDto
 }
 
 export interface MutationCrear_OrdenArgs {
@@ -4135,8 +4255,16 @@ export interface MutationEditar_ComandaArgs {
     editComandaInput: EditComandaInput
 }
 
+export interface MutationEditar_Configuraciones_CorteArgs {
+    input: EditConfiguracionesCorteInput
+}
+
 export interface MutationEditar_Datos_VehiculoArgs {
     EditVehiculoDataInput: EditVehiculoDataInput
+}
+
+export interface MutationEditar_Historial_VehiculoArgs {
+    input: UpdateHistorialVehiculoInput
 }
 
 export interface MutationEditar_Metodo_PagoArgs {
@@ -4229,6 +4357,10 @@ export interface MutationEliminar_MesaArgs {
 
 export interface MutationEliminar_Metodo_De_PagoArgs {
     metodo_de_pago: DeleteMetodoDePagoInput
+}
+
+export interface MutationEliminar_Motivo_Ingreso_VehiculoArgs {
+    motivo_ingreso: DeleteMotivoIngresoVehiculoArgs
 }
 
 export interface MutationEliminar_PropinaArgs {
@@ -4386,7 +4518,7 @@ export interface MutationRegistrar_Usuario_DispositivoArgs {
 }
 
 export interface MutationReiniciar_Asignaciones_PropinasArgs {
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
 }
 
 export interface MutationRemover_Puesto_Esquema_PropinasArgs {
@@ -4892,8 +5024,8 @@ export interface Query {
     __typename?: "Query"
     /** Retorna conteos sobre la tabla de almacenes-articulos. Ej. total_procesos, total_recetas_alimentos, etc. */
     agregaciones_almacenes_articulos?: Maybe<GetAggregationsAlmacenesArticulosOutput>
-    /** Indica si hay una alerta activa para cierre de corte por pagos pendientes */
-    alerta_por_pagos_pendientes: Scalars["Boolean"]["output"]
+    /** Indica si hay alertas activas por pagos pendientes, placas pendientes o energeticos pendientes en el cierre de corte */
+    alertas_corte: AlertasCorteOutput
     almacen: Almacen
     almacen_articulo: AlmacenArticulo
     almacenes: Array<Almacen>
@@ -4925,6 +5057,8 @@ export interface Query {
     comandas: Array<Comanda>
     configuracion_fajilla: ConfiguracionFajilla
     configuracion_propina: ConfiguracionPropina
+    /** Configuraciones para acciones durante el cierre de corte de turno en el hotel */
+    configuraciones_corte: Array<ConfiguracionCorte>
     configuraciones_fajilla: Array<ConfiguracionFajilla>
     configuraciones_inventario: Array<ConfiguracionInventario>
     configuraciones_propina: Array<ConfiguracionPropina>
@@ -5009,6 +5143,8 @@ export interface Query {
     mi_perfil: Usuario
     modulo: Modulo
     modulos: Array<Modulo>
+    motivo_ingreso_vehiculo: MotivoIngresoVehiculo
+    motivos_ingreso_vehiculos: Array<MotivoIngresoVehiculo>
     movimientos_antes_corte: GetMovementsCountBeforeCorteOutput
     notificaciones: Array<Notificacion>
     /** Devolver booleano si hay notificaciones no leidas */
@@ -5033,6 +5169,8 @@ export interface Query {
     pagos: Array<Pago>
     /** Historial de pagos de propinas por colaborador */
     pagos_propinas: Array<PagoPropina>
+    /** Retorna las entradas de placas que faltan por completar para el hotel */
+    placas_pendientes: Array<HistorialVehiculo>
     propinas: Array<Propina>
     puesto: Puesto
     puestos: Array<Puesto>
@@ -5100,8 +5238,8 @@ export interface QueryAgregaciones_Almacenes_ArticulosArgs {
     hotel_id: Scalars["ID"]["input"]
 }
 
-export interface QueryAlerta_Por_Pagos_PendientesArgs {
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+export interface QueryAlertas_CorteArgs {
+    hotel_id: Scalars["ID"]["input"]
 }
 
 export interface QueryAlmacenArgs {
@@ -5320,6 +5458,12 @@ export interface QueryConfiguracion_FajillaArgs {
 
 export interface QueryConfiguracion_PropinaArgs {
     configuracion_propina_id: Scalars["ID"]["input"]
+}
+
+export interface QueryConfiguraciones_CorteArgs {
+    activo?: InputMaybe<Scalars["Boolean"]["input"]>
+    concepto?: InputMaybe<ConceptosInclusionFilterArgs>
+    hotel_id: Scalars["ID"]["input"]
 }
 
 export interface QueryConfiguraciones_FajillaArgs {
@@ -5826,6 +5970,17 @@ export interface QueryModulosArgs {
     nombre_modulo?: InputMaybe<Scalars["String"]["input"]>
 }
 
+export interface QueryMotivo_Ingreso_VehiculoArgs {
+    motivo_ingreso_id: Scalars["ID"]["input"]
+}
+
+export interface QueryMotivos_Ingreso_VehiculosArgs {
+    eliminado?: InputMaybe<Scalars["Boolean"]["input"]>
+    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    motivo_ingreso_id?: InputMaybe<Scalars["ID"]["input"]>
+    nombre?: InputMaybe<Scalars["String"]["input"]>
+}
+
 export interface QueryMovimientos_Antes_CorteArgs {
     fecha_fin: Scalars["DateTime"]["input"]
     fecha_inicio: Scalars["DateTime"]["input"]
@@ -5962,8 +6117,13 @@ export interface QueryPagosArgs {
 export interface QueryPagos_PropinasArgs {
     colaborador_id?: InputMaybe<Scalars["ID"]["input"]>
     fecha_registro?: InputMaybe<MonthSearchInput>
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     pago_propina_id?: InputMaybe<Array<Scalars["ID"]["input"]>>
+}
+
+export interface QueryPlacas_PendientesArgs {
+    hotel_id: Scalars["ID"]["input"]
+    limite?: InputMaybe<Scalars["Int"]["input"]>
 }
 
 export interface QueryPropinasArgs {
@@ -6327,6 +6487,7 @@ export interface QueryUltima_Tarea_Asignada_A_ColaboradorArgs {
 
 export interface QueryUltimo_CorteArgs {
     hotel_id: Scalars["ID"]["input"]
+    turno_id?: InputMaybe<Scalars["ID"]["input"]>
 }
 
 export interface QueryUsuarioArgs {
@@ -6410,11 +6571,13 @@ export interface RegisterUsuarioDispositivoInput {
 export interface ReleaseHabitacionInput {
     estado: Release_Estados_Habitaciones
     habitacion_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
     usuario_id: Scalars["ID"]["input"]
 }
 
 export interface RemoveBookingFromRoomInput {
     habitacion_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
     usuario_id: Scalars["ID"]["input"]
 }
 
@@ -6856,6 +7019,7 @@ export interface SwitchTaskBtwColabInput {
     colaborador_tarea_id: Array<Scalars["ID"]["input"]>
     descripcion_tarea: Scalars["String"]["input"]
     habitacion_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
     sin_personal_asignado: Scalars["Boolean"]["input"]
     tarea: CreateTareaInput
     tarea_id?: InputMaybe<Scalars["ID"]["input"]>
@@ -6873,6 +7037,7 @@ export interface SwitchTaskRoomInput {
     estado_habitacion_actual: Estados_Habitaciones
     estado_habitacion_nueva: Estados_Habitaciones
     habitacion_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
     switch_colaboradores: Array<SwitchTaskPartialInput>
     usuario_id: Scalars["ID"]["input"]
 }
@@ -6883,7 +7048,7 @@ export interface SwitchTaskWithRoomStateInput {
     comentarios?: InputMaybe<Array<CommentTaskInput>>
     estado_habitacion: Estados_Habitaciones
     habitacion_id: Scalars["ID"]["input"]
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     tarea: CreateTareaInput
     tarea_id?: InputMaybe<Scalars["ID"]["input"]>
     tipo_limpieza?: InputMaybe<TiposLimpiezas>
@@ -7473,7 +7638,7 @@ export interface UpdateArticuloInput {
     fecha_registro?: InputMaybe<Scalars["DateTime"]["input"]>
     folio?: InputMaybe<Scalars["String"]["input"]>
     foto?: InputMaybe<Scalars["String"]["input"]>
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     imas_id?: InputMaybe<Scalars["String"]["input"]>
     marca?: InputMaybe<Scalars["String"]["input"]>
     nombre?: InputMaybe<Scalars["String"]["input"]>
@@ -7550,6 +7715,7 @@ export interface UpdateColaboradorInput {
 
 export interface UpdateColaboradorTurnoInput {
     colaborador_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
     turno_id: Scalars["ID"]["input"]
     usuario_id: Scalars["ID"]["input"]
 }
@@ -7604,6 +7770,7 @@ export interface UpdateEstadoHabitacionInput {
     estado: Estados_Habitaciones
     fecha_estado: Scalars["DateTime"]["input"]
     habitacion_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
     subestado?: InputMaybe<SubestadosHabitaciones>
     usuario_id: Scalars["ID"]["input"]
 }
@@ -7740,6 +7907,13 @@ export interface UpdateHistorialHabitacionDto {
     usuario_id?: InputMaybe<Scalars["ID"]["input"]>
 }
 
+export interface UpdateHistorialVehiculoInput {
+    habitacion?: InputMaybe<Scalars["String"]["input"]>
+    historial_vehiculo_id: Scalars["ID"]["input"]
+    motivo_entrada?: InputMaybe<Scalars["String"]["input"]>
+    vehiculo: VehiculoDataEditDetailInput
+}
+
 export interface UpdateHotelInput {
     calle?: InputMaybe<Scalars["String"]["input"]>
     ciudad?: InputMaybe<Scalars["String"]["input"]>
@@ -7808,6 +7982,14 @@ export interface UpdateMesaInput {
     motivo_bloqueo?: InputMaybe<Scalars["String"]["input"]>
     numero_mesa?: InputMaybe<Scalars["String"]["input"]>
     usuario_modifico_id?: InputMaybe<Scalars["ID"]["input"]>
+}
+
+export interface UpdateMotivoIngresoVehiculoDto {
+    /** Identificador del hotel al que pertenece el motivo de ingreso */
+    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    motivo_ingreso_id: Scalars["ID"]["input"]
+    /** Nombre del motivo de ingreso */
+    nombre?: InputMaybe<Scalars["String"]["input"]>
 }
 
 export interface UpdateOrdenInput {
@@ -8057,6 +8239,7 @@ export interface UpdateTipoHabitacionDto {
 
 export interface UpdateTipoLimpiezaInput {
     colaboradores_tareas_ids: Array<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     tipo_limpieza?: InputMaybe<TiposLimpiezas>
 }
 
@@ -8169,6 +8352,12 @@ export interface ValidarCodigoAutorizacionOutput {
 
 export interface ValidateApiKeyInput {
     key: Scalars["String"]["input"]
+}
+
+export interface Vehiculo {
+    __typename?: "Vehiculo"
+    data: Data_Vehiculo
+    vehiculo_id: Scalars["ID"]["output"]
 }
 
 export interface VehiculoDataEditDetailInput {
@@ -8661,10 +8850,22 @@ export type Cerrar_CorteMutation = {
 }
 
 export type AlertaPagosPendientesQueryVariables = Exact<{
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
 }>
 
-export type AlertaPagosPendientesQuery = { __typename?: "Query"; alerta_por_pagos_pendientes: boolean }
+export type AlertaPagosPendientesQuery = {
+    __typename?: "Query"
+    alertas_corte: {
+        __typename?: "AlertasCorteOutput"
+        alerta_por_pagos_pendientes: boolean
+        registros_pendientes: {
+            __typename?: "AlertasPorRegistrosPendientesDetailOutput"
+            registro_obligatorio: boolean
+            alerta_por_placas_pendientes: boolean
+            alerta_por_mantenimiento_pendiente: boolean
+        }
+    }
+}
 
 export type GetFajillasQueryVariables = Exact<{ [key: string]: never }>
 
@@ -8829,6 +9030,7 @@ export type Ultimo_CorteQuery = {
 export type ArticulosQueryVariables = Exact<{
     fecha_registro?: InputMaybe<DateSearchInput>
     pagination_options: PageOptionsArgs
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type ArticulosQuery = {
@@ -10100,6 +10302,7 @@ export type GetReservasDelDiaSinAsignarQuery = {
 export type GetHabitacionQueryVariables = Exact<{
     habitacion_id: Scalars["ID"]["input"]
     usuario_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type GetHabitacionQuery = {
@@ -11047,7 +11250,7 @@ export type GetIncidenciaByFiltersQuery = {
 }
 
 export type TableArticulosQueryVariables = Exact<{
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     almacen_id?: InputMaybe<Array<Scalars["ID"]["input"]> | Scalars["ID"]["input"]>
     filter_tipo_articulo?: InputMaybe<Array<TipoArticulo> | TipoArticulo>
     pagination_options: PageOptionsArgs
@@ -11312,6 +11515,7 @@ export type CrearArticuloMutation = {
 export type GetAlmacenArticuloByArrayIdQueryVariables = Exact<{
     articulo_id?: InputMaybe<Array<Scalars["ID"]["input"]> | Scalars["ID"]["input"]>
     pagination_options: PageOptionsArgs
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type GetAlmacenArticuloByArrayIdQuery = {
@@ -11353,6 +11557,7 @@ export type GetAlmacenArticuloByArrayIdQuery = {
 
 export type GetAlmacenArticuloForEditQueryVariables = Exact<{
     almacen_articulo_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type GetAlmacenArticuloForEditQuery = {
@@ -11469,6 +11674,7 @@ export type ActualizarRecetaProcesoMutation = {
 
 export type GetRecetaForDetailQueryVariables = Exact<{
     articulo_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type GetRecetaForDetailQuery = {
@@ -11516,6 +11722,7 @@ export type GetRecetaForDetailQuery = {
 
 export type GetRecetaToEditQueryVariables = Exact<{
     articulo_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type GetRecetaToEditQuery = {
@@ -11777,6 +11984,7 @@ export type GetSurtidosByAlmacenArtIdQuery = {
 
 export type GetAlmacenArticuloForSurtidoQueryVariables = Exact<{
     almacen_articulo_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type GetAlmacenArticuloForSurtidoQuery = {
@@ -11816,7 +12024,7 @@ export type CrearSurtidosMutation = {
 }
 
 export type GetAlmacenArticulosMosaicQueryVariables = Exact<{
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     pagination_options: PageOptionsArgs
 }>
 
@@ -11859,6 +12067,7 @@ export type GetAlmacenArticulosMosaicQuery = {
 
 export type GetArticuloByIdQueryVariables = Exact<{
     articulo_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type GetArticuloByIdQuery = {
@@ -11897,6 +12106,7 @@ export type GetArticuloByIdQuery = {
 
 export type GetAlmacenArticuloByArticuloIdQueryVariables = Exact<{
     articulo_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type GetAlmacenArticuloByArticuloIdQuery = {
@@ -11939,6 +12149,7 @@ export type GetAlmacenArticuloByArticuloIdQuery = {
 
 export type GetAlmacenArticuloByIdQueryVariables = Exact<{
     almacen_articulo_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type GetAlmacenArticuloByIdQuery = {
@@ -12854,6 +13065,7 @@ export type ActualizarAportacionesPropinasPorCategoriaMutation = {
 
 export type Pagos_PropinasQueryVariables = Exact<{
     pago_propinas_input: MonthSearchInput
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type Pagos_PropinasQuery = {
@@ -13033,7 +13245,9 @@ export type Calcular_Pagos_PropinasQuery = {
     }
 }
 
-export type ReiniciarAsignacionesPropinasMutationVariables = Exact<{ [key: string]: never }>
+export type ReiniciarAsignacionesPropinasMutationVariables = Exact<{
+    hotel_id: Scalars["ID"]["input"]
+}>
 
 export type ReiniciarAsignacionesPropinasMutation = {
     __typename?: "Mutation"
@@ -13524,6 +13738,7 @@ export type GetHabitacionReservaQuery = {
 
 export type GetComandaQueryVariables = Exact<{
     comanda_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type GetComandaQuery = {
@@ -13683,8 +13898,6 @@ export type ActualizarMesaAsignadaMutation = {
 
 export type CerrarCuentaMesaAsignadaMutationVariables = Exact<{
     cerrarCuentaMesaAsignadaInput: CloseBillMesaAsignadaInput
-    codigo?: InputMaybe<Scalars["String"]["input"]>
-    template_sample?: InputMaybe<Scalars["String"]["input"]>
 }>
 
 export type CerrarCuentaMesaAsignadaMutation = {
@@ -13709,6 +13922,7 @@ export type CerrarCuentaMesaAsignadaMutation = {
 
 export type GetRestaurantOrdenQueryVariables = Exact<{
     orden_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type GetRestaurantOrdenQuery = {
@@ -14039,6 +14253,7 @@ export type CancelarComandaMutation = {
 
 export type GetComandaCancelacionQueryVariables = Exact<{
     comanda_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type GetComandaCancelacionQuery = {
@@ -14110,7 +14325,7 @@ export type GetComandaCancelacionQuery = {
 
 export type CancelacionOrdenesQueryVariables = Exact<{
     orden_id: Array<Scalars["ID"]["input"]> | Scalars["ID"]["input"]
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     fecha_registro?: InputMaybe<DateSearchInput>
 }>
 
@@ -14289,6 +14504,7 @@ export type ActualizarOrdenMutation = { __typename?: "Mutation"; actualizar_orde
 
 export type GetOrdenEditQueryVariables = Exact<{
     input: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type GetOrdenEditQuery = {
@@ -14347,6 +14563,7 @@ export type GetOrdenEditQuery = {
 
 export type GetOrdenForUpdateQueryVariables = Exact<{
     orden_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type GetOrdenForUpdateQuery = {
@@ -14586,7 +14803,7 @@ export type GetNumeroMesasQuery = {
 
 export type OrdenesQueryVariables = Exact<{
     orden_id: Array<Scalars["ID"]["input"]> | Scalars["ID"]["input"]
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     fecha_registro?: InputMaybe<DateSearchInput>
 }>
 
@@ -14720,6 +14937,7 @@ export type OrdenesQuery = {
 
 export type OrdenQueryVariables = Exact<{
     orden_id: Scalars["ID"]["input"]
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type OrdenQuery = {
@@ -14933,7 +15151,7 @@ export type OrdenQuery = {
 }
 
 export type OrdenesPaginadasQueryVariables = Exact<{
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     fecha_registro?: InputMaybe<DateSearchInput>
     pagination_options?: InputMaybe<PageOptionsArgs>
     estado?: InputMaybe<EstadosOrdenHistorial>
@@ -15243,7 +15461,7 @@ export type PagarOrdenesMutationVariables = Exact<{
 export type PagarOrdenesMutation = { __typename?: "Mutation"; pagar_ordenes_pendientes: Array<string> }
 
 export type ArticulosTableQueryVariables = Exact<{
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     categoria_id?: InputMaybe<Scalars["ID"]["input"]>
     nombre?: InputMaybe<Scalars["String"]["input"]>
 }>
@@ -15274,7 +15492,7 @@ export type ArticulosTableQuery = {
 }
 
 export type GetCategoriasRsQueryVariables = Exact<{
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type GetCategoriasRsQuery = {
@@ -15283,7 +15501,7 @@ export type GetCategoriasRsQuery = {
 }
 
 export type GetArticulosRoomServiceQueryVariables = Exact<{
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     pagination_options: PageOptionsArgs
     filter_in_categories?: InputMaybe<Array<Scalars["ID"]["input"]> | Scalars["ID"]["input"]>
     nombre_articulo?: InputMaybe<Scalars["String"]["input"]>
@@ -15409,7 +15627,7 @@ export type GetVehiculoDataQuery = {
 }
 
 export type GetArticulosSearchTableQueryVariables = Exact<{
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     pagination_options: PageOptionsArgs
     nameFilter: Scalars["String"]["input"]
 }>
@@ -15583,7 +15801,7 @@ export type GetColaboradoresForPropinaDropQuery = {
 }
 
 export type GetArticulosSearchRoomServiceQueryVariables = Exact<{
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
     pagination_options: PageOptionsArgs
     nameFilter: Scalars["String"]["input"]
     filter_tipo_articulo: Array<TipoArticulo> | TipoArticulo
@@ -15653,7 +15871,7 @@ export type GetArticulosSearchRoomServiceQuery = {
 }
 
 export type SearchArticulosQueryVariables = Exact<{
-    hotel_id?: InputMaybe<Scalars["ID"]["input"]>
+    hotel_id: Scalars["ID"]["input"]
 }>
 
 export type SearchArticulosQuery = {
@@ -17037,14 +17255,22 @@ export type Cerrar_CorteMutationOptions = Apollo.BaseMutationOptions<
     Cerrar_CorteMutationVariables
 >
 export const AlertaPagosPendientesDocument = gql`
-    query AlertaPagosPendientes($hotel_id: ID) {
-        alerta_por_pagos_pendientes(hotel_id: $hotel_id)
+    query AlertaPagosPendientes($hotel_id: ID!) {
+        alertas_corte(hotel_id: $hotel_id) {
+            alerta_por_pagos_pendientes
+            registros_pendientes {
+                registro_obligatorio
+                alerta_por_placas_pendientes
+                alerta_por_mantenimiento_pendiente
+            }
+        }
     }
 `
 export type AlertaPagosPendientesComponentProps = Omit<
     ApolloReactComponents.QueryComponentOptions<AlertaPagosPendientesQuery, AlertaPagosPendientesQueryVariables>,
     "query"
->
+> &
+    ({ variables: AlertaPagosPendientesQueryVariables; skip?: boolean } | { skip: boolean })
 
 export const AlertaPagosPendientesComponent = (props: AlertaPagosPendientesComponentProps) => (
     <ApolloReactComponents.Query<AlertaPagosPendientesQuery, AlertaPagosPendientesQueryVariables>
@@ -17070,7 +17296,7 @@ export const AlertaPagosPendientesComponent = (props: AlertaPagosPendientesCompo
  * });
  */
 export function useAlertaPagosPendientesQuery(
-    baseOptions?: Apollo.QueryHookOptions<AlertaPagosPendientesQuery, AlertaPagosPendientesQueryVariables>
+    baseOptions: Apollo.QueryHookOptions<AlertaPagosPendientesQuery, AlertaPagosPendientesQueryVariables>
 ) {
     const options = { ...defaultOptions, ...baseOptions }
     return Apollo.useQuery<AlertaPagosPendientesQuery, AlertaPagosPendientesQueryVariables>(
@@ -17511,7 +17737,7 @@ export type Ultimo_CorteQueryHookResult = ReturnType<typeof useUltimo_CorteQuery
 export type Ultimo_CorteLazyQueryHookResult = ReturnType<typeof useUltimo_CorteLazyQuery>
 export type Ultimo_CorteQueryResult = Apollo.QueryResult<Ultimo_CorteQuery, Ultimo_CorteQueryVariables>
 export const ArticulosDocument = gql`
-    query Articulos($fecha_registro: DateSearchInput, $pagination_options: PageOptionsArgs!) {
+    query Articulos($fecha_registro: DateSearchInput, $pagination_options: PageOptionsArgs!, $hotel_id: ID!) {
         almacenes_articulos(pagination_options: $pagination_options) {
             almacenes_articulos {
                 articulo_id
@@ -17533,7 +17759,7 @@ export const ArticulosDocument = gql`
                     tipo
                     marca
                     nombre
-                    precio {
+                    precio(hotel_id: $hotel_id) {
                         monto
                     }
                     stock
@@ -17567,6 +17793,7 @@ export const ArticulosComponent = (props: ArticulosComponentProps) => (
  *   variables: {
  *      fecha_registro: // value for 'fecha_registro'
  *      pagination_options: // value for 'pagination_options'
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -21165,7 +21392,7 @@ export type GetReservasDelDiaSinAsignarQueryResult = Apollo.QueryResult<
     GetReservasDelDiaSinAsignarQueryVariables
 >
 export const GetHabitacionDocument = gql`
-    query GetHabitacion($habitacion_id: ID!, $usuario_id: ID!) {
+    query GetHabitacion($habitacion_id: ID!, $usuario_id: ID!, $hotel_id: ID!) {
         habitacion(habitacion_id: $habitacion_id) {
             comentario_estado
             eliminado
@@ -21404,7 +21631,7 @@ export const GetHabitacionDocument = gql`
                                 nombre
                                 contenido
                                 descripcion
-                                precio {
+                                precio(hotel_id: $hotel_id) {
                                     monto
                                 }
                                 unidad
@@ -21431,7 +21658,7 @@ export const GetHabitacionDocument = gql`
                                     nombre
                                     contenido
                                     descripcion
-                                    precio {
+                                    precio(hotel_id: $hotel_id) {
                                         monto
                                     }
                                     unidad
@@ -21565,6 +21792,7 @@ export const GetHabitacionComponent = (props: GetHabitacionComponentProps) => (
  *   variables: {
  *      habitacion_id: // value for 'habitacion_id'
  *      usuario_id: // value for 'usuario_id'
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -22819,7 +23047,7 @@ export type GetIncidenciaByFiltersQueryResult = Apollo.QueryResult<
 >
 export const TableArticulosDocument = gql`
     query TableArticulos(
-        $hotel_id: ID
+        $hotel_id: ID!
         $almacen_id: [ID!]
         $filter_tipo_articulo: [TipoArticulo!]
         $pagination_options: PageOptionsArgs!
@@ -23743,7 +23971,7 @@ export type CrearArticuloMutationOptions = Apollo.BaseMutationOptions<
     CrearArticuloMutationVariables
 >
 export const GetAlmacenArticuloByArrayIdDocument = gql`
-    query GetAlmacenArticuloByArrayId($articulo_id: [ID!], $pagination_options: PageOptionsArgs!) {
+    query GetAlmacenArticuloByArrayId($articulo_id: [ID!], $pagination_options: PageOptionsArgs!, $hotel_id: ID!) {
         almacenes_articulos(articulo_id: $articulo_id, pagination_options: $pagination_options) {
             paginacion {
                 pagina_actual
@@ -23760,7 +23988,7 @@ export const GetAlmacenArticuloByArrayIdDocument = gql`
                     foto
                     marca
                     nombre
-                    precio {
+                    precio(hotel_id: $hotel_id) {
                         monto
                     }
                     costo {
@@ -23809,6 +24037,7 @@ export const GetAlmacenArticuloByArrayIdComponent = (props: GetAlmacenArticuloBy
  *   variables: {
  *      articulo_id: // value for 'articulo_id'
  *      pagination_options: // value for 'pagination_options'
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -23840,7 +24069,7 @@ export type GetAlmacenArticuloByArrayIdQueryResult = Apollo.QueryResult<
     GetAlmacenArticuloByArrayIdQueryVariables
 >
 export const GetAlmacenArticuloForEditDocument = gql`
-    query GetAlmacenArticuloForEdit($almacen_articulo_id: ID!) {
+    query GetAlmacenArticuloForEdit($almacen_articulo_id: ID!, $hotel_id: ID!) {
         almacen_articulo(almacen_articulo_id: $almacen_articulo_id) {
             almacen_articulo_id
             almacen_id
@@ -23851,7 +24080,7 @@ export const GetAlmacenArticuloForEditDocument = gql`
                 foto
                 marca
                 nombre
-                precio {
+                precio(hotel_id: $hotel_id) {
                     monto
                 }
                 costo {
@@ -23898,6 +24127,7 @@ export const GetAlmacenArticuloForEditComponent = (props: GetAlmacenArticuloForE
  * const { data, loading, error } = useGetAlmacenArticuloForEditQuery({
  *   variables: {
  *      almacen_articulo_id: // value for 'almacen_articulo_id'
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -24338,7 +24568,7 @@ export type ActualizarRecetaProcesoMutationOptions = Apollo.BaseMutationOptions<
     ActualizarRecetaProcesoMutationVariables
 >
 export const GetRecetaForDetailDocument = gql`
-    query GetRecetaForDetail($articulo_id: ID!) {
+    query GetRecetaForDetail($articulo_id: ID!, $hotel_id: ID!) {
         receta(articulo_id: $articulo_id) {
             articulo_id
             articulo {
@@ -24348,7 +24578,7 @@ export const GetRecetaForDetailDocument = gql`
                 foto
                 unidad
                 contenido
-                precio {
+                precio(hotel_id: $hotel_id) {
                     monto
                 }
                 costo {
@@ -24407,6 +24637,7 @@ export const GetRecetaForDetailComponent = (props: GetRecetaForDetailComponentPr
  * const { data, loading, error } = useGetRecetaForDetailQuery({
  *   variables: {
  *      articulo_id: // value for 'articulo_id'
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -24435,7 +24666,7 @@ export type GetRecetaForDetailQueryResult = Apollo.QueryResult<
     GetRecetaForDetailQueryVariables
 >
 export const GetRecetaToEditDocument = gql`
-    query getRecetaToEdit($articulo_id: ID!) {
+    query getRecetaToEdit($articulo_id: ID!, $hotel_id: ID!) {
         receta(articulo_id: $articulo_id) {
             articulo_id
             articulo {
@@ -24449,7 +24680,7 @@ export const GetRecetaToEditDocument = gql`
                 categoria_articulo {
                     nombre
                 }
-                precio {
+                precio(hotel_id: $hotel_id) {
                     monto
                 }
             }
@@ -24495,6 +24726,7 @@ export const GetRecetaToEditComponent = (props: GetRecetaToEditComponentProps) =
  * const { data, loading, error } = useGetRecetaToEditQuery({
  *   variables: {
  *      articulo_id: // value for 'articulo_id'
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -24558,7 +24790,7 @@ export const GetRecetasProcesosDocument = gql`
                     costo {
                         monto
                     }
-                    precio {
+                    precio(hotel_id: $hotel_id) {
                         monto
                     }
                     folio
@@ -24804,7 +25036,7 @@ export const SearchRecipesProcessDocument = gql`
                     costo {
                         monto
                     }
-                    precio {
+                    precio(hotel_id: $hotel_id) {
                         monto
                     }
                     folio
@@ -25234,7 +25466,7 @@ export type GetSurtidosByAlmacenArtIdQueryResult = Apollo.QueryResult<
     GetSurtidosByAlmacenArtIdQueryVariables
 >
 export const GetAlmacenArticuloForSurtidoDocument = gql`
-    query GetAlmacenArticuloForSurtido($almacen_articulo_id: ID!) {
+    query GetAlmacenArticuloForSurtido($almacen_articulo_id: ID!, $hotel_id: ID!) {
         almacen_articulo(almacen_articulo_id: $almacen_articulo_id) {
             almacen_articulo_id
             almacen_id
@@ -25248,7 +25480,7 @@ export const GetAlmacenArticuloForSurtidoDocument = gql`
                 articulo_id
                 marca
                 nombre
-                precio {
+                precio(hotel_id: $hotel_id) {
                     monto
                 }
                 costo {
@@ -25292,6 +25524,7 @@ export const GetAlmacenArticuloForSurtidoComponent = (props: GetAlmacenArticuloF
  * const { data, loading, error } = useGetAlmacenArticuloForSurtidoQuery({
  *   variables: {
  *      almacen_articulo_id: // value for 'almacen_articulo_id'
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -25377,7 +25610,7 @@ export type CrearSurtidosMutationOptions = Apollo.BaseMutationOptions<
     CrearSurtidosMutationVariables
 >
 export const GetAlmacenArticulosMosaicDocument = gql`
-    query getAlmacenArticulosMosaic($hotel_id: ID, $pagination_options: PageOptionsArgs!) {
+    query getAlmacenArticulosMosaic($hotel_id: ID!, $pagination_options: PageOptionsArgs!) {
         almacenes_articulos(
             hotel_id: $hotel_id
             eliminado: false
@@ -25402,7 +25635,7 @@ export const GetAlmacenArticulosMosaicDocument = gql`
                     cantidad_minima
                     nombre
                     foto
-                    precio {
+                    precio(hotel_id: $hotel_id) {
                         monto
                     }
                     marca
@@ -25476,7 +25709,7 @@ export type GetAlmacenArticulosMosaicQueryResult = Apollo.QueryResult<
     GetAlmacenArticulosMosaicQueryVariables
 >
 export const GetArticuloByIdDocument = gql`
-    query getArticuloById($articulo_id: ID!) {
+    query getArticuloById($articulo_id: ID!, $hotel_id: ID!) {
         almacenes_articulos(articulo_id: [$articulo_id]) {
             almacenes_articulos {
                 almacen_articulo_id
@@ -25488,7 +25721,7 @@ export const GetArticuloByIdDocument = gql`
                     foto
                     marca
                     nombre
-                    precio {
+                    precio(hotel_id: $hotel_id) {
                         monto
                     }
                     costo {
@@ -25537,6 +25770,7 @@ export const GetArticuloByIdComponent = (props: GetArticuloByIdComponentProps) =
  * const { data, loading, error } = useGetArticuloByIdQuery({
  *   variables: {
  *      articulo_id: // value for 'articulo_id'
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -25556,7 +25790,7 @@ export type GetArticuloByIdQueryHookResult = ReturnType<typeof useGetArticuloByI
 export type GetArticuloByIdLazyQueryHookResult = ReturnType<typeof useGetArticuloByIdLazyQuery>
 export type GetArticuloByIdQueryResult = Apollo.QueryResult<GetArticuloByIdQuery, GetArticuloByIdQueryVariables>
 export const GetAlmacenArticuloByArticuloIdDocument = gql`
-    query getAlmacenArticuloByArticuloId($articulo_id: ID!) {
+    query getAlmacenArticuloByArticuloId($articulo_id: ID!, $hotel_id: ID!) {
         almacenes_articulos(articulo_id: [$articulo_id]) {
             almacenes_articulos {
                 almacen_articulo_id
@@ -25572,7 +25806,7 @@ export const GetAlmacenArticuloByArticuloIdDocument = gql`
                     foto
                     marca
                     nombre
-                    precio {
+                    precio(hotel_id: $hotel_id) {
                         monto
                     }
                     costo {
@@ -25627,6 +25861,7 @@ export const GetAlmacenArticuloByArticuloIdComponent = (props: GetAlmacenArticul
  * const { data, loading, error } = useGetAlmacenArticuloByArticuloIdQuery({
  *   variables: {
  *      articulo_id: // value for 'articulo_id'
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -25663,7 +25898,7 @@ export type GetAlmacenArticuloByArticuloIdQueryResult = Apollo.QueryResult<
     GetAlmacenArticuloByArticuloIdQueryVariables
 >
 export const GetAlmacenArticuloByIdDocument = gql`
-    query getAlmacenArticuloById($almacen_articulo_id: ID!) {
+    query getAlmacenArticuloById($almacen_articulo_id: ID!, $hotel_id: ID!) {
         almacen_articulo(almacen_articulo_id: $almacen_articulo_id) {
             precio
             estado
@@ -25687,7 +25922,7 @@ export const GetAlmacenArticuloByIdDocument = gql`
                 }
                 descripcion
                 cantidad_minima
-                precio {
+                precio(hotel_id: $hotel_id) {
                     monto
                 }
                 costo {
@@ -25740,6 +25975,7 @@ export const GetAlmacenArticuloByIdComponent = (props: GetAlmacenArticuloByIdCom
  * const { data, loading, error } = useGetAlmacenArticuloByIdQuery({
  *   variables: {
  *      almacen_articulo_id: // value for 'almacen_articulo_id'
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -28984,8 +29220,8 @@ export type ActualizarAportacionesPropinasPorCategoriaMutationOptions = Apollo.B
     ActualizarAportacionesPropinasPorCategoriaMutationVariables
 >
 export const Pagos_PropinasDocument = gql`
-    query Pagos_propinas($pago_propinas_input: MonthSearchInput!) {
-        pagos_propinas(fecha_registro: $pago_propinas_input) {
+    query Pagos_propinas($pago_propinas_input: MonthSearchInput!, $hotel_id: ID!) {
+        pagos_propinas(fecha_registro: $pago_propinas_input, hotel_id: $hotel_id) {
             asignacion_propina_id
             asignacion_propina {
                 monto_pagado: fondo_propina_a_repartir
@@ -29036,6 +29272,7 @@ export const Pagos_PropinasComponent = (props: Pagos_PropinasComponentProps) => 
  * const { data, loading, error } = usePagos_PropinasQuery({
  *   variables: {
  *      pago_propinas_input: // value for 'pago_propinas_input'
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -29393,8 +29630,8 @@ export type Calcular_Pagos_PropinasQueryResult = Apollo.QueryResult<
     Calcular_Pagos_PropinasQueryVariables
 >
 export const ReiniciarAsignacionesPropinasDocument = gql`
-    mutation ReiniciarAsignacionesPropinas {
-        reiniciar_asignaciones_propinas
+    mutation ReiniciarAsignacionesPropinas($hotel_id: ID!) {
+        reiniciar_asignaciones_propinas(hotel_id: $hotel_id)
     }
 `
 export type ReiniciarAsignacionesPropinasMutationFn = Apollo.MutationFunction<
@@ -29432,6 +29669,7 @@ export const ReiniciarAsignacionesPropinasComponent = (props: ReiniciarAsignacio
  * @example
  * const [reiniciarAsignacionesPropinasMutation, { data, loading, error }] = useReiniciarAsignacionesPropinasMutation({
  *   variables: {
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -31629,7 +31867,7 @@ export type GetHabitacionReservaQueryResult = Apollo.QueryResult<
     GetHabitacionReservaQueryVariables
 >
 export const GetComandaDocument = gql`
-    query GetComanda($comanda_id: ID!) {
+    query GetComanda($comanda_id: ID!, $hotel_id: ID!) {
         comanda(comanda_id: $comanda_id) {
             comanda_id
             estado_comanda
@@ -31659,7 +31897,7 @@ export const GetComandaDocument = gql`
                         contenido
                         unidad
                         descripcion
-                        precio {
+                        precio(hotel_id: $hotel_id) {
                             monto
                         }
                         tipo
@@ -31692,7 +31930,7 @@ export const GetComandaDocument = gql`
                             categoria_articulo {
                                 nombre
                             }
-                            precio {
+                            precio(hotel_id: $hotel_id) {
                                 monto
                             }
                         }
@@ -31725,6 +31963,7 @@ export const GetComandaComponent = (props: GetComandaComponentProps) => (
  * const { data, loading, error } = useGetComandaQuery({
  *   variables: {
  *      comanda_id: // value for 'comanda_id'
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -32208,16 +32447,8 @@ export type ActualizarMesaAsignadaMutationOptions = Apollo.BaseMutationOptions<
     ActualizarMesaAsignadaMutationVariables
 >
 export const CerrarCuentaMesaAsignadaDocument = gql`
-    mutation CerrarCuentaMesaAsignada(
-        $cerrarCuentaMesaAsignadaInput: CloseBillMesaAsignadaInput!
-        $codigo: String
-        $template_sample: String
-    ) {
-        cerrar_cuenta_mesa_asignada(
-            cerrarCuentaMesaAsignadaInput: $cerrarCuentaMesaAsignadaInput
-            codigo: $codigo
-            template_sample: $template_sample
-        ) {
+    mutation CerrarCuentaMesaAsignada($cerrarCuentaMesaAsignadaInput: CloseBillMesaAsignadaInput!) {
+        cerrar_cuenta_mesa_asignada(cerrarCuentaMesaAsignadaInput: $cerrarCuentaMesaAsignadaInput) {
             mesa_asignada_id
             mesa_id
             orden_id
@@ -32266,8 +32497,6 @@ export const CerrarCuentaMesaAsignadaComponent = (props: CerrarCuentaMesaAsignad
  * const [cerrarCuentaMesaAsignadaMutation, { data, loading, error }] = useCerrarCuentaMesaAsignadaMutation({
  *   variables: {
  *      cerrarCuentaMesaAsignadaInput: // value for 'cerrarCuentaMesaAsignadaInput'
- *      codigo: // value for 'codigo'
- *      template_sample: // value for 'template_sample'
  *   },
  * });
  */
@@ -32290,7 +32519,7 @@ export type CerrarCuentaMesaAsignadaMutationOptions = Apollo.BaseMutationOptions
     CerrarCuentaMesaAsignadaMutationVariables
 >
 export const GetRestaurantOrdenDocument = gql`
-    query GetRestaurantOrden($orden_id: ID!) {
+    query GetRestaurantOrden($orden_id: ID!, $hotel_id: ID!) {
         orden(orden_id: $orden_id) {
             orden_id
             orden
@@ -32331,7 +32560,7 @@ export const GetRestaurantOrdenDocument = gql`
                             contenido
                             unidad
                             descripcion
-                            precio {
+                            precio(hotel_id: $hotel_id) {
                                 monto
                             }
                             tipo
@@ -32363,7 +32592,7 @@ export const GetRestaurantOrdenDocument = gql`
                                 categoria_articulo {
                                     nombre
                                 }
-                                precio {
+                                precio(hotel_id: $hotel_id) {
                                     monto
                                 }
                             }
@@ -32401,6 +32630,7 @@ export const GetRestaurantOrdenComponent = (props: GetRestaurantOrdenComponentPr
  * const { data, loading, error } = useGetRestaurantOrdenQuery({
  *   variables: {
  *      orden_id: // value for 'orden_id'
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -32935,7 +33165,7 @@ export type CancelarComandaMutationOptions = Apollo.BaseMutationOptions<
     CancelarComandaMutationVariables
 >
 export const GetComandaCancelacionDocument = gql`
-    query getComandaCancelacion($comanda_id: ID!) {
+    query getComandaCancelacion($comanda_id: ID!, $hotel_id: ID!) {
         comanda(comanda_id: $comanda_id) {
             orden {
                 orden
@@ -32962,7 +33192,7 @@ export const GetComandaCancelacionDocument = gql`
                         contenido
                         unidad
                         descripcion
-                        precio {
+                        precio(hotel_id: $hotel_id) {
                             monto
                         }
                         tipo
@@ -32994,7 +33224,7 @@ export const GetComandaCancelacionDocument = gql`
                             categoria_articulo {
                                 nombre
                             }
-                            precio {
+                            precio(hotel_id: $hotel_id) {
                                 monto
                             }
                         }
@@ -33030,6 +33260,7 @@ export const GetComandaCancelacionComponent = (props: GetComandaCancelacionCompo
  * const { data, loading, error } = useGetComandaCancelacionQuery({
  *   variables: {
  *      comanda_id: // value for 'comanda_id'
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -33058,7 +33289,7 @@ export type GetComandaCancelacionQueryResult = Apollo.QueryResult<
     GetComandaCancelacionQueryVariables
 >
 export const CancelacionOrdenesDocument = gql`
-    query CancelacionOrdenes($orden_id: [ID!]!, $hotel_id: ID, $fecha_registro: DateSearchInput) {
+    query CancelacionOrdenes($orden_id: [ID!]!, $hotel_id: ID!, $fecha_registro: DateSearchInput) {
         ordenes(orden_id: $orden_id, hotel_id: $hotel_id, fecha_registro: $fecha_registro) {
             orden
             orden_id
@@ -33109,7 +33340,7 @@ export const CancelacionOrdenesDocument = gql`
                         contenido
                         unidad
                         descripcion
-                        precio {
+                        precio(hotel_id: $hotel_id) {
                             monto
                         }
                         tipo
@@ -33141,7 +33372,7 @@ export const CancelacionOrdenesDocument = gql`
                             categoria_articulo {
                                 nombre
                             }
-                            precio {
+                            precio(hotel_id: $hotel_id) {
                                 monto
                             }
                         }
@@ -33421,7 +33652,7 @@ export type ActualizarOrdenMutationOptions = Apollo.BaseMutationOptions<
     ActualizarOrdenMutationVariables
 >
 export const GetOrdenEditDocument = gql`
-    query getOrdenEdit($input: ID!) {
+    query getOrdenEdit($input: ID!, $hotel_id: ID!) {
         orden(orden_id: $input) {
             orden_id
             orden
@@ -33443,7 +33674,7 @@ export const GetOrdenEditDocument = gql`
                             costo {
                                 monto
                             }
-                            precio {
+                            precio(hotel_id: $hotel_id) {
                                 monto
                             }
                             categoria_id
@@ -33463,7 +33694,7 @@ export const GetOrdenEditDocument = gql`
                         }
                         articulo_id
                         nombre
-                        precio {
+                        precio(hotel_id: $hotel_id) {
                             monto
                         }
                         categoria_id
@@ -33503,6 +33734,7 @@ export const GetOrdenEditComponent = (props: GetOrdenEditComponentProps) => (
  * const { data, loading, error } = useGetOrdenEditQuery({
  *   variables: {
  *      input: // value for 'input'
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -33522,7 +33754,7 @@ export type GetOrdenEditQueryHookResult = ReturnType<typeof useGetOrdenEditQuery
 export type GetOrdenEditLazyQueryHookResult = ReturnType<typeof useGetOrdenEditLazyQuery>
 export type GetOrdenEditQueryResult = Apollo.QueryResult<GetOrdenEditQuery, GetOrdenEditQueryVariables>
 export const GetOrdenForUpdateDocument = gql`
-    query GetOrdenForUpdate($orden_id: ID!) {
+    query GetOrdenForUpdate($orden_id: ID!, $hotel_id: ID!) {
         orden(orden_id: $orden_id) {
             orden
             estado_orden
@@ -33548,7 +33780,7 @@ export const GetOrdenForUpdateDocument = gql`
                         contenido
                         unidad
                         descripcion
-                        precio {
+                        precio(hotel_id: $hotel_id) {
                             monto
                         }
                         tipo
@@ -33581,7 +33813,7 @@ export const GetOrdenForUpdateDocument = gql`
                             categoria_articulo {
                                 nombre
                             }
-                            precio {
+                            precio(hotel_id: $hotel_id) {
                                 monto
                             }
                         }
@@ -33617,6 +33849,7 @@ export const GetOrdenForUpdateComponent = (props: GetOrdenForUpdateComponentProp
  * const { data, loading, error } = useGetOrdenForUpdateQuery({
  *   variables: {
  *      orden_id: // value for 'orden_id'
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -34114,7 +34347,7 @@ export type GetNumeroMesasQueryHookResult = ReturnType<typeof useGetNumeroMesasQ
 export type GetNumeroMesasLazyQueryHookResult = ReturnType<typeof useGetNumeroMesasLazyQuery>
 export type GetNumeroMesasQueryResult = Apollo.QueryResult<GetNumeroMesasQuery, GetNumeroMesasQueryVariables>
 export const OrdenesDocument = gql`
-    query Ordenes($orden_id: [ID!]!, $hotel_id: ID, $fecha_registro: DateSearchInput) {
+    query Ordenes($orden_id: [ID!]!, $hotel_id: ID!, $fecha_registro: DateSearchInput) {
         ordenes(orden_id: $orden_id, hotel_id: $hotel_id, fecha_registro: $fecha_registro) {
             orden
             orden_id
@@ -34171,7 +34404,7 @@ export const OrdenesDocument = gql`
                         contenido
                         unidad
                         descripcion
-                        precio {
+                        precio(hotel_id: $hotel_id) {
                             monto
                         }
                         tipo
@@ -34203,7 +34436,7 @@ export const OrdenesDocument = gql`
                             categoria_articulo {
                                 nombre
                             }
-                            precio {
+                            precio(hotel_id: $hotel_id) {
                                 monto
                             }
                         }
@@ -34283,7 +34516,7 @@ export type OrdenesQueryHookResult = ReturnType<typeof useOrdenesQuery>
 export type OrdenesLazyQueryHookResult = ReturnType<typeof useOrdenesLazyQuery>
 export type OrdenesQueryResult = Apollo.QueryResult<OrdenesQuery, OrdenesQueryVariables>
 export const OrdenDocument = gql`
-    query Orden($orden_id: ID!) {
+    query Orden($orden_id: ID!, $hotel_id: ID!) {
         orden(orden_id: $orden_id) {
             orden
             orden_id
@@ -34343,7 +34576,7 @@ export const OrdenDocument = gql`
                         contenido
                         unidad
                         descripcion
-                        precio {
+                        precio(hotel_id: $hotel_id) {
                             monto
                         }
                         tipo
@@ -34375,7 +34608,7 @@ export const OrdenDocument = gql`
                             categoria_articulo {
                                 nombre
                             }
-                            precio {
+                            precio(hotel_id: $hotel_id) {
                                 monto
                             }
                         }
@@ -34448,7 +34681,7 @@ export const OrdenDocument = gql`
                             contenido
                             unidad
                             descripcion
-                            precio {
+                            precio(hotel_id: $hotel_id) {
                                 monto
                             }
                             tipo
@@ -34480,7 +34713,7 @@ export const OrdenDocument = gql`
                                 categoria_articulo {
                                     nombre
                                 }
-                                precio {
+                                precio(hotel_id: $hotel_id) {
                                     monto
                                 }
                             }
@@ -34515,6 +34748,7 @@ export const OrdenComponent = (props: OrdenComponentProps) => (
  * const { data, loading, error } = useOrdenQuery({
  *   variables: {
  *      orden_id: // value for 'orden_id'
+ *      hotel_id: // value for 'hotel_id'
  *   },
  * });
  */
@@ -34531,7 +34765,7 @@ export type OrdenLazyQueryHookResult = ReturnType<typeof useOrdenLazyQuery>
 export type OrdenQueryResult = Apollo.QueryResult<OrdenQuery, OrdenQueryVariables>
 export const OrdenesPaginadasDocument = gql`
     query OrdenesPaginadas(
-        $hotel_id: ID
+        $hotel_id: ID!
         $fecha_registro: DateSearchInput
         $pagination_options: PageOptionsArgs
         $estado: EstadosOrdenHistorial
@@ -34617,7 +34851,7 @@ export const OrdenesPaginadasDocument = gql`
                             contenido
                             unidad
                             descripcion
-                            precio {
+                            precio(hotel_id: $hotel_id) {
                                 monto
                             }
                             tipo
@@ -34649,7 +34883,7 @@ export const OrdenesPaginadasDocument = gql`
                                 categoria_articulo {
                                     nombre
                                 }
-                                precio {
+                                precio(hotel_id: $hotel_id) {
                                     monto
                                 }
                             }
@@ -34693,7 +34927,8 @@ export const OrdenesPaginadasDocument = gql`
 export type OrdenesPaginadasComponentProps = Omit<
     ApolloReactComponents.QueryComponentOptions<OrdenesPaginadasQuery, OrdenesPaginadasQueryVariables>,
     "query"
->
+> &
+    ({ variables: OrdenesPaginadasQueryVariables; skip?: boolean } | { skip: boolean })
 
 export const OrdenesPaginadasComponent = (props: OrdenesPaginadasComponentProps) => (
     <ApolloReactComponents.Query<OrdenesPaginadasQuery, OrdenesPaginadasQueryVariables>
@@ -34726,7 +34961,7 @@ export const OrdenesPaginadasComponent = (props: OrdenesPaginadasComponentProps)
  * });
  */
 export function useOrdenesPaginadasQuery(
-    baseOptions?: Apollo.QueryHookOptions<OrdenesPaginadasQuery, OrdenesPaginadasQueryVariables>
+    baseOptions: Apollo.QueryHookOptions<OrdenesPaginadasQuery, OrdenesPaginadasQueryVariables>
 ) {
     const options = { ...defaultOptions, ...baseOptions }
     return Apollo.useQuery<OrdenesPaginadasQuery, OrdenesPaginadasQueryVariables>(OrdenesPaginadasDocument, options)
@@ -35048,7 +35283,7 @@ export type PagarOrdenesMutationOptions = Apollo.BaseMutationOptions<
     PagarOrdenesMutationVariables
 >
 export const ArticulosTableDocument = gql`
-    query ArticulosTable($hotel_id: ID, $categoria_id: ID, $nombre: String) {
+    query ArticulosTable($hotel_id: ID!, $categoria_id: ID, $nombre: String) {
         articulos(hotel_id: $hotel_id, categoria_id: $categoria_id, nombre: $nombre, eliminado: false) {
             articulo_id
             cantidad_minima
@@ -35067,7 +35302,7 @@ export const ArticulosTableDocument = gql`
             tipo
             marca
             nombre
-            precio {
+            precio(hotel_id: $hotel_id) {
                 monto
             }
             stock
@@ -35078,7 +35313,8 @@ export const ArticulosTableDocument = gql`
 export type ArticulosTableComponentProps = Omit<
     ApolloReactComponents.QueryComponentOptions<ArticulosTableQuery, ArticulosTableQueryVariables>,
     "query"
->
+> &
+    ({ variables: ArticulosTableQueryVariables; skip?: boolean } | { skip: boolean })
 
 export const ArticulosTableComponent = (props: ArticulosTableComponentProps) => (
     <ApolloReactComponents.Query<ArticulosTableQuery, ArticulosTableQueryVariables>
@@ -35106,7 +35342,7 @@ export const ArticulosTableComponent = (props: ArticulosTableComponentProps) => 
  * });
  */
 export function useArticulosTableQuery(
-    baseOptions?: Apollo.QueryHookOptions<ArticulosTableQuery, ArticulosTableQueryVariables>
+    baseOptions: Apollo.QueryHookOptions<ArticulosTableQuery, ArticulosTableQueryVariables>
 ) {
     const options = { ...defaultOptions, ...baseOptions }
     return Apollo.useQuery<ArticulosTableQuery, ArticulosTableQueryVariables>(ArticulosTableDocument, options)
@@ -35121,7 +35357,7 @@ export type ArticulosTableQueryHookResult = ReturnType<typeof useArticulosTableQ
 export type ArticulosTableLazyQueryHookResult = ReturnType<typeof useArticulosTableLazyQuery>
 export type ArticulosTableQueryResult = Apollo.QueryResult<ArticulosTableQuery, ArticulosTableQueryVariables>
 export const GetCategoriasRsDocument = gql`
-    query GetCategoriasRS($hotel_id: ID) {
+    query GetCategoriasRS($hotel_id: ID!) {
         categorias_articulos(hotel_id: $hotel_id, eliminado: false) {
             categoria_id
             nombre
@@ -35131,7 +35367,8 @@ export const GetCategoriasRsDocument = gql`
 export type GetCategoriasRsComponentProps = Omit<
     ApolloReactComponents.QueryComponentOptions<GetCategoriasRsQuery, GetCategoriasRsQueryVariables>,
     "query"
->
+> &
+    ({ variables: GetCategoriasRsQueryVariables; skip?: boolean } | { skip: boolean })
 
 export const GetCategoriasRsComponent = (props: GetCategoriasRsComponentProps) => (
     <ApolloReactComponents.Query<GetCategoriasRsQuery, GetCategoriasRsQueryVariables>
@@ -35157,7 +35394,7 @@ export const GetCategoriasRsComponent = (props: GetCategoriasRsComponentProps) =
  * });
  */
 export function useGetCategoriasRsQuery(
-    baseOptions?: Apollo.QueryHookOptions<GetCategoriasRsQuery, GetCategoriasRsQueryVariables>
+    baseOptions: Apollo.QueryHookOptions<GetCategoriasRsQuery, GetCategoriasRsQueryVariables>
 ) {
     const options = { ...defaultOptions, ...baseOptions }
     return Apollo.useQuery<GetCategoriasRsQuery, GetCategoriasRsQueryVariables>(GetCategoriasRsDocument, options)
@@ -35173,7 +35410,7 @@ export type GetCategoriasRsLazyQueryHookResult = ReturnType<typeof useGetCategor
 export type GetCategoriasRsQueryResult = Apollo.QueryResult<GetCategoriasRsQuery, GetCategoriasRsQueryVariables>
 export const GetArticulosRoomServiceDocument = gql`
     query GetArticulosRoomService(
-        $hotel_id: ID
+        $hotel_id: ID!
         $pagination_options: PageOptionsArgs!
         $filter_in_categories: [ID!]
         $nombre_articulo: String
@@ -35218,7 +35455,7 @@ export const GetArticulosRoomServiceDocument = gql`
                     marca
                     nombre
                     unidad
-                    precio {
+                    precio(hotel_id: $hotel_id) {
                         monto
                     }
                     costo {
@@ -35512,7 +35749,7 @@ export type GetVehiculoDataQueryHookResult = ReturnType<typeof useGetVehiculoDat
 export type GetVehiculoDataLazyQueryHookResult = ReturnType<typeof useGetVehiculoDataLazyQuery>
 export type GetVehiculoDataQueryResult = Apollo.QueryResult<GetVehiculoDataQuery, GetVehiculoDataQueryVariables>
 export const GetArticulosSearchTableDocument = gql`
-    query GetArticulosSearchTable($hotel_id: ID, $pagination_options: PageOptionsArgs!, $nameFilter: String!) {
+    query GetArticulosSearchTable($hotel_id: ID!, $pagination_options: PageOptionsArgs!, $nameFilter: String!) {
         almacenes_articulos(
             hotel_id: $hotel_id
             eliminado: false
@@ -35562,7 +35799,7 @@ export const GetArticulosSearchTableDocument = gql`
                     stock
                     tipo
                     unidad
-                    precio {
+                    precio(hotel_id: $hotel_id) {
                         monto
                     }
                     costo {
@@ -36038,7 +36275,7 @@ export type GetColaboradoresForPropinaDropQueryResult = Apollo.QueryResult<
 >
 export const GetArticulosSearchRoomServiceDocument = gql`
     query GetArticulosSearchRoomService(
-        $hotel_id: ID
+        $hotel_id: ID!
         $pagination_options: PageOptionsArgs!
         $nameFilter: String!
         $filter_tipo_articulo: [TipoArticulo!]!
@@ -36094,7 +36331,7 @@ export const GetArticulosSearchRoomServiceDocument = gql`
                     stock
                     tipo
                     unidad
-                    precio {
+                    precio(hotel_id: $hotel_id) {
                         monto
                     }
                     costo {
@@ -36191,12 +36428,12 @@ export type GetArticulosSearchRoomServiceQueryResult = Apollo.QueryResult<
     GetArticulosSearchRoomServiceQueryVariables
 >
 export const SearchArticulosDocument = gql`
-    query SearchArticulos($hotel_id: ID) {
+    query SearchArticulos($hotel_id: ID!) {
         articulos(hotel_id: $hotel_id, insumo: false, eliminado: false) {
             articulo_id
             categoria_id
             foto
-            precio {
+            precio(hotel_id: $hotel_id) {
                 monto
             }
             nombre
@@ -36210,7 +36447,8 @@ export const SearchArticulosDocument = gql`
 export type SearchArticulosComponentProps = Omit<
     ApolloReactComponents.QueryComponentOptions<SearchArticulosQuery, SearchArticulosQueryVariables>,
     "query"
->
+> &
+    ({ variables: SearchArticulosQueryVariables; skip?: boolean } | { skip: boolean })
 
 export const SearchArticulosComponent = (props: SearchArticulosComponentProps) => (
     <ApolloReactComponents.Query<SearchArticulosQuery, SearchArticulosQueryVariables>
@@ -36236,7 +36474,7 @@ export const SearchArticulosComponent = (props: SearchArticulosComponentProps) =
  * });
  */
 export function useSearchArticulosQuery(
-    baseOptions?: Apollo.QueryHookOptions<SearchArticulosQuery, SearchArticulosQueryVariables>
+    baseOptions: Apollo.QueryHookOptions<SearchArticulosQuery, SearchArticulosQueryVariables>
 ) {
     const options = { ...defaultOptions, ...baseOptions }
     return Apollo.useQuery<SearchArticulosQuery, SearchArticulosQueryVariables>(SearchArticulosDocument, options)

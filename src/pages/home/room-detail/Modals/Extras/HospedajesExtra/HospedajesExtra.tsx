@@ -403,7 +403,7 @@ const HospedajesExtra = ({
     const { Modal: AuthModal } = useAuth({
         authModal: (
             <AuthRequiredModal
-                authorizedPins={[RoleNames.admin, RoleNames.gerente]}
+                authorizedPins={[RoleNames.admin, RoleNames.gerente, RoleNames.superadmin]}
                 isOpen={isAuthModalOpen}
                 onAuthFilled={(value, sampleData) => {
                     setisAuthModalOpen(false)
@@ -413,7 +413,7 @@ const HospedajesExtra = ({
             />
         ),
         noNeedAuthModalRoles: [],
-        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista, RoleNames.valet, RoleNames.gerente],
+        authorizedRoles: [RoleNames.admin, RoleNames.recepcionista, RoleNames.valet, RoleNames.gerente, RoleNames.superadmin],
         isOpen: isAuthModalOpen,
         onClose: () => setisAuthModalOpen(false),
     })
@@ -542,7 +542,7 @@ const HospedajesExtra = ({
                                 className="noches-extra__body-pago"
                                 icon="creditCard"
                                 options={
-                                    rolName === "VALETPARKING"
+                                    rolName === RoleNames.valet
                                         ? [{ label: "Pendiente", value: "pendiente" }]
                                         : [
                                             { label: "Total", value: "total" },
@@ -551,7 +551,7 @@ const HospedajesExtra = ({
                                 }
                                 placeholder="Selecciona una opción"
                             />
-                            {rolName !== "VALETPARKING" && tipoPago === "total" && (
+                            {rolName !== RoleNames.valet && tipoPago === "total" && (
                                 <div className="noches-extra__body-pago-total">
                                     <div
                                         className={
@@ -584,7 +584,7 @@ const HospedajesExtra = ({
                                                         PAYMENT_METHODS.amex,
                                                         PAYMENT_METHODS.depositoOTransferencia,
                                                         PAYMENT_METHODS.mixto,
-                                                        ...(rolName !== "ADMINISTRADOR" && rolName !== "RECEPCIONISTA"
+                                                        ...(rolName !== RoleNames.admin && rolName !== RoleNames.recepcionista && rolName !== RoleNames.superadmin
                                                             ? [PAYMENT_METHODS.lovePoints]
                                                             : []),
                                                         PAYMENT_METHODS.cortesia,
@@ -645,8 +645,9 @@ const HospedajesExtra = ({
                                         </div>
                                     ) : paymentMethod !== PAYMENT_METHODS.cortesia.value &&
                                       paymentMethod !== PAYMENT_METHODS.consumoInterno.value &&
-                                      rolName !== "ADMINISTRADOR" &&
-                                      rolName !== "RECEPCIONISTA" ? (
+                                    rolName !== RoleNames.admin &&
+                                    rolName !== RoleNames.superadmin &&
+                                    rolName !== RoleNames.recepcionista ? (
                                         <div
                                             className={
                                                 paymentMethod === PAYMENT_METHODS.visaOMasterCard.value ||

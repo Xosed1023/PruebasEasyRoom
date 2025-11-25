@@ -157,7 +157,7 @@ const Details = ({ onReasignarHabitacion, isNoShow }: { onReasignarHabitacion: (
                 onClose={() => setisFreeRoomModalOpen(false)}
             />
         ),
-        authorizedRoles: [RoleNames.admin],
+        authorizedRoles: [RoleNames.admin, RoleNames.superadmin],
         isOpen: isFreeRoomModalOpen,
         onClose: () => setisFreeRoomModalOpen(false),
     })
@@ -259,8 +259,8 @@ const Details = ({ onReasignarHabitacion, isNoShow }: { onReasignarHabitacion: (
                             Number(reservaSeleccionada?.personas_extras) >
                             0 &&
                         !isNoShow &&
-                        rolName !== "VALETPARKING" &&
-                        rolName !== "MANTENIMIENTO" && rolName !== "MONITOREO"
+                        rolName !== RoleNames.valet &&
+                        rolName !== RoleNames.mantenimiento && rolName !== RoleNames.monitoreo
                             ? "Agregar"
                             : undefined
                     }
@@ -281,7 +281,7 @@ const Details = ({ onReasignarHabitacion, isNoShow }: { onReasignarHabitacion: (
                             padding: "0 12px",
                         }}
                         link={
-                            rolName === "MANTENIMIENTO" || rolName === "MONITOREO"
+                            rolName === RoleNames.mantenimiento || rolName === RoleNames.monitoreo
                                 ? undefined
                                 : isNoShow
                                 ? ""
@@ -290,7 +290,7 @@ const Details = ({ onReasignarHabitacion, isNoShow }: { onReasignarHabitacion: (
                                 : "Agregar"
                         }
                         onLink={
-                         rolName === "MONITOREO"
+                         rolName === RoleNames.monitoreo
                                 ? undefined
                                 : validateIsColabActive(() => {
                                     if (isCommentMode) {
@@ -342,7 +342,7 @@ const Details = ({ onReasignarHabitacion, isNoShow }: { onReasignarHabitacion: (
                 />
             )}
             <div className="tab__reservada__detalles__footer">
-                {["VALETPARKING", "MANTENIMIENTO"].includes(rolName) ? isNoShow ? (
+                {[RoleNames.valet, RoleNames.mantenimiento].map(String).includes(rolName) ? isNoShow ? (
                     <PrimaryButton
                         text={"Liberar habitación"}
                         onClick={validateIsColabActive(() => (skip ? handleConfirmFreeRoom("", "") : setisFreeRoomModalOpen(true)))}
@@ -359,7 +359,7 @@ const Details = ({ onReasignarHabitacion, isNoShow }: { onReasignarHabitacion: (
                         style={{ marginBottom: "12px" }}
                     />
                 ) : <></>}
-                {!["VALETPARKING", "MANTENIMIENTO", "MONITOREO"].includes(rolName) ? isNoShow ? (
+                {![RoleNames.valet, RoleNames.mantenimiento, RoleNames.monitoreo].map(String).includes(rolName) ? isNoShow ? (
                     <PrimaryButton
                         text={"Liberar habitación"}
                         onClick={validateIsColabActive(() => (skip ? handleConfirmFreeRoom("", "") : setisFreeRoomModalOpen(true)))}

@@ -20,25 +20,28 @@ import LoaderComponent from "src/shared/components/layout/loader/Loader"
 const CleanStaff = ({ onNavigate }: SectionProps) => {
     const room = useRoom()
 
-    const { data: camaristas } = useColaborador(Puestos.RECAMARISTA, Puestos.RECAMARISTA)
+    const { data: camaristas } = useColaborador(Puestos.RECAMARISTA)
 
     const { isLoading, isLoadingDelayed, toggleIsLoading } = useLoadingState()
     const { showMiniSnackbar } = useMiniSnackbar()
     const { showSnackbar } = useSnackbar()
-    const { usuario_id, turno_hotel_id } = useProfile()
+    const { usuario_id, turno_hotel_id, hotel_id } = useProfile()
     const dispatch = useDispatch()
     const [cambiarTareaEntreColaboradores] = useCambiarTareaEntreColaboradoresMutation()
 
     const [colaboradoresSelected, setColaboradoresSelected] = useState<{ nombre: string; colaborador_id: string }[]>([])
+    const [startColaboradoresSelected, setstartColaboradoresSelected] = useState<
+        { nombre: string; colaborador_id: string }[]
+    >([])
 
     useEffect(() => {
-        setColaboradoresSelected(
-            room?.colaborador_tareas_sin_finalizar?.map((c) => ({
-                colaborador_id: c.colaborador_id,
-                nombre: `${c?.colaborador?.nombre} ${c?.colaborador?.apellido_paterno} ${c?.colaborador?.apellido_materno}`,
-            }))
-        )
-    }, [])
+        const cols = room?.colaborador_tareas_sin_finalizar?.map((c) => ({
+            colaborador_id: c.colaborador_id,
+            nombre: `${c?.colaborador?.nombre} ${c?.colaborador?.apellido_paterno} ${c?.colaborador?.apellido_materno}`,
+        }))
+        setstartColaboradoresSelected(cols)
+        setColaboradoresSelected(cols)
+    }, [room?.colaborador_tareas_sin_finalizar])
 
     const handleConfirm = () => {
         // Si quiero agregar personas a la tarea
@@ -63,6 +66,7 @@ const CleanStaff = ({ onNavigate }: SectionProps) => {
         cambiarTareaEntreColaboradores({
             variables: {
                 switch_task_btw_colab_input: {
+                    hotel_id,
                     sin_personal_asignado: false,
                     tarea_id: room?.colaborador_tareas_sin_finalizar?.[0]?.tarea_id,
                     colaborador_id: colaborador_ids.map((c) => c.colaborador_id),
@@ -113,6 +117,7 @@ const CleanStaff = ({ onNavigate }: SectionProps) => {
     }
 
     const allColaboradores = [...(camaristas || [])]
+
     return (
         <ListView
             title="Reasignación de camarista para limpieza"
@@ -122,10 +127,13 @@ const CleanStaff = ({ onNavigate }: SectionProps) => {
             <div className="detalle-h-general__mantenance__box">
                 <Block list scroll className="detalle-h-general__block-mg animante__opacity-transform__ease">
                     {room?.colaborador_tareas_sin_finalizar?.map(
-                        ({ colaborador_id = "", colaborador: { nombre = "", foto = "" } }) => (
+                        ({
+                            colaborador_id = "",
+                            colaborador: { nombre = "", foto = "", apellido_paterno, apellido_materno },
+                        }) => (
                             <CardStaff
                                 key={colaborador_id}
-                                name={nombre}
+                                name={`${nombre} ${apellido_paterno} ${apellido_materno}`}
                                 disabled={
                                     colaboradoresSelected.length >= 4 &&
                                     !colaboradoresSelected.some((c) => c.colaborador_id === colaborador_id)
@@ -150,46 +158,50 @@ const CleanStaff = ({ onNavigate }: SectionProps) => {
                             />
                         )
                     )}
-                    {allColaboradores?.map(
-                        (
-                            {
-                                nombre = "",
-                                colaborador_id = "",
-                                ultima_habitacion = "",
-                                tiempo_disponible = "",
-                                foto = "",
-                            },
-                            index
-                        ) => {
-                            return (
-                                <CardStaff
-                                    key={index}
-                                    name={nombre}
-                                    disabled={
-                                        colaboradoresSelected.length >= 4 &&
-                                        !colaboradoresSelected.some((c) => c.colaborador_id === colaborador_id)
-                                    }
-                                    description={`Disponible desde hace: ${tiempo_disponible}`}
-                                    text={`Última habitación asignada: ${ultima_habitacion}`}
-                                    picture={foto || profileDefault}
-                                    active={colaboradoresSelected.some((c) => c.colaborador_id === colaborador_id)}
-                                    onClick={() => {
-                                        if (colaboradoresSelected.find((c) => c.colaborador_id === colaborador_id)) {
-                                            setColaboradoresSelected((colabs) =>
-                                                colabs.filter((c) => c.colaborador_id !== colaborador_id)
-                                            )
-                                            return
+                    {allColaboradores
+                        ?.filter((c) => !startColaboradoresSelected.some((cs) => cs.colaborador_id === c.colaborador_id))
+                        ?.map(
+                            (
+                                {
+                                    nombre = "",
+                                    colaborador_id = "",
+                                    ultima_habitacion = "",
+                                    tiempo_disponible = "",
+                                    foto = "",
+                                },
+                                index
+                            ) => {
+                                return (
+                                    <CardStaff
+                                        key={index}
+                                        name={nombre}
+                                        disabled={
+                                            colaboradoresSelected.length >= 4 &&
+                                            !colaboradoresSelected.some((c) => c.colaborador_id === colaborador_id)
                                         }
-                                        if (colaboradoresSelected.length >= 4) {
-                                            return
-                                        }
-                                        const colaborador = { nombre, colaborador_id }
-                                        setColaboradoresSelected((c) => [...c, colaborador])
-                                    }}
-                                />
-                            )
-                        }
-                    )}
+                                        description={`Disponible desde hace: ${tiempo_disponible}`}
+                                        text={`Última habitación asignada: ${ultima_habitacion}`}
+                                        picture={foto || profileDefault}
+                                        active={colaboradoresSelected.some((c) => c.colaborador_id === colaborador_id)}
+                                        onClick={() => {
+                                            if (
+                                                colaboradoresSelected.find((c) => c.colaborador_id === colaborador_id)
+                                            ) {
+                                                setColaboradoresSelected((colabs) =>
+                                                    colabs.filter((c) => c.colaborador_id !== colaborador_id)
+                                                )
+                                                return
+                                            }
+                                            if (colaboradoresSelected.length >= 4) {
+                                                return
+                                            }
+                                            const colaborador = { nombre, colaborador_id }
+                                            setColaboradoresSelected((c) => [...c, colaborador])
+                                        }}
+                                    />
+                                )
+                            }
+                        )}
                 </Block>
                 <PrimaryButton
                     text="Asignar a limpieza"

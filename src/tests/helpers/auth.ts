@@ -12,6 +12,7 @@ export async function login(page: Page, rol: string) {
     if (!user) throw new Error(`No se encontró el rol ${rol}`)
 
     await page.goto("https://test.easyroom.io/")
+    await page.reload()
     await page.getByTestId("email").click()
     await page.getByTestId("email").fill(user.usuario)
     await page.getByTestId("password").click()

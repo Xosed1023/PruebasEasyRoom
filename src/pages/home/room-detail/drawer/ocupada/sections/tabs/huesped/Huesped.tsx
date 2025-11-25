@@ -27,6 +27,7 @@ import BoldedText from "src/shared/components/data-display/bolded-text/BoldedTex
 import { ItemMultiplePayment } from "src/pages/home/room-detail/sections/items/Items"
 import EditVehicleModal from "./Components/EditVehiclePlateModal/EditVehicleModal"
 import useIsColaboradorActive from "src/shared/hooks/useIsColaboradorActive"
+import { RoleNames } from "src/shared/hooks/useAuth"
 
 const Huesped = ({
     onClean,
@@ -51,8 +52,8 @@ const Huesped = ({
 
     const { formatLongDateFromUTCString } = useDate()
     const [finalizarTarea] = useActualizar_Colaboradores_TareasMutation()
-    const { usuario_id, rolName } = useProfile()
-    const isMantenimiento = rolName === "MANTENIMIENTO"
+    const { usuario_id, rolName, hotel_id } = useProfile()
+    const isMantenimiento = rolName === RoleNames.mantenimiento
     const dispatch = useDispatch()
 
     const [showModalPersonasExtra, setShowModalPersonasExtra] = useState<boolean>(false)
@@ -72,6 +73,7 @@ const Huesped = ({
             variables: {
                 habitacion_id: room?.habitacion_id,
                 usuario_id: usuario_id,
+                hotel_id
             },
             fetchPolicy: "no-cache",
         })
@@ -133,7 +135,7 @@ const Huesped = ({
                             padding: "12px",
                         }}
                         onLink={!isMantenimiento ? validateIsColabActive(() => onSwapTipoLimpieza()) : undefined}
-                        link={rolName !== "VALETPARKING" && rolName !== "MANTENIMIENTO" ? "Cambiar" : ""}
+                        link={rolName !== RoleNames.valet && rolName !== RoleNames.mantenimiento ? "Cambiar" : ""}
                         value={getCleanType()?.label || "-"}
                     />
                 )}
@@ -228,7 +230,7 @@ const Huesped = ({
                         padding: "12px",
                     }}
                     link={
-                        !isMantenimiento && rolName !== "MONITOREO" ? "Agregar" : ""
+                        !isMantenimiento && rolName !== RoleNames.monitoreo ? "Agregar" : ""
                         /*room?.ultima_renta?.tarifa?.personas_extra_max - room?.ultima_renta?.personas_extra > 0
                           ? "Agregar"
                           : undefined*/
@@ -243,8 +245,8 @@ const Huesped = ({
                         width: "100%",
                         padding: "12px",
                     }}
-                    link={!isMantenimiento && rolName !== "MONITOREO" ? "Agregar" : ""}
-                    onLink={!isMantenimiento && rolName !== "MONITOREO" ? validateIsColabActive(() => setShowModalTiempoExtra(true)) : undefined}
+                    link={!isMantenimiento && rolName !== RoleNames.monitoreo ? "Agregar" : ""}
+                    onLink={!isMantenimiento && rolName !== RoleNames.monitoreo ? validateIsColabActive(() => setShowModalTiempoExtra(true)) : undefined}
                     value={`${formatLongDateFromUTCString({
                         UTCString: room?.ultima_renta?.fecha_registro,
                         withHoursAMPM: false,
@@ -311,8 +313,8 @@ const Huesped = ({
                         width: "100%",
                         padding: "12px",
                     }}
-                    link={!isMantenimiento && rolName !== "MONITOREO" ? "Editar" : ""}
-                    onLink={!isMantenimiento && rolName !== "MONITOREO" ? validateIsColabActive(() => setShowModalEditarMatricula(true)) : undefined}
+                    link={!isMantenimiento && rolName !== RoleNames.monitoreo ? "Editar" : ""}
+                    onLink={!isMantenimiento && rolName !== RoleNames.monitoreo ? validateIsColabActive(() => setShowModalEditarMatricula(true)) : undefined}
                     value={
                         room?.ultima_renta?.tipo_entrada === "A_Pie"
                             ? "A pie"
@@ -338,9 +340,9 @@ const Huesped = ({
             {showModalPersonasExtra && <PersonasExtra onClose={() => setShowModalPersonasExtra(false)} />}
             {showModalTiempoExtra && <TiempoExtra onClose={() => setShowModalTiempoExtra(false)} />}
             {!isMantenimiento &&
-                rolName !== "VALETPARKING" &&
-                rolName !== "ROOMSERVICE" &&
-                rolName !== "MONITOREO" &&
+                rolName !== RoleNames.valet &&
+                rolName !== RoleNames.roomService &&
+                rolName !== RoleNames.monitoreo &&
                 (!room?.colaborador_tareas_sin_finalizar?.length ? (
                     <>
                         <PrimaryButton
@@ -366,6 +368,7 @@ const Huesped = ({
                                                 (c) => c?.colaborador_tarea_id
                                             ),
                                             usuario_id,
+                                            hotel_id,
                                             estado: Estados_Habitaciones.Ocupada,
                                         },
                                     },
