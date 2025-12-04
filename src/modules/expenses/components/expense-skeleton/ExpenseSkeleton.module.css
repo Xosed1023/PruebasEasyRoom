@@ -1,0 +1,31 @@
+.expense-skeleton__container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.expense-skeleton__card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background-color: var(--muted);
+  border-radius: var(--radius-lg);
+}
+
+.expense-skeleton__icon-wrapper {
+  flex-shrink: 0;
+}
+
+.expense-skeleton__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.expense-skeleton__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

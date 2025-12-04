@@ -1,9 +1,0 @@
-query ColaboradoresPorHotelForReport($hotel_id: ID!) {
-    colaboradores(hotel_id: $hotel_id, eliminado: false) {
-        apellido_materno
-        apellido_paterno
-        nombre
-        usuario_id
-        colaborador_id
-    }
-}

@@ -1,7 +1,0 @@
-query getAlmacenArticuloMedidas ($almacen_articulo_id: ID!) {
-  almacen_articulo(almacen_articulo_id: $almacen_articulo_id) {
-    articulo {
-      unidades_disponibles
-    }
-  }
-}

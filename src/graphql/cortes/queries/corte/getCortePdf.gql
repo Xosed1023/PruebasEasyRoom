@@ -1,0 +1,25 @@
+query getCorteTurnoPDF($corte_id: ID!) {
+    corte(corte_id: $corte_id) {
+        corte_id
+        fecha_inicio_corte
+        fecha_fin_corte
+        folio
+        turno_id
+        turno {
+            nombre
+        }
+        usuario_realiza_corte
+        usuario_crea {
+            apellido_materno
+            apellido_paterno
+            nombre
+        }
+    }
+}
+
+query AlmacenCorte($hotel_id: ID) {
+    almacenes(almacen_id: [], hotel_id: $hotel_id) {
+        almacen_id
+        nombre
+    }
+}

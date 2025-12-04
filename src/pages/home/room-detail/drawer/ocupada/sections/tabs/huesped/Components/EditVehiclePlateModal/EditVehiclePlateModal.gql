@@ -1,8 +1,0 @@
-mutation EditarDatosVehiculo($editVehiculoInput: EditVehiculoDataInput!) {
-    editar_datos_vehiculo(EditVehiculoDataInput: $editVehiculoInput) {
-        matricula
-        color
-        marca
-        modelo
-    }
-}

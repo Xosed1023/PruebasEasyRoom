@@ -1,11 +1,19 @@
-export const REACT_APP_GQL_API = process.env.REACT_APP_GQL_API
-export const REACT_APP_GQL_API_WS = process.env.REACT_APP_GQL_API_WS
-export const REACT_APP_GOOGLE_OAUTH_API_CLIENT_ID = process.env.REACT_APP_GOOGLE_OAUTH_API_CLIENT_ID
-export const REACT_APP_ACCES_KEY = process.env.REACT_APP_ACCES_KEY
-export const REACT_APP_SECRET_KEY = process.env.REACT_APP_SECRET_KEY
-export const REACT_APP_BUCKET_REGION = process.env.REACT_APP_BUCKET_REGION
-export const REACT_APP_SPACES_ENDPOINT = process.env.REACT_APP_SPACES_ENDPOINT
-export const REACT_APP_ARTICULOS_BUCKET = process.env.REACT_APP_ARTICULOS_BUCKET
-export const REACT_APP_AVATARS_BUCKET_FOLDER = process.env.REACT_APP_AVATARS_BUCKET_FOLDER
-
-export const REACT_APP_REST_API = process.env.REACT_APP_REST_API
+export const VITE_APP_GQL_API = import.meta.env.VITE_APP_GQL_API
+export const VITE_APP_GQL_API_WS = import.meta.env.VITE_APP_GQL_API_WS
+export const VITE_APP_GOOGLE_OAUTH_API_CLIENT_ID = import.meta.env.VITE_APP_GOOGLE_OAUTH_API_CLIENT_ID
+export const VITE_APP_ACCESS_KEY = import.meta.env.VITE_APP_ACCES_KEY
+export const VITE_APP_SECRET_KEY = import.meta.env.VITE_APP_SECRET_KEY
+export const VITE_APP_BUCKET_REGION = import.meta.env.VITE_APP_BUCKET_REGION
+export const VITE_APP_SPACES_ENDPOINT = import.meta.env.VITE_APP_SPACES_ENDPOINT
+export const VITE_APP_ARTICULOS_BUCKET = import.meta.env.VITE_APP_ARTICULOS_BUCKET
+export const VITE_APP_AVATARS_BUCKET_FOLDER = import.meta.env.VITE_APP_AVATARS_BUCKET_FOLDER
+export const VITE_APP_REST_API = import.meta.env.VITE_APP_REST_API
+export const VITE_APP_LOCAL_API = import.meta.env.VITE_APP_LOCAL_API
+export const VITE_S3_ACCESS_KEY = import.meta.env.VITE_S3_ACCESS_KEY
+export const VITE_APP_USER_KEY = import.meta.env.VITE_APP_USER_KEY
+export const VITE_APP_WEB_URL = import.meta.env.VITE_APP_WEB_URL
+export const VITE_APP_AUTHN_KEY = import.meta.env.VITE_APP_AUTHN_KEY
+// GOOGLE
+export const VITE_APP_GOOGLE_OAUTH_WEB_API_CLIENT_ID = import.meta.env.VITE_APP_GOOGLE_OAUTH_WEB_API_CLIENT_ID
+export const VITE_APP_GOOGLE_OAUTH_ANDROID_API_CLIENT_ID = import.meta.env.VITE_APP_GOOGLE_OAUTH_ANDROID_API_CLIENT_ID
+export const VITE_APP_GOOGLE_OAUTH_IOS_API_CLIENT_ID = import.meta.env.VITE_APP_GOOGLE_OAUTH_IOS_API_CLIENT_ID

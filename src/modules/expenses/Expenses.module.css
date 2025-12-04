@@ -1,0 +1,31 @@
+.expenses__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.expenses__filter-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px 2px 12px;
+  border-radius: 16px;
+   border: 1px solid var(--secondary);
+  background-color: var(--fondo-close);
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  line-height: 20px;
+  max-height: 32px;
+}
+
+.expenses__filter-tag-close {
+  margin-left: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  height: 100%;
+}
+

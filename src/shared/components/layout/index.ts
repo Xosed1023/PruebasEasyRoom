@@ -1,1 +1,0 @@
-export { ModalConfirm } from './modal-confirm/ModalConfirm';

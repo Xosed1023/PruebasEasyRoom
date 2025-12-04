@@ -1,0 +1,6 @@
+subscription ListenHabitaciones($hotelIdFilter: ID!) {
+    checkHabitaciones(hotel_id_filter: $hotelIdFilter) {
+        estado
+        habitacion_id
+    }
+}

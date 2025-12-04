@@ -1,3 +1,0 @@
-mutation ReiniciarAsignacionesPropinas($hotel_id: ID!) {
-  reiniciar_asignaciones_propinas(hotel_id: $hotel_id)
-}

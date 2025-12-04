@@ -1,8 +1,0 @@
-.reservas-screen__drawer__link {
-    width: 100%;
-    background-color: transparent;
-}
-
-.reservas-screen__drawer__link > span {
-    color: var(--white);
-}

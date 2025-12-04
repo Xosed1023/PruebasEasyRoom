@@ -1,7 +1,0 @@
-.table-paginator__wrapper {
-    display: flex;
-    flex-direction: column;
-    row-gap: 14px;
-    align-items: center;
-    margin-bottom: 20px;
-}

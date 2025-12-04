@@ -1,0 +1,29 @@
+.room-status-item {
+    display: flex;
+    justify-content: space-between;
+}
+.room-status-item_status {
+    display: flex;
+    column-gap: 32px;
+}
+
+.room-status-item_label {
+    color: var(--Estilo-Tipografia, #303030);
+
+    /* Link - 16 */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+}
+.room-status-item_value {
+    color: var(--Estilo-Tipografia, #303030);
+
+    /* H3 - 18 */
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 155.556% */
+}

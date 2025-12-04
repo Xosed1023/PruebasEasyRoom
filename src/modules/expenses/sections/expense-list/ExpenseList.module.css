@@ -1,0 +1,42 @@
+.expense-list__container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .expense-list__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--fondo-close);
+    padding: 16px;
+    border-radius: 12px;
+  }
+  
+  .expense-list__month {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    color: var(--primary);
+    margin-bottom: 4px;
+  }
+  
+  .expense-list__amount {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  
+  .expense-list__items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0px; 
+  }
+  
+  .total-income__icon__corner {
+    position: absolute;
+    right: 12px;
+    top: 22px;
+  }

@@ -1,8 +1,0 @@
-query UsuariosPorHotelForReport($hotel_id: ID!) {
-    usuarios(hotel_id: $hotel_id, eliminado: false) {
-        apellido_materno
-        apellido_paterno
-        nombre
-        usuario_id
-    }
-}

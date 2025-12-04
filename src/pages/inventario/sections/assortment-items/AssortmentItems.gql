@@ -1,8 +1,0 @@
-mutation CrearSurtidos($createManySurtidosInput: CreateManySurtidosInput!) {
-    crear_surtidos(createManySurtidosInput: $createManySurtidosInput) {
-        numero_articulos_surtidos
-        surtidos {
-            surtido_id
-        }
-    }
-}

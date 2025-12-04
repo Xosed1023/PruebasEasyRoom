@@ -1,0 +1,3 @@
+query GetUsuariosNotificacionesActivos($usuario_id: String!, $hotel_id: String!) {
+    notificaciones_no_leidas_alerta(usuario_id: $usuario_id, hotel_id: $hotel_id)
+}

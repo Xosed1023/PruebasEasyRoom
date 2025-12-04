@@ -1,5 +1,0 @@
-mutation CrearArticulo($createArticuloInput: CreateArticuloInput!) {
-    crear_articulo(createArticuloInput: $createArticuloInput) {
-        articulo_id
-    }
-}

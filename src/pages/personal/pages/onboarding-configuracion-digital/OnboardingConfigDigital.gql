@@ -1,3 +1,0 @@
-query generarPin {
-  generar_pin 
-}

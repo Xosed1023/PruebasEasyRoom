@@ -1,0 +1,21 @@
+.header__accordion__title {
+  color: #000;
+
+  /* H1 - 36 */
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 44px; /* 122.222% */
+  letter-spacing: -0.72px;
+}
+
+.header__accordion__content {
+  color: var(--Estilo-Placeholder, #667085);
+
+  /* Link - 14 */
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
+}

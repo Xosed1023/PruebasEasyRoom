@@ -1,0 +1,26 @@
+.label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.label__title {
+    color: var(--Estilo-Tipografia, #303030);
+
+    /* Body - 18 */
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 155.556% */
+}
+.label__value {
+    color: var(--Estilo-Tipografia, #303030);
+    text-align: right;
+
+    /* H3 - 18 */
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 155.556% */
+}

@@ -1,9 +1,0 @@
-.config-tables__container {
-    width: 100%;
-}
-
-.config-tables__tables-wrapper {
-    display: flex;
-    column-gap: 10px;
-    width: 100%;
-}

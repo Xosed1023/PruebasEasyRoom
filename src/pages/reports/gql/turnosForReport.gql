@@ -1,6 +1,0 @@
-query turnosForReport($hotel_id: [ID!]) {
-  turnos(hotel_id: $hotel_id) {
-    turno_id
-    nombre
-  }
-}

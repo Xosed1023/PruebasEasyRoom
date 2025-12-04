@@ -1,0 +1,7 @@
+subscription ListenMyColaborador($colaborador_id: ID!) {
+    checkColaborador(colaborador_id: $colaborador_id) {
+        colaborador_id
+        en_turno
+        foto
+    }
+}

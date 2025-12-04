@@ -1,0 +1,8 @@
+.avatar__fallback__text {
+    color: var(--Gray-600, #475467);
+    text-align: center;
+    font-family: "Montserrat";
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 23.824px; /* 150% */
+}

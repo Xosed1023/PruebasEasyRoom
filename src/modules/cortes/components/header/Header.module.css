@@ -1,0 +1,5 @@
+.corte__header__title {
+    color: var(--Componente-Header, #0E0E0E);
+    font-family: Montserrat;
+    font-weight: 600;
+}

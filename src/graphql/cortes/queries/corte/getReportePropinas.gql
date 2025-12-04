@@ -1,0 +1,53 @@
+query ConsultarReportePropinasVentas($reporte_propina_venta_id: ID, $corte_id: ID) {
+    consultar_reporte_propinas(reporte_propina_venta_id: $reporte_propina_venta_id, corte_id: $corte_id) {
+        reporte_propinas {
+            puesto_id
+            puesto {
+                nombre
+            }
+            reporte_colaboradores {
+                colaborador_id
+                colaborador {
+                    nombre
+                    apellido_paterno
+                    apellido_materno
+                }
+                ventas_por_categoria {
+                    categoria
+                    monto
+                }
+                propinas_tarjetas_por_venta_rs
+                puntos_a_pagar
+                comision_bancaria_tarjeta
+                total_a_repartir
+            }
+        }
+    }
+}
+
+query ReportePropinas($hotel_id: ID!) {
+    reporte_propinas(hotel_id: $hotel_id) {
+        reporte_propinas {
+            puesto_id
+            puesto {
+                nombre
+            }
+            reporte_colaboradores {
+                colaborador_id
+                colaborador {
+                    nombre
+                    apellido_paterno
+                    apellido_materno
+                }
+                ventas_por_categoria {
+                    categoria
+                    monto
+                }
+                propinas_tarjetas_por_venta_rs
+                puntos_a_pagar
+                comision_bancaria_tarjeta
+                total_a_repartir
+            }
+        }
+    }
+}

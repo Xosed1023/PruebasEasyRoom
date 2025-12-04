@@ -1,6 +1,0 @@
-mutation cambiar_tipo_limpieza ($updateTipoLimpiezaInput: UpdateTipoLimpiezaInput!) {
-  actualizar_tipo_limpieza(updateTipoLimpiezaInput: $updateTipoLimpiezaInput) {
-    tarea_id
-    fecha_registro
-  }
-}

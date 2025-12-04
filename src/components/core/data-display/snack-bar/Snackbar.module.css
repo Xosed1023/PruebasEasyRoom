@@ -1,0 +1,86 @@
+.snackbar__wrapper {
+    z-index: 1000;
+}
+.snackbar {
+    width: calc(100% - 32px);
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    box-sizing: border-box;
+    padding: 16px;
+    border-radius: 12px;
+}
+.snackbar-offline {
+    top: auto;
+    bottom: 94px;
+    height: 76px;
+}
+.snackbar-offline {
+    bottom: calc(94px + env(safe-area-inset-bottom, 0px));
+}
+.snackbar-ios {
+    top: calc(24px + env(safe-area-inset-top, 0px));
+}
+.snackbar--success {
+    background-color: #efe9ff;
+}
+.snackbar--error {
+    background-color: #f6bec3;
+}
+.snackbar__icon {
+    position: absolute;
+    right: 16px;
+    top: 18px;
+}
+.snackbar__content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.snackbar__title {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    max-width: calc(100% - 20px);
+}
+.snackbar__title--success {
+    color: #0e0e0e;
+}
+.snackbar__title--error {
+    color: #eb5757;
+}
+.snackbar__text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+.snackbar__text--success {
+    color: #667085;
+}
+.snackbar__text--error {
+    color: #eb5757;
+}
+.snackbar__text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+.snackbar__image {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.snackbar__text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}

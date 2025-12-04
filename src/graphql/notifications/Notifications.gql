@@ -1,0 +1,38 @@
+query ObtenerBandejaNotificaciones($usuarioId: [String!]!, $hotelId: [String!]!) {
+    obtener_bandeja_notificaciones(usuario_id: $usuarioId, hotel_id: $hotelId) {
+        bandeja_notificaciones_id
+        fecha_registro
+        hotel_id
+        leido
+        mensaje
+        tipo
+        usuario_id
+    }
+}
+
+mutation MarcarNotificacionComoLeida($bandejaNotificacionId: String!) {
+    marcar_como_leida(bandeja_notificaciones_id: $bandejaNotificacionId)
+}
+
+query GetUsuariosNotificaciones($usuario_id: String!, $hotel_id: String!) {
+    usuarios_notificaciones(usuario_id: $usuario_id, hotel_id: $hotel_id) {
+        tipo
+        activado
+    }
+}
+
+mutation ActualizarConfiguracionNotificaciones($configNotificacionesInput: UpdateUsuariosNotificacionesInput!) {
+    actualizar_configuracion_notificaciones(configNotificacionesInput: $configNotificacionesInput) {
+        activado
+        tipo
+        usuario_notificaciones_id
+    }
+}
+query Notificaciones($hotelIds: [String!]) {
+    notificaciones(hotel_id: $hotelIds) {
+        hotel_id
+        notificacion_id
+        tipo
+        topic
+    }
+}

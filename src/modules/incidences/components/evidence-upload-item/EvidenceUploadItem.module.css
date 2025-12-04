@@ -1,0 +1,107 @@
+.evidence-upload-item__container {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.evidence-upload-item__box {
+    width: 110px;
+    height: 128px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--primary);
+    background-color: var(--white, #fff);
+    border-radius: 8px;
+    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+    overflow: hidden;
+}
+
+@media (max-width: 400px) {
+    .evidence-upload-item__box {
+        width: 90px;
+        height: 100px;
+    }
+}
+
+.evidence-upload-item__box:not(:nth-child(3n)) {
+    margin-right: 0;
+}
+.evidence-upload-item__preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.evidence-upload-item__modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    inset: 0;
+    background: rgba(16, 24, 40, 0.9);
+    backdrop-filter: blur(7.5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding-top: calc(24px + env(safe-area-inset-top, 0px));
+    padding-inline: 20px;
+    padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+    box-sizing: border-box;
+}
+
+.evidence-upload-item__modal-content {
+    width: 100%;
+    height: calc(100% - 250px);
+    max-width: calc(100vw - 40px);
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.evidence-upload-item__modal-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    max-height: 100%;
+}
+
+.evidence-upload-item__delete {
+    width: calc(100% - 40px);
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 16px;
+    background-color: rgba(16, 24, 40, 0.9);
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 8px;
+    font-family: "Qualy", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+    position: absolute;
+    bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+    left: 20px;
+}
+
+.evidence-upload-item__close {
+    position: absolute;
+    top: calc(24px + env(safe-area-inset-top, 0px));
+    right: 20px;
+    font-size: 24px;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

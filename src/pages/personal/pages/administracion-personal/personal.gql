@@ -1,3 +1,0 @@
-mutation eliminarHuella($input: DeleteCredentialHuellaPinInput!) {
-  eliminar_huella_pin(deleteCredentialhuellaPinInput: $input)
-}

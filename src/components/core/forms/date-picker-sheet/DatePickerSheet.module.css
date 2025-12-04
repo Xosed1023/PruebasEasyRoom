@@ -1,0 +1,60 @@
+.datepicker-sheet {
+  padding: 24px 16px;
+  background-color: white;
+  border-radius: 16px 16px 0 0;
+}
+
+.datepicker-sheet__scrolls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.datepicker-sheet__column {
+  position: relative;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: y mandatory;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.datepicker-sheet__column::-webkit-scrollbar {
+  display: none;
+}
+
+.datepicker-sheet__column::before,
+.datepicker-sheet__column::after {
+  content: '';
+  display: block;
+
+  flex-shrink: 0;
+}
+
+.datepicker-sheet__item {
+  font-family: Montserrat;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+  padding: 4px 0;
+  transition: opacity 0.2s ease;
+}
+
+.active {
+  color: var(--tipografa);
+  opacity: 1;
+}
+
+.semi-active {
+  color: var(--tipografa);
+  opacity: 0.5;
+}
+
+.inactive {
+  color: var(--tipografa);
+  opacity: 0.25;
+}

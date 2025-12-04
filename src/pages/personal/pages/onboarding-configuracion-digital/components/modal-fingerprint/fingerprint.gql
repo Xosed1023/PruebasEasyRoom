@@ -1,3 +1,0 @@
-mutation RegistrarHuella ($input: CreateCredencialInput!) {
-  registrar_huella(CreateCredencialInput: $input)
-}

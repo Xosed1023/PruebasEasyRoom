@@ -1,0 +1,49 @@
+.pie-chart-total-income__value {
+    color: var(--Estilo-Tipografia, #303030);
+
+    /* H2 - 24 */
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px; /* 133.333% */
+}
+
+.pie-chart-total-income__label {
+    color: #000;
+
+    /* H3 - 18 */
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 155.556% */
+}
+
+.pie-chart-total-income__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.pie-chart-item-label {
+    color: var(--Estilo-Tipografia, #303030);
+
+    /* Body - 14 */
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+}
+.pie-chart-item-value {
+    color: var(--Estilo-Tipografia, #303030);
+    text-align: right;
+
+    /* Link - 16 */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+}

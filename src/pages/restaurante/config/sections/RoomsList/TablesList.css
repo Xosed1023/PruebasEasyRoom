@@ -1,8 +1,0 @@
-.config-tables__tables-to-drag {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-    overflow-y: scroll;
-    min-width: 130px;
-    max-height: calc(100dvh - 300px);
-}

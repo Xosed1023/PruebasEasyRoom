@@ -1,7 +1,0 @@
-mutation AutorizarFajilla($dataAutorizar: AutorizarFajillaInput!) {
-  autorizar_fajilla(autorizar_fajilla_input: $dataAutorizar)
-}
-
-mutation RechazarFajilla($dataRechazar: RechazarFajillaInput!) {
-  rechazar_fajilla(rechazar_fajilla_input: $dataRechazar)
-}

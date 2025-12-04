@@ -1,6 +1,0 @@
-query CategoriasGastosForReport($hotel_id: ID!) {
-    categorias_gasto(hotel_id: $hotel_id, eliminado: false) {
-        categoria_id
-        categoria
-    }
-}

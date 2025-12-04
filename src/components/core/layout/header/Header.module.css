@@ -1,0 +1,9 @@
+.header__dot {
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    background-color: var(--ocupada);
+    position: absolute;
+    top: -2px;
+    right: 0;
+}

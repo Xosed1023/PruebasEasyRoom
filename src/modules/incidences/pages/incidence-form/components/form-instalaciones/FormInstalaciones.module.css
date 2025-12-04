@@ -1,0 +1,111 @@
+.form-instalaciones__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 100vh;
+    padding: 20px 0px 120px;
+    box-sizing: border-box;
+    margin-bottom: 80px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-instalaciones__title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    color: #000000;
+    font-family: "Montserrat", sans-serif;
+    margin-top: 20px;
+}
+
+.form-instalaciones__group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.form-instalaciones__label {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    color: var(--tipografa);
+    font-family: "Montserrat", sans-serif;
+}
+
+.form-instalaciones__description {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    color: var(--tipografa);
+    font-family: "Montserrat", sans-serif;
+}
+
+.form-instalaciones__upload-section {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.form-instalaciones__upload-box {
+    width: 103px;
+    height: 100px;
+    border-radius: 8px;
+    border: 1.5px solid var(--primary);
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    cursor: pointer;
+}
+.form-instalaciones__submit-button {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--primary);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.form-instalaciones__submit-button:active {
+    background-color: var(--primary-dark);
+}
+
+.form-instalaciones__footer {
+    background: white;
+    padding: 16px 16px calc(16px + env(safe-area-inset-bottom, 16px));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-instalaciones__divider {
+    height: 1px;
+    width: 100%;
+    background-color: #e0e0e0;
+}
+.form-instalaciones__evidence {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}

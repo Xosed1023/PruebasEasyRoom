@@ -1,7 +1,0 @@
-.mantenimiento__screen__wrapper {
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
-    height: calc(100dvh - 150px);
-    margin-top: 24px;
-}

@@ -1,3 +1,0 @@
-mutation CheckIn ($datos_checkIn: CheckInInput!) {
-  checkIn(ChekInInput: $datos_checkIn)
-}

@@ -1,0 +1,20 @@
+.staff-group__item__title {
+    /* Link - 16 */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+
+    max-width: calc(100dvw - 115px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.staff-group__item__subtitle {
+    color: var(--Componente-Header, #0e0e0e);
+    font-size: 12px;
+    max-width: calc(100dvw - 115px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

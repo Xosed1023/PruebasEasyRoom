@@ -1,6 +1,0 @@
-query SubcategoriasGastosForReport($categoria_id: [ID!]!) {
-    subcategorias_gasto(categoria_id: $categoria_id, eliminado: false) {
-        categoria_id
-        subcategoria
-    }
-}

@@ -2,3 +2,5 @@ node_modules
 build
 coverage
 .vscode
+graphql.config.json
+src/gql/schema.tsx

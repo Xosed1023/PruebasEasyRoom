@@ -1,6 +1,0 @@
-query tipos_habitacionesForReport($hotel_id: ID!) {
-  tipo_habitaciones(hotel_id: $hotel_id) {
-    nombre
-    tipo_habitacion_id
-  }
-}

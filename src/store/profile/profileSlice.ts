@@ -1,82 +1,76 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { Configurations, ListenMyColaboradorSubscription, Usuario } from "src/gql/schema"
+import { GetPerfilQuery } from "src/gql/schema"
 
 export interface ProfileState {
-    myProfile: Usuario
-    hotel_id: string
-    nombre_hotel: string
-    logo_hotel: string
-    zona_horaria: string
+    usuario: GetPerfilQuery["mi_perfil"]
+    hotel: {
+        hotel_id: string
+        nombre_hotel: string
+        logo_hotel: string
+        zona_horaria: string
+    }
+    nombre: string
     usuario_id: string
     turno_id: string
-    rolName: string
-    colaborador?: ListenMyColaboradorSubscription["checkColaborador"]
+    rol: string
     estatus: string
-    configurations?: Configurations
-    hoteles: any[]
-}
-const myProfile = JSON.parse(localStorage.getItem("myProfile") || "{}")
-const storedHotelId = sessionStorage.getItem("hotel_id")
-
-const resolveActiveHotel = () => {
-    //hotel en sessionStorage, si no, toma el primero del perfil
-    const active = myProfile?.hotel?.find((h: any) => h.hotel_id === storedHotelId)
-    return active || myProfile?.hotel?.[0]
+    foto: string
 }
 
-const activeHotel = resolveActiveHotel()
-
-const initialState: ProfileState = {
-    myProfile: JSON.parse(localStorage.getItem("myProfile") || "{}"),
-    hotel_id: activeHotel?.hotel_id || "",
-    nombre_hotel: activeHotel?.nombre_hotel || "",
-    logo_hotel: activeHotel?.logo_hotel || "",
-    zona_horaria: activeHotel?.zona_horaria || "",
-    usuario_id: JSON.parse(localStorage.getItem("myProfile") || "{}")?.usuario_id,
-    turno_id: JSON.parse(localStorage.getItem("myProfile") || "{}")?.turno?.turno_id,
-    rolName: JSON.parse(localStorage.getItem("myProfile") || "{}")?.roles?.[0]?.nombre,
-    estatus: JSON.parse(localStorage.getItem("myProfile") || "{}")?.estatus,
-    configurations: activeHotel?.configurations || [],
-    hoteles: myProfile?.hotel || [],
+export const defaultState = {
+    usuario: {
+        usuario_id: "",
+        nombre: "",
+        apellido_paterno: "",
+        apellido_materno: "",
+        correo: "",
+        fecha_registro: "",
+        fecha_modificacion: "",
+        eliminado: false,
+        telefono: "",
+        estatus: "",
+        hotel: [],
+        roles: [],
+    },
+    hotel: {
+        hotel_id: "",
+        nombre_hotel: "",
+        logo_hotel: "",
+        zona_horaria: "",
+    },
+    usuario_id: "",
+    nombre: "",
+    turno_id: "",
+    rol: "",
+    estatus: "",
+    foto: "",
 }
+
+const initialState: ProfileState = JSON.parse(localStorage.getItem("@profile") || "{}") || defaultState
 
 export const profileSlice = createSlice({
     name: "profile",
     initialState,
     reducers: {
-        setMyProfile: (state, action) => {
-            const active =
-                action.payload?.hotel?.find((h: any) => h.hotel_id === storedHotelId) || action.payload?.hotel?.[0]
-            // Redux Toolkit allows us to write "mutating" logic in reducers. It
-            // doesn't actually mutate the state because it uses the Immer library,
-            // which detects changes to a "draft state" and produces a brand new
-            // immutable state based off those changes
-            state.myProfile = action.payload
-            state.hotel_id = active?.hotel_id || ""
-            state.nombre_hotel = active?.nombre_hotel || ""
-            state.logo_hotel = active?.logo_hotel || ""
-            state.zona_horaria = active?.zona_horaria || ""
-            state.usuario_id = action.payload?.usuario_id
-            state.turno_id = action.payload?.turno?.turno_id
-            state.rolName = action.payload?.roles?.[0]?.nombre
-            state.estatus = action.payload?.estatus
-            state.configurations = active?.configurations || []
-            state.colaborador = action.payload?.colaborador
-            state.hoteles = action.payload?.hotel || []
+        setProfile: (state, action) => {
+            state.usuario = action.payload.usuario
+            state.hotel = action.payload.hotel
+            state.usuario_id = action.payload.usuario_id
+            state.turno_id = action.payload.turno_id
+            state.rol = action.payload.rol
+            state.estatus = action.payload.estatus
+            state.foto = action.payload.foto
         },
-        setChangeHotel: (state, action) => {
-            const active = state.hoteles?.find((h: any) => h.hotel_id === action.payload) || myProfile?.hotel?.[0]
-
-            state.hotel_id = active?.hotel_id || ""
-            state.nombre_hotel = active?.nombre_hotel || ""
-            state.logo_hotel = active?.logo_hotel || ""
-            state.zona_horaria = active?.zona_horaria || ""
-            state.configurations = active?.configurations || []
+        setHotel: (state, action) => {
+            state.hotel = action.payload
+        },
+        setFoto: (state, action) => {
+            state.foto = action.payload
         },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { setMyProfile, setChangeHotel } = profileSlice.actions
+export const { setProfile, setHotel, setFoto } = profileSlice.actions
 
 export default profileSlice.reducer

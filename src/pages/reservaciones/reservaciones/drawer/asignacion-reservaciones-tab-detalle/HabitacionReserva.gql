@@ -1,7 +1,0 @@
-query GetHabitacionReserva($habitacion_id: ID!) {
-    habitacion(habitacion_id: $habitacion_id) {
-        ultima_renta {
-            reserva_id
-        }
-    }
-}

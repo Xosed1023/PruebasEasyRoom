@@ -1,0 +1,11 @@
+query Incidencias($fecha_registro: DateSearchInput, $hotel_id: ID, $turno_id: ID) {
+    incidencias(fecha_registro: $fecha_registro, hotel_id: $hotel_id, turno_id: $turno_id) {
+        estado
+        severidad
+        fecha_registro
+        turno_id
+        turno {
+            nombre
+        }
+    }
+}

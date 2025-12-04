@@ -1,5 +1,0 @@
-mutation EditarMetodoDePagoMovimiento($editMetodoPagoTicketInput: EditMetodoPagoTicketInput!) {
-    editar_metodo_pago(editMetodoPagoTicketInput: $editMetodoPagoTicketInput) {
-        ticket_id
-    }
-}

@@ -1,0 +1,28 @@
+.room-status-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.room-status-item__left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.room-status-item__title {
+    font-size: 15px;
+    color: var(--text-primary);
+}
+
+.room-status-item__skeleton {
+    width: 35px;
+    height: 20px;
+    border-radius: 10px;
+    background: linear-gradient(
+        90deg,
+        rgba(212, 193, 255, 0.4) 0%,   
+        rgba(212, 193, 255, 0.4) 40%,  
+        #faf6fe 80%                 
+    );
+}

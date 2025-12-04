@@ -1,8 +1,0 @@
-query getUsuarios($hotel_id: ID!) {
-  usuarios(hotel_id: $hotel_id) {
-    nombre
-    apellido_materno
-    apellido_paterno
-    usuario_id
-  }
-}

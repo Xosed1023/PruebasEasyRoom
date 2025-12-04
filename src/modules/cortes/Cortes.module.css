@@ -1,0 +1,22 @@
+.corte__description {
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.corte__card {
+    color: var(--Componente-Header, #0e0e0e);
+
+    /* H3 - 18 */
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 155.556% */
+}
+
+  .range-filter__confirm {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary); 
+  }

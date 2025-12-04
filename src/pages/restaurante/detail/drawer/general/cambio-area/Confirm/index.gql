@@ -1,5 +1,0 @@
-mutation CambiarMesaAsignada($input: CambiarMesaAsignadaInput!, $template_sample: String, $codigo: String) {
-    cambiar_mesa_asignada(CambiarMesaAsignadaInput: $input, codigo: $codigo,template_sample: $template_sample) {
-        mesa_id
-    }
-}
