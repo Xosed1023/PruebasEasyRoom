@@ -38,8 +38,8 @@ import { useDate } from "src/shared/hooks/useDate"
 import LoaderComponent from "src/shared/components/layout/loader/Loader"
 import { InputAbonarEasyRewards } from "src/pages/easyrewards/components/InputAbonarEasyRewards/InputAbonarEasyRewards"
 import { LovePoint } from "src/pages/easyrewards/components/InputAbonarEasyRewards/InputAbonarEasyRewards.types"
-import { LovePointsSection } from "src/pages/room-service/detalle-compra/sections/Fields"
 import ModalLovePointsError from "src/pages/easyrewards/components/ModalLovePointsError/ModalLovePointsError"
+import LovePointsInput from "src/pages/easyrewards/components/LovePointsInput/LovePointsInput"
 import useAuth, { RoleNames } from "src/shared/hooks/useAuth"
 import AuthRequiredModal from "src/pages/inventario/modals/Auth/AuthRequiredModal/AuthRequiredModal"
 import TipSection from "src/shared/sections/payment/propina/form-section"
@@ -86,10 +86,10 @@ const HospedajesExtra = ({
     const [total, setTotal] = useState<number>(costoHospedajeExtra)
     const [tipoPago, setTipoPago] = useState<string>("total")
     const [lovePointsAmount, setLovePointsAmount] = useState<LovePoint | null>(null)
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
     const [modalMessage, setModalMessage] = useState<string>("")
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false)
     const [isInitialModalViewState, setIsInitialModalViewState] = useState(true)
+    const [lovePointsAmountGlobal, setLovePointsAmountGlobal] = useState<LovePoint | null>(null)
     const { formatCustomDate } = useFormatDate()
 
     const { showSnackbar } = useSnackbar()
@@ -272,29 +272,68 @@ const HospedajesExtra = ({
         }
     }
 
+    const disccountLovePoints = async (ticket_id: string, easyrewards_id: string, puntos_descontar: number) => {
+        try {
+            const response = await descontarSaldoEasyrewards({
+                variables: {
+                    easyrewards_id: easyrewards_id,
+                    puntos_descontar: puntos_descontar,
+                    folio_ticket: ticket_id,
+                    hotel_id,
+                },
+            })
+
+            if (
+                response.data?.descuenta_puntos?.saldo !== undefined &&
+                response.data?.descuenta_puntos?.saldo !== null
+            ) {
+                return response.data.descuenta_puntos.saldo
+            } else {
+                showSnackbar({
+                    title: "Error al descontar puntos",
+                    text: "¡Ups! Se ha producido un error. Por favor, inténtalo nuevamente.",
+                    status: "error",
+                })
+                return null
+            }
+        } catch {
+            showSnackbar({
+                title: "Error al descontar puntos",
+                text: "¡Ups! Se ha producido un error. Por favor, inténtalo nuevamente.",
+                status: "error",
+            })
+            return null
+        }
+    }
+
     const addData = async (values: FormValues) => {
         setisSubmitLoading(true)
         const s = values.nochesExtra > 0 ? "s" : ""
 
-        const easyrewardsIdSubmit = values.abonarEasyRewards
-        const saldoDisponible = lovePointsAmount?.saldo || 0
+        const easyRewardsId = lovePointsAmount?.id
+
+        // Verificar los pagos con LovePoints
         const lovePointsPayments = values.extra.filter((pago) => pago.type === "love_points")
         const totalLovePointsUsed = lovePointsPayments.reduce((acc, pago) => acc + pago.amount, 0)
 
-        // Validar saldo
-        if (lovePointsPayments.length > 0 && easyrewardsIdSubmit) {
+        // Saldo y ID disponibles
+        const saldoDisponible = lovePointsAmountGlobal?.saldo || lovePointsAmount?.saldo || 0
+        const idMembresia = lovePointsAmountGlobal?.id || lovePointsAmount?.id || "N/A"
+
+        // Validar si el saldo es suficiente
+        if (lovePointsPayments.length > 0 && easyRewardsId) {
             if (totalLovePointsUsed > saldoDisponible) {
                 setModalMessage(
-                    `Esta membresía <strong> ID ${easyrewardsIdSubmit} </strong>no tiene saldo suficiente para completar la transacción.<br>
-                 Te recomendamos intentar nuevamente con otra forma de pago.<br>
-                 Actualmente, el huésped cuenta con <strong> ${saldoDisponible} puntos</strong> en su cuenta.`
+                    `Esta membresía <strong>ID ${idMembresia} </strong> no tiene saldo suficiente para completar la transacción. <br>
+                     Te recomendamos intentar nuevamente con otra forma de pago.<br>
+                     Actualmente, el huésped cuenta con <strong> ${saldoDisponible} puntos </strong> en su cuenta.`
                 )
                 setIsModalVisible(true)
                 setisSubmitLoading(false)
                 return
             }
-            const disccountVerificationSuccess = await disccountVerificationLovePoints(easyrewardsIdSubmit)
 
+            const disccountVerificationSuccess = await disccountVerificationLovePoints(easyRewardsId)
             if (!disccountVerificationSuccess.success) {
                 if (disccountVerificationSuccess.message === "Love Points desactivados") {
                     showSnackbar({
@@ -369,11 +408,48 @@ const HospedajesExtra = ({
                         : {}),
                 },
             },
-            onCompleted: (data) => {
-                if (data) {
+            onCompleted: async (responseData) => {
+                if (responseData) {
                     //si no trae ticket id quiere decir que es pago pendiente y se manda extra_id
-                    const { ticket_id, extra_id } = data.agregar_hospedajes_renta
+                    const { ticket_id, extra_id } = responseData.agregar_hospedajes_renta
                     const ticket = ticket_id || extra_id
+
+                    // Descontar LovePoints si hay pagos con LovePoints
+                    const hasLovePointsPm = values.extra.filter(
+                        (pago: { type: TiposPagos }) => pago.type === TiposPagos.LovePoints
+                    )
+
+                    // Si el pago es LovePoints pero no mixto, usar lovePointsAmount
+                    if (values.paymentMethod === TiposPagos.LovePoints && lovePointsAmount && hasLovePointsPm.length === 0) {
+                        const folioToSend = ticket_id || extra_id || ""
+                        const result = await disccountLovePoints(folioToSend, lovePointsAmount.id, values.costs.general)
+
+                        if (result === null) {
+                            showSnackbar({
+                                title: "Error al descontar puntos",
+                                text: "¡Ups! Se ha producido un error. Por favor, inténtalo nuevamente.",
+                                status: "error",
+                            })
+                            setisSubmitLoading(false)
+                            return
+                        }
+                    } else if (hasLovePointsPm.length > 0) {
+                        // Si es pago mixto con LovePoints
+                        for (const pago of hasLovePointsPm) {
+                            const folioToSend = ticket_id || extra_id || ""
+                            const result = await disccountLovePoints(folioToSend, pago.number || "", pago.amount)
+
+                            if (result === null) {
+                                showSnackbar({
+                                    title: "Error al descontar puntos",
+                                    text: "¡Ups! Se ha producido un error. Por favor, inténtalo nuevamente.",
+                                    status: "error",
+                                })
+                                setisSubmitLoading(false)
+                                return
+                            }
+                        }
+                    }
 
                     const type = ticket_id !== null ? "0" : "5"
                     if (ticket) handlePrint(ticket, "custom", type)
@@ -559,7 +635,8 @@ const HospedajesExtra = ({
                                         className={
                                             paymentMethod === PAYMENT_METHODS.visaOMasterCard.value ||
                                             paymentMethod === PAYMENT_METHODS.amex.value ||
-                                            paymentMethod === PAYMENT_METHODS.depositoOTransferencia.value
+                                            paymentMethod === PAYMENT_METHODS.depositoOTransferencia.value ||
+                                            paymentMethod === PAYMENT_METHODS.lovePoints.value
                                                 ? "pay-input-half-width"
                                                 : "pay-input-full-width"
                                         }
@@ -586,11 +663,9 @@ const HospedajesExtra = ({
                                                         PAYMENT_METHODS.amex,
                                                         PAYMENT_METHODS.depositoOTransferencia,
                                                         PAYMENT_METHODS.mixto,
-                                                        ...(rolName !== RoleNames.admin && rolName !== RoleNames.recepcionista && rolName !== RoleNames.superadmin
-                                                            ? [PAYMENT_METHODS.lovePoints]
-                                                            : []),
                                                         PAYMENT_METHODS.cortesia,
                                                         PAYMENT_METHODS.consumoInterno,
+                                                        PAYMENT_METHODS.lovePoints,
                                                     ]}
                                                     placeholder="Selecciona una opción"
                                                     errorHintText={
@@ -636,16 +711,17 @@ const HospedajesExtra = ({
                                             />
                                         </div>
                                     )}
-                                    {paymentMethod === PAYMENT_METHODS.lovePoints.value ? (
-                                        <div className="noches-extra__body-love-points pay-input-half-width">
-                                            <LovePointsSection
+                                    {paymentMethod === PAYMENT_METHODS.lovePoints.value && (
+                                        <div className="pay-input-half-width noches-extra__body-love-points lovepoints-extra-wrapper">
+                                            <LovePointsInput
+                                                index={0}
                                                 setLovePointsAmount={setLovePointsAmount}
-                                                isModalOpen={isModalOpen}
-                                                setModalOpen={setIsModalOpen}
-                                                lovePointsAmount={lovePointsAmount}
+                                                className="noches-extra__body-love-points"
                                             />
                                         </div>
-                                    ) : paymentMethod !== PAYMENT_METHODS.cortesia.value &&
+                                    )}
+                                    {paymentMethod !== PAYMENT_METHODS.lovePoints.value &&
+                                      paymentMethod !== PAYMENT_METHODS.cortesia.value &&
                                       paymentMethod !== PAYMENT_METHODS.consumoInterno.value &&
                                     rolName !== RoleNames.admin &&
                                     rolName !== RoleNames.superadmin &&
@@ -738,10 +814,12 @@ const HospedajesExtra = ({
                             PAYMENT_METHODS.visaOMasterCard,
                             PAYMENT_METHODS.amex,
                             PAYMENT_METHODS.depositoOTransferencia,
+                            PAYMENT_METHODS.lovePoints,
                         ]}
                         visible={state.visible}
                         edited={state.edited}
                         onClose={() => setState({ visible: false, edited: false })}
+                        onLovePointsChange={(value) => setLovePointsAmountGlobal(value)}
                     />
                 </form>
             </FormProvider>

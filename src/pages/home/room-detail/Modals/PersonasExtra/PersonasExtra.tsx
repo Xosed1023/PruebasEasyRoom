@@ -26,6 +26,7 @@ import {
     useAgregarPersonasExtraMutation,
     useGetAreasQuery,
     useGetColaboradoresByAreasLazyQuery,
+    useDescontarSaldoEasyrewardsMutation,
 } from "src/gql/schema"
 import { useDispatch } from "react-redux"
 import { toggleRoomDetailsDrawer } from "src/store/navigation/navigationSlice"
@@ -44,6 +45,7 @@ import { usePrintTicket } from "src/shared/hooks/print"
 import InputPersonal from "src/shared/sections/payment/propina/input-personal"
 import { getName } from "src/pages/propinas/home/helpers/name"
 import LovePointsInput from "src/pages/easyrewards/components/LovePointsInput/LovePointsInput"
+import ModalLovePointsError from "src/pages/easyrewards/components/ModalLovePointsError/ModalLovePointsError"
 
 const PersonasExtra = ({ onClose }: PersonasExtraProps) => {
     const methods = useForm<FormValues>({
@@ -81,8 +83,12 @@ const PersonasExtra = ({ onClose }: PersonasExtraProps) => {
     const [isInitialModalViewState, setIsInitialModalViewState] = useState(true)
 
     const [addPersonaExtra] = useAgregarPersonasExtraMutation()
+    const [descontarSaldoEasyrewards] = useDescontarSaldoEasyrewardsMutation()
 
     const [state, setState] = useState({ visible: false, edited: false })
+    const [modalMessage, setModalMessage] = useState<string>("")
+    const [isModalLovePointsErrorOpen, setModalLovePointsErrorOpen] = useState(false)
+    const [lovePointsAmountGlobal, setLovePointsAmountGlobal] = useState<LovePoint | null>(null)
 
     const total_propinas = useMemo(() => {
         if (tipoPago !== "total") return 0
@@ -170,12 +176,124 @@ const PersonasExtra = ({ onClose }: PersonasExtraProps) => {
         onClose: () => setisAuthModalOpen(false),
     })
 
-    const onSubmit = (data: FormValues) => {
+    /**funcion aplicar mutacion descuento de lovePoints */
+    const disccountLovePoints = async (ticket_id: string, easyrewards_id: string, puntos_descontar: number) => {
+        try {
+            const response = await descontarSaldoEasyrewards({
+                variables: {
+                    easyrewards_id: easyrewards_id,
+                    puntos_descontar: puntos_descontar,
+                    folio_ticket: ticket_id,
+                    hotel_id,
+                },
+            })
+
+            if (
+                response.data?.descuenta_puntos?.saldo !== undefined &&
+                response.data?.descuenta_puntos?.saldo !== null
+            ) {
+                return response.data.descuenta_puntos.saldo
+            } else {
+                showSnackbar({
+                    title: "Error al descontar puntos",
+                    text: "¡Ups! Se ha producido un error. Por favor, inténtalo nuevamente.",
+                    status: "error",
+                })
+                return null
+            }
+        } catch {
+            showSnackbar({
+                title: "Error al descontar puntos",
+                text: "¡Ups! Se ha producido un error. Por favor, inténtalo nuevamente.",
+                status: "error",
+            })
+            return null
+        }
+    }
+
+    /**funcion para verificar si estan activos los puntos de lovePoints */
+    const disccountVerificationLovePoints = async (easyrewards_id: string) => {
+        try {
+            const response = await descontarSaldoEasyrewards({
+                variables: {
+                    easyrewards_id: easyrewards_id,
+                    puntos_descontar: 1,
+                    folio_ticket: "",
+                    hotel_id,
+                },
+            })
+            const saldo = response.data?.descuenta_puntos?.saldo
+            return saldo !== undefined && saldo !== null
+                ? { success: true, message: "" }
+                : { success: false, message: "Error desconocido" }
+        } catch (error: any) {
+            const errorMessage =
+                error?.graphQLErrors?.[0]?.message || typeof error.message === "string"
+                    ? error.message.toLowerCase()
+                    : ""
+
+            const errorMessages = errorMessage.includes("el numero de transaccion no es valido")
+                ? "El numero de transaccion no es valido"
+                : errorMessage.includes("love points desactivados")
+                ? "Love Points desactivados"
+                : "Error desconocido"
+
+            return { success: false, message: errorMessages }
+        }
+    }
+
+    const onSubmit = async (data: FormValues) => {
         const contadorPersonas = data.personaExtra
         if (!contadorPersonas || (!data.paymentMethod && tipoPago === "total") || isSubmitLoading) {
             return
         }
         setisSubmitLoading(true)
+
+        const easyRewardsId = lovePointsAmount?.id
+
+        // Verificar los pagos con LovePoints
+        const lovePointsPayments = data.extra.filter((pago) => pago.type === "love_points")
+        const totalLovePointsUsed = lovePointsPayments.reduce((acc, pago) => acc + pago.amount, 0)
+
+        // Saldo y ID disponibles
+        const saldoDisponible = lovePointsAmountGlobal?.saldo || lovePointsAmount?.saldo || 0
+        const idMembresia = lovePointsAmountGlobal?.id || lovePointsAmount?.id || "N/A"
+
+        // Validar si el saldo es suficiente
+        if (lovePointsPayments.length > 0 && easyRewardsId) {
+            if (totalLovePointsUsed > saldoDisponible) {
+                setModalMessage(
+                    `Esta membresía <strong>ID ${idMembresia} </strong> no tiene saldo suficiente para completar la transacción. <br>
+                     Te recomendamos intentar nuevamente con otra forma de pago.<br>
+                     Actualmente, el huésped cuenta con <strong> ${saldoDisponible} puntos </strong> en su cuenta.`
+                )
+                setModalLovePointsErrorOpen(true)
+                setisSubmitLoading(false)
+                return
+            }
+
+            const disccountVerificationSuccess = await disccountVerificationLovePoints(easyRewardsId)
+            if (!disccountVerificationSuccess.success) {
+                if (disccountVerificationSuccess.message === "Love Points desactivados") {
+                    showSnackbar({
+                        title: "Love Points desactivados",
+                        text: "¡Ups! El huésped debe activar sus Love Points desde el portal.",
+                        status: "error",
+                    })
+                    setisSubmitLoading(false)
+                    return
+                }
+                if (disccountVerificationSuccess.message !== "El numero de transaccion no es valido") {
+                    showSnackbar({
+                        title: "Error desconocido",
+                        text: "¡Ups! Se ha producido un error inesperado. Por favor, inténtalo nuevamente.",
+                        status: "error",
+                    })
+                    setisSubmitLoading(false)
+                    return
+                }
+            }
+        }
 
         const detallesPago =
             data.paymentMethod === PAYMENT_TYPES.mixto
@@ -224,11 +342,48 @@ const PersonasExtra = ({ onClose }: PersonasExtraProps) => {
                         : {}),
                 },
             },
-            onCompleted: (data) => {
-                if (data) {
+            onCompleted: async (responseData) => {
+                console.log("🚀 ~ onSubmit ~ responseData:", responseData)
+                if (responseData) {
                     //si no trae ticket id quiere decir que es pago pendiente y se manda extra_id
-                    const { ticket_id, extra_id } = data.agregar_personas_renta
+                    const { ticket_id, extra_id } = responseData.agregar_personas_renta
                     const ticket = ticket_id || extra_id
+                    // Descontar LovePoints si hay pagos con LovePoints
+                    const hasLovePointsPm = data.extra.filter(
+                        (pago: { type: TiposPagos }) => pago.type === TiposPagos.LovePoints
+                    )
+
+                    // Si el pago es LovePoints pero no mixto, usar lovePointsAmount
+                    if (data.paymentMethod === TiposPagos.LovePoints && lovePointsAmount && hasLovePointsPm.length === 0) {
+                        const folioToSend = ticket_id || extra_id || ""
+                        const result = await disccountLovePoints(folioToSend, lovePointsAmount.id, costoExtra)
+
+                        if (result === null) {
+                            showSnackbar({
+                                title: "Error al descontar puntos",
+                                text: "¡Ups! Se ha producido un error. Por favor, inténtalo nuevamente.",
+                                status: "error",
+                            })
+                            setisSubmitLoading(false)
+                            return
+                        }
+                    } else if (hasLovePointsPm.length > 0) {
+                        // Si es pago mixto con LovePoints
+                        for (const pago of hasLovePointsPm) {
+                            const folioToSend = ticket_id || extra_id || ""
+                            const result = await disccountLovePoints(folioToSend, pago.number || "", pago.amount)
+
+                            if (result === null) {
+                                showSnackbar({
+                                    title: "Error al descontar puntos",
+                                    text: "¡Ups! Se ha producido un error. Por favor, inténtalo nuevamente.",
+                                    status: "error",
+                                })
+                                setisSubmitLoading(false)
+                                return
+                            }
+                        }
+                    }
 
                     const type = ticket_id !== null ? "0" : "5"
                     if (ticket) handlePrint(ticket, "custom", type)
@@ -238,7 +393,7 @@ const PersonasExtra = ({ onClose }: PersonasExtraProps) => {
                     status: "success",
                     text: `Se han registrado **${contadorPersonas}** personas extras a la habitación **${room?.tipo_habitacion?.nombre} ${room?.numero_habitacion}**`,
                 })
-                onClose?.(data)
+                onClose?.(responseData)
                 setisSubmitLoading(false)
                 dispatch(toggleRoomDetailsDrawer(false))
             },
@@ -561,15 +716,23 @@ const PersonasExtra = ({ onClose }: PersonasExtraProps) => {
                             PAYMENT_METHODS.visaOMasterCard,
                             PAYMENT_METHODS.amex,
                             PAYMENT_METHODS.depositoOTransferencia,
+                            PAYMENT_METHODS.lovePoints,
                         ]}
                         visible={state.visible}
                         edited={state.edited}
                         onClose={() => setState({ visible: false, edited: false })}
+                        onLovePointsChange={(value) => setLovePointsAmountGlobal(value)}
                     />
                     <LoaderComponent visible={isSubmitLoading} />
                 </form>
                 {Modal}
             </FormProvider>
+            <ModalLovePointsError
+                isOpen={isModalLovePointsErrorOpen}
+                setIsOpen={setModalLovePointsErrorOpen}
+                description={modalMessage}
+                onCloseDialog={() => setModalLovePointsErrorOpen(false)}
+            />
         </LayoutModal>
     )
 }
