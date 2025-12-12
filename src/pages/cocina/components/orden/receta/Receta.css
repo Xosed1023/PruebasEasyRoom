@@ -1,0 +1,98 @@
+.receta-container {
+    display: flex;
+    background: #FFFFFF;
+    padding: 10px 25px;
+}
+
+.receta-container__detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    margin-right: 40px;
+}
+
+.receta-container__img-container {
+    box-shadow: 0px 0px 1.96px 0.98px #0000000D;
+    background: #FFFFFF;
+    border-radius: 100%;
+}
+
+.receta-container__img,
+.receta-container__img-container {
+    width: 50px;
+    height: 50px;
+}
+
+.receta-container__img {
+    border-radius: 100%;
+}
+
+.receta-container__detail-text {
+    color: #6941C6;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17.07px;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 10px;
+}
+
+.receta-container__info-container {
+    width: 438px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.receta-container__info-title {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 24.38px;
+    text-transform: uppercase;
+    max-width: 260px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+
+.receta-container__info-detail {
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.receta-container__info-subtitle {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 19.5px;
+    text-transform: uppercase;
+    margin-left: 12px;
+}
+
+.receta-container__bell-container {
+    display: flex;
+    align-items: center;
+}
+
+.receta-container__info-head {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.receta-container__info-canceladas {
+    box-sizing: border-box;
+    color: var(--bloqueada);
+    border-radius: 16px;
+    padding: 2px 8px 2px 6px;
+    background-color: var(--supervision-card);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+    text-transform: none;
+    margin-left: 10px;
+}

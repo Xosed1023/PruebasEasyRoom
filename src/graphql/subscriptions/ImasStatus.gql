@@ -1,0 +1,5 @@
+subscription closeCorteAvailable($hotel_id: ID!) {
+  checkHotel (hotel_id_filter: $hotel_id) {
+    imas_transaccion_status
+  }
+}

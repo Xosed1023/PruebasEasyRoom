@@ -1,0 +1,12 @@
+.room-detail--occupied__tabs {
+    margin-bottom: 14px;
+    margin-top: 10px;
+}
+
+.room-detail--occupied__container {
+    height: 100%;
+}
+
+.room-detail--occupied__container__cancel__description {
+    color: var(--placeholder);
+}

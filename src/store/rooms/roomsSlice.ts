@@ -1,12 +1,19 @@
-import { Habitacion } from "@/gql/schema"
 import { createSlice } from "@reduxjs/toolkit"
 
 export interface RoomsState {
-    rooms: Habitacion[]
+    rooms: any[]
+    selectedRoom: any
+    lastSelectedRoom: any 
+    roomsDimensions?: {
+        x: number,
+        y: number
+    }
 }
 
 const initialState: RoomsState = {
     rooms: [],
+    selectedRoom: {},
+    lastSelectedRoom: {},
 }
 
 export const roomsSlice = createSlice({
@@ -20,10 +27,36 @@ export const roomsSlice = createSlice({
             // immutable state based off those changes
             state.rooms = action.payload
         },
+        selectRoom: (state, action) => {
+            state.selectedRoom = action.payload
+            if (Object.keys(action.payload).length > 0) { 
+                state.lastSelectedRoom = action.payload;
+            }
+        },
+        selectRoomById: (state, action) => {
+            const room = state.rooms.find(r => r.habitacion_id === action.payload.habitacion_id)
+            if (room) {
+                state.selectedRoom = room
+                state.lastSelectedRoom = room 
+            }
+        },
+        updateRoom: (state, action) => {
+            state.rooms = state.rooms.map((r) => {
+                if (r.habitacion_id === action.payload.habitacion_id) {
+                    return { ...action.payload }
+                }
+                return r
+            })
+            state.selectedRoom = action.payload
+            state.lastSelectedRoom = action.payload 
+        },
+        setRoomsDimensions: (state, action) => {
+            state.roomsDimensions = action.payload
+        }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { setRooms } = roomsSlice.actions
+export const { setRooms, selectRoom, updateRoom, selectRoomById, setRoomsDimensions } = roomsSlice.actions
 
 export default roomsSlice.reducer

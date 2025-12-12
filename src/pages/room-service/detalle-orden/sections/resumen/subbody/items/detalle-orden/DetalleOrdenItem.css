@@ -1,0 +1,38 @@
+.detalle-orden-item_subbody__wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 2px 0;
+}
+
+.detalle-orden-item_subbody--bold {
+    color: var(--tipografa);
+    font-feature-settings: "calt" off;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.12px;
+}
+
+.detalle-orden-item_subbody--big {
+    color: var(--Tipografa, #303030);
+    font-feature-settings: "calt" off;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 30px */
+    letter-spacing: -0.2px;
+}
+
+.detalle-orden-item_subbody {
+    color: var(--placeholder);
+    font-feature-settings: "calt" off;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.12px;
+}

@@ -1,0 +1,20 @@
+mutation CambiarRentaDeHabitacion($datos_renta: UpdateHabitacionInRentaInput!) {
+    actualizar_habitacion_en_renta(datos_renta: $datos_renta) {
+        habitacion_id
+    }
+}
+
+mutation CancelarRentaHabitacion($datos_cancelar: CancelOperationsRentaInput!) {
+    cancelar_operaciones_renta(cancelar_renta_input: $datos_cancelar) {
+        ticket_id
+        renta {
+            cliente_id
+        }
+    }
+}
+
+mutation Checkout($checkOutInput: CheckOutInput!) {
+    CheckOut(checkOutInput: $checkOutInput) {
+        ticket_id
+    }
+}

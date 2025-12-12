@@ -1,0 +1,18 @@
+query GetModalTurnosAtencion($hotel_id: ID!, $tipo_habitacion_id: [ID!]) {
+    turnos_atencion(hotel_id: $hotel_id, tipo_habitacion_id: $tipo_habitacion_id, estado: en_espera) {
+        tipo_habitacion_id
+        folio
+        folio_turno
+        turno_atencion_id
+    }
+}
+
+query GetHabitacionTurnosAtencion($hotel_id: ID!, $turno_atencion_id: [ID!]) {
+    turnos_atencion(hotel_id: $hotel_id, turno_atencion_id: $turno_atencion_id) {
+        tipo_habitacion_id
+        folio
+        folio_turno
+        nombre_o_matricula
+        estado
+    }
+}

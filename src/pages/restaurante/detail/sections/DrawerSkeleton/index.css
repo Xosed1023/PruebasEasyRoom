@@ -1,0 +1,20 @@
+.drawer-restaurant__skeleton {
+    display: flex;
+    flex-direction: column;
+}
+.drawer-restaurant__skeleton-title {
+    height: 24px;
+    width: 200px;
+    margin-bottom: 5px;
+}
+.drawer-restaurant__skeleton-subtitle {
+    height: 17px;
+    width: 120px;
+    margin-bottom: 20px;
+}
+.drawer-restaurant__skeleton-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 40px;
+    row-gap: 20px;
+}

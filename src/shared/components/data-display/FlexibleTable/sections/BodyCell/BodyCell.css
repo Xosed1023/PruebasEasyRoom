@@ -1,0 +1,23 @@
+.flexible-table__body__cell-text {
+    color: var(--Tipografa, #303030);
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 166.667% */
+
+    /* TODO: */
+    /* Activar text-overflow ellipsis */
+    max-width: 250px;
+    height: 78px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    /*  */
+    padding: 16px 12px;
+    box-sizing: border-box;
+
+    &.disabled {
+        opacity: 0.5;
+    }
+}

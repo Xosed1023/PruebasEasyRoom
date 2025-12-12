@@ -1,0 +1,28 @@
+.paginator__page {
+    display: flex;
+    width: 40px;
+    padding: 10px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--white);
+    border-right: 1px solid var(--Scroll, #eaecf0);
+}
+
+.paginator__page:hover {
+    background: var(--Fondo-close, #efe9ff);
+}
+
+.paginator__page__text {
+    color: var(--Tipografa, #303030);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+}
+
+.paginator__page--selected {
+    background: var(--Fondo-close, #efe9ff);
+}

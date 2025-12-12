@@ -1,0 +1,11 @@
+.reservas-screen__drawer-modal-add-pa__item {
+    gap: 5px;
+    color: var(--Blanco, #fff);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 175% */
+    text-decoration-line: underline;
+    cursor: pointer;
+}

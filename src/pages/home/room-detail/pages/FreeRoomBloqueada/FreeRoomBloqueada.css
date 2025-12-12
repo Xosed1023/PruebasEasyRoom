@@ -1,0 +1,4 @@
+.free-room-bloqueada .free-room-lyt__options {
+    grid-template-columns: repeat(3, 300px);
+    column-gap: 50px;
+}

@@ -1,0 +1,1 @@
+export type IconTheme = "danger" | "success" | "black"

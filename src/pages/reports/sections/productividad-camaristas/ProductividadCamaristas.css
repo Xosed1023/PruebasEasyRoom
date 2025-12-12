@@ -1,0 +1,15 @@
+
+.productividad-camaristas__table__wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: calc(100dvh - 160px);
+    overflow: auto;  
+    position: relative;
+    margin-top: 30px;
+}
+
+.productividad-camaristas__table {
+    overflow-x: scroll;
+    height: 100%;
+}

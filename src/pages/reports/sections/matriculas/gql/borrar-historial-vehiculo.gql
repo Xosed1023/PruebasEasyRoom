@@ -1,0 +1,3 @@
+mutation BorrarHistorialVehiculo($historial_vehiculo_id: ID!) {
+  borrar_historial_vehiculo(historial_vehiculo_id: $historial_vehiculo_id)
+}

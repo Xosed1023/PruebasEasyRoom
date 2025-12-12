@@ -1,0 +1,35 @@
+.inventory-card__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 6px;
+    width: 80%;
+}
+
+.inventory-card__body__title {
+    color: var(--Tipografa, #303030);
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 16.8px */
+}
+
+.inventory-card__body__subtitle {
+    color: var(--Placeholder, var(--Placeholder, #667085));
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 12px */
+}
+
+.inventory-card__body__cost {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px; /* 112.5% */
+}

@@ -1,0 +1,3 @@
+mutation Eliminar_huella($input :DeleteCredencialInput!) {
+  eliminar_huella(DeleteCredencialInput: $input)
+}

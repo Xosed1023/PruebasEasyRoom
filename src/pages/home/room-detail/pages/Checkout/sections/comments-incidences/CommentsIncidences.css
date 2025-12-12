@@ -1,0 +1,57 @@
+.room-detail__page--checkout-comments {
+    max-height: 400px;
+    overflow-y: scroll;
+    width: 56dvw;
+}
+
+.room-detail__page--checkout-comments-header {
+    margin: 12px;
+}
+
+.room-detail__page--checkout-comments-title {
+    color: var(--tipografa);
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.room-detail__page--checkout-comments__divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--stroke);
+    margin: 12px;
+}
+
+.room-detail__page--checkout-incidences {
+    max-height: 176px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.room-detail__page--checkout-incidence__link {
+    color: var(--Tipografa, #303030);
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 166.667% */
+    text-decoration-line: underline;
+}
+
+.room-detail__page--checkout-comments--empty {
+    width: 56dvw;
+    height: 40dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.room-detail__page--checkout-comments-link {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    text-decoration-line: underline;
+    color: var(--primary);
+    cursor: pointer;
+}

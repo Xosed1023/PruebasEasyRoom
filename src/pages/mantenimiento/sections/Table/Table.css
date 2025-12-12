@@ -1,0 +1,26 @@
+
+.mantenimiento__table__wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: calc(100dvh - 325px);
+    overflow: auto;  
+    position: relative;
+}
+
+.mantenimiento__table__wrapper::after {
+    display: none;
+}
+.mantenimiento__table__wrapper.mantenimiento__table__wrapper--show-gradient::after {
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 10;
+    border-radius: 12px;
+}

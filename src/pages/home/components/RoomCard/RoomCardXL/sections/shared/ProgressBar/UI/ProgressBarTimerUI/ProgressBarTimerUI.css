@@ -1,0 +1,36 @@
+.room-card--xl-occupied__progressbar-timer__wrapper {
+    display: block;
+    text-align: right;
+    max-width: 218px;
+}
+
+.room-card--xl-occupied__progressbar-timer {
+    color: var(--tipografa);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 14px */
+    display: inline-block;
+    text-wrap: nowrap;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.room-card--xl-occupied__progressbar__extra-timer__wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.room-card--xl-occupied__progressbar__extra-timer {
+    text-align: right;
+    display: flex;
+    border-radius: 25px;
+    text-align: right;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 12px */
+    padding: 2px 4px;
+    margin-bottom: 5px;
+}

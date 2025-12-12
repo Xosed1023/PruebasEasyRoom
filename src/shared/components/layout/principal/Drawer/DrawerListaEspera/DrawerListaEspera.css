@@ -1,0 +1,120 @@
+.widLista__title {
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: var(--font-text);
+    line-height: 18px;
+}
+.widLista__content {
+    height: calc(100% - 18px);
+    width: 100%;
+}
+.widLista__btn {
+    width: 175px;
+    height: 40px;
+    background-color: transparent;
+    border-width: 1.5px;
+}
+.widLista__btn > span {
+    color: var(--white);
+}
+.widLista__btn:hover {
+    background-color: transparent;
+}
+.widLista__empty-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.widLista__empty {
+    margin-bottom: 16px;
+    row-gap: 0;
+}
+.widLista__empty .empty__circle_bg {
+    height: 92px;
+    width: 92px;
+    margin-bottom: 16px;
+}
+.widLista__empty .empty__icon {
+    height: 46px;
+    width: 46px;
+}
+.widLista__empty .empty__title {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+.widLista__empty .empty__description {
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+.widLista__btn-float {
+    position: absolute;
+    right: 0;
+    top: -18px;
+}
+.widLista__data-content {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    padding-top: 30px;
+}
+.widLista__list-container {
+    height: calc(100% - 40px);
+    overflow: hidden auto;
+}
+.widLista__list-container::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+.widLista__list-container::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background: var(--light-gray);
+}
+.widLista__row {
+    height: 40px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 105px 1fr 140px 130px 100px 100px;
+}
+.widLista__td {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+}
+.widLista__td-timer span {
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+}
+.widLista__th {
+    font-size: 10px;
+    font-weight: 400;
+}
+.widLista__item {
+    height: 48px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(50px);
+    margin-bottom: 10px;
+}
+.widLista__td-skeleton {
+    width: 100%;
+    height: 48px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}

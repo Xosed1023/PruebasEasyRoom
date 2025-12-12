@@ -1,0 +1,17 @@
+.paginator__button-arrow {
+    background: var(--white);
+    width: 52px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.paginator__button-arrow--disabled {
+    opacity: 0.4;
+}
+
+.paginator__button-arrow:hover {
+    background: var(--Fondo-close, #efe9ff);
+}

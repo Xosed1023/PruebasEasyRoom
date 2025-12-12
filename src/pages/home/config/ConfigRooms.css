@@ -1,0 +1,9 @@
+.config-rooms__container {
+    width: 100%;
+}
+
+.config-rooms__rooms-wrapper {
+    display: flex;
+    column-gap: 10px;
+    width: 100%;
+}

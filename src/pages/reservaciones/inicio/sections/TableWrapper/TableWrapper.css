@@ -1,0 +1,75 @@
+.flexible-table--gradient::after {
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 10;
+    border-radius: 0 0 10px 10px;
+}
+
+.flexible-table--gradient--with-paginator::after {
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 54px;
+    height: 60px;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 10;
+    border-radius: 0 0 10px 10px;
+}
+
+.flexible-table--gradientX::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--mid);
+    pointer-events: none;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0) 5%,
+        rgba(255, 255, 255, 0) 95%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    border-radius: 0 0 10px 10px;
+}
+
+.flexible-table--gradientX--with-paginator::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    bottom: 54px;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.7) 0%,
+        rgba(255, 255, 255, 0) 5%,
+        rgba(255, 255, 255, 0) 95%,
+        rgba(255, 255, 255, 0.7) 100%
+    );
+
+    border-radius: 0 0 10px 10px;
+}
+
+.tableWrapper--show-scroll-x {
+    overflow-x: visible;
+}
+.tableWrapper--no-show-scroll-x {
+    overflow-x: hidden;
+}

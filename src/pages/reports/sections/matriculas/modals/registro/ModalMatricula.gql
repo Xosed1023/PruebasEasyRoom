@@ -1,0 +1,11 @@
+mutation EditarHistorialVehiculo($input: UpdateHistorialVehiculoInput!) {
+    editar_historial_vehiculo(input: $input)
+}
+
+query MotivosIngreso($hotel_id: ID!) {
+    motivos_ingreso_vehiculos(hotel_id: $hotel_id) {
+        motivo_ingreso_id
+        nombre
+        hotel_id
+    }
+}

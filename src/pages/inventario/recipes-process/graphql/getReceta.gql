@@ -1,0 +1,33 @@
+query getRecetaToEdit($articulo_id: ID!, $hotel_id: ID!) {
+    receta(articulo_id: $articulo_id) {
+        articulo_id
+        articulo {
+            nombre
+            extra
+            estado
+            foto
+            unidad
+            contenido
+            categoria_id
+            categoria_articulo {
+                nombre
+            }
+            precio(hotel_id: $hotel_id) {
+                monto
+            }
+        }
+        ingredientes_recetas {
+            almacen_articulo_id
+            cantidad
+            unidad
+            ingrediente_receta_id
+            receta_id
+            articulo {
+                costo {
+                    monto
+                }
+                nombre
+            }
+        }
+    }
+}

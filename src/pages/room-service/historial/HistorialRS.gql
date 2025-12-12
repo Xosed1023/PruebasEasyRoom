@@ -1,0 +1,148 @@
+query GetOrdenesHistorial($hotel_id: ID, $fecha_registro: DateSearchInput, $pagination_options: PageOptionsArgs!, $tipo_orden: TipoOrden!, $numero_orden: String) {
+    historial_estados_orden(
+        hotel_id: $hotel_id
+        fecha_registro: $fecha_registro
+        pagination_options: $pagination_options
+        tipo_orden: $tipo_orden
+        numero_orden: $numero_orden
+    ) {
+        paginacion {
+            pagina_actual
+            total_paginas
+            total_registros
+        }
+        historial_estados_orden {
+            estado_orden
+            fecha_registro
+            historial_estado_orden_id
+            orden_id
+            tiempo_en_entrega
+            tiempo_en_preparacion
+            tiempo_por_entregar
+            tiempo_total
+            orden {
+                orden_id
+                orden
+                turno_id
+                estado_orden
+                estado_pago
+                origen_orden
+                renta_id
+                turno {
+                    nombre
+                }
+                fecha_cobro
+                fecha_registro
+                colaborador_id
+                colaborador_entrega {
+                    nombre
+                    apellido_paterno
+                    apellido_materno
+                }
+                total_con_iva
+                pago_id
+                pago {
+                    pago_id
+                    total
+                    detalles_pago {
+                        tipo_pago
+                    }
+                }
+                comanda {
+                    folio
+                }
+                mesa {
+                    numero_mesa
+                }
+            }
+        }
+    }
+}
+
+query GetComandasHistorial($hotel_id: ID, $fecha_registro: DateSearchInput, $pagination_options: PageOptionsArgs!, $numero_orden: String, $numero_mesa: String) {
+    historial_estados_comanda(
+        hotel_id: $hotel_id
+        fecha_registro: $fecha_registro
+        pagination_options: $pagination_options
+        numero_orden: $numero_orden
+        numero_mesa: $numero_mesa
+    ) {
+        paginacion {
+            pagina_actual
+            total_paginas
+            total_registros
+        }
+        historial_estados_comanda {
+            historial_estado_comanda_id
+            comanda_id
+            comanda {
+                orden_id
+                comanda_id
+                fecha_registro
+                folio
+                total_comanda
+                orden {
+                    orden_id
+                    orden
+                    colaborador_id
+                    estado_pago
+                    estado_orden
+                    origen_orden
+                    colaborador_entrega {
+                        nombre
+                        apellido_paterno
+                        apellido_materno
+                    }
+                    mesa {
+                        numero_mesa
+                    }
+                    pago_id
+                    pago {
+                        pago_id
+                        detalles_pago {
+                            tipo_pago
+                        }
+                    }
+                    turno_id
+                    turno {
+                      nombre
+                    }
+                }
+            }
+            hotel_id
+            tiempo_en_preparacion
+            tiempo_por_entregar
+            tiempo_total
+        }
+    }
+}
+
+query GetOrdenesHistorialCount($hotel_id: ID, $fecha_registro: DateSearchInput!, $tipo_orden: TipoOrden!) {
+    historial_estados_orden(
+        hotel_id: $hotel_id
+        fecha_registro: $fecha_registro
+        tipo_orden: $tipo_orden
+    ) {
+        paginacion {
+            total_registros
+        }
+    }
+}
+
+query GetComandasHistorialCount($hotel_id: ID, $fecha_registro: DateSearchInput!) {
+    historial_estados_comanda(
+        hotel_id: $hotel_id
+        fecha_registro: $fecha_registro
+    ) {
+        paginacion {
+            total_registros
+        }
+    }
+}
+
+query GetNumeroMesas($hotel_id: ID!) {
+        mesas(hotel_id: $hotel_id) {
+          mesa_id
+            numero_mesa
+        }
+    }

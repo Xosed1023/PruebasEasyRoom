@@ -1,0 +1,31 @@
+.gastos-info-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.gastos-info-button .gastos-info-content {
+    visibility: hidden;
+    width: 310px;
+    background-color: black;
+    border-radius: 8px;
+    padding: 12px;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    top: -50px;
+    left: 110%;
+}
+.gastos-info-button:hover .gastos-info-content {
+    visibility: visible;
+}
+.gastos-info-content-title {
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 12px;
+}
+.gastos-info-content-text {
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 12px;
+    margin-top: 5px;
+}

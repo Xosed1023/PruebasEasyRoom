@@ -1,0 +1,30 @@
+query getCortes {
+    cortes {
+        corte_id
+        fecha_cierre_corte
+        fecha_fin_corte
+        fecha_inicio_corte
+        efectivo_ingresado
+        folio
+        turno_id
+        turno {
+            nombre
+        }
+        usuario_cierra_corte
+        usuario_realiza_corte
+        total_corte
+        incidencias {
+            incidencia_id
+        }
+        usuario_crea {
+            apellido_materno
+            apellido_paterno
+            nombre
+        }
+        usuario_cierra {
+            apellido_materno
+            apellido_paterno
+            nombre
+        }
+    }
+}

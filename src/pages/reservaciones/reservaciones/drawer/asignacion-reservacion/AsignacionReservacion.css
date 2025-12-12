@@ -1,0 +1,96 @@
+.asignacion-reservacion {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    gap: 15px;
+    margin-top: 40px;
+    animation: select-animation2 0.5s none ease;
+}
+.asignacion-reservacion__table {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.asignacion-reservacion__info {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    overflow-y: scroll;
+    gap: 20px;
+}
+.asignacion-reservacion__table__item__info {
+    color: var(--Blanco, #fff);
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 83.333% */
+    margin: 0;
+}
+.asignacion-reservacion__header {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.asignacion-reservacion__header__title {
+    color: var(--Blanco, #fff);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 0;
+}
+.asignacion-reservacion__table__item__description {
+    color: var(--Blanco, #fff);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+}
+.reservaciones-add-extraperson__icon {
+    display: flex;
+    background-color: var(--light-gray);
+    padding: 3px;
+    border-radius: 50%;
+    flex-direction: row;
+    width: 5rem;
+    margin-top: 1.5rem;
+    height: 5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.asignacion-reservacion__table__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.asignacion-reservacion__header__icon {
+    background: rgba(105, 65, 198, 0.3);
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+}
+.asignacion-reservacion__header__icon__svg {
+    height: 94%;
+    width: 51%;
+    position: relative;
+}
+
+.asignacion-reservacion__button__confirm {
+    width: 100%;
+    position: sticky;
+    margin-top: 10px;
+    bottom: 24px;
+}

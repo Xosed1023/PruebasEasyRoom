@@ -1,0 +1,28 @@
+mutation CrearOrden($create_orden_input: CreateOrdenInput!) {
+  crear_orden(create_orden_input: $create_orden_input) {
+    orden {
+      orden
+      orden_id
+      virtual_comanda_id
+      consumo_interno_colaborador_id
+      comanda {
+        folio
+      }
+      pago_id
+      pago {
+        ticket_id
+        detalles_pago {
+          easyrewards_id
+          __typename
+        }
+        __typename
+      }
+      easyrewards_id
+      __typename
+    }
+    __typename
+  }
+}
+mutation ActualizarOrden($update_orden_input: UpdateOrdenInput!) {
+    actualizar_orden(UpdateOrdenInput: $update_orden_input)
+}

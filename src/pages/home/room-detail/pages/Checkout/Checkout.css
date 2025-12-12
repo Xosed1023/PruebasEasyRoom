@@ -1,0 +1,11 @@
+.room-detail__page {
+    display: flex;
+    justify-content: space-between;
+}
+
+.room-detail__page--checkout-main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: flex-start;
+}

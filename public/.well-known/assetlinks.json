@@ -1,0 +1,12 @@
+[
+    {
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.easyroom.mobile",
+            "sha256_cert_fingerprints": [
+                "1E:DB:DB:77:74:87:77:7D:76:68:5E:B2:45:54:4F:F3:42:17:4C:77:4E:73:BC:62:67:8C:CA:D6:5E:35:E7:0C"
+            ]
+        }
+    }
+]

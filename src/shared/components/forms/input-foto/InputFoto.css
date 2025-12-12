@@ -1,0 +1,80 @@
+.inputImage {
+    display: flex;
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    background: var(--fondo-close);
+    border: 2.415px solid #fff;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+    position: absolute;
+    flex-wrap: nowrap;
+}
+.inputImage__icon-camara {
+    width: 91.943px;
+    height: 86.943px;
+    padding: 22px 22px 25px;
+    animation: zoom-in 0.3s ease-in-out;
+}
+.inputImage__icon-img {
+    border-radius: 50%;
+    height: 140px;
+    width: 140px;
+    animation: zoom-in 0.3s ease-in-out;
+    transform: rotateX(360deg);
+}
+.inputImage__icon-edit {
+    display: flex;
+    position: absolute;
+    height: 21px;
+    margin-right: 15px;
+    margin-bottom: -3px;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 21px;
+    background: var(--primary);
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+}
+.inputImage__icon-edit__icon {
+    display: flex;
+    position: absolute;
+    height: 70%;
+    width: 70%;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.inputImage__icon-plus {
+    display: flex;
+    position: absolute;
+    background-color: var(--primary);
+    height: 21px;
+    width: 21px;
+    margin-right: 7px;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.inputImage__icon-plus:hover {
+    transform: rotate(90deg);
+}
+
+.inputImage__image-container {
+    position: relative;
+}
+
+@keyframes zoom-in {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

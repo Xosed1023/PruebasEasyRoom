@@ -1,0 +1,18 @@
+.venta-habitacion__costs__item-sumatory {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.venta-habitacion__costs__item-sumatory > span {
+    color: var(--Tipografa, #303030);
+    text-align: right;
+    font-feature-settings: "calt" off;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 30px */
+    letter-spacing: -0.2px;
+}

@@ -1,0 +1,29 @@
+.restaurante-screen .screen__head {
+    align-items: start;
+    padding-top: 40px;
+}
+
+
+.restaurante-screen {
+    align-items: start;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.restaurante-screen__header {
+    display: flex;
+}
+
+.restaurante-screen__header__icon, .restaurante-screen__header__time__icon {
+    box-shadow: 0px 0px 2px 1px var(--box-shadow);
+    border-radius: 12px;
+    padding: 10px 15px;
+    background-color: var(--white);
+    display: flex;
+    margin-left: 22px;
+}
+
+.restaurante-screen__header__time__icon svg {
+    transform: scaleX(-1);
+}

@@ -1,0 +1,34 @@
+.modal-change-digital-authorization .option-selector__radio {
+    display: none;
+}
+
+.modal-change-digital-authorization {
+    width: 100%;
+}
+
+.modal__back {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    top: 24px;
+    z-index: 10;
+}
+
+.modal__back-text {
+    width: 58px;
+    height: 27.19px;
+    position: absolute;
+    top: 14.99px;
+    left: 58px;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--deep-blue);
+}
+
+.modal__back svg {
+    width: 14px;
+    height: 14px;
+}

@@ -1,0 +1,70 @@
+.venta-habitacion__resumen__wrapper__wrapper {
+    width: 300px;
+    max-height: 700px;
+    min-height: 300px;
+    height: calc(100dvh - 100px);
+    background-color: var(--white);
+    transform: translateY(-65px);
+
+    border-radius: 12px;
+    border: 1px solid var(--Blanco, #fff);
+    background: var(--Color, #fff);
+
+    /* sombra cards */
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;    
+}
+
+.venta-habitacion__resumen__wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.venta-habitacion__resumen {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0px 24px;
+    height: 100%;
+    padding-right: 6px;
+    overflow-y: auto;
+}
+
+.venta-habitacion__resumen__descriptions {
+    display: flex;
+    flex-direction: column;
+}
+
+.venta-habitacion__resumen__title {
+    color: var(--Tipografa, #303030);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    margin: 12px 24px;
+}
+
+
+.venta-habitacion__resumen__footer__wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.venta-habitacion__resumen__footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 72px;
+}
+
+.venta-habitacion__payments__divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--gray-background);
+}

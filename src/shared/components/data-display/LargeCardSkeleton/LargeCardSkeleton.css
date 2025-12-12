@@ -1,0 +1,31 @@
+.large-card-skeleton-container {
+    .home-screen-skeleton-card {
+        padding: 26px 40px 58px 40px;
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+.large-card-skeleton-first {
+    width: 128px;
+    height: 24px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    .skeleton-item-base {
+        width: 128px;
+        height: 24px;
+        border-radius: 8px;
+    }
+}
+.large-card-skeleton-second {
+    width: 601px;
+    height: 14px;
+    border-radius: 8px;
+    .skeleton-item-base {
+        width: 601px;
+        height: 14px;
+        border-radius: 8px;
+    }
+}

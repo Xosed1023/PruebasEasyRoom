@@ -1,0 +1,13 @@
+export type Section = 
+"home"
+| "clean-staff"
+| "clean-tyoe"
+| "mantenance-staff"
+| "active-cleaning-staff"
+| "mantenance-reason"
+| "booking"
+| "supervisor-staff"
+| "finish-clean"
+| "tipoLimpieza"
+| "change-clean-type"
+| "change-supervisor-staff"

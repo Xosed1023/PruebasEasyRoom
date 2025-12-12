@@ -1,0 +1,31 @@
+.details-order__container_title {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.details-order__info_container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.details-order__info_name {
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.details-order__info_quantity {
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.details-order__info_quantity_container {
+    display: flex;
+    gap: 5px;
+}

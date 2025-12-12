@@ -1,0 +1,14 @@
+query PlacasPendientes($hotel_id: ID!, $matricula: String!, $limite: Int) {
+    placas_pendientes(hotel_id: $hotel_id, matricula: $matricula, limite: $limite) {
+        historial_vehiculo_id
+        vehiculo_id
+        vehiculo {
+            data {
+                matricula
+                marca
+                color
+                modelo
+            }
+        }
+    }
+}

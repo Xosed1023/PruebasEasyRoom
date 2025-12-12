@@ -1,0 +1,77 @@
+.drawer__content {
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    box-sizing: border-box;
+    -webkit-transition: transform 0.5s cubic-bezier(0, 0, 0.38, 1.01);
+    transition: transform 0.5s cubic-bezier(0, 0, 0.38, 1.01);
+    padding: 4px 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.drawer__back-button {
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.drawer__close-button,
+.drawer__menu-button {
+    cursor: pointer;
+}
+
+.drawer__top {
+    top: var(--header-height);
+    left: 48px;
+    width: calc(100% - 91px);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    height: -moz-fit-content;
+    height: fit-content;
+    background-color: #edf0f7;
+    -webkit-transform: translate3d(0, -115%, 0);
+    transform: translate3d(0, -115%, 0);
+}
+
+.drawer__right {
+    right: 0;
+    height: calc(100vh - var(--header-height));
+    width: 388px;
+    background-color: rgba(14, 14, 14, 0.8);
+    -webkit-transform: translate3d(101%, 0, 0);
+    transform: translate3d(101%, 0, 0);
+}
+
+.drawer__bar {
+    width: 260px;
+    height: 2px;
+    background-color: #1a202c;
+    border-radius: 24px;
+    margin-top: 15px;
+}
+
+.drawer__main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer__contain__top-right {
+    display: flex;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    align-items: center;
+    margin-left: auto;
+}
+
+@media screen and (max-width: 1249px) {
+    .drawer__top {
+        display: none;
+    }
+}

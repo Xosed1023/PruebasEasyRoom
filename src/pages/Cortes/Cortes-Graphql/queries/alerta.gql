@@ -1,0 +1,10 @@
+query AlertaPagosPendientes($hotel_id: ID!) {
+    alertas_corte(hotel_id: $hotel_id) {
+        alerta_por_pagos_pendientes
+        registros_pendientes {
+            registro_obligatorio
+            alerta_por_placas_pendientes
+            alerta_por_mantenimiento_pendiente
+        }
+    }
+}

@@ -1,0 +1,12 @@
+query GetExperiencias($hotel_id: ID!, $experiencia_id: [ID!]) {
+  experiencias(hotel_id: $hotel_id, experiencia_id: $experiencia_id, estado: disponible, eliminado: false ) {
+    experiencia_id
+    nombre
+    precio
+    descripcion
+    estado
+    hotel_id
+    fecha_registro
+  }
+}
+

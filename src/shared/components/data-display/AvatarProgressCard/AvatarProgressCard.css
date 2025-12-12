@@ -1,0 +1,73 @@
+.avatar-progress-card {
+    width: 340px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    /* background: rgba(255, 255, 255, 0.3); */
+    background: rgba(255, 255, 255, 0.3);
+
+    /* Background_blurt */
+    backdrop-filter: blur(50px);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar-progress-card__description {
+    display: flex;
+    align-items: center;
+
+    margin-top: 14px;
+    margin-left: 25px;
+}
+
+.avatar-progress-card__avatar-name {
+    display: flex;
+    align-items: center;
+
+    margin-top: 20px;
+    margin-left: 24px;
+    margin-bottom: -10px;
+}
+
+.avatar-progress-card__description-text__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar-progress-card__description-text__link {
+    color: var(--Blanco, #fff);
+    cursor: pointer;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    text-decoration-line: underline;
+}
+
+.avatar-progress-card__description-text {
+    color: var(--Blanco, var(--Color, #fff));
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+    margin-left: 9px;
+
+    max-width: 225px;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.avatar-progress-card__entry-time {
+    color: var(--Blanco, var(--Color, #fff));
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 166.667% */
+
+    margin-left: 25px;
+    margin-top: 6px;
+}

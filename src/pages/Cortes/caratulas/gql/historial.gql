@@ -1,0 +1,35 @@
+query GetCortesHistorial(
+    $fecha_inicio_corte: DateSearchInput
+    $fecha_corte: DaySearchInput
+    $hotel_id: ID
+    $estatus: EstatusCorte
+) {
+    cortes(fecha_inicio_corte: $fecha_inicio_corte, fecha_corte: $fecha_corte, hotel_id: $hotel_id, estatus: $estatus) {
+        corte_id
+        folio
+        total_corte
+        total_pagos_pendientes
+        fecha_cierre_corte
+        fecha_inicio_corte
+        fecha_fin_corte
+        usuario_cierra_corte
+        usuario_realiza_corte
+        turno_id
+        usuario_crea {
+            nombre
+            apellido_materno
+            apellido_paterno
+        }
+        usuario_cierra {
+            nombre
+            apellido_materno
+            apellido_paterno
+        }
+        turno {
+            nombre
+        }
+        incidencias {
+            incidencia_id
+        }
+    }
+}

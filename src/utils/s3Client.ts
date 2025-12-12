@@ -1,45 +1,57 @@
-import {
-    VITE_APP_BUCKET_REGION,
-    VITE_APP_SPACES_ENDPOINT,
-    VITE_APP_ACCESS_KEY,
-    VITE_APP_SECRET_KEY,
-} from "@/config/environment"
-import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3"
+import { S3Client, PutObjectCommand, PutObjectCommandInput, DeleteObjectCommand,  } from '@aws-sdk/client-s3';
+import { REACT_APP_ACCES_KEY, REACT_APP_BUCKET_REGION, REACT_APP_SECRET_KEY, REACT_APP_SPACES_ENDPOINT } from 'src/config/environment';
 
-type UploadFileParams = {
-    bucket: string
-    folder: string
-    resourceName: string
-    file: File
+const s3Client = new S3Client({
+    endpoint: `https://${REACT_APP_SPACES_ENDPOINT}`,
+    forcePathStyle: false,
+    region: REACT_APP_BUCKET_REGION ?? 'us-east-1',
+    credentials: {
+        accessKeyId: REACT_APP_ACCES_KEY ?? '',
+        secretAccessKey: REACT_APP_SECRET_KEY ?? '',
+    }
+});
+
+export const uploadFileToBucket = async ({ bucket, folder, resourceName, file }:
+    { bucket: string, folder: string, resourceName: string, file: File }) => {
+    try {
+        let url = '';
+        if (file) {
+            const { name, type } = file;
+            const fileExtension = name.split('.').pop();
+    
+            const params: PutObjectCommandInput = {
+                Body: file,
+                Bucket: bucket,
+                Key: `${folder}/${resourceName}.${fileExtension}`,
+                ACL: 'public-read',
+                ContentType: type,
+            };
+    
+            const putObject = new PutObjectCommand(params);
+    
+            await s3Client.send(putObject)
+                .then((res) => {
+                    url = `https://${bucket}.${REACT_APP_SPACES_ENDPOINT}/${params.Key}`;
+                })
+                .catch((error) => console.error('s3Client error->', error));
+        }
+
+        return url;
+    } catch (error) {
+        console.error('Error upload bucket->', error);
+    }
 }
 
-export const uploadFileToBucket = async ({ bucket, folder, resourceName, file }: UploadFileParams): Promise<string> => {
-    const endpoint = VITE_APP_SPACES_ENDPOINT!
-    const region = VITE_APP_BUCKET_REGION
-    const accessKeyId = VITE_APP_ACCESS_KEY
-    const secretAccessKey = VITE_APP_SECRET_KEY
+export const deleteFileFromBucket = async ({ bucket, folder, resourceName }: 
+    { bucket: string, folder: string, resourceName: string }) => {
+    const params = {
+        Bucket: bucket,
+        Key: resourceName
+    };
 
-    const client = new S3Client({
-        region,
-        endpoint: `https://${endpoint}`,
-        credentials: { accessKeyId, secretAccessKey },
-    })
+    const deleteObject = new DeleteObjectCommand(params);
 
-    client.middlewareStack.remove?.("flexibleChecksumsMiddleware")
-
-    const cleanFolder = folder.replace(/^\/+|\/+$/g, "")
-    const Key = `${cleanFolder}/${resourceName}`.replace(/\/{2,}/g, "/")
-    const bodyBytes = new Uint8Array(await file.arrayBuffer())
-
-    await client.send(
-        new PutObjectCommand({
-            Bucket: bucket,
-            Key,
-            Body: bodyBytes,
-            ContentType: file.type || "application/octet-stream",
-            ACL: "public-read",
-        })
-    )
-
-    return `https://${bucket}.${endpoint}/${Key}`
+    s3Client.send(deleteObject)
+        .then((res) => console.log(res))
+        .catch((error) => console.error('Delete bucket error->', error));
 }

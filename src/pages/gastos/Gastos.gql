@@ -1,0 +1,220 @@
+query Categorias_gasto($hotel_id: ID!) {
+    categorias_gasto(hotel_id: $hotel_id, eliminado: false) {
+        categoria
+        categoria_id
+        eliminado
+        fecha_registro
+        hotel_id
+        limite_mensual
+        predeterminado
+        presupuesto
+        usuario_id
+        subcategorias_de_categoria {
+            categoria_id
+            eliminado
+            subcategoria
+            subcategoria_gasto_id
+        }
+    }
+}
+
+query getGastos {
+    gastos {
+        caja_chica
+        gasto_id
+        metodo_pago
+        usuario_id
+        folio
+        monto
+        comentarios
+        categoria_id
+        usuario {
+            apellido_materno
+            apellido_paterno
+            nombre
+            usuario_id
+            roles {
+                eliminado
+                grupo_hotel_id
+                nombre
+                rol_id
+            }
+        }
+        hotel_id
+        subcategoria_id
+        categoria_id
+        categoria_gasto {
+            categoria
+            categoria_id
+        }
+        subcategoria_gasto {
+            subcategoria
+        }
+        fecha_gasto
+        fecha_registro
+    }
+}
+query getGastoUnico($gastoId: ID!) {
+    gasto(gasto_id: $gastoId) {
+        categoria_id
+        fecha_gasto
+        fecha_registro
+        hotel_id
+        metodo_pago
+        monto
+        folio
+        usuario_id
+        categoria_gasto {
+            categoria
+            categoria_id
+
+            subcategorias_gasto {
+                subcategoria
+                subcategoria_gasto_id
+            }
+        }
+    }
+}
+
+query getCategoriaGastos($hotel_id: ID!, $predeterminado: Boolean!, $usuario_id: ID!) {
+    categorias_gasto(eliminado: false, hotel_id: $hotel_id, predeterminado: $predeterminado, usuario_id: $usuario_id) {
+        categoria
+        categoria_id
+        presupuesto
+        limite_mensual
+        subcategorias_de_categoria {
+            subcategoria
+            subcategoria_gasto_id
+        }
+    }
+}
+query GetSubCategorias {
+    subcategorias_gasto(eliminado: false) {
+        subcategoria
+        subcategoria_gasto_id
+        categoria_gasto {
+            categoria
+            categoria_id
+        }
+    }
+}
+
+mutation CrearGastos($datosGasto: CreateGastoInput!) {
+    crear_gasto(datos_gastos: $datosGasto) {
+        ticket_id
+        gasto {
+            fecha_gasto
+            gasto_id
+        }
+    }
+}
+
+mutation CrearCategoriaGasto($crearCategoriaGasto: CreateCategoriasGastosInput!) {
+    crear_categoria_gasto(categoria_gasto_data: $crearCategoriaGasto) {
+        categoria
+    }
+}
+
+mutation CreateSubCategori($subCat: CreateSubcategoriasGastosInput!) {
+    crear_subcategoria_gasto(subcategoria_gasto_data: $subCat) {
+        subcategoria
+        subcategoria_gasto_id
+    }
+}
+
+mutation DeleteCategoriaGastos($deleteGastoCatergoria: DeleteCategoriaGastosInput!) {
+    eliminar_categoria_gasto(categoria_gasto_data: $deleteGastoCatergoria) {
+        categoria
+        categoria_id
+    }
+}
+mutation DeleteSubCategoria($id: DeleteSubcategoriaGastoInput!) {
+    eliminar_subcategoria_gasto(subcategoria_gasto_data: $id) {
+        subcategoria
+        categoria_id
+    }
+}
+
+mutation DeleteGasto($idGasto: DeleteGastoInput!) {
+    borrar_gasto(datos_gasto: $idGasto) {
+        gasto_id
+    }
+}
+
+mutation ActualizasGasto($ActualizarGasto: UpdateGastoInput!) {
+    actualizar_gasto(datos_gastos: $ActualizarGasto) {
+        folio
+        gasto_id
+    }
+}
+
+query GetGastosDelMes($hotel_id: ID, $month: String!, $caja_chica: Boolean) {
+    gastos_por_mes(hotel_id: $hotel_id, month: $month, caja_chica: $caja_chica) {
+        total_gasto
+        gastos {
+            gasto_id
+            metodo_pago
+            usuario_id
+            folio
+            monto
+            comentarios
+            categoria_id
+            usuario {
+                nombre
+                apellido_materno
+                apellido_paterno
+            }
+            hotel_id
+            subcategoria_id
+            categoria_id
+            categoria_gasto {
+                categoria
+                categoria_id
+
+                subcategorias_gasto {
+                    subcategoria
+                    subcategoria_gasto_id
+                }
+            }
+            fecha_gasto
+            fecha_registro
+        }
+    }
+}
+
+query getGastosCategorasPorMes($gastosCategoria: String!, $hotel_id: ID!) {
+    gastos_categoria_por_mes(month: $gastosCategoria, hotel_id: $hotel_id) {
+        porcentaje
+        total_gasto
+        categoria {
+            categoria
+            presupuesto
+            subcategorias_de_categoria {
+                subcategoria
+                subcategoria_gasto_id
+            }
+        }
+        subcategorias {
+            monto
+            subcategoria
+            subcategoria_gasto_id
+        }
+    }
+}
+
+query getGastosCategorasPorMesCards($gastosCategoria: String!, $hotel_id: ID!) {
+    gastos_categoria_por_mes(month: $gastosCategoria, hotel_id: $hotel_id) {
+        porcentaje
+        total_gasto
+        categoria {
+            categoria
+            presupuesto
+        }
+    }
+}
+
+query Total_gastos_por_dia_recepcionista {
+    total_gastos_por_dia_recepcionista {
+        total_gasto
+    }
+}

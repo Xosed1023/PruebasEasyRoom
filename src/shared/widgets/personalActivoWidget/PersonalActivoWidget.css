@@ -1,0 +1,104 @@
+.personalActivoWit {
+    display: flex;
+    width: 25%;
+    min-width: 260px;
+    height: 518px;
+    border-radius: 18.847px;
+    background: rgba(14, 14, 14, 0.8);
+    padding: 20px;
+    flex-direction: column;
+    gap: 2px;
+    animation: opacity-animation 0.5s none ease;
+    margin-right: 20px;
+}
+.personalActivoWit__title {
+    color: #fff;
+    font-family: var(--font-text);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.personalActivoWit__tabs {
+    display: flex;
+    margin-bottom: 16px;
+}
+.personalActivoWit__tabs__item {
+    color: #fff;
+    font-family: var(--font-text);
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    transition: all 0.3s;
+    padding-bottom: 15px;
+    cursor: pointer;
+    padding: 0 5px 4px;
+}
+
+.personalActivoWit__tabs__item.select {
+    border-bottom: 2px solid #fff;
+    margin-bottom: 7px;
+    font-weight: 600;
+    padding-bottom: 12px;
+}
+@keyframes opacity-animation {
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+.personalActivoWit__list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    overflow: auto;
+    width: 100%;
+    padding-right: 7px;
+    animation: opacity-animation 0.5s none ease;
+}
+
+.personalActivoWit__notData__icon {
+    background: #6941c657;
+    padding: 34px 34px 30px 36px;
+    border-radius: 50%;
+}
+
+.personalActivoWit__notData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    gap: 15px;
+}
+
+.personalActivoWit__notData__subtitles {
+    color: #fff;
+    text-align: center;
+    font-family: var(--font-text);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.personalActivoWit__list__item {
+    column-gap: 10px;
+}
+.personalActivoWit__list__item .cardUser__name {
+    font-size: 12px;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+}
+.personalActivoWit__list__item .cardUser__email {
+    font-size: 12px;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

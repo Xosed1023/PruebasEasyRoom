@@ -1,0 +1,25 @@
+.datapicker__calendar {
+    height: 75dvh;
+}
+
+.current--dot {
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background-color: var(--primary);
+
+
+}
+
+.current:hover {
+    .current--dot{
+        background-color: var(--blue-slate);
+    }
+}
+
+.selected {
+    .current--dot{
+        background-color: var(--white);
+    }
+}

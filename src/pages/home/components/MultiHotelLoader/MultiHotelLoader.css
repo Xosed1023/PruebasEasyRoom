@@ -1,0 +1,75 @@
+.multihotel-loader-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    background: none;
+    z-index: 9999;
+}
+
+.multihotel-loader-modal {
+    width: 278px;
+    height: 208px;
+    background-color: #F2F4F5;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.multihotel-loader-icon-wrapper {
+    width: 120px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end
+}
+
+.multihotel-loader-icon {
+    position: absolute;
+    bottom: 0;
+    animation: moveIcon 1s linear infinite;
+}
+
+@keyframes moveIcon {
+     0% {
+    transform: translateX(-112px);
+    animation-timing-function: cubic-bezier(0.0, 0.0, 0.58, 1.0); /* desacelera hasta 0 */
+  }
+
+  /* Llega al centro y se queda quieto (velocidad 0) */
+  50% {
+    transform: translateX(0);
+  }
+
+  /* Pausa en el centro */
+  60% {
+    transform: translateX(0);
+    animation-timing-function: cubic-bezier(0.42, 0.0, 1.0, 1.0); /* acelera desde 0 */
+  }
+
+  /* Sale del centro hacia la derecha acelerando */
+  100% {
+    transform: translateX(112px);
+  }
+}
+
+.multihotel-loader-text {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: -2%;
+    text-align: center;
+    color: var(--label-color);
+    margin-top: 16px;
+}

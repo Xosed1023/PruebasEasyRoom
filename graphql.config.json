@@ -1,23 +1,19 @@
 {
   "__schema": {
     "queryType": {
-      "name": "Query",
-      "kind": "OBJECT"
+      "name": "Query"
     },
     "mutationType": {
-      "name": "Mutation",
-      "kind": "OBJECT"
+      "name": "Mutation"
     },
     "subscriptionType": {
-      "name": "Subscription",
-      "kind": "OBJECT"
+      "name": "Subscription"
     },
     "types": [
       {
         "kind": "ENUM",
         "name": "AccionesEdicion",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -47,7 +43,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AcumulaPuntosInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -115,7 +110,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AcumulaPuntosPartialInfoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -239,7 +233,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AddColaboradorInHotelInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -315,7 +308,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AddComentarioHabitacionInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -359,7 +351,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AddComentarioIncidenciaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -419,7 +410,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AddComentarioRentaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -463,7 +453,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AddComentarioReservaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -507,7 +496,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AddCommentToTaskInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -559,7 +547,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AddExtrasReservaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -659,7 +646,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AddHorasExtrasRentaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -771,7 +757,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AddHospedajesExtrasRentaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -899,7 +884,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AddImageInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -943,7 +927,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AddPersonasExtrasRentaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -1055,7 +1038,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AddPropinaVentaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -1103,7 +1085,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AddRoomToBookingInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -1163,7 +1144,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AjustarAsignacionPropinaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -1251,7 +1231,6 @@
         "kind": "OBJECT",
         "name": "AjustarAsignacionPropinaOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "limite_disponible",
@@ -1319,7 +1298,6 @@
         "kind": "OBJECT",
         "name": "AlertasCorteOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "alerta_por_pagos_pendientes",
@@ -1363,7 +1341,6 @@
         "kind": "OBJECT",
         "name": "AlertasPorRegistrosPendientesDetailOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "alerta_por_mantenimiento_pendiente",
@@ -1423,7 +1400,6 @@
         "kind": "OBJECT",
         "name": "Almacen",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "almacen_id",
@@ -1627,7 +1603,6 @@
         "kind": "OBJECT",
         "name": "AlmacenArticulo",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "almacen",
@@ -1855,7 +1830,6 @@
         "kind": "OBJECT",
         "name": "ApiKey",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "activo",
@@ -1999,7 +1973,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AportacionPropinaRSDetailInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -2043,7 +2016,6 @@
         "kind": "OBJECT",
         "name": "Area",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "area_id",
@@ -2171,7 +2143,6 @@
         "kind": "OBJECT",
         "name": "AreasPuestos",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "area",
@@ -2263,7 +2234,6 @@
         "kind": "OBJECT",
         "name": "Articulo",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "almacenes_articulos",
@@ -2724,7 +2694,6 @@
         "kind": "OBJECT",
         "name": "ArticuloExtraTicket",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "articulo",
@@ -2812,7 +2781,6 @@
         "kind": "OBJECT",
         "name": "ArticuloTicket",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "articulo",
@@ -2924,7 +2892,6 @@
         "kind": "OBJECT",
         "name": "ArticulosResponse",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "articulo_id",
@@ -3048,7 +3015,6 @@
         "kind": "OBJECT",
         "name": "AsignacionPropina",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "asignacion_propina_id",
@@ -3280,7 +3246,6 @@
         "kind": "OBJECT",
         "name": "Asistencia",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "asistencia_id",
@@ -3428,7 +3393,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AuthLoginInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -3472,7 +3436,6 @@
         "kind": "OBJECT",
         "name": "AuthLoginResponse",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "colaborador_activo",
@@ -3536,7 +3499,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AuthenticateCredencialInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -3564,7 +3526,6 @@
         "kind": "OBJECT",
         "name": "AuthenticateCredentialOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "usuario_id",
@@ -3592,7 +3553,6 @@
         "kind": "INPUT_OBJECT",
         "name": "AutorizarFajillaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -3648,7 +3608,6 @@
         "kind": "OBJECT",
         "name": "AuxPartialInfoRentaResponse",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "extra_id",
@@ -3684,7 +3643,6 @@
         "kind": "OBJECT",
         "name": "BandejaNotificaciones",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "bandeja_notificaciones_id",
@@ -3828,7 +3786,6 @@
         "kind": "OBJECT",
         "name": "BillingPerMonthGroupedByCategoryOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "categoria",
@@ -3908,7 +3865,6 @@
         "kind": "OBJECT",
         "name": "BillingPerMonthGroupedByCategoryWithMonthOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "gastos_por_categoria",
@@ -3960,7 +3916,6 @@
         "kind": "OBJECT",
         "name": "BillingPerMonthOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "gastos",
@@ -4004,7 +3959,6 @@
         "kind": "SCALAR",
         "name": "Boolean",
         "description": "The `Boolean` scalar type represents `true` or `false`.",
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -4015,7 +3969,6 @@
         "kind": "SCALAR",
         "name": "Buffer",
         "description": "Buffer custom scalar type",
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -4026,7 +3979,6 @@
         "kind": "OBJECT",
         "name": "Cama",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "numero",
@@ -4070,7 +4022,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CamaArgs",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4106,7 +4057,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CamaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4150,7 +4100,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CambiarMesaAsignadaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4222,7 +4171,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CancelComandaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4282,7 +4230,6 @@
         "kind": "OBJECT",
         "name": "CancelComandaOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "comanda",
@@ -4322,7 +4269,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CancelDetalleOrdenDetailInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4382,7 +4328,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CancelDetalleOrdenInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4426,7 +4371,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CancelDetallesOrdenInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4498,7 +4442,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CancelExtraDetalleOrdenDetailInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4558,7 +4501,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CancelExtraDetalleOrdenInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4618,7 +4560,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CancelExtraInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4662,7 +4603,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CancelOperationRentaItemInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4706,7 +4646,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CancelOperationsRentaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4834,7 +4773,6 @@
         "kind": "OBJECT",
         "name": "CancelOperationsRentaOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "extras_cancelled",
@@ -4910,7 +4848,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CancelOrdenInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4970,7 +4907,6 @@
         "kind": "OBJECT",
         "name": "CancelOrdenOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "orden",
@@ -5010,7 +4946,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CancelRentaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -5098,7 +5033,6 @@
         "kind": "OBJECT",
         "name": "CancelRentaOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "renta",
@@ -5138,7 +5072,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CancelReservaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -5210,7 +5143,6 @@
         "kind": "OBJECT",
         "name": "CancelReservaResponse",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "ticket_ids",
@@ -5246,7 +5178,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CancelRoomServiceRentaItemInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -5314,7 +5245,6 @@
         "kind": "OBJECT",
         "name": "CardHabitacion",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "tamano",
@@ -5350,7 +5280,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CardHabitacionInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -5386,7 +5315,6 @@
         "kind": "OBJECT",
         "name": "CategoriaArticulo",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "categoria_id",
@@ -5538,7 +5466,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CategoriaArticuloFilterArgs",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -5590,7 +5517,6 @@
         "kind": "OBJECT",
         "name": "CategoriaGasto",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "categoria",
@@ -5786,7 +5712,6 @@
         "kind": "INPUT_OBJECT",
         "name": "ChangeHabitacionReservaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -5846,7 +5771,6 @@
         "kind": "INPUT_OBJECT",
         "name": "ChangePasswordInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -5902,7 +5826,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CheckInInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -6090,7 +6013,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CheckOutInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -6254,7 +6176,6 @@
         "kind": "OBJECT",
         "name": "CheckReserveLimitOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "alerta_por_limite_reservas",
@@ -6306,7 +6227,6 @@
         "kind": "OBJECT",
         "name": "ClaveTipoBloqueo",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "clave",
@@ -6350,7 +6270,6 @@
         "kind": "INPUT_OBJECT",
         "name": "ClaveTipoBloqueoArgs",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -6394,7 +6313,6 @@
         "kind": "INPUT_OBJECT",
         "name": "ClaveTipoBloqueoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -6438,7 +6356,6 @@
         "kind": "OBJECT",
         "name": "ClaveTipoMantenimiento",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "clave",
@@ -6482,7 +6399,6 @@
         "kind": "INPUT_OBJECT",
         "name": "ClaveTipoMantenimientoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -6526,7 +6442,6 @@
         "kind": "OBJECT",
         "name": "Cliente",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "cliente_id",
@@ -6622,7 +6537,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CloseBillMesaAsignadaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -6650,7 +6564,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CloseCorteInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -6710,7 +6623,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CloseIncidenciaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -6782,7 +6694,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CloseMesaAsignadInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -6810,7 +6721,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CloseTaskInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -6922,7 +6832,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CloseTurnoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -6982,7 +6891,6 @@
         "kind": "OBJECT",
         "name": "Colaborador",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "apellido_materno",
@@ -7529,7 +7437,6 @@
         "kind": "OBJECT",
         "name": "ColaboradorReportePropinaDetailOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "colaborador",
@@ -7673,7 +7580,6 @@
         "kind": "OBJECT",
         "name": "ColaboradorTarea",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "colaborador",
@@ -7913,7 +7819,6 @@
         "kind": "OBJECT",
         "name": "Comanda",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "comanda_id",
@@ -8126,7 +8031,6 @@
         "kind": "OBJECT",
         "name": "ComentarioHabitacion",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "comentario",
@@ -8202,7 +8106,6 @@
         "kind": "INPUT_OBJECT",
         "name": "ComentarioHabitacionInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -8250,7 +8153,6 @@
         "kind": "OBJECT",
         "name": "ComentarioIncidenciaEntity",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "comentario",
@@ -8310,7 +8212,6 @@
         "kind": "OBJECT",
         "name": "ComentarioTarea",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "comentario",
@@ -8358,7 +8259,6 @@
         "kind": "OBJECT",
         "name": "ComentariosInfoRenta",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "comentario",
@@ -8402,7 +8302,6 @@
         "kind": "OBJECT",
         "name": "ComentariosInfoReserva",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "comentario",
@@ -8446,7 +8345,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CommentTaskInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -8506,7 +8404,6 @@
         "kind": "ENUM",
         "name": "ConceptosConfiguracionesCortes",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -8530,7 +8427,6 @@
         "kind": "INPUT_OBJECT",
         "name": "ConceptosInclusionFilterArgs",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -8562,7 +8458,6 @@
         "kind": "OBJECT",
         "name": "ConfiguracionCorte",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "activo",
@@ -8638,7 +8533,6 @@
         "kind": "OBJECT",
         "name": "ConfiguracionFajilla",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "configuracion_fajilla_id",
@@ -8746,7 +8640,6 @@
         "kind": "OBJECT",
         "name": "ConfiguracionInventario",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "configuracion_inventario_id",
@@ -8806,7 +8699,6 @@
         "kind": "OBJECT",
         "name": "ConfiguracionNotificacionesOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "cortes",
@@ -8882,7 +8774,6 @@
         "kind": "OBJECT",
         "name": "ConfiguracionPropina",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "configuracion_propina_id",
@@ -9006,7 +8897,6 @@
         "kind": "OBJECT",
         "name": "Configurations",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "cardHabitacion",
@@ -9050,7 +8940,6 @@
         "kind": "INPUT_OBJECT",
         "name": "ConfigurationsInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -9086,7 +8975,6 @@
         "kind": "OBJECT",
         "name": "ConteosOrdenesDetailsOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "mostrador",
@@ -9146,7 +9034,6 @@
         "kind": "OBJECT",
         "name": "Corte",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "anticipos_reservas",
@@ -9858,7 +9745,6 @@
         "kind": "OBJECT",
         "name": "CortesNotificacionesConfigOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "caratula_mensual",
@@ -9902,7 +9788,6 @@
         "kind": "OBJECT",
         "name": "CortesSummaryByMonthResponse",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "cortes_cerrados",
@@ -10010,7 +9895,6 @@
         "kind": "OBJECT",
         "name": "Costo",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "activo",
@@ -10114,7 +9998,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateAlmacenArticuloInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -10206,7 +10089,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateAlmacenInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -10338,7 +10220,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateApiKeyInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -10366,7 +10247,6 @@
         "kind": "OBJECT",
         "name": "CreateApiKeyOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "api_key_details",
@@ -10410,7 +10290,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateAreaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -10454,7 +10333,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateArticuloInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -10738,7 +10616,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateCategoriaArticuloInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -10806,7 +10683,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateCategoriasGastosInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -10910,7 +10786,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateClienteInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -10962,7 +10837,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateColaboradorInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -11262,7 +11136,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateColaboradorTareaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -11446,7 +11319,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateColaboradorUsuarioInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -11786,7 +11658,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateComandaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -11846,7 +11717,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateConfiguracionCorteItemInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -11890,7 +11760,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateConfiguracionFajillaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -11950,7 +11819,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateConfiguracionInventarioInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -11994,7 +11862,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateConfiguracionPropinaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -12082,7 +11949,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateConfiguracionesCorteInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -12134,7 +12000,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateCredencialInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -12186,7 +12051,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateDetalleOrdenPartialInfoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -12318,7 +12182,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateDigestKeyInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -12402,7 +12265,6 @@
         "kind": "OBJECT",
         "name": "CreateDigestKeyOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "digest_key",
@@ -12446,7 +12308,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateExtraInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -12558,7 +12419,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateExtraPartialInfoObject",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -12634,7 +12494,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateFajillaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -12738,7 +12597,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateGastoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -12898,7 +12756,6 @@
         "kind": "OBJECT",
         "name": "CreateGastoResponse",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "gasto",
@@ -12942,7 +12799,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateGrupoHotelInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -12970,7 +12826,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateHabitacionInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -13062,7 +12917,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateHotelInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -13330,7 +13184,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateIncidenciaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -13530,7 +13383,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateMantenimientoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -13634,7 +13486,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateManyPagosPropinasInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -13782,7 +13633,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateManySurtidosInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -13862,7 +13712,6 @@
         "kind": "OBJECT",
         "name": "CreateManySurtidosOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "numero_articulos_surtidos",
@@ -13914,7 +13763,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateMesaAsignadaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -13982,7 +13830,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateMesaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -14074,7 +13921,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateMotivoIngresoVehiculoDTO",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -14118,7 +13964,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateOrdenInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -14366,7 +14211,6 @@
         "kind": "OBJECT",
         "name": "CreateOrdenResponse",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "orden",
@@ -14410,7 +14254,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreatePagoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -14494,7 +14337,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreatePagoRentaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -14538,7 +14380,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreatePagoReservaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -14582,7 +14423,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateProductionProcesoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -14690,7 +14530,6 @@
         "kind": "OBJECT",
         "name": "CreateProductionProcesoOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "articulo",
@@ -14750,7 +14589,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreatePropinaFromSale",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -14830,7 +14668,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreatePropinaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -14986,7 +14823,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreatePropinaPartialInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -15098,7 +14934,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreatePuestoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -15178,7 +15013,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateRecetaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -15414,7 +15248,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateRentaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -15742,7 +15575,6 @@
         "kind": "OBJECT",
         "name": "CreateRentaResponse",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "renta",
@@ -15786,7 +15618,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateReservaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -16126,7 +15957,6 @@
         "kind": "OBJECT",
         "name": "CreateReservaResponse",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "reserva",
@@ -16170,7 +16000,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateRolInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -16238,7 +16067,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateSalidaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -16366,7 +16194,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateServicioInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -16410,7 +16237,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateSubcategoriaProductoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -16454,7 +16280,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateSubcategoriasGastosInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -16498,7 +16323,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateSurtidoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -16654,7 +16478,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateSurtidoPartialDetailInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -16742,7 +16565,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateSuscripcionInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -16818,7 +16640,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateTareaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -16890,7 +16711,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateTarifaDTO",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -17262,7 +17082,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateTipoBloqueoDTO",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -17330,7 +17149,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateTipoHabitacionDTO",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -17598,7 +17416,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateTipoMantenimientoDTO",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -17666,7 +17483,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateTurnoAtencionInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -17754,7 +17570,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateTurnoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -17830,7 +17645,6 @@
         "kind": "INPUT_OBJECT",
         "name": "CreateUsuarioInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -18038,7 +17852,6 @@
         "kind": "OBJECT",
         "name": "DataConceptoResumenUtilidad",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "concepto",
@@ -18098,7 +17911,6 @@
         "kind": "OBJECT",
         "name": "DataConceptoResumenUtilidadPorcentaje",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "concepto",
@@ -18142,7 +17954,6 @@
         "kind": "OBJECT",
         "name": "DataConceptoResumenUtilidadTotales",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "gastos",
@@ -18186,7 +17997,6 @@
         "kind": "OBJECT",
         "name": "DataConceptoResumenUtilidadTotalesGastos",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "total",
@@ -18214,7 +18024,6 @@
         "kind": "OBJECT",
         "name": "DataConceptoResumenUtilidadTotalesIngresos",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "porcentaje_diario",
@@ -18258,7 +18067,6 @@
         "kind": "OBJECT",
         "name": "DataHistorialCambiosTicket",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "metodos_pago",
@@ -18294,7 +18102,6 @@
         "kind": "OBJECT",
         "name": "DataIngresosHotelOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "cantidad",
@@ -18370,7 +18177,6 @@
         "kind": "OBJECT",
         "name": "DataRoomService",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "cantidad",
@@ -18446,7 +18252,6 @@
         "kind": "OBJECT",
         "name": "DataSubtotales",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "total_early_checkin",
@@ -18538,7 +18343,6 @@
         "kind": "OBJECT",
         "name": "DataTicket",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "articulos",
@@ -18778,7 +18582,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DataVehiculoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -18854,7 +18657,6 @@
         "kind": "OBJECT",
         "name": "Data_Vehiculo",
         "description": "Datos de vehiculo",
-        "isOneOf": null,
         "fields": [
           {
             "name": "color",
@@ -18930,7 +18732,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DateSearchInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -18990,7 +18791,6 @@
         "kind": "SCALAR",
         "name": "DateTime",
         "description": "A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.",
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -19001,7 +18801,6 @@
         "kind": "OBJECT",
         "name": "DatosHabitacion",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "ultima_limpieza",
@@ -19057,7 +18856,6 @@
         "kind": "OBJECT",
         "name": "DatosPaginationOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "pagina_actual",
@@ -19117,7 +18915,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DaySearchInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19161,7 +18958,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteAlmacenInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19197,7 +18993,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteAlmacenesArticulosInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19233,7 +19028,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteApiKeyInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19261,7 +19055,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteAreaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19289,7 +19082,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteArticuloInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19317,7 +19109,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteCategoriaArticuloInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19345,7 +19136,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteCategoriaGastosInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19373,7 +19163,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteClienteInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19401,7 +19190,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteColaboradorInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19429,7 +19217,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteColaboradorTareaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19457,7 +19244,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteComandaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19493,7 +19279,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteComentarioHabitacionInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19549,7 +19334,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteConfiguracionFajillaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19593,7 +19377,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteCredencialInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19621,7 +19404,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteCredentialHuellaPinInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19673,7 +19455,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteGastoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19701,7 +19482,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteHabitacionInput",
         "description": "Campos que pueden ser directamente modificados de la entidad Habitacion",
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19745,7 +19525,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteHotelInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19773,7 +19552,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteImageInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19817,7 +19595,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteMantenimientoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19845,7 +19622,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteMesaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19873,7 +19649,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteMetodoDePagoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19901,7 +19676,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteMotivoIngresoVehiculoArgs",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19929,7 +19703,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeletePropinaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19957,7 +19730,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeletePuestoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -19985,7 +19757,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteRecetaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20021,7 +19792,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteRolInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20049,7 +19819,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteSalidaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20077,7 +19846,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteServicioInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20121,7 +19889,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteSubcategoriaGastoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20149,7 +19916,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteSubcategoriaProductoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20177,7 +19943,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteSuscripcionInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20205,7 +19970,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteTareaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20233,7 +19997,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteTarifaDTO",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20261,7 +20024,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteTipoBloqueoArgs",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20289,7 +20051,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteTipoHabitacionArgs",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20317,7 +20078,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteTipoMantenimientoArgs",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20345,7 +20105,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteTurnoAtencionInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20373,7 +20132,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteTurnoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20401,7 +20159,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DeleteUsuarioInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20429,7 +20186,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DescuentaPuntosInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20505,7 +20261,6 @@
         "kind": "OBJECT",
         "name": "DetalleOrden",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "almacen_articulo",
@@ -20773,7 +20528,6 @@
         "kind": "OBJECT",
         "name": "DetallePago",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "cancelado",
@@ -20945,7 +20699,6 @@
         "kind": "INPUT_OBJECT",
         "name": "DetallePagoPartialInfoObject",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -21025,7 +20778,6 @@
         "kind": "OBJECT",
         "name": "DetallePagoPreCargadoOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "easyrewards_id",
@@ -21105,7 +20857,6 @@
         "kind": "OBJECT",
         "name": "DetalleRepartoPropinaItemOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "aportacion_a_fondo",
@@ -21321,7 +21072,6 @@
         "kind": "OBJECT",
         "name": "DetalleRepartoPropinasOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "detalle_reparto_propinas",
@@ -21389,7 +21139,6 @@
         "kind": "OBJECT",
         "name": "DetallesPagoPartialInfoOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "numero_referencia",
@@ -21457,7 +21206,6 @@
         "kind": "ENUM",
         "name": "DiasDisponibles",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -21511,7 +21259,6 @@
         "kind": "ENUM",
         "name": "DisponibilidadPanelAction",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -21541,7 +21288,6 @@
         "kind": "INPUT_OBJECT",
         "name": "EditComandaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -21645,7 +21391,6 @@
         "kind": "INPUT_OBJECT",
         "name": "EditConfiguracionCorteItemInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -21709,7 +21454,6 @@
         "kind": "INPUT_OBJECT",
         "name": "EditConfiguracionesCorteInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -21745,7 +21489,6 @@
         "kind": "INPUT_OBJECT",
         "name": "EditDetalleOrdenInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -21833,7 +21576,6 @@
         "kind": "INPUT_OBJECT",
         "name": "EditExtraDetalleOrdenInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -21905,7 +21647,6 @@
         "kind": "INPUT_OBJECT",
         "name": "EditMetodoPagoTicketInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -21957,7 +21698,6 @@
         "kind": "OBJECT",
         "name": "EditMetodoPagoTicketOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "metodo_pago",
@@ -22009,7 +21749,6 @@
         "kind": "INPUT_OBJECT",
         "name": "EditOrdenInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -22125,7 +21864,6 @@
         "kind": "INPUT_OBJECT",
         "name": "EditVehiculoDataInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -22169,7 +21907,6 @@
         "kind": "ENUM",
         "name": "EstadoAlmacen",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22193,7 +21930,6 @@
         "kind": "ENUM",
         "name": "EstadoMesa",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22229,7 +21965,6 @@
         "kind": "ENUM",
         "name": "EstadoPagoOrdenes",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22265,7 +22000,6 @@
         "kind": "ENUM",
         "name": "EstadosAlmacenesArticulos",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22307,7 +22041,6 @@
         "kind": "ENUM",
         "name": "EstadosArticulo",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22331,7 +22064,6 @@
         "kind": "ENUM",
         "name": "EstadosComandaHistorial",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22379,7 +22111,6 @@
         "kind": "ENUM",
         "name": "EstadosDetalleOrden",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22433,7 +22164,6 @@
         "kind": "ENUM",
         "name": "EstadosDinamicosMesa",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22463,7 +22193,6 @@
         "kind": "ENUM",
         "name": "EstadosExperiencias",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22487,7 +22216,6 @@
         "kind": "ENUM",
         "name": "EstadosExperienciasReservas",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22523,7 +22251,6 @@
         "kind": "ENUM",
         "name": "EstadosOrdenHistorial",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22577,7 +22304,6 @@
         "kind": "ENUM",
         "name": "EstadosRentas",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22613,7 +22339,6 @@
         "kind": "ENUM",
         "name": "EstadosReservas",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22655,7 +22380,6 @@
         "kind": "ENUM",
         "name": "EstadosTurno",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22679,7 +22403,6 @@
         "kind": "ENUM",
         "name": "EstadosTurnosAtencion",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22715,7 +22438,6 @@
         "kind": "ENUM",
         "name": "EstadpPago",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22745,7 +22467,6 @@
         "kind": "OBJECT",
         "name": "EstanciaPendienteRentaDetailOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "cantidad",
@@ -22929,7 +22650,6 @@
         "kind": "ENUM",
         "name": "EstatusCorte",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22953,7 +22673,6 @@
         "kind": "ENUM",
         "name": "EstatusFajillas",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -22995,7 +22714,6 @@
         "kind": "ENUM",
         "name": "EstatusTarifa",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -23019,7 +22737,6 @@
         "kind": "OBJECT",
         "name": "Experiencia",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "cobro_unico",
@@ -23219,7 +22936,6 @@
         "kind": "OBJECT",
         "name": "ExperienciaReserva",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "estado",
@@ -23391,7 +23107,6 @@
         "kind": "OBJECT",
         "name": "ExperienciasTicket",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "nombre",
@@ -23435,7 +23150,6 @@
         "kind": "OBJECT",
         "name": "Extra",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "corte_id",
@@ -23791,7 +23505,6 @@
         "kind": "OBJECT",
         "name": "ExtraDetalleOrden",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "almacen_articulo",
@@ -23927,7 +23640,6 @@
         "kind": "OBJECT",
         "name": "ExtraPendienteRentaDetailOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "cantidad",
@@ -24103,7 +23815,6 @@
         "kind": "OBJECT",
         "name": "ExtraTicket",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "cantidad",
@@ -24163,7 +23874,6 @@
         "kind": "OBJECT",
         "name": "Fajilla",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "comentario",
@@ -24431,7 +24141,6 @@
         "kind": "INPUT_OBJECT",
         "name": "FindAllColaboradoresTareaRequest",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -24559,7 +24268,6 @@
         "kind": "OBJECT",
         "name": "FindAllHistorialMovimientosInventarioOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "historial_movimientos_inventario",
@@ -24611,7 +24319,6 @@
         "kind": "OBJECT",
         "name": "FindAllPaginatedOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "colaboradores",
@@ -24659,7 +24366,6 @@
         "kind": "INPUT_OBJECT",
         "name": "FingerPrintLoginInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -24687,8 +24393,19 @@
         "kind": "OBJECT",
         "name": "FingerPrintLoginOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
+          {
+            "name": "colaborador_activo",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
           {
             "name": "token",
             "description": null,
@@ -24704,6 +24421,30 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "ultimo_hotel_id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "usuario_id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -24715,7 +24456,6 @@
         "kind": "SCALAR",
         "name": "Float",
         "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).",
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -24726,7 +24466,6 @@
         "kind": "INPUT_OBJECT",
         "name": "FolioArticuloFiltersArgs",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -24750,7 +24489,6 @@
         "kind": "INPUT_OBJECT",
         "name": "FormaDePagoDetailInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -24842,7 +24580,6 @@
         "kind": "OBJECT",
         "name": "FormaDePagoDetailOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "eliminar_propina",
@@ -24922,7 +24659,6 @@
         "kind": "OBJECT",
         "name": "Funcionalidad",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "descripcion",
@@ -25014,7 +24750,6 @@
         "kind": "OBJECT",
         "name": "GastoTicket",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "caja_chica",
@@ -25122,7 +24857,6 @@
         "kind": "OBJECT",
         "name": "Gastos",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "caja_chica",
@@ -25406,7 +25140,6 @@
         "kind": "OBJECT",
         "name": "GastosNotificacionesConfigOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "presupuesto_excedido",
@@ -25434,7 +25167,6 @@
         "kind": "OBJECT",
         "name": "GetAggregationsAlmacenesArticulosOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "total_procesos",
@@ -25510,7 +25242,6 @@
         "kind": "OBJECT",
         "name": "GetCancelableAmountsRentaOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "parcial",
@@ -25554,7 +25285,6 @@
         "kind": "OBJECT",
         "name": "GetConceptosPendientesRentaOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "estancia_pendiente",
@@ -25602,7 +25332,6 @@
         "kind": "INPUT_OBJECT",
         "name": "GetGoogleUserInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -25646,7 +25375,6 @@
         "kind": "OBJECT",
         "name": "GetInformeHistorialMovimientosInventarioOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "entradas_insumos",
@@ -25738,7 +25466,6 @@
         "kind": "OBJECT",
         "name": "GetInformeInventarioOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "articulos_agotados",
@@ -25830,7 +25557,6 @@
         "kind": "OBJECT",
         "name": "GetKpisHistorialProduccionesInventarioByArticuloIdOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "articulo_id",
@@ -25950,7 +25676,6 @@
         "kind": "OBJECT",
         "name": "GetKpisMantenimientoOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "habitaciones_bloqueadas",
@@ -26058,7 +25783,6 @@
         "kind": "OBJECT",
         "name": "GetLastOrdenOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "estado_orden",
@@ -26114,7 +25838,6 @@
         "kind": "OBJECT",
         "name": "GetMesaDynamicStateOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "comanda_activa",
@@ -26150,7 +25873,6 @@
         "kind": "OBJECT",
         "name": "GetMovementsCountBeforeCorteOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "numero_total_movimientos",
@@ -26194,7 +25916,6 @@
         "kind": "OBJECT",
         "name": "GetRentaTransactionsOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "ordenes",
@@ -26282,7 +26003,6 @@
         "kind": "OBJECT",
         "name": "GetReportePropinasOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "reporte_propinas",
@@ -26318,7 +26038,6 @@
         "kind": "OBJECT",
         "name": "GetTodayRentalSales",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "acumulado_rentas",
@@ -26354,7 +26073,6 @@
         "kind": "INPUT_OBJECT",
         "name": "GetTodaySalesInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -26406,7 +26124,6 @@
         "kind": "INPUT_OBJECT",
         "name": "GetVehiculoDataByPlacaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -26434,7 +26151,6 @@
         "kind": "OBJECT",
         "name": "GetVehiculoDataByPlacaOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "vehiculo",
@@ -26458,7 +26174,6 @@
         "kind": "OBJECT",
         "name": "GoogleUserResponse",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "email",
@@ -26534,7 +26249,6 @@
         "kind": "OBJECT",
         "name": "GroupCortes",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "cortes",
@@ -26602,7 +26316,6 @@
         "kind": "OBJECT",
         "name": "GrupoHotel",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "eliminado",
@@ -26706,7 +26419,6 @@
         "kind": "OBJECT",
         "name": "Habitacion",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "alerta_incidencia",
@@ -27213,7 +26925,6 @@
         "kind": "OBJECT",
         "name": "HabitacionTicket",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "costo",
@@ -27256,7 +26967,7 @@
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "Int",
+                "name": "String",
                 "ofType": null
               }
             },
@@ -27289,7 +27000,6 @@
         "kind": "OBJECT",
         "name": "HabitacionesMesasOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "habitaciones",
@@ -27349,7 +27059,6 @@
         "kind": "OBJECT",
         "name": "HabitacionesNotificacionesConfigOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "ocupacion_maxima_alcanzada",
@@ -27393,7 +27102,6 @@
         "kind": "OBJECT",
         "name": "HasActiveMesaAsignadaOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "has_mesa_activa",
@@ -27433,7 +27141,6 @@
         "kind": "OBJECT",
         "name": "HistorialEstadoComanda",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "comanda",
@@ -27589,7 +27296,6 @@
         "kind": "OBJECT",
         "name": "HistorialEstadoOrden",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "estado_orden",
@@ -27757,7 +27463,6 @@
         "kind": "OBJECT",
         "name": "HistorialHabitacion",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "accion",
@@ -27913,7 +27618,6 @@
         "kind": "OBJECT",
         "name": "HistorialHabitacionData",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "comentario_estado",
@@ -28053,7 +27757,6 @@
         "kind": "INPUT_OBJECT",
         "name": "HistorialHabitacionesData",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -28197,7 +27900,6 @@
         "kind": "OBJECT",
         "name": "HistorialMovimientosInventario",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "almacen_articulo_id",
@@ -28457,7 +28159,6 @@
         "kind": "OBJECT",
         "name": "HistorialProduccionInventario",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "articulo_id",
@@ -28641,7 +28342,6 @@
         "kind": "OBJECT",
         "name": "HistorialVehiculo",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "concepto",
@@ -28699,6 +28399,18 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "motivo_ingreso_id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -28773,7 +28485,6 @@
         "kind": "OBJECT",
         "name": "Hotel",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "calle",
@@ -29193,7 +28904,6 @@
         "kind": "OBJECT",
         "name": "HotelColaborador",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "area_id",
@@ -29345,7 +29055,6 @@
         "kind": "ENUM",
         "name": "HuellaOPin",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -29369,7 +29078,6 @@
         "kind": "SCALAR",
         "name": "ID",
         "description": "The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"4\"`) or integer (such as `4`) input value will be accepted as an ID.",
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -29380,7 +29088,6 @@
         "kind": "OBJECT",
         "name": "ImageIncidenciaEntity",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "id",
@@ -29416,7 +29123,6 @@
         "kind": "INPUT_OBJECT",
         "name": "ImagenIncidenciaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -29452,7 +29158,6 @@
         "kind": "OBJECT",
         "name": "ImasConfiguration",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "iAlmacen",
@@ -29544,7 +29249,6 @@
         "kind": "OBJECT",
         "name": "Incidencia",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "area",
@@ -29916,7 +29620,6 @@
         "kind": "OBJECT",
         "name": "IncidenciasNotificacionesConfigOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "incidencias_altas",
@@ -29944,7 +29647,6 @@
         "kind": "INPUT_OBJECT",
         "name": "InclusionSearchInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -29996,7 +29698,6 @@
         "kind": "OBJECT",
         "name": "IngredienteReceta",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "almacen_articulo",
@@ -30156,7 +29857,6 @@
         "kind": "INPUT_OBJECT",
         "name": "IngredienteRecetaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -30240,7 +29940,6 @@
         "kind": "OBJECT",
         "name": "IngresosHotelOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "desgloce",
@@ -30292,7 +29991,6 @@
         "kind": "OBJECT",
         "name": "IngresosRoomServiceOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "desgloce",
@@ -30344,7 +30042,6 @@
         "kind": "SCALAR",
         "name": "Int",
         "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -30355,7 +30052,6 @@
         "kind": "OBJECT",
         "name": "ListenDisponibilidadHabitacionesSubOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "disponibilidad_habitaciones",
@@ -30391,7 +30087,6 @@
         "kind": "OBJECT",
         "name": "ListenOrdenesStateSubOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "error_message",
@@ -30451,7 +30146,6 @@
         "kind": "INPUT_OBJECT",
         "name": "LockHabitacionInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -30519,7 +30213,6 @@
         "kind": "INPUT_OBJECT",
         "name": "LoginGoogleInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -30563,7 +30256,6 @@
         "kind": "OBJECT",
         "name": "LoginGoogleResponse",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "token",
@@ -30615,7 +30307,6 @@
         "kind": "OBJECT",
         "name": "LovePointsResponse",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "saldo",
@@ -30639,7 +30330,6 @@
         "kind": "OBJECT",
         "name": "Mantenimiento",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "agua",
@@ -30851,7 +30541,6 @@
         "kind": "OBJECT",
         "name": "MensajePlantilla",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "general",
@@ -30899,7 +30588,6 @@
         "kind": "OBJECT",
         "name": "MensajePlantillaPushNotification",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "general",
@@ -30947,7 +30635,6 @@
         "kind": "OBJECT",
         "name": "Mesa",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "asignacion_actual",
@@ -31155,7 +30842,6 @@
         "kind": "OBJECT",
         "name": "MesaAsignada",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "colaborador_asignado_id",
@@ -31291,7 +30977,6 @@
         "kind": "OBJECT",
         "name": "MetodoDePago",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "default",
@@ -31415,7 +31100,6 @@
         "kind": "INPUT_OBJECT",
         "name": "MetodoDePagoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -31475,7 +31159,6 @@
         "kind": "INPUT_OBJECT",
         "name": "MetodoDePagoUpdateInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -31539,7 +31222,6 @@
         "kind": "OBJECT",
         "name": "MetodosPago",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "amex",
@@ -31615,7 +31297,6 @@
         "kind": "OBJECT",
         "name": "MetodosPagoTicket",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "numero_referencia",
@@ -31683,7 +31364,6 @@
         "kind": "ENUM",
         "name": "ModalidadDePago",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -31719,7 +31399,6 @@
         "kind": "OBJECT",
         "name": "Modulo",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "descripcion",
@@ -31799,7 +31478,6 @@
         "kind": "INPUT_OBJECT",
         "name": "MonthSearchInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -31827,7 +31505,6 @@
         "kind": "ENUM",
         "name": "Motivo",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -31887,7 +31564,6 @@
         "kind": "OBJECT",
         "name": "MotivoIngresoVehiculo",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "eliminado",
@@ -31963,7 +31639,6 @@
         "kind": "ENUM",
         "name": "MovimientoHistorialInventario",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -31987,7 +31662,6 @@
         "kind": "OBJECT",
         "name": "MovimientoInformeDetailOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "total",
@@ -32031,7 +31705,6 @@
         "kind": "OBJECT",
         "name": "Mutation",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "CheckOut",
@@ -40309,7 +39982,6 @@
         "kind": "INPUT_OBJECT",
         "name": "NombreArticuloFilterArgs",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -40345,7 +40017,6 @@
         "kind": "INPUT_OBJECT",
         "name": "NombreColaboradorFilterArgs",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -40381,7 +40052,6 @@
         "kind": "OBJECT",
         "name": "Notificacion",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "hotel_id",
@@ -40489,7 +40159,6 @@
         "kind": "ENUM",
         "name": "ORDER",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -40513,7 +40182,6 @@
         "kind": "OBJECT",
         "name": "ObtenSaldoOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "saldo",
@@ -40537,7 +40205,6 @@
         "kind": "INPUT_OBJECT",
         "name": "OpenIncidenciaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -40565,7 +40232,6 @@
         "kind": "INPUT_OBJECT",
         "name": "OpenTurnoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -40625,7 +40291,6 @@
         "kind": "OBJECT",
         "name": "Orden",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "articulos",
@@ -41258,7 +40923,6 @@
         "kind": "OBJECT",
         "name": "OrdenSubDetail",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "accion",
@@ -41318,7 +40982,6 @@
         "kind": "ENUM",
         "name": "OrdenesPanelAction",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -41360,7 +41023,6 @@
         "kind": "ENUM",
         "name": "Origen",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -41384,7 +41046,6 @@
         "kind": "ENUM",
         "name": "OrigenOrden",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -41438,7 +41099,6 @@
         "kind": "ENUM",
         "name": "OrigenRservas",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -41540,7 +41200,6 @@
         "kind": "OBJECT",
         "name": "OrigenTicket",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "extras",
@@ -41616,7 +41275,6 @@
         "kind": "ENUM",
         "name": "OrigenesFajillas",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -41640,7 +41298,6 @@
         "kind": "ENUM",
         "name": "OrigenesOrden",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -41670,7 +41327,6 @@
         "kind": "ENUM",
         "name": "OrigenesTicket",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -41730,7 +41386,6 @@
         "kind": "OBJECT",
         "name": "PageMetaDto",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "hasNextPage",
@@ -41838,7 +41493,6 @@
         "kind": "INPUT_OBJECT",
         "name": "PageOptionsArgs",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -41894,7 +41548,6 @@
         "kind": "OBJECT",
         "name": "PaginatedSearchOrdenesOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "conteos",
@@ -41962,7 +41615,6 @@
         "kind": "OBJECT",
         "name": "PaginationColaboradoresTareaDto",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "colaboradores_tarea",
@@ -42014,7 +41666,6 @@
         "kind": "OBJECT",
         "name": "Pago",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "detalles_pago",
@@ -42222,7 +41873,6 @@
         "kind": "OBJECT",
         "name": "PagoExtra",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "extra_id",
@@ -42282,7 +41932,6 @@
         "kind": "OBJECT",
         "name": "PagoPropina",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "asignacion_propina",
@@ -42414,7 +42063,6 @@
         "kind": "INPUT_OBJECT",
         "name": "PagoPropinaItemInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -42506,7 +42154,6 @@
         "kind": "OBJECT",
         "name": "PagosRentas",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "pago_id",
@@ -42578,7 +42225,6 @@
         "kind": "OBJECT",
         "name": "PagosReservas",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "pago_id",
@@ -42650,7 +42296,6 @@
         "kind": "OBJECT",
         "name": "Panel",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "banner",
@@ -42694,7 +42339,6 @@
         "kind": "INPUT_OBJECT",
         "name": "PanelInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -42738,7 +42382,6 @@
         "kind": "OBJECT",
         "name": "PartialInfoCheckoutResponseOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "habitacion",
@@ -42782,7 +42425,6 @@
         "kind": "INPUT_OBJECT",
         "name": "PartialInfoExtraDetalleOrdenInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -42886,7 +42528,6 @@
         "kind": "INPUT_OBJECT",
         "name": "PayPagoExtraInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -42986,7 +42627,6 @@
         "kind": "INPUT_OBJECT",
         "name": "PayPropinasVentasInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -43014,7 +42654,6 @@
         "kind": "OBJECT",
         "name": "PayPropinasVentasOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "reporte_propina_venta_id",
@@ -43038,7 +42677,6 @@
         "kind": "INPUT_OBJECT",
         "name": "PayRentaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -43170,7 +42808,6 @@
         "kind": "INPUT_OBJECT",
         "name": "PayReservaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -43230,7 +42867,6 @@
         "kind": "INPUT_OBJECT",
         "name": "PendienteAutorizarInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -43274,7 +42910,6 @@
         "kind": "OBJECT",
         "name": "Posicion",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "tamano",
@@ -43334,7 +42969,6 @@
         "kind": "INPUT_OBJECT",
         "name": "PosicionInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -43394,7 +43028,6 @@
         "kind": "OBJECT",
         "name": "PosicionMesa",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "tamano",
@@ -43454,7 +43087,6 @@
         "kind": "INPUT_OBJECT",
         "name": "PosicionMesaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -43514,7 +43146,6 @@
         "kind": "OBJECT",
         "name": "Precio",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "activo",
@@ -43614,7 +43245,6 @@
         "kind": "ENUM",
         "name": "ProcedenciaPropina",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -43662,7 +43292,6 @@
         "kind": "OBJECT",
         "name": "Propina",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "colaborador",
@@ -43962,7 +43591,6 @@
         "kind": "INPUT_OBJECT",
         "name": "PropinaEsquemaItemInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -44006,7 +43634,6 @@
         "kind": "OBJECT",
         "name": "PropinaRecolectadaColaboradorDetailOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "categoria",
@@ -44050,7 +43677,6 @@
         "kind": "OBJECT",
         "name": "PropinasDetalleTicket",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "numero_referencia",
@@ -44134,7 +43760,6 @@
         "kind": "OBJECT",
         "name": "Puesto",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "area",
@@ -44270,7 +43895,6 @@
         "kind": "ENUM",
         "name": "PuestoRol",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -44306,7 +43930,6 @@
         "kind": "OBJECT",
         "name": "Query",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "agregaciones_almacenes_articulos",
@@ -58321,7 +57944,6 @@
         "kind": "OBJECT",
         "name": "Receta",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "articulo",
@@ -58426,7 +58048,6 @@
         "kind": "INPUT_OBJECT",
         "name": "RechazarFajillaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -58482,7 +58103,6 @@
         "kind": "INPUT_OBJECT",
         "name": "RefundDetalleOrdenDetailInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -58542,7 +58162,6 @@
         "kind": "INPUT_OBJECT",
         "name": "RefundDetallesOrdenInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -58594,7 +58213,6 @@
         "kind": "INPUT_OBJECT",
         "name": "RefundOrdenInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -58634,7 +58252,6 @@
         "kind": "INPUT_OBJECT",
         "name": "RegisterUsuarioDispositivoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -58694,7 +58311,6 @@
         "kind": "INPUT_OBJECT",
         "name": "ReleaseHabitacionInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -58770,7 +58386,6 @@
         "kind": "INPUT_OBJECT",
         "name": "RemoveBookingFromRoomInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -58830,7 +58445,6 @@
         "kind": "INPUT_OBJECT",
         "name": "RemoveColaboradorFromHotelInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -58906,7 +58520,6 @@
         "kind": "OBJECT",
         "name": "Renta",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "cliente_id",
@@ -59189,13 +58802,9 @@
             "description": "",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              }
+              "kind": "SCALAR",
+              "name": "Float",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -59674,7 +59283,6 @@
         "kind": "OBJECT",
         "name": "RentaOrdenTransactionItemOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "orden",
@@ -59738,7 +59346,6 @@
         "kind": "OBJECT",
         "name": "RentaTicket",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "descripcion",
@@ -59798,7 +59405,6 @@
         "kind": "OBJECT",
         "name": "RentaTransactionItemOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "extras",
@@ -59878,7 +59484,6 @@
         "kind": "OBJECT",
         "name": "RepartoPropinaItemOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "asignacion_propina",
@@ -60026,7 +59631,6 @@
         "kind": "OBJECT",
         "name": "RepartoPropinasOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "limite_disponible",
@@ -60094,7 +59698,6 @@
         "kind": "OBJECT",
         "name": "ReportePropinasPorPuestoDetailOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "puesto",
@@ -60158,7 +59761,6 @@
         "kind": "OBJECT",
         "name": "Reserva",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "cliente",
@@ -60762,7 +60364,6 @@
         "kind": "OBJECT",
         "name": "ResumenUtilidadOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "gastos",
@@ -60838,7 +60439,6 @@
         "kind": "OBJECT",
         "name": "ReturnIdTicketResponse",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "ticket_id",
@@ -60874,7 +60474,6 @@
         "kind": "OBJECT",
         "name": "Rol",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "eliminado",
@@ -60986,7 +60585,6 @@
         "kind": "OBJECT",
         "name": "RoomAvailabilityOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "alerta_por_disponibilidad",
@@ -61070,7 +60668,6 @@
         "kind": "OBJECT",
         "name": "SalesByTurno",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "subtotal",
@@ -61114,7 +60711,6 @@
         "kind": "OBJECT",
         "name": "SalesTicketsByTurno",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "nombre",
@@ -61238,7 +60834,6 @@
         "kind": "OBJECT",
         "name": "Salida",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "almacen_articulo",
@@ -61422,7 +61017,6 @@
         "kind": "OBJECT",
         "name": "SearchAlmacenesArticulosOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "almacenes_articulos",
@@ -61474,7 +61068,6 @@
         "kind": "INPUT_OBJECT",
         "name": "SearchColaboradoresForTaskByNombrePuestosInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -61526,7 +61119,6 @@
         "kind": "INPUT_OBJECT",
         "name": "SearchColaboradoresForTaskInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -61578,7 +61170,6 @@
         "kind": "OBJECT",
         "name": "SearchHistorialEstadosComandaOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "historial_estados_comanda",
@@ -61630,7 +61221,6 @@
         "kind": "OBJECT",
         "name": "SearchHistorialEstadosOrdenOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "historial_estados_orden",
@@ -61682,7 +61272,6 @@
         "kind": "OBJECT",
         "name": "SearchSalidasOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "salidas",
@@ -61718,7 +61307,6 @@
         "kind": "INPUT_OBJECT",
         "name": "SendNotificationInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -61746,7 +61334,6 @@
         "kind": "OBJECT",
         "name": "Servicio",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "eliminado",
@@ -61838,7 +61425,6 @@
         "kind": "SCALAR",
         "name": "String",
         "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -61849,7 +61435,6 @@
         "kind": "OBJECT",
         "name": "SubcategoriaGasto",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "categoria_gasto",
@@ -61957,7 +61542,6 @@
         "kind": "OBJECT",
         "name": "SubcategoriaProducto",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "categoria",
@@ -62033,7 +61617,6 @@
         "kind": "ENUM",
         "name": "SubestadosHabitaciones",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -62051,7 +61634,6 @@
         "kind": "OBJECT",
         "name": "Subscription",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "checkColaborador",
@@ -62764,7 +62346,6 @@
         "kind": "OBJECT",
         "name": "SubtotalesReserva",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "total_experiencias",
@@ -62840,7 +62421,6 @@
         "kind": "OBJECT",
         "name": "Surtido",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "almacen",
@@ -63112,7 +62692,6 @@
         "kind": "OBJECT",
         "name": "Suscripcion",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "eliminado",
@@ -63256,7 +62835,6 @@
         "kind": "INPUT_OBJECT",
         "name": "SwitchTaskBtwColabInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -63448,7 +63026,6 @@
         "kind": "INPUT_OBJECT",
         "name": "SwitchTaskPartialInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -63492,7 +63069,6 @@
         "kind": "INPUT_OBJECT",
         "name": "SwitchTaskRoomInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -63608,7 +63184,6 @@
         "kind": "INPUT_OBJECT",
         "name": "SwitchTaskWithRoomStateInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -63788,7 +63363,6 @@
         "kind": "ENUM",
         "name": "Tamano",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -63836,7 +63410,6 @@
         "kind": "ENUM",
         "name": "TamanoMesa",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -63884,7 +63457,6 @@
         "kind": "OBJECT",
         "name": "Tarea",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "descripcion",
@@ -64004,7 +63576,6 @@
         "kind": "OBJECT",
         "name": "Tarifa",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "costo_early_checkin",
@@ -64448,7 +64019,6 @@
         "kind": "OBJECT",
         "name": "Ticket",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "anticipo",
@@ -64864,7 +64434,6 @@
         "kind": "ENUM",
         "name": "TipoAlmacen",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -64888,7 +64457,6 @@
         "kind": "ENUM",
         "name": "TipoArticulo",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -64924,7 +64492,6 @@
         "kind": "OBJECT",
         "name": "TipoBloqueo",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "claves",
@@ -65020,7 +64587,6 @@
         "kind": "OBJECT",
         "name": "TipoHabitacion",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "amenidades",
@@ -65364,7 +64930,6 @@
         "kind": "OBJECT",
         "name": "TipoHabitacionPartialDetail",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "amenidades",
@@ -65785,7 +65350,6 @@
         "kind": "OBJECT",
         "name": "TipoHabitacionSubDetail",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "accion",
@@ -65829,7 +65393,6 @@
         "kind": "OBJECT",
         "name": "TipoMantenimiento",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "claves",
@@ -65925,7 +65488,6 @@
         "kind": "ENUM",
         "name": "TipoMovimientoHistorialInventario",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -66003,7 +65565,6 @@
         "kind": "ENUM",
         "name": "TipoNotificacion",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -66057,7 +65618,6 @@
         "kind": "ENUM",
         "name": "TipoOrden",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -66087,7 +65647,6 @@
         "kind": "ENUM",
         "name": "TipoOrdenPanelCocina",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -66111,7 +65670,6 @@
         "kind": "ENUM",
         "name": "TipoOrdenamiento",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -66135,7 +65693,6 @@
         "kind": "ENUM",
         "name": "TipoTarifa",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -66165,7 +65722,6 @@
         "kind": "ENUM",
         "name": "TiposAlojamientos",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -66189,7 +65745,6 @@
         "kind": "ENUM",
         "name": "TiposAutenticacion",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -66213,7 +65768,6 @@
         "kind": "ENUM",
         "name": "TiposCamas",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -66255,7 +65809,6 @@
         "kind": "ENUM",
         "name": "TiposCancelaciones",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -66279,7 +65832,6 @@
         "kind": "ENUM",
         "name": "TiposEntradas",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -66303,7 +65855,6 @@
         "kind": "ENUM",
         "name": "TiposExtras",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -66333,7 +65884,6 @@
         "kind": "ENUM",
         "name": "TiposIncidencias",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -66369,7 +65919,6 @@
         "kind": "ENUM",
         "name": "TiposLimpiezas",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -66399,7 +65948,6 @@
         "kind": "ENUM",
         "name": "TiposPagos",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -66453,7 +66001,6 @@
         "kind": "ENUM",
         "name": "TiposSurtido",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -66477,7 +66024,6 @@
         "kind": "ENUM",
         "name": "TiposTarea",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -66507,7 +66053,6 @@
         "kind": "OBJECT",
         "name": "TodayExtrasSales",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "acumulado_extras",
@@ -66543,7 +66088,6 @@
         "kind": "OBJECT",
         "name": "TodayOrdenesSales",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "acumulado_ordenes",
@@ -66579,7 +66123,6 @@
         "kind": "OBJECT",
         "name": "TodayReservasSales",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "acumulado_reservas",
@@ -66615,7 +66158,6 @@
         "kind": "OBJECT",
         "name": "TopBookingRoom",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "habitacion_id",
@@ -66659,7 +66201,6 @@
         "kind": "OBJECT",
         "name": "TopRentalRoom",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "habitacion",
@@ -66703,7 +66244,6 @@
         "kind": "OBJECT",
         "name": "TotalBillingPerDayRecepcionstOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "total_gasto",
@@ -66731,7 +66271,6 @@
         "kind": "OBJECT",
         "name": "TotalesHotelOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "cantidad_total",
@@ -66775,7 +66314,6 @@
         "kind": "OBJECT",
         "name": "TotalesPropinasOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "total_efectivo",
@@ -66883,7 +66421,6 @@
         "kind": "OBJECT",
         "name": "TotalesRepartoPropinasItemOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "total_aportaciones_a_fondo",
@@ -67023,7 +66560,6 @@
         "kind": "OBJECT",
         "name": "TotalesRoomService",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "cantidad_total",
@@ -67067,7 +66603,6 @@
         "kind": "INPUT_OBJECT",
         "name": "TraceStartHistorialLoginInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -67127,7 +66662,6 @@
         "kind": "OBJECT",
         "name": "Transaccion",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "cantidad",
@@ -67235,7 +66769,6 @@
         "kind": "INPUT_OBJECT",
         "name": "TransferArticuloPartialDetailInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -67323,7 +66856,6 @@
         "kind": "INPUT_OBJECT",
         "name": "TransferArticulosInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -67391,7 +66923,6 @@
         "kind": "OBJECT",
         "name": "TransferArticulosOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "numero_articulos_transferidos",
@@ -67419,7 +66950,6 @@
         "kind": "INPUT_OBJECT",
         "name": "TurnOffTurnoColaboradoresInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -67511,7 +67041,6 @@
         "kind": "INPUT_OBJECT",
         "name": "TurnOnTurnoColaboradorInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -67583,7 +67112,6 @@
         "kind": "OBJECT",
         "name": "Turno",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "eliminado",
@@ -67707,7 +67235,6 @@
         "kind": "OBJECT",
         "name": "TurnoAtencion",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "colaborador",
@@ -67891,7 +67418,6 @@
         "kind": "OBJECT",
         "name": "TurnosAtencionSubModesOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "evento",
@@ -67947,7 +67473,6 @@
         "kind": "OBJECT",
         "name": "UltimaReserva",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "reserva",
@@ -67971,7 +67496,6 @@
         "kind": "OBJECT",
         "name": "UltimosConceptosPendientesDetailOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "extra",
@@ -68055,7 +67579,6 @@
         "kind": "OBJECT",
         "name": "UnidadConversionArticulo",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "eliminado",
@@ -68175,7 +67698,6 @@
         "kind": "ENUM",
         "name": "UnidadMedidasArticulo",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -68241,7 +67763,6 @@
         "kind": "ENUM",
         "name": "UnidadMedidasProduccion",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -68307,7 +67828,6 @@
         "kind": "ENUM",
         "name": "UnidadTiempoFiltro",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -68331,7 +67851,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateAlmacenInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -68463,7 +67982,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateAlmacenesArticulosInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -68571,7 +68089,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateApiKeyInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -68639,7 +68156,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateAportacionesPropinasRsInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -68675,7 +68191,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateAreaInput",
         "description": "Campos que pueden ser directamente modificados de la entidad Area",
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -68739,7 +68254,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateArticuloInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -69011,7 +68525,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateArticulosInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -69047,7 +68560,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateAsistenciaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -69135,7 +68647,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateCategoriaArticuloInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -69211,7 +68722,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateCategoriaGastosInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -69275,7 +68785,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateClienteInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -69339,7 +68848,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateColaboradorInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -69679,7 +69187,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateColaboradorTurnoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -69755,7 +69262,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateComandaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -69831,7 +69337,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateComentarioHabitacionInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -69899,7 +69404,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateConfiguracionFajillaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -69959,7 +69463,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateConfiguracionInventarioInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -70011,7 +69514,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateConfiguracionPropinaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -70111,7 +69613,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateCredencialInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -70175,7 +69676,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateEstadoHabitacionInput",
         "description": "Campos que pueden ser directamente modificados de la entidad Habitacion",
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -70291,7 +69791,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateEstadoOrdenOrDetalleInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -70375,7 +69874,6 @@
         "kind": "OBJECT",
         "name": "UpdateEstadoOrdenOrDetalleOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "estado_destino",
@@ -70459,7 +69957,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateExtraDetalleOrdenInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -70495,7 +69992,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateExtraDetalleOrdenPartialInfo",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -70607,7 +70103,6 @@
         "kind": "OBJECT",
         "name": "UpdateExtraDetalleOrdenPartialInfoOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "almacen_articulo_id",
@@ -70723,7 +70218,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateExtraInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -70815,7 +70309,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateExtrasByDetalleOrdenIdRequest",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -70867,7 +70360,6 @@
         "kind": "OBJECT",
         "name": "UpdateExtrasByDetalleOrdenIdResponse",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "detalle_orden_id",
@@ -70919,7 +70411,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateFajillaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -71007,7 +70498,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateGastoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -71147,7 +70637,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateGrupoHotelInput",
         "description": "Campos que pueden ser directamente modificados de la entidad Habitacion",
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -71191,7 +70680,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateHabitacionHotelInput",
         "description": "Campos que pueden ser directamente modificados de la entidad Habitacion",
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -71251,7 +70739,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateHabitacionInRentaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -71311,7 +70798,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateHabitacionInput",
         "description": "Campos que pueden ser directamente modificados de la entidad Habitacion",
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -71379,7 +70865,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateHabitacionTipoHabitacionInput",
         "description": "Campos que pueden ser directamente modificados de la entidad Habitacion",
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -71439,7 +70924,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateHistorialHabitacionDTO",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -71587,7 +71071,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateHistorialVehiculoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -71631,6 +71114,18 @@
             "deprecationReason": null
           },
           {
+            "name": "motivo_ingreso_id",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "vehiculo",
             "description": null,
             "type": {
@@ -71655,7 +71150,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateHotelInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -71887,7 +71381,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateIncidenciaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -72047,7 +71540,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateMantenimientoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -72171,7 +71663,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateMesaAsignadaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -72247,7 +71738,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateMesaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -72359,7 +71849,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateMotivoIngresoVehiculoDTO",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -72411,7 +71900,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateOrdenInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -72579,7 +72067,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdatePagoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -72655,7 +72142,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdatePagoRentaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -72707,7 +72193,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdatePagoReservasInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -72759,7 +72244,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdatePosicionHabitacionInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -72803,7 +72287,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdatePosicionMesaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -72847,7 +72330,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdatePropinasEsquemaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -72883,7 +72365,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdatePuestoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -72959,7 +72440,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateRecetaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -73151,7 +72631,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateRentaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -73371,7 +72850,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateReservaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -73735,7 +73213,6 @@
         "kind": "OBJECT",
         "name": "UpdateReservaResponse",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "reserva",
@@ -73779,7 +73256,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateRolInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -73823,7 +73299,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateSalidaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -73955,7 +73430,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateServicioInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -74011,7 +73485,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateSubcategoriaGastosInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -74063,7 +73536,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateSubcategoriaProductoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -74115,7 +73587,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateSurtidoInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -74271,7 +73742,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateSuscripcionInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -74323,7 +73793,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateTareaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -74399,7 +73868,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateTarifaDTO",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -74679,7 +74147,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateTipoBloqueoDTO",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -74751,7 +74218,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateTipoHabitacionDTO",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -74983,7 +74449,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateTipoLimpiezaInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -75047,7 +74512,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateTipoMantenimientoDTO",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -75119,7 +74583,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateTurnoAtencionInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -75219,7 +74682,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateTurnoInput",
         "description": "Campos que pueden ser directamente modificados de la entidad Turno",
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -75307,7 +74769,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateUsuarioInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -75503,7 +74964,6 @@
         "kind": "INPUT_OBJECT",
         "name": "UpdateUsuariosNotificacionesInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -75603,7 +75063,6 @@
         "kind": "OBJECT",
         "name": "Usuario",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "apellido_materno",
@@ -75984,7 +75443,6 @@
         "kind": "OBJECT",
         "name": "UsuariosNotificacionesConfigOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "activado",
@@ -76040,7 +75498,6 @@
         "kind": "OBJECT",
         "name": "ValidarCodigoAutorizacionOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "usuario",
@@ -76080,7 +75537,6 @@
         "kind": "INPUT_OBJECT",
         "name": "ValidateApiKeyInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -76108,7 +75564,6 @@
         "kind": "OBJECT",
         "name": "Vehiculo",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "data",
@@ -76152,7 +75607,6 @@
         "kind": "INPUT_OBJECT",
         "name": "VehiculoDataEditDetailInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -76212,7 +75666,6 @@
         "kind": "OBJECT",
         "name": "VehiculoDataEditDetailOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "color",
@@ -76272,7 +75725,6 @@
         "kind": "OBJECT",
         "name": "VentaColaboradorPorCategoriaDetailOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "aportacion",
@@ -76328,7 +75780,6 @@
         "kind": "OBJECT",
         "name": "VentaExtraRentaDetailOutput",
         "description": null,
-        "isOneOf": null,
         "fields": [
           {
             "name": "colaborador",
@@ -76420,7 +75871,6 @@
         "kind": "OBJECT",
         "name": "__Directive",
         "description": "A Directive provides a way to describe alternate runtime execution and type validation behavior in a GraphQL document.\n\nIn some cases, you need to provide options to alter GraphQL's execution behavior in ways field arguments will not suffice, such as conditionally including or skipping a field. Directives provide this by describing additional information to the executor.",
-        "isOneOf": null,
         "fields": [
           {
             "name": "name",
@@ -76537,7 +75987,6 @@
         "kind": "ENUM",
         "name": "__DirectiveLocation",
         "description": "A Directive can be adjacent to many parts of the GraphQL language, a __DirectiveLocation describes one such possible adjacencies.",
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -76663,7 +76112,6 @@
         "kind": "OBJECT",
         "name": "__EnumValue",
         "description": "One possible value for a given Enum. Enum values are unique values, not a placeholder for a string or numeric value. However an Enum value is returned in a JSON response as a string.",
-        "isOneOf": null,
         "fields": [
           {
             "name": "name",
@@ -76731,7 +76179,6 @@
         "kind": "OBJECT",
         "name": "__Field",
         "description": "Object and Interface types are described by a list of Fields, each of which has a name, potentially a list of arguments, and a return type.",
-        "isOneOf": null,
         "fields": [
           {
             "name": "name",
@@ -76852,7 +76299,6 @@
         "kind": "OBJECT",
         "name": "__InputValue",
         "description": "Arguments provided to Fields or Directives and the input fields of an InputObject are represented as Input Values which describe their type and optionally a default value.",
-        "isOneOf": null,
         "fields": [
           {
             "name": "name",
@@ -76948,7 +76394,6 @@
         "kind": "OBJECT",
         "name": "__Schema",
         "description": "A GraphQL Schema defines the capabilities of a GraphQL server. It exposes all available types and directives on the server, as well as the entry points for query, mutation, and subscription operations.",
-        "isOneOf": null,
         "fields": [
           {
             "name": "description",
@@ -77060,7 +76505,6 @@
         "kind": "OBJECT",
         "name": "__Type",
         "description": "The fundamental unit of any GraphQL Schema is the type. There are many kinds of types in GraphQL as represented by the `__TypeKind` enum.\n\nDepending on the kind of a type, certain fields describe information about that type. Scalar types provide no information beyond a name, description and optional `specifiedByURL`, while Enum types provide their values. Object and Interface types provide the fields they describe. Abstract types, Union and Interface, provide the Object types possible at runtime. List and NonNull types compose other types.",
-        "isOneOf": null,
         "fields": [
           {
             "name": "kind",
@@ -77264,18 +76708,6 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "isOneOf",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -77287,7 +76719,6 @@
         "kind": "ENUM",
         "name": "__TypeKind",
         "description": "An enum describing what kind of type a given `__Type` is.",
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -77347,7 +76778,6 @@
         "kind": "ENUM",
         "name": "estados_habitaciones",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -77431,7 +76861,6 @@
         "kind": "ENUM",
         "name": "estados_incidencias",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -77455,7 +76884,6 @@
         "kind": "ENUM",
         "name": "release_estados_habitaciones",
         "description": null,
-        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -77479,7 +76907,6 @@
         "kind": "INPUT_OBJECT",
         "name": "sendChangePasswordViaEmailInput",
         "description": null,
-        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {

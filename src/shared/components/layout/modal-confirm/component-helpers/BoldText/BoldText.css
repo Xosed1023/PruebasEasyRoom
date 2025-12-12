@@ -1,0 +1,8 @@
+.modal--confirm--__helper__text--bold {
+    color: var(--Placeholder, var(--Placeholder, #667085));
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+}

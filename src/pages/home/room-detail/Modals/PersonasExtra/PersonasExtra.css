@@ -1,0 +1,113 @@
+.modal__personas-extra__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    column-gap: 40px;
+}
+
+.modal__mixto-personas-extra {
+    padding-top: 0px;
+    flex: 0 0 100%;
+}
+
+.modal__personas-extra__title {
+    color: var(--tipografa);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.modal__personas-extra__costos {
+    display: flex;
+    margin: 10px 0;
+}
+
+.modal__personas-extra__label {
+    color: var(--tipografa);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+}
+
+.modal__personas-extra__value {
+    margin-left: 5px;
+    color: var(--tipografa);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.persona-extra-modal-container {
+    padding: 37px 35px 23px;
+    overflow-x: hidden;
+
+    .counter__limit {
+        font-size: 10px;
+    }
+}
+
+.persona-extra-modal-button {
+    width: 100%;
+    height: 40px;
+    margin-top: 5px;
+}
+
+.persona-extra-modal-button > span {
+    font-size: 14px;
+}
+
+.persona-extra-modal-input-text {
+    width: 100%;
+}
+
+.modal-mixto__row {
+    width: calc(100% - 12px) !important;
+}
+
+.persona-extra-propinas {
+    margin-top: 5px;
+    margin-bottom: -30px;
+}
+
+.persona-extra__body-trigger--left {
+    animation: slideLeftPersonaExtra 0.5s ease forwards;
+}
+
+/* Aplicar la animación para volver a la derecha al retirar la clase */
+.persona-extra__body-trigger--right {
+    animation: slideRightPersonaExtra 0.5s ease forwards;
+}
+
+@keyframes slideLeftPersonaExtra {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-107%);
+    }
+}
+
+@keyframes slideRightPersonaExtra {
+    from {
+        transform: translateX(-107%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+.persona-extra-modal-container .lovepoints-extra-wrapper .love-points__input {
+    width: 100% !important;
+    max-width: 100% !important;
+}

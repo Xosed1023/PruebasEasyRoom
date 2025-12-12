@@ -1,0 +1,25 @@
+query Pagos_propinas($pago_propinas_input: MonthSearchInput!, $hotel_id: ID!) {
+    pagos_propinas(fecha_registro: $pago_propinas_input, hotel_id: $hotel_id) {
+        asignacion_propina_id
+        asignacion_propina {
+            monto_pagado: fondo_propina_a_repartir
+        }
+        fecha_registro
+        folio
+        hotel_id
+        pago_propina_id
+        periodo_pago
+        personal {
+            colaborador_id
+            apellido_materno
+            apellido_paterno
+            nombre
+            area {
+                nombre
+            }
+            puesto {
+                nombre
+            }
+        }
+    }
+}

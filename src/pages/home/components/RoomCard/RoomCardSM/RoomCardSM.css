@@ -1,0 +1,16 @@
+.room-card--sm__container {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    width: 129px;
+    height: 92px;
+}
+.room-card--sm__container-select {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    width: 129px;
+    height: 92px;
+    border: 2px solid #7A83A0;
+    border-radius: 8px;
+}

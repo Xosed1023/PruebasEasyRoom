@@ -1,0 +1,61 @@
+/* Estilo para el acordeón */
+.drawer-accordion {
+    margin: 24px 0;
+    width: 100%;
+}
+
+/* Estilo para la cabecera del acordeón */
+.drawer-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    /* padding: 24px; */
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* Estilo para el título del acordeón */
+.drawer-accordion-title {
+    color: var(--Blanco, var(--Color, #fff));
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 100% */
+}
+
+/* Estilo para el icono de flecha */
+.drawer-accordion-icon {
+    transition: transform 0.3s;
+}
+
+/* Estilo cuando el acordeón está abierto */
+.drawer-accordion-icon.open {
+    transform: rotate(180deg);
+}
+
+/* Estilo para el contenedor del contenido del acordeón */
+.drawer-accordion-content-container {
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+/* Estilo para el contenido del acordeón */
+.drawer-accordion-content {
+    padding: 12px 0px;
+    background-color: transparent;
+    overflow-y: auto;
+}
+
+/* Estilo cuando el acordeón está abierto */
+.drawer-accordion-content.open {
+    max-height: 1000px; /* Ajusta esta altura máxima según tu contenido */
+}
+
+/* Estilosp ara estado vacío */
+.drawer-accordion-empty__container {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

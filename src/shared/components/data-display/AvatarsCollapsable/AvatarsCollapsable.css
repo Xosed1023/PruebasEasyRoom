@@ -1,0 +1,12 @@
+.avatar-collapse__image__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-left: 15px;
+}
+
+.avatar-collapse__image {
+    border-radius: 50%;
+    border: 1px solid var(--Blanco, #fff);
+    margin-left: -15px;
+}

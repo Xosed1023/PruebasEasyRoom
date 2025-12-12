@@ -1,0 +1,7 @@
+query Resumen_Movimientos_antes_corte($fecha_inicio: DateTime!, $fecha_fin: DateTime!, $hotel_id: ID!) {
+  movimientos_antes_corte (fecha_fin: $fecha_fin, fecha_inicio: $fecha_inicio, hotel_id: $hotel_id) 
+ {
+    numero_total_movimientos
+    suma_total_montos
+  }
+}

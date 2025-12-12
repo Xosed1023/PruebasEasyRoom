@@ -1,0 +1,70 @@
+query GetAlmacenArticuloByArrayId($articulo_id: [ID!], $pagination_options: PageOptionsArgs!, $hotel_id: ID!) {
+    almacenes_articulos(articulo_id: $articulo_id, pagination_options: $pagination_options) {
+        paginacion {
+            pagina_actual
+            total_paginas
+            total_registros
+        }
+        almacenes_articulos {
+            almacen_articulo_id
+            almacen_id
+            articulo_id
+            articulo {
+                articulo_id
+                categoria_id
+                foto
+                marca
+                nombre
+                precio(hotel_id: $hotel_id) {
+                    monto
+                }
+                costo {
+                    monto
+                }
+                unidad
+                contenido
+                cantidad_minima
+                stock
+                estado
+                tipo
+                extra
+                sku
+            }
+        }
+    }
+}
+
+query GetAlmacenArticuloForEdit($almacen_articulo_id: ID!, $hotel_id: ID!) {
+    almacen_articulo(almacen_articulo_id: $almacen_articulo_id) {
+        almacen_articulo_id
+        almacen_id
+        articulo_id
+        articulo {
+            articulo_id
+            categoria_id
+            foto
+            marca
+            nombre
+            precio(hotel_id: $hotel_id) {
+                monto
+            }
+            costo {
+                monto
+            }
+            unidad
+            contenido
+            cantidad_minima
+            stock
+            estado
+            tipo
+            extra
+            sku
+        }
+    }
+}
+
+mutation ActualizarArticulo($updateArticuloInput: UpdateArticuloInput!) {
+    actualizar_articulo(updateArticuloInput: $updateArticuloInput) {
+        articulo_id
+    }
+}

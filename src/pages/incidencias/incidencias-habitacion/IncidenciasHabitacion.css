@@ -1,0 +1,39 @@
+.incidencias-habitacion__table {
+    width: 100%;
+    margin-top: 20px;
+    height: calc(100vh - 150px);
+    min-height: 400px;
+    overflow: hidden auto;
+}
+.incidencias-habitacion__table .flexible-table th {
+    text-wrap: nowrap;
+}
+.incidencias-habitacion__table .flexible-table__body__cell-text:nth-child(4) {
+    max-width: 110px;
+}
+.incidencias-habitacion__table .flexible-table__body__cell-text:nth-child(6) {
+    max-width: 90px;
+}
+.incidencias-habitacion__table .flexible-table__body__cell-text:nth-child(8) {
+    min-width: 200px;
+    max-width: 200px;
+}
+.incidencias-habitacion__empty {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+}
+.incidencias-habitacion__search {
+    height: 40px;
+    width: 400px;
+}
+.incidencias-habitacion__search-input {
+    gap: 0;
+}
+.incidencias-habitacion__cell-overflow {
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: normal;
+}

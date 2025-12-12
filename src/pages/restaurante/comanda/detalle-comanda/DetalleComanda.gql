@@ -1,0 +1,78 @@
+query GetComanda($comanda_id: ID!, $hotel_id: ID!) {
+    comanda(comanda_id: $comanda_id) {
+        comanda_id
+        estado_comanda
+        orden_id
+        folio
+        orden {
+            orden
+        }
+        detalles_orden(estado: [en_preparacion, por_entregar, en_entrega]) {
+            detalle_orden_id
+            comanda_id
+            orden_id
+            cantidad
+            estado
+            costo_con_iva
+            costo_sin_iva
+            monto_iva
+            comentarios
+            almacen_articulo_id
+            almacen_articulo {
+                almacen_articulo_id
+                precio
+                articulo_id
+                articulo {
+                    articulo_id
+                    nombre
+                    contenido
+                    unidad
+                    descripcion
+                    precio(hotel_id: $hotel_id) {
+                        monto
+                    }
+                    tipo
+                    extra
+                    categoria_id
+                    categoria_articulo {
+                        nombre
+                    }
+                }
+            }
+            extras {
+                extra_detalle_orden_id
+                detalle_orden_id
+                almacen_articulo_id
+                costo_con_iva
+                costo_sin_iva
+                monto_iva
+                cantidad
+                almacen_articulo {
+                    almacen_articulo_id
+                    articulo_id
+                    articulo {
+                        nombre
+                        contenido
+                        unidad
+                        descripcion
+                        categoria_id
+                        tipo
+                        extra
+                        categoria_articulo {
+                            nombre
+                        }
+                        precio(hotel_id: $hotel_id) {
+                            monto
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+mutation EditarComanda($input: EditComandaInput!) {
+    editar_comanda(editComandaInput: $input) {
+        comanda_id
+    }
+}

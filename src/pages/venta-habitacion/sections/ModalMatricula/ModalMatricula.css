@@ -1,0 +1,36 @@
+.modal-matricula__wrapper {
+    justify-content: space-evenly;
+}
+
+.modal-matricula__header {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    row-gap: 16px;
+}
+
+.modal-matricula__title {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20.981px; /* 116.563% */
+}
+
+.modal-matricula__row {
+    display: flex;
+    column-gap: 24px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.modal-matricula__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 16px;
+}
+
+.modal-matricula__input {
+    width: 239px;
+}

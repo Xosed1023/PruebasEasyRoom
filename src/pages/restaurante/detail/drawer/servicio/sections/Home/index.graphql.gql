@@ -1,0 +1,84 @@
+query GetRestaurantOrden($orden_id: ID!, $hotel_id: ID!) {
+    orden(orden_id: $orden_id) {
+        orden_id
+        orden
+        total_con_iva
+        total_sin_iva
+        pago_id
+        pagos {
+            pago_id
+            detalles_pago {
+                subtotal
+                easyrewards_id
+            }
+        }
+        pago {
+            pago_id
+            total
+        }
+        comandas {
+            comanda_id
+            estado_comanda
+            orden_id
+            folio
+            detalles_orden(estado: [en_preparacion, por_entregar, en_entrega, entregada]) {
+                detalle_orden_id
+                comanda_id
+                cantidad
+                estado
+                costo_con_iva
+                monto_iva
+                almacen_articulo_id
+                almacen_articulo {
+                    almacen_articulo_id
+                    precio
+                    articulo_id
+                    articulo {
+                        articulo_id
+                        nombre
+                        contenido
+                        unidad
+                        descripcion
+                        precio(hotel_id: $hotel_id) {
+                            monto
+                        }
+                        tipo
+                        extra
+                        categoria_id
+                        categoria_articulo {
+                            nombre
+                        }
+                    }
+                }
+                extras {
+                    extra_detalle_orden_id
+                    detalle_orden_id
+                    almacen_articulo_id
+                    costo_con_iva
+                    monto_iva
+                    cantidad
+                    almacen_articulo {
+                        almacen_articulo_id
+                        articulo_id
+                        articulo {
+                            nombre
+                            contenido
+                            unidad
+                            descripcion
+                            categoria_id
+                            tipo
+                            extra
+                            categoria_articulo {
+                                nombre
+                            }
+                            precio(hotel_id: $hotel_id) {
+                                monto
+                            }
+                        }
+                    }
+                }
+            }
+            total_comanda
+        }
+    }
+}

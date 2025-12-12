@@ -1,0 +1,69 @@
+.room-card--xs--cleaning__timer {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-feature-settings: "calt" off;
+    font-family: Montserrat;
+    font-size: calc(calc(1.4vh + 1.2vw) / 2);
+    font-style: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+    line-height: 100%; /* 14px */
+}
+
+.room-card--xs--cleaning__description__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.room-card--xs--cleaning__description__sucontainer {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.room-card--xs--cleaning__description {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: calc(calc(1vh + 1vw) / 2);
+    font-style: normal;
+    white-space: nowrap;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+
+.room-card--xs--cleaning__description__subtext {
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.room-card--xs--cleaning__extra-text {
+    color: var(--Tipografa, #303030);
+    font-family: Roboto;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 400;
+    line-height:calc(calc(1.4vh + 1.2vw) / 2); /* 175% */
+    letter-spacing: -0.08px;
+}
+
+.room-card--xs--cleaning__timer--timeout {
+    color: var(--card-limpieza-1);
+    text-align: center;
+    font-feature-settings: "calt" off;
+    font-family: Montserrat;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: calc(calc(1.4vh + 1.2vw) / 2);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 14px */
+}

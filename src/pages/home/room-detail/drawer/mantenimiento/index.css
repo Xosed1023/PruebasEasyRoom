@@ -1,0 +1,36 @@
+.detalle-h-mant__home__tabs {
+    margin-top: 20px;
+    height: calc(100% - 205px);
+}
+.detalle-h-mant__home__block {
+    height: calc(100% - 24px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.detalle-h-mant__home__content {
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+.detalle-h-mant__comment__label {
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+}
+.detalle-h-mant__comment__value {
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+.detalle-h-mant__comment__block {
+    height: calc(100% - 230px);
+    row-gap: 30px;
+}
+.detalle-h-mant__comment__empty {
+    height: 100%;
+    min-height: 230px;
+    margin-top: 20px;
+}

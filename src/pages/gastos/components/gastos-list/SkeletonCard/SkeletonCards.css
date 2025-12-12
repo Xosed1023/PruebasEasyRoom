@@ -1,0 +1,49 @@
+.gastos-cards-skeleton-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 40px;
+    grid-row-gap: 0px;
+
+    .home-screen-skeleton-card {
+        display: flex;
+        justify-content: space-between;
+        padding: 24px 14px 35px 18px;
+    } 
+}
+.gastos-card-skeleton-left {
+    display: flex;
+    flex-direction: column;
+}
+.gastos-card-skeleton-first {
+    width: 124px;
+    height: 14px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    .skeleton-item-base {
+        width: 124px;
+        height: 14px;
+        border-radius: 8px;
+    }
+}
+.gastos-card-skeleton-second {
+    width: 87px;
+    height: 14px;
+    border-radius: 8px;
+    .skeleton-item-base {
+        width: 87px;
+        height: 14px;
+        border-radius: 8px;
+    }
+}
+.gastos-card-skeleton-right {
+    width: 30px;
+    height: 14px;
+    border-radius: 8px;
+    .skeleton-item-base {
+        width: 30px;
+        height: 14px;
+        border-radius: 8px;
+    }
+}

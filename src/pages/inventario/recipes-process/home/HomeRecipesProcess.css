@@ -1,0 +1,38 @@
+.recipes-process-screen__tabs {
+    margin: 10px 0;
+}
+
+.recipes-process-screen__table-container {
+    width: 100%;
+    position: relative;
+    max-height: calc(100dvh - 300px);
+    overflow-y: auto;
+   
+    border-radius: 16px;
+    background: #fff;
+}
+
+.recipes-process-screen__table-container.show-gradient::after {
+    display: block;
+}
+.recipes-process-screen__table-container::after {
+    display: none;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 10;
+    border-radius: 10px;
+}
+
+.recipes-process-screen__search {
+    width: 415px;
+}
+
+.recipes-process-screen__float-button {
+    right: 80px;
+}

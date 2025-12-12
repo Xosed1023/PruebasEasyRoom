@@ -1,0 +1,11 @@
+mutation CambiarTareaDeHabitacion ($datos_cambio:  SwitchTaskRoomInput!) {
+  cambiar_tarea_habitacion(switch_task_room_input: $datos_cambio)
+}
+
+mutation CambiarTareaConEstado ($switch_task_with_room_state_input: SwitchTaskWithRoomStateInput!) {
+  cambiar_tarea_con_estado(switch_task_with_room_state_input: $switch_task_with_room_state_input)
+}
+
+mutation CambiarTareaEntreColaboradores($switch_task_btw_colab_input: SwitchTaskBtwColabInput!) {
+  cambiar_tarea_entre_colaboradores(switch_task_btw_colab_input: $switch_task_btw_colab_input)
+}

@@ -1,0 +1,200 @@
+.drop-hotel {
+    position: fixed;
+    top: 38px;
+    right: 82px;
+    width: 317px;
+    height: auto;
+    border-radius: 0 0 10px 10px;
+    background: rgba(14, 14, 14, 0.8);
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 10px;
+    z-index: 1100;
+}
+.drop-hotel__header {
+    box-sizing: border-box;
+    padding: 0 16px;
+    margin-bottom: 20px;
+}
+.drop-hotel__search {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 8px -4px rgba(16, 24, 40, 0.03);
+    box-sizing: border-box;
+    padding: 8px 12px;
+    display: grid;
+    grid-template-columns: 18px 1fr 14px;
+    column-gap: 15px;
+    align-items: center;
+}
+.drop-hotel__input {
+    width: 100%;
+    height: 24px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    color: var(--white);
+    font-weight: 600;
+}
+.drop-hotel__input::placeholder {
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 400;
+}
+.drop-hotel__input:active {
+    outline: none;
+}
+.drop-hotel__close {
+    width: 14px;
+    height: 14px;
+    background-color: var(--fondo-close);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.drop-hotel__empty {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 30px 20px;
+}
+.drop-hotel__empty-cover {
+    height: 160px;
+    width: 160px;
+    background-color: #6941c64d;
+    backdrop-filter: blur(2px);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.drop-hotel__empty-title {
+    color: var(--white);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    margin: 8px 0;
+}
+.drop-hotel__empty-description {
+    text-align: center;
+    font-size: 14px;
+}
+.drop-hotel__main {
+    height: calc(100% - 36px);
+}
+.drop-hotel__main-max {
+    height: calc(100% - 96px);
+    max-height: calc(60px * 8);
+    overflow: hidden auto;
+}
+.drop-hotel__main-max::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+.drop-hotel__main-max::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background: var(--light-gray);
+}
+.drop-hotel__item {
+    width: 100%;
+    height: 60px;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    display: grid;
+    grid-template-columns: 1fr 20px;
+    column-gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+.drop-hotel__item:hover {
+    background: rgba(105, 65, 198, 0.5);
+    backdrop-filter: blur(4px);
+}
+.drop-hotel__item:hover .drop-hotel__check {
+    background-color: var(--white);
+}
+.drop-hotel__item:hover svg path {
+    stroke: var(--primary);
+}
+.drop-hotel__item-content {
+    display: flex;
+    align-items: center;
+}
+.drop-hotel__logo {
+    width: 34px;
+    height: 34px;
+    background-color: var(--white);
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+}
+.drop-hotel__logo-img {
+    object-fit: cover;
+}
+.drop-hotel__logo span {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    color: var(--label-color);
+}
+.drop-hotel__name {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    color: var(--white);
+    white-space: nowrap;
+}
+.drop-hotel__description {
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 400;
+    margin-top: 3px;
+}
+.drop-hotel__check {
+    height: 20px;
+    width: 20px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.drop-hotel__skeleton {
+    grid-template-columns: 34px 1fr;
+}
+.drop-hotel__skeleton__avatar {
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+}
+.drop-hotel__skeleton__name {
+    height: 14px;
+    width: 100%;
+}
+.drop-hotel__footer {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    border-top: 1px solid #ffffff26;
+}

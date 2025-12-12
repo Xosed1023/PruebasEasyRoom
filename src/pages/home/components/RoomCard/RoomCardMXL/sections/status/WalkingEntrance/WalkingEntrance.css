@@ -1,0 +1,29 @@
+.room-card--mxl-walking-entrance__gest-type {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-family: Roboto;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    margin-left: 5px;
+}
+
+.room-card--mxl-walking-entrance__description-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.room-card--mxl-walking-entrance__gest-number {
+    color: var(--tipografa);
+    text-align: center;
+    font-family: Roboto;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    margin-left: 5px;
+}

@@ -1,0 +1,105 @@
+.drawer-ordenes-skeleton-container {
+    height: 100%;
+
+    .element-ticket-skeleton-circle-small {
+        .skeleton-item {
+            width: 16px;
+            height: 16px;
+            border-radius: 100%;
+        }
+    }
+
+    .element-ticket-skeleton {
+        margin: 0;
+    }
+
+    .element-ticket-skeleton-middle {
+        width: 90%;
+    }
+
+    .element-ticket-skeleton-large {
+        width: 244px;
+        .skeleton-item {
+            width: 244px;
+            height: 14px;
+            border-radius: 8px;
+        }
+    }
+    
+    .element-ticket-skeleton-short {
+        width: 180px;
+        .skeleton-item {
+            width: 180px;
+            height: 14px;
+            border-radius: 8px;
+        }
+    }
+
+    .total-ticket-skeleton {
+        margin: 0 0 14px 0;
+    }
+
+    .total-ticket-skeleton-large {
+        .skeleton-item {
+            width: 145px;
+            height: 20px;
+            border-radius: 8px;
+        }
+    }
+
+    .total-ticket-skeleton-short {
+        .skeleton-item {
+            width: 70px;
+            height: 20px;
+            border-radius: 8px;
+        }
+    }
+
+    .total-ticket-skeleton-container {
+        height: fit-content;
+    }
+
+    .orden__drawer__button {
+        margin-top: 60px;
+        width: 100%;
+    }
+}
+
+.drawer-ordenes-skeleton-title {
+    width: 241px;
+    height: 24px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    .skeleton-item {
+        width: 241px;
+        height: 24px;
+        border-radius: 8px;
+    }
+}
+
+.drawer-ordenes-skeleton-subtitle {
+    width: 158px;
+    height: 24px;
+    border-radius: 8px;
+    margin-bottom: 35px;
+    .skeleton-item {
+        width: 158px;
+        height: 24px;
+        border-radius: 8px;
+    }
+}
+
+.element-ticket-skeleton-drawer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #EFEFEF;
+    padding-top: 55px;
+    margin-top: 12px;
+    border-bottom: 1px solid #FFFFFF26;
+    padding-bottom: 130px;
+    margin-bottom: 40px;
+
+    .element-ticket-skeleton-short {
+        margin-bottom: 11px;
+    }
+}

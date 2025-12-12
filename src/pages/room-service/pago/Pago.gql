@@ -1,0 +1,147 @@
+query GetRentaForPagosPendientes($renta_id: ID!) {
+    renta(renta_id: $renta_id) {
+        renta_id
+        usuario_id
+        estado
+        conceptos_pendientes {
+            estancia_pendiente {
+                usuario_id
+                folio
+                detalle
+                precio
+                cantidad
+                iva
+                total
+                easyrewards_id
+                extras_checkin {
+                    extra_id
+                    detalle
+                    precio
+                    cantidad
+                    iva
+                    total
+                }
+                colaborador {
+                    colaborador_id
+                    nombre
+                }
+            }
+            extras_pendientes {
+                venta_id
+                usuario_id
+                folio
+                conceptos {
+                    extra_id
+                    detalle
+                    precio
+                    cantidad
+                    iva
+                    total
+                }
+                colaborador {
+                    colaborador_id
+                    nombre
+                }
+            }
+        }
+        saldo_pendiente_estancia
+        saldo_pendiente_ordenes
+        habitacion_id
+        easyrewards_id
+        habitacion {
+            numero_habitacion
+            tipo_habitacion_id
+            tipo_habitacion {
+                nombre
+            }
+        }
+        tarifa {
+            costo_early_checkin
+        }
+    }
+}
+
+query GetOrdenesPagosPendientes($renta_id: ID, $orden_id: [ID!], $estado_pago: [EstadoPagoOrdenes!]) {
+    ordenes(renta_id: $renta_id, orden_id: $orden_id, estado_pago: $estado_pago) {
+        orden_id
+        orden
+        total_con_iva
+        saldo_pendiente
+        estado_pago
+        estado_orden
+        usuario_id
+        colaborador_id
+        colaborador_entrega {
+            colaborador_id
+            nombre
+            apellido_materno
+            apellido_paterno
+            __typename
+        }
+        detalles_orden(estado: [en_preparacion, en_entrega, por_entregar, entregada]) {
+            detalle_orden_id
+            estado
+            almacen_articulo_id
+            cantidad
+            almacen_articulo {
+                almacen_articulo_id
+                articulo_id
+                articulo {
+                    nombre
+                    contenido
+                    unidad
+                    descripcion
+                    tipo
+                    extra
+                    categoria_id
+                    categoria_articulo {
+                        nombre
+                        __typename
+                    }
+                    __typename
+                }
+                __typename
+            }
+            extras {
+                extra_detalle_orden_id
+                detalle_orden_id
+                almacen_articulo_id
+                costo_con_iva
+                monto_iva
+                cantidad
+                almacen_articulo {
+                    almacen_articulo_id
+                    articulo_id
+                    articulo {
+                        nombre
+                        contenido
+                        unidad
+                        descripcion
+                        categoria_id
+                        categoria_articulo {
+                            nombre
+                            __typename
+                        }
+                        __typename
+                    }
+                    __typename
+                }
+                __typename
+            }
+            costo_con_iva
+            monto_iva
+            __typename
+        }
+        detalle_pago_pre_cargado {
+            subtotal
+            tipo_pago
+            ultimos_digitos
+            numero_referencia
+        }
+        easyrewards_id
+        __typename
+    }
+}
+mutation PagarOrdenes($pay_orden_input: PayRentaInput!) {
+    pagar_ordenes_pendientes(PayOrdenInput: $pay_orden_input)
+}

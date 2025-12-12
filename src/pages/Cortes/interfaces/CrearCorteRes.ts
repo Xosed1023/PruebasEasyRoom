@@ -1,0 +1,32 @@
+export interface CrearCorteRes {
+    anticipos_reservas:           number;
+    corte_id:                     string;
+    cortesia_habitaciones:        number;
+    cortesias_restaurantes:       number;
+    efectivo_ingresado:           number;
+    fecha_cierre_corte:           Date;
+    fecha_fin_corte:              Date;
+    fecha_inicio_corte:           Date;
+    folio:                        number;
+    hotel_id:                     string;
+    reservas_consumidas:          number;
+    taxis:                        number;
+    total_caja:                   number;
+    total_corte:                  number;
+    total_depositos:              number;
+    total_fajillas:               number;
+    total_gastos:                 number;
+    total_propinas_habitacion:    number;
+    total_propinas_restaurantes:  number;
+    total_venta_efectivo:         number;
+    total_venta_habitaciones:     number;
+    total_venta_horas_extra:      number;
+    total_venta_hospedajes_extra: number;
+    total_venta_paquetes:         number;
+    total_venta_personas_extra:   number;
+    total_venta_room_service:     number;
+    total_venta_tarjetas:         number;
+    turno_id:                     string;
+    usuario_cierra_corte:         string;
+    usuario_realiza_corte:        string;
+}

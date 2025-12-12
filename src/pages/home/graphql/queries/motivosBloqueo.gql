@@ -1,0 +1,10 @@
+query TiposBloqueo($hotel_id: ID!) {
+  tipos_bloqueo(hotel_id: $hotel_id) {
+    tipo_bloqueo_id
+    nombre
+    claves {
+      tamano
+      clave
+    }
+  }
+}

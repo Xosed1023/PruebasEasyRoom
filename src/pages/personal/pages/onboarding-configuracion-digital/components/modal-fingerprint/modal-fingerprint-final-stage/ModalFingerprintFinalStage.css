@@ -1,0 +1,27 @@
+.modal-fingerprint-final-stage__title {
+    color: var(--tipografa);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20.981px; /* 116.563% */
+}
+
+.modal-fingerprint-final-stage__subtitle {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+}
+
+.modal-fingerprint-final-stage__subtitle--bold {
+    font-weight: 700;
+}
+
+.modal-fingerprint-final-stage__button {
+    width: 100%;
+}

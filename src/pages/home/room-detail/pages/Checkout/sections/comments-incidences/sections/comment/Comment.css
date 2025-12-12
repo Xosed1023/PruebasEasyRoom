@@ -1,0 +1,42 @@
+.room-detail__page--checkout-comment-incidentes {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 12px 0;
+    gap: 16px;
+}
+
+.room-detail__page--checkout-comment-incidentes__col {
+    display: flex;
+    flex-direction: column;
+
+    &.center {
+        align-items: center;
+    }
+}
+
+.room-detail__page--checkout-comment-incidentes__stick {
+    margin-top: 4px;
+    width: 1px;
+    height: 22px;
+    border-radius: 8px;
+    background-color: var(--purple-drawer-primario);
+}
+
+.room-detail__page--checkout-comment-incidentes__text--bold {
+    color: var(--tipografa);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 200% */
+}
+
+.room-detail__page--checkout-comment-incidentes__text {
+    color: var(--tipografa);
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 166.667% */
+}

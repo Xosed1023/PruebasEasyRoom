@@ -1,0 +1,10 @@
+query GetVehiculoData($placaInput: GetVehiculoDataByPlacaInput!) {
+  getVehiculoDataByPlaca(placa: $placaInput) {
+    vehiculo {
+      matricula
+      marca
+      modelo
+      color
+    }
+  }
+}

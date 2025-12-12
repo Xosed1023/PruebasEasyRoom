@@ -1,0 +1,96 @@
+query getTicketForCancelacion($ticket_id: ID!) {
+    ticket(ticket_id: $ticket_id) {
+        ticket_id
+        data {
+            renta_id
+            origen_ticket {
+                id
+                origen
+                renta {
+                    renta_id
+                    estado
+                    habitacion_id
+                    habitacion {
+                        habitacion_id
+                        estado
+                        ultima_renta {
+                            renta_id
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+query getTransaccionesForCancelacion($renta_id: ID!) {
+    transacciones_renta(renta_id: $renta_id) {
+        ordenes {
+            ticket_id
+            orden_id
+            orden {
+                orden
+                orden_id
+                corte_id
+                total_con_iva
+                fecha_registro
+                detalles_orden {
+                    detalle_orden_id
+                    cantidad
+                    almacen_articulo_id
+                    almacen_articulo {
+                        almacen_articulo_id
+                        articulo_id
+                        articulo {
+                            articulo_id
+                            nombre
+                            categoria_id
+                            categoria_articulo {
+                                categoria_id
+                                nombre
+                            }
+                        }
+                    }
+                    extras {
+                        extra_detalle_orden_id
+                        cantidad
+                        almacen_articulo_id
+                        almacen_articulo {
+                            almacen_articulo_id
+                            articulo_id
+                            articulo {
+                                articulo_id
+                                nombre
+                                categoria_id
+                                categoria_articulo {
+                                    categoria_id
+                                    nombre
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            ticket {
+                ticket_id
+                folio
+            }
+        }
+        transacciones {
+            ticket_id
+            extras {
+                extra_id
+                tipo_extra
+                ticket_id
+            }
+        }
+        transacciones_checkin {
+            ticket_id
+            extras {
+                extra_id
+                tipo_extra
+                ticket_id
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+.recipes-process-screen__input {
+    width: 415px;
+    margin-right: 20px;
+}
+
+.recipes-process-screen__input__close__wrapper {
+    position: relative;
+}
+
+.recipes-process-screen__input__close {
+    width: 30px;
+    height: 30px;
+    background-color: var(--fondo-close);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -15px;
+    right: 40px;
+    cursor: pointer;
+}

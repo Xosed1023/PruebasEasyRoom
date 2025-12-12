@@ -1,0 +1,202 @@
+.product-form__content {
+    padding: 30px 0;
+}
+.product-form__body {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    column-gap: 50px;
+}
+.product-form__foto .inputImage {
+    margin-top: 0;
+    transform: scale(0.85);
+    left: -12px;
+    top: -10px;
+}
+.product-form__col-form {
+    display: flex;
+    flex-direction: column;
+}
+.product-form__info {
+    margin-bottom: 40px;
+}
+.product-form__info-head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.product-form__info-head__description {
+    display: flex;
+    align-items: center;
+}
+.product-form__info-head__label {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.28px;
+    margin: 0 16px;
+}
+.product-form__info__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.product-form__costo {
+    margin-bottom: 50px;
+}
+.product-form__costo-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+}
+.product-form__costo-alert {
+    margin: 50px 0 0;
+    color: var(--placeholder);
+    font-size: 12px;
+    font-weight: 500;
+}
+.product-form__inv {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    margin-bottom: 40px;
+}
+.product-form__mask-disabled {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    user-select: none;
+    cursor: not-allowed;
+}
+.product-form__button {
+    height: 40px;
+    width: 325px;
+}
+.product-form__input-tooltip .tooltip svg {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+}
+/* Section */
+.product-form__section {
+    display: flex;
+    flex-direction: column;
+}
+.product-form__section__head {
+    box-sizing: border-box;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--stroke);
+    margin-bottom: 16px;
+}
+.product-form__section__title {
+    font-size: 14px;
+    font-weight: 600;
+}
+.product-form__section__content {
+    box-sizing: border-box;
+}
+
+/* InputQuality */
+.product-form__input-quality {
+    position: relative;
+}
+.product-form__input-quality__label {
+    font-size: 12px;
+    font-weight: 400;
+}
+.product-form__input-quality__float {
+    position: absolute;
+    top: 30.8px;
+    right: 6px;
+    z-index: 99;
+}
+.product-form__input-quality__box {
+    height: 24px;
+    width: 56px;
+    border-left: 1px solid var(--stroke);
+    padding: 8px 6px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+.product-form__input-quality__drop {
+    width: 170px;
+    height: 168px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 4px 6px;
+    position: absolute;
+    top: calc(100% + 12px);
+    right: -6px;
+    border-radius: 8px;
+    border: 1px solid var(--scroll);
+    background: var(--white);
+    box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+}
+.product-form__input-quality__option {
+    cursor: pointer;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 10px 10px 10px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* InputPrice */
+.product-form__input-price {
+    position: relative;
+}
+.product-form__input-price__info {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 66px;
+    right: 0;
+}
+.product-form__input-price__label {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--placeholder);
+    margin-right: 8px;
+}
+
+.product-form__percent {
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.product-form__percent__label {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    color: var(--input--tag);
+    margin-bottom: 15px;
+}
+.product-form__percent__value {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 20px;
+}
+.product-form__footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.product-form__active {
+    display: flex;
+    align-items: center;
+    margin-right: 70px;
+}
+.product-form__active-switch {
+    margin-right: 12px;
+}
+.product-form__active-switch .switch__label {
+    font-weight: 600;
+}
+

@@ -1,0 +1,20 @@
+.payment-method-dropdown {
+    width: 300px;
+}
+
+.payment-method-field__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.payment-method-field__link {
+    color: var(--Morado-Morado-Primario, #6941c6);
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 155.556% */
+    text-decoration-line: underline;
+
+    cursor: pointer;
+}

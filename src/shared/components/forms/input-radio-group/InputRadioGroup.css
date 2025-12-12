@@ -1,0 +1,36 @@
+.modal__cancelar-renta__devolucion__title {
+    color: var(--input-tag, #606060);
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    margin-bottom: 6px;
+}
+
+.modal__cancelar-renta__devolucion__wrapper {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+}
+
+.modal__cancelar-renta__devolucion {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+
+.modal__cancelar-renta__devolucion__item {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.modal__cancelar-renta__devolucion__item__text {
+    color: var(--Tipografa, #303030);
+    /* Text md/Medium */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+}

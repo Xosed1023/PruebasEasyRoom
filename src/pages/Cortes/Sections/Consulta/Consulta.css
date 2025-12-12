@@ -1,0 +1,13 @@
+.movimientos-container {
+    .screen__head {
+        align-items: flex-start;
+    }
+    .screen__head__right {
+        margin-top: 15px;
+    }
+}
+
+.cortes-movimiento-title {
+    font-size: 30px;
+    font-weight: 700;
+}

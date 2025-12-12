@@ -1,0 +1,19 @@
+query GetDataTicket($ticket_id: ID!) {
+    ticket(ticket_id: $ticket_id) {
+        ticket_id
+        data {
+            metodos_pago {
+                numero_referencia
+                tipo
+                total
+                ultimos_digitos
+            }
+            propinas {
+                numero_referencia
+                total
+                ultimos_digitos
+                tipo_pago
+            }
+        }
+    }
+}

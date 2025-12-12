@@ -1,0 +1,6 @@
+query AreasForReport($hotel_id: ID!) {
+    areas(hotel_id: $hotel_id, eliminado: false) {
+      area_id
+      nombre
+    }
+}

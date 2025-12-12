@@ -1,0 +1,172 @@
+.addModalCrearGasto__form {
+    padding: 16px 30px 0 30px;
+
+    .guest-screen__switch {
+        margin-top: 16px;
+
+        .switch--state--disabled {
+            background-color: var(--purple-drawer-primario);
+        }
+
+        .switch--state--disabled > .switch__dot {
+            background-color: var(--white);
+        }
+    }
+}
+
+.addModalCrearGasto__form__parallel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+.addModalCrearGasto__form__parallel-grid {
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 273px 1fr;
+    gap: 20px;
+}
+.addModalCrearGasto__form__recepcion {
+    width: 100%;
+}
+.addModalCrearGasto__form__parallel__text-box {
+    width: 100%;
+
+    .text-box__character-limit {
+        bottom: 70px;
+    }
+}
+.addGastoModalContainer {
+    width: 628px;
+    height: fit-content;
+    top: 20px;
+    padding: 0;
+
+    .input-text {
+        width: 273px;
+    }
+
+    .modal__close {
+        top: 15px;
+        right: 25px;
+    }
+
+    .icon-header {
+        width: 60px;
+        height: 60px;
+        margin-top: 30px;
+    }
+
+    .icon-header__icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .icon-header__title {
+        font-size: 18px;
+        margin-bottom: 2px;
+    }
+
+    .icon-header__subtitle {
+        font-weight: 500;
+        font-size: 14px;
+        color: #667085;
+    }
+
+    .dropdown-component-label {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    .dropdown-component {
+        height: 40px;
+    }
+
+    .dropdown-component-container {
+        margin-bottom: 16px;
+        max-width: 100%;
+    }
+
+    .input-text__label,
+    .text-box__description {
+        font-size: 12px;
+    }
+
+    .input-text__container,
+    .text-box__wrapper {
+        gap: 4px;
+    }
+
+    .input-text {
+        height: 40px;
+    }
+
+    .subcategoria-dropdown {
+        width: 272px;
+    }
+
+    .addModalCrearGasto__form__parallel__text-box {
+        height: 60px;
+    }
+
+    .text-box__semi-container {
+        height: 90px;
+    }
+
+    .text-box__wrapper {
+        padding-bottom: 16px;
+    }
+
+    .button--primary {
+        margin: 16px 0;
+    }
+
+    .dropdown-component__area {
+        border: 1px solid #f2f4f7;
+        border-radius: 8px;
+    }
+
+    .gastos-drop-no-border .dropdown-component__area {
+        border: none;
+    }
+
+    .input-text__icon {
+        transform: none;
+        top: 30%;
+        left: 5%;
+    }
+
+    .monto-add-gasto .input-text__icon {
+        top: 25%;
+    }
+
+    .dropdown-metodo-gastos .dropdown-cont svg {
+        position: absolute;
+        top: 10px;
+        margin-left: 4px;
+    }
+
+    .dropdown-metodo-gastos .dropdown-component__placeholder {
+        margin-left: 30px;
+    }
+
+    .dropdown-metodo-gastos .dropdown-component__value {
+        margin-left: 34px;
+    }
+}
+
+.add-gasto-modal-fecha {
+    padding: 0px 40px;
+
+    .day__item__wrapper {
+        width: 56px;
+    }
+}
+
+.gasto-switch-text {
+    color: #667085;
+    font-size: 12px;
+    margin: 5px 0px 16px;
+}

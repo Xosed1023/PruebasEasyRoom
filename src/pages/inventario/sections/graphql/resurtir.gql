@@ -1,0 +1,11 @@
+mutation surtirArticulo($crear_surtido_input: CreateSurtidoInput!) {
+    crear_surtido(createSurtidoInput: $crear_surtido_input) {
+        almacen_articulo {
+            cantidad
+            estado
+        }
+        articulo {
+            estado
+        }
+    }
+}

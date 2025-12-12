@@ -1,0 +1,100 @@
+.modal__cancelar-renta__container {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+.modal__cancelar-renta__wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.modal__cancelar-renta__transition--left {
+    transform: translateX(0%);
+}
+.modal__cancelar-renta__transition--right {
+    transform: translateX(-100%);
+}
+.modal__cancelar-renta__slide {
+    flex: 0 0 100%;
+    overflow: hidden;
+    position: relative;
+}
+.modal__cancelar-renta__title {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20.981px; /* 116.563% */
+}
+
+.modal__cancelar-renta__subtitle {
+    color: var(--Placeholder, var(--Placeholder, #667085));
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 17.984px; /* 149.867% */
+}
+
+.modal__cancelar__input {
+    margin: 0;
+}
+
+.modal__cancelar__operaciones {
+    margin-bottom: 15px;
+}
+
+.modal__cancelar__input-textarea {
+    width: 100%;
+    height: 68px;
+}
+
+.modal__cancelar__input-veification {
+    margin: 16px 0 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__cancelar__button {
+    width: 100%;
+}
+
+.modal__cancelar__ordenes-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--tipografa);
+    line-height: 28px;
+}
+
+.modal__cancelar__back {
+    position: absolute;
+    z-index: 5;
+    top: 10px;
+    left: 30px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--fondo--close);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.modal__cancelar-renta__table__rows {
+    display: grid;
+    grid-template-columns: 1fr 112px 175px 100px;
+}
+.modal__cancelar-renta__table__container {
+    width: 100%;
+    height: calc(100% - 57px);
+    box-sizing: border-box;
+    padding: 12px 30px;
+}

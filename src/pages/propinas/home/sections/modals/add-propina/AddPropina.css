@@ -1,0 +1,62 @@
+.modal-add-propina {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .icon-header__container {
+        .icon-header {
+            width: 60px;
+            height: 60px;
+
+            .icon-header__icon {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        .icon-header__title {
+            font-size: 18px;
+            margin-bottom: 2px;
+        }
+    }
+
+    .addModalCrearGasto__form__parallel-grid {
+        margin-bottom: 6px;
+        gap: 0;
+    }
+
+    .text-box__main {
+        height: 68px;
+    }
+
+    .button--primary {
+        margin-top: 16px;
+        width: 100%;
+    }
+
+    .inputText-suggestions, .input-text__container, .dropdown-component-container {
+        width: 239px;
+    }
+}
+
+.modal-add-propina__date {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.addModalCrearGasto__form__single-field {
+  width: 100%;
+}
+.addModalCrearGasto__form__single-field {
+  width: 100% !important;
+  grid-column: 1 / -1;
+}
+
+.addModalCrearGasto__form__single-field .input-text__wrapper {
+  width: 100% !important;
+}
+
+.addModalCrearGasto__form__single-field .input-text {
+  width: 100% !important;
+}

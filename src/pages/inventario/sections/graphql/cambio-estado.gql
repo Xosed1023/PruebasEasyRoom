@@ -1,0 +1,9 @@
+mutation actualizarProducto($articulo_input: UpdateArticuloInput!) {
+    actualizar_articulo(updateArticuloInput: $articulo_input) {
+        articulo_id
+    }
+}
+
+mutation eliminarArticulo($almacen_articulo_input: DeleteAlmacenesArticulosInput!) {
+    eliminar_almacen_articulo(deleteAlmacenArticuloInput: $almacen_articulo_input)
+}

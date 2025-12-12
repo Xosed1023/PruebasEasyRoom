@@ -1,0 +1,85 @@
+query GetArticulosSearchRoomService(
+    $hotel_id: ID!
+    $pagination_options: PageOptionsArgs!
+    $nameFilter: String!
+    $filter_tipo_articulo: [TipoArticulo!]!
+) {
+    almacenes_articulos(
+        hotel_id: $hotel_id
+        eliminado: false
+        nombre_articulo_filters: { like: $nameFilter }
+        filter_estado_articulo: activado
+        filter_tipo_articulo: $filter_tipo_articulo
+        filter_tipo_almacen: suministro
+        filter_duplicados: true
+        filter_producciones: true
+        pagination_options: $pagination_options
+    ) {
+        paginacion {
+            pagina_actual
+            total_paginas
+        }
+        almacenes_articulos {
+            costo
+            almacen_articulo_id
+            almacen_id
+            articulo_id
+            precio
+            estado
+            cantidad
+            eliminado
+            fecha_movimiento
+            hotel_id
+            almacen {
+                almacen_id
+                nombre
+            }
+            articulo {
+                articulo_id
+                cantidad_minima
+                categoria_id
+                contenido
+                descripcion
+                eliminado
+                estado
+                extra
+                fecha_eliminado
+                fecha_registro
+                folio
+                folio_articulo
+                foto
+                imas_id
+                marca
+                nombre
+                sku
+                stock
+                tipo
+                unidad
+                precio(hotel_id: $hotel_id) {
+                    monto
+                }
+                costo {
+                    monto
+                }
+                categoria_articulo {
+                    categoria_id
+                    nombre
+                }
+            }
+            ultimo_surtido {
+                almacen_articulo_id
+                cantidad
+                colaborador_id
+                comentario
+                costo_total
+                costo_unitario
+                fecha_ingreso
+                folio
+                hotel_id
+                numero_orden_factura
+                surtido_id
+                tipo
+            }
+        }
+    }
+}

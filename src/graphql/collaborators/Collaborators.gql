@@ -1,5 +1,0 @@
-query Colaboradores($usuario_id: ID!) {
-  colaboradores(usuario_id: $usuario_id, eliminado: false) {
-        colaborador_id
-    }    
-}

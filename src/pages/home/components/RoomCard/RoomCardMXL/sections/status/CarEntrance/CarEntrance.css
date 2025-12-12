@@ -1,0 +1,29 @@
+.room-card--mxl-car-entrance__gest-car {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 10px */
+    letter-spacing: -0.1px;
+    margin-left: 6px;
+}
+
+.room-card--mxl-car-entrance__description-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.room-card--mxl-car-entrance__gest-number {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-family: Roboto;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    margin-left: 6px;
+}

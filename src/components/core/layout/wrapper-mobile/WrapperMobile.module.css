@@ -1,8 +1,0 @@
-.wrapper-mobile {
-    height: 100dvh;
-    width: 100%;
-    padding-top: env(safe-area-inset-top, 0px);
-    box-sizing: border-box;
-    overflow: hidden;
-    position: relative;
-}

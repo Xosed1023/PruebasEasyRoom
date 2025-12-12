@@ -1,0 +1,9 @@
+.incomplete-order__modal__footer {
+    display: flex;
+    width: 100%;
+    column-gap: 10px;
+}
+
+.incomplete-order__modal__button {
+    width: 50%;
+}

@@ -1,0 +1,176 @@
+@keyframes opacity-animation {
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+.ocupacionWitged {
+    display: flex;
+    width: 100%;
+    min-width: 262px;
+    height: 322px;
+    border-radius: 16px;
+    background: var(--background-widged);
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    animation: opacity-animation 0.5s none ease;
+    position: relative;
+}
+
+.ocupacionWitged__graph {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ocupacionWitged__title {
+    color: var(--Color, #fff);
+    font-family: var(--font-text);
+    padding: 15px 20px 10px;
+    font-weight: 600;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    box-sizing: border-box;
+}
+.ocupacionWitged__info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* color: #fff; */
+    margin: 15px;
+    gap: 5px;
+    justify-content: space-around;
+}
+.ocupacionWitged__porcentaje {
+    font-family: "Qualy";
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    color: #fff;
+    margin-left: 5px;
+}
+.ocupacionWitged__info__num {
+    color: #fff;
+    font-family: "Qualy";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+.ocupacionWitged__info__text {
+    color: #fff;
+    font-family: var(--font-text);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+}
+.ocupacionWitged__info-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.ocupacionWitged__graph__info {
+    position: absolute;
+    color: #fff;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.ocupacionWitged__graph__info__number {
+    font-family: "Qualy";
+    font-size: 32px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+}
+.ocupacionWitged__graph__info__title {
+    font-family: var(--font-text);
+    font-size: 9px;
+    font-weight: 400;
+    color: #fff;
+}
+.ocupacionWitged__graph__info__subtitle {
+    font-family: var(--font-text);
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    color: #fff;
+}
+.ocupacionWitged__stat {
+    width: 170px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.ocupacionWitged__stat-mg {
+    margin-top: 20px;
+}
+.ocupacionWitged__stat-sep {
+    font-size: 10px;
+    color: var(--white);
+    font-weight: 500;
+}
+.ocupacionWitged__stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.ocupacionWitged__stat-item__label {
+    font-size: 10px;
+    color: var(--white);
+    font-weight: 500;
+}
+.ocupacionWitged__stat-item__value {
+    color: var(--white);
+    font-family: "Qualy";
+    font-size: 14px;
+    font-weight: 400;
+}
+.ocupacionWitged__stat-item__value span {
+    color: var(--white);
+    font-family: "Qualy";
+    font-weight: 400;
+    font-size: 8.824px;
+}
+.ocupacionWitged__tab {
+    width: 32px;
+    position: absolute;
+    bottom: 17px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.ocupacionWitged__tab-item {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--white);
+    opacity: 0.25;
+}
+.ocupacionWitged__tab-item--active {
+    opacity: 1;
+}
+.ocupacionWitged__stat-item__cover {
+    display: flex;
+    align-items: center;
+}
+.ocupacionWitged__stat-item__cover svg {
+    margin-right: 5px;
+}
+.ocupacionWitged__card-main {
+    width: 100%;
+    height: calc(100% - 84px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.ocupacionWitged__graph-month {
+    transform: scale(1.2);
+}

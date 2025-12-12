@@ -1,0 +1,12 @@
+.modal-row__footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 56px;
+}
+
+.modal-row__divider {
+    height: 1px;
+    background-color: var(--gray-background);
+    width: calc(100% + 30px);
+}

@@ -1,17 +1,15 @@
-export const onCreateSession = (token: string, session: boolean, remember: string): void => {
+export const createSession = (token: string, session: boolean): void => {
     const date = new Date()
     date.setDate(date.getDate() + 1)
 
     localStorage.setItem("@jwt", token)
     localStorage.setItem("@expired", `${date.getTime()}`)
-    localStorage.setItem("@session", `${true}`)
 
-    if (session && remember) {
-        localStorage.setItem("@remember-user", remember)
+    if (session) {
+        localStorage.setItem("@session", `${true}`)
     } else {
-        if (localStorage.getItem("@remember-user")) {
-            localStorage.removeItem("@remember-user")
-        }
+        localStorage.setItem("@session", `${true}`)
+        sessionStorage.setItem("@session", `${true}`)
     }
 }
 
@@ -26,10 +24,11 @@ export const isActiveSession = (): boolean => {
     return session ? !!token && date.getTime() < time : false
 }
 
-export const onClearSession = (): void => {
-    const paths = ["@jwt", "@expired", "@session", "@profile"]
-    paths.forEach((i) => localStorage.removeItem(i))
+export const clearSession = (): void => {
+    localStorage.clear()
     sessionStorage.clear()
+    //sessionStorage.removeItem("@session")
+    //sessionStorage.removeItem("@payment_mix")
 }
 
 export const getToken = (): string => {

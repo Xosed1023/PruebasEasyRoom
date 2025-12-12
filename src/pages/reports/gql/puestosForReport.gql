@@ -1,0 +1,6 @@
+query PuestosForReport {
+    puestos(eliminado: false) {
+      puesto_id
+      nombre
+    }
+}

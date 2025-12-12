@@ -1,0 +1,64 @@
+query getColaboradores($hotel_id: ID!, $en_turno: Boolean) {
+    colaboradores(hotel_id: $hotel_id, en_turno: $en_turno, eliminado: false) {
+        apellido_materno
+        apellido_paterno
+        nombre
+        colaborador_id
+        colaborador_in_hotel {
+            puesto {
+                puesto_id
+                nombre
+            }
+        }
+        en_turno
+        ultima_tarea {
+            fecha_inicio
+            fecha_termino
+            colaborador_tarea_id
+            habitacion_id
+            habitacion {
+                numero_habitacion
+                tipo_habitacion_id
+                tipo_habitacion {
+                    nombre
+                }
+            }
+        }
+        puesto {
+            puesto_id
+            nombre
+            area {
+                area_id
+                nombre
+            }
+        }
+        usuario_id
+    }
+}
+
+query getColaboradoresForValidation($hotel_id: ID!, $en_turno: Boolean) {
+    colaboradores(hotel_id: $hotel_id, en_turno: $en_turno, eliminado: false) {
+        colaborador_id
+        en_turno
+        puesto {
+            puesto_id
+            nombre
+            area {
+                area_id
+                nombre
+            }
+        }
+    }
+}
+
+query GetColaboradoresByAreas($hotel_id: ID, $area_id: [ID!]) {
+    colaboradores_by_area(hotel_id: $hotel_id, area_id: $area_id, en_turno: true) {
+        colaboradores {
+            colaborador_id
+            nombre
+            apellido_materno
+            apellido_paterno
+            foto
+        }
+    }
+}

@@ -1,0 +1,34 @@
+.room-card--xs--maintenance__timer {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-feature-settings: "calt" off;
+    font-family: Montserrat;
+    font-size:calc(calc(1.4vh + 1.2vw) / 2);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 105%; /* 14px */
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.room-card--xs--maintenance__description {
+    color: var(--Tipografa, #303030);
+    text-align: right;
+    font-family: Montserrat;
+    font-size: calc(calc(1vh + 1vw) / 2);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.room-card--xs--maintenance__description_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

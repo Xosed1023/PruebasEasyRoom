@@ -1,0 +1,51 @@
+.registro-le__modal {
+    padding: 0;
+    box-sizing: border-box;
+}
+.registro-le__form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.registro-le__content {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px 35px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.registro-le__circle {
+    height: 60px;
+    width: 60px;
+    background-color: var(--fondo-close);
+    border-radius: 50%;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.registro-le__title {
+    color: var(--tipografa);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+.registro-le__footer {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 35px;
+    border-top: 0.8px solid #efefef;
+}
+.registro-le__btn {
+    width: 100%;
+}
+.registro-le__input {
+    margin-top: 16px;
+}
+.registro-le__input .input-text {
+    padding-left: 31px !important;
+}

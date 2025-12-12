@@ -1,0 +1,80 @@
+.disp__turn {
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    color: var(--white);
+}
+
+.disp__turn strong {
+    color: var(--white);
+    font-weight: 800;
+    font-size: 64px;
+}
+
+.disp__turn-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 50px;
+}
+
+.disp__turn-wrapper--large .disp__turn {
+    font-size: 128px;
+}
+
+.disp__turn-wrapper--large .disp__turn strong {
+    font-size: 300px;
+}
+
+.disp__turn-extra {
+    margin-top: 10px;
+    font-size: 64px;
+}
+
+.disp__turn-extra,
+.disp__turn-extra * {
+    color: var(--white);
+}
+
+.modal-turn-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(13, 15, 17, 0.8);
+    z-index: 9999;
+}
+
+.modal-turn-content {
+    background-color: var(--primary);
+    padding: 40px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (orientation: portrait) {
+    .disp__turn-wrapper {
+        margin: 10px;
+    }
+
+    .disp__turn {
+        font-size: 12px;
+    }
+
+    .disp__turn strong {
+        font-size: 28px;
+    }
+
+    .disp__turn-extra {
+        font-size: 28px;
+    }
+}

@@ -1,0 +1,49 @@
+.tooltip {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.tooltip-box {
+    border-radius: 8px;
+    border: 1px solid var(--gray-disabled);
+    padding: 8px 12px;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 6px -2px rgba(16, 24, 40, 0.08);
+    position: fixed;
+    transition: opacity 0.3s linear;
+    z-index: var(--top);
+}
+.tooltip-box_size_lg {
+    padding: 12px 12px;
+    width: 250px;
+    z-index: var(--top);
+}
+.tooltip-box_theme_light {
+    background-color: var(--white);
+}
+.tooltip-box_theme_dark {
+    background-color: var(--deep-blue);
+}
+.tooltip-box_theme_dark > .tooltip__title {
+    color: var(--white);
+}
+.tooltip-box_theme_dark > .tooltip__description {
+    color: var(--white);
+}
+.tooltip__title {
+    margin: 0;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 600;
+    color: var(--blue-slate);
+    white-space: nowrap;
+}
+.tooltip__description {
+    margin: 4px 0 0;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 500;
+    color: var(--slate-gray);
+}

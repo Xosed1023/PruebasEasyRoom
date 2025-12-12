@@ -1,3 +1,0 @@
-query getMonthPercent($fecha_final: DateTime!, $fecha_inicial: DateTime!, $hotel_id: ID!) {
-    obtener_porcentaje_promedio_ocupacion(fecha_final: $fecha_final, fecha_inicial: $fecha_inicial, hotel_id: $hotel_id)
-}

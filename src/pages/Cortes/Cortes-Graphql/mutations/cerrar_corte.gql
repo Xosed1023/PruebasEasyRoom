@@ -1,0 +1,5 @@
+mutation Cerrar_corte($datos_corte: CloseCorteInput!, $hotel_id: ID!) {
+        cerrar_corte(datos_corte: $datos_corte, hotel_id: $hotel_id) {
+            corte_id
+        }
+    }

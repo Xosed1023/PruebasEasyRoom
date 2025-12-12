@@ -1,0 +1,98 @@
+.historial-rs__table {
+    height: calc(100dvh - 320px);
+    width: 100%;
+    min-height: 350px;
+}
+
+.historial-rs__table .flexible-table__header__cell-text,
+.historial-rs__table--restaurant .flexible-table__header__cell-text {
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+.historial-rs__table .flexible-table__body__cell-text,
+.historial-rs__table--restaurant .flexible-table__body__cell-text {
+    font-size: 10px;
+    white-space: pre-line;
+}
+
+.historial-rs__cell-status {
+    width: auto;
+    height: 22px;
+    box-sizing: border-box;
+    padding: 2px 8px;
+    border-radius: 16px;
+    border: 1px solid;
+    mix-blend-mode: multiply;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+}
+
+.historial-rs__cell-pagada {
+    border-color: var(--green-card-available);
+    background-color: var(--green-card-available);
+    color: var(--disponible);
+}
+
+.historial-rs__cell-pendiente {
+    border-color: var(--sucia-expirada);
+    background-color: var(--sucia-expirada);
+    color: var(--cancelada);
+}
+
+.historial-rs__cell-cancelada {
+    border-color: var(--ocupada-card-1);
+    background-color: var(--ocupada-card-1);
+    color: var(--ocupado);
+}
+
+.historial-rs__table--restaurant .flexible-table__body__row td:not(:nth-child(1)):not(:nth-child(5)) {
+    text-align: center;
+}
+
+.historial-rs__table-container {
+    position: relative;
+    height: 100%;
+    border-radius: 13px;
+    overflow: hidden;
+}
+.historial-rs__table-container::after {
+    display: none;
+}
+.historial-rs__table-container.historial-rs__table-container--show-gradient::after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 10;
+}
+
+.historial__icon-calendar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 47px;
+    background: var(--white);
+    box-shadow: var(--shadow-input);
+    border: var(--border-input);
+    border-radius: 8px;
+    margin-top: 6px;
+    transition: all 0.3s;
+}
+
+.historial__icon-calendar:hover {
+    transform: scale(1.1);
+    transition: all 0.3s;
+}
+
+.historial__icon-calendar--active {
+    border: 1px solid var(--primary);
+    background: var(--fondo-close);
+}

@@ -1,0 +1,13 @@
+query habitacionesForReport($hotel_id: ID!) {
+  habitaciones(hotel_id: $hotel_id) {
+    numero_habitacion
+    habitacion_id
+  }
+}
+
+query mesasForReport($hotel_id: ID!) {
+  mesas(hotel_id: $hotel_id) {
+    numero_mesa
+    mesa_id
+  }
+}

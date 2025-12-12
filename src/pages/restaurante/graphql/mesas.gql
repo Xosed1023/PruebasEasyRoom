@@ -1,0 +1,76 @@
+query GetMesas($hotel_id: ID!) {
+    mesas(hotel_id: $hotel_id, eliminado: false) {
+        cantidad_personas
+        eliminado
+        posicion {
+          x
+          y
+        }
+        estado
+        fecha_modificacion
+        fecha_registro
+        hotel_id
+        mesa_id
+        motivo_bloqueo
+        numero_mesa
+        usuario_modifico_id
+        ultima_asignacion {
+            fecha_salida
+            colaborador_asignado_id
+            colaborador_atendio {
+                nombre
+                apellido_paterno
+                apellido_materno
+            }
+        }
+        asignacion_actual {
+            colaborador_asignado_id
+            fecha_registro
+            fecha_cuenta_cerrada
+            fecha_salida
+            mesa_asignada_id
+            mesa_id
+            orden_id
+            colaborador_atendio {
+                nombre
+                apellido_paterno
+                apellido_materno
+            }
+        }
+        estado_dinamico {
+            estado_activo
+            comanda_activa {
+                comanda_id
+                estado_comanda
+                fecha_modificacion
+                fecha_registro
+                folio
+                orden_id
+                total_comanda
+                usuario_id
+            }
+        }
+    }
+}
+
+mutation ActualizarMesa($updateMesaInput: UpdateMesaInput!) {
+    actualizar_mesa(UpdateMesaInput: $updateMesaInput) {
+        hotel_id
+        mesa_id
+        numero_mesa
+        cantidad_personas
+        eliminado
+        estado
+        motivo_bloqueo
+        fecha_modificacion
+        usuario_modifico_id
+        ultima_asignacion {
+            colaborador_asignado_id
+            colaborador_atendio {
+                nombre
+                apellido_paterno
+                apellido_materno
+            }
+        }
+    }
+}

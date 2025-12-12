@@ -1,0 +1,58 @@
+.pago-propinas__resumen__costos__wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-top: auto;
+    margin-bottom: 32px;
+}
+
+.pago-propinas__resumen__costo--warning {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.pago-propinas__resumen__costo {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.pago-propinas__resumen__costo__totals {
+    display: flex;
+    flex-direction: column;
+}
+
+.pago-propinas__resumen__costo__text {
+    color: var(--Tipografa, #303030);
+    font-feature-settings: "calt" off;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.12px;
+}
+
+.pago-propinas__resumen__costo__text--warning {
+    color: var(--Timer-Ocupada, #dc3737);
+    font-feature-settings: "calt" off;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 18px */
+    letter-spacing: -0.12px;
+}
+
+.pago-propinas__resumen__costo__text--bold {
+    color: var(--Tipografa, #303030);
+    font-feature-settings: "calt" off;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 30px */
+    letter-spacing: -0.2px;
+}

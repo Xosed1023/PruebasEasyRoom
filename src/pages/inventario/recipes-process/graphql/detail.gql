@@ -1,0 +1,42 @@
+query GetRecetaForDetail($articulo_id: ID!, $hotel_id: ID!) {
+    receta(articulo_id: $articulo_id) {
+        articulo_id
+        articulo {
+            nombre
+            extra
+            estado
+            foto
+            unidad
+            contenido
+            precio(hotel_id: $hotel_id) {
+                monto
+            }
+            costo {
+                monto
+            }
+        }
+        ingredientes_recetas {
+            almacen_articulo_id
+            cantidad
+            ingrediente_receta_id
+            receta_id
+            unidad
+            disponible_inventario
+            costo_por_cantidad_ingrediente
+            cantidad_equivalente
+            articulo {
+                nombre
+                unidad
+                costo {
+                    monto
+                }
+                contenido
+            }
+            almacen_articulo {
+                almacen_articulo_id
+                costo
+                cantidad
+            }
+        }
+    }
+}

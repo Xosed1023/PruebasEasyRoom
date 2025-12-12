@@ -1,0 +1,29 @@
+.room-card--mxl-room-service__gest-name {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-feature-settings: "calt" off;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.12px;
+}
+
+.room-card--mxl-room-service__description-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.room-card--mxl-room-service__gest-number {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-family: Roboto;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    margin-left: 6px;
+}

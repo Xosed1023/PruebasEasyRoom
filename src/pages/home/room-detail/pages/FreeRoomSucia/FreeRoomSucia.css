@@ -1,0 +1,67 @@
+.free-room-sucia__modal {
+    box-sizing: border-box;
+    width: 480px;
+    height: 543px;
+    padding: 24px;
+}
+.free-room-sucia__modal .modal__close {
+    height: auto;
+    width: auto;
+}
+.free-room-sucia__form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+.free-room-sucia__circle {
+    width: 120px;
+    height: 120px;
+    background-color: var(--fondo--close);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.free-room-sucia__circle-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.free-room-sucia__form__title {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: -1.04px;
+    margin: 0;
+}
+.free-room-sucia__form__subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.8px;
+    margin: 0 0 30px;
+    text-align: center;
+}
+.free-room-sucia__form__box {
+    width: 100%;
+    margin-bottom: 48px;
+}
+.free-room-sucia__form__label {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: -0.56px;
+    margin-bottom: 6px;
+    color: #606060;
+}
+.free-room-sucia__button {
+    width: 100%;
+}

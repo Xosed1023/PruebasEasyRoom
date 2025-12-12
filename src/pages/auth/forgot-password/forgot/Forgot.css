@@ -1,0 +1,26 @@
+.forgot__button {
+    margin: 24px 0;
+}
+.forgot__button span {
+    font-size: 16px;
+}
+.forgot__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.forgot__link:active {
+    opacity: 0.5;
+}
+.forgot__link-text {
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 22px;
+}
+.forgot__link-icon {
+    height: 8px;
+    width: 8px;
+    margin-right: 5px;
+}

@@ -1,0 +1,33 @@
+.room-card--xs--blocked__timer {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-feature-settings: "calt" off;
+    font-family: Montserrat;
+    font-size: calc(calc(1.4vh + 1.2vw) / 2);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 14px */
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+
+.room-card--xs--blocked__description {
+    color: var(--Tipografa, #303030);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: calc(calc(1vh + 1vw) / 2);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 100%;
+    overflow-x: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+
+.room-card--xs--blocked__description__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

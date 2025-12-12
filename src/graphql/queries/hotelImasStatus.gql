@@ -1,0 +1,15 @@
+query getHotelStatus($hotel_id: ID!) {
+    hotel(hotel_id: $hotel_id) {
+        hotel_id
+        imas_transaccion_status
+        suscripciones {
+            suscripcion_id
+            eliminado
+            estatus
+            modulos {
+                modulo_id
+                nombre_modulo
+            }
+        }
+    }
+}

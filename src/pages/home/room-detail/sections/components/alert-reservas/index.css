@@ -1,0 +1,18 @@
+.detalle-h__alert-reservas {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 15px 5px;
+}
+
+.detalle-h__alert-reservas__label {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--cancelada);
+}
+
+.detalle-h__alert-reservas__label strong {
+    color: inherit;
+}
